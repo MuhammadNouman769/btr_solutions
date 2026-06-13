@@ -1,107 +1,248 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Base - Tailwind CSS Startup Template</title>
-  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTR Solutions</title>
+
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    /* ================= HEADER ================= */
+    .header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .header.sticky {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.95);
+    }
+
+    /* ================= CONTAINER ================= */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ================= NAV ================= */
+    .nav-list {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-list li a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1f2937;
+      text-decoration: none;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-list li a:hover {
+      color: #0be1cd;
+    }
+
+    /* underline hover */
+    .nav-list li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: #0be1cd;
+      transition: 0.3s;
+    }
+
+    .nav-list li a:hover::after {
+      width: 100%;
+    }
+
+    /* ================= DROPDOWN ================= */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #fff;
+      min-width: 210px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 10px 0;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.25s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li {
+      padding: 10px 15px;
+    }
+
+    .dropdown-menu li a {
+      font-size: 14px;
+      color: #374151;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #0be1cd;
+      padding-left: 6px;
+    }
+
+    /* ================= BUTTONS ================= */
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-outline {
+      padding: 9px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      color: #111;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: #f3f4f6;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #2563eb, #0be1cd);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ================= MOBILE ================= */
+    .menu-btn {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgb(142, 129, 129);
+        padding: 20px;
+        gap: 15px;
+      }
+
+      nav.open .nav-list {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
 </head>
 
-<body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
-  x-init="
-         darkMode = JSON.parse(localStorage.getItem('darkMode'));
-         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
-  :class="{'b eh': darkMode === true}">
-  <!-- ===== Header Start ===== -->
-  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
-    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
-    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
-      <div class="vd to/4 tc wf yf">
-        <a href="index.html">
-          <img class="om" src="{% static 'images/logo-light.svg' %}" alt="Logo Light" />
-          <img class="xc nm" src="{% static 'images/logo-dark.svg' %}" alt="Logo Dark" />
-        </a>
+<body>
 
-        <!-- Hamburger Toggle BTN -->
-        <button class="po rc" @click="navigationOpen = !navigationOpen">
-          <span class="rc i pf re pd">
-            <span class="du-block h q vd yc">
-              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
-            </span>
-            <span class="du-block h q vd yc lf">
-              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
-              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
-            </span>
-          </span>
-        </button>
-        <!-- Hamburger Toggle BTN -->
-      </div>
+<!-- ================= HEADER ================= -->
+<header class="header">
 
-      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
-        <nav>
-          <ul class="tc _o sf yo cg ep">
-            <li><a href="{% url 'home' %}" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
-            <li><a href="{% url 'about' %}" class="xl">About Us</a></li>
-            <li class="c i" x-data="{ dropdown: false }">
-              <a href="#!" class="xl tc wf yf bg" @click.prevent="dropdown = !dropdown"
-                :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }">
-                Services
+  <div class="container">
 
-                <svg :class="{ 'wh': dropdown }" class="th mm we fd pf" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512">
-                  <path
-                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                </svg>
-              </a>
+    <!-- LOGO -->
+    <a href="{% url 'home' %}">
+      <img src="{% static 'images/logo-light.svg' %}" style="height:40px;">
+    </a>
 
-              <!-- Dropdown Start -->
-              <ul class="a" :class="{ 'tc': dropdown }">
-                <li><a href="blog-grid.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Web Development</a></li>
-                <li><a href="blog-single.html" class="xl" :class="{ 'mk': page === 'blog-single' }">Product Development</a></li>
-                <li><a href="signin.html" class="xl" :class="{ 'mk': page === 'signin' }">DevOps & Cloud</a></li>
-                <li><a href="signup.html" class="xl" :class="{ 'mk': page === 'signup' }"> SQA</a></li>
-                <li><a href="signup.html" class="xl" :class="{ 'mk': page === 'signup' }"> Staff Augmentation</a></li>
-                <li><a href="signup.html" class="xl" :class="{ 'mk': page === 'signup' }">Ul & UX Consulting</a></li>
-                <li><a href="404.html" class="xl" :class="{ 'mk': page === '404' }">404</a></li>
-              </ul>
-              <!-- Dropdown End -->
+    <!-- NAV -->
+    <nav>
 
-            <li><a href="index.html#features" class="xl">Case Studies</a></li>
-             <li><a href="blog-grid.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Blog Grid</a></li>
-            </li>
-            <li><a href="index.html#support" class="xl">Contact Us</a></li>
+      <ul class="nav-list">
+
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about_us' %}">About</a></li>
+
+        <!-- SERVICES DROPDOWN -->
+        <li class="dropdown">
+          <a href="#!">Services ▼</a>
+
+          <ul class="dropdown-menu">
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">App Development</a></li>
+            <li><a href="#">DevOps & Cloud</a></li>
+            <li><a href="#">UI/UX Design</a></li>
           </ul>
-        </nav>
+        </li>
 
-        <div class="tc wf ig pb no">
-          <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
-            <label class="rc ab i">
-              <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
-              <!-- Icon Sun -->
-              <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25"
-                height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z"
-                  fill="" />
-              </svg>
-              <!-- Icon Sun -->
-              <img class="xc nm" src="{% static 'images/icon-moon.svg' %}" alt="Moon" />
-            </label>
-          </div>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact US</a></li>
 
-          <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
-            class="ek pk xl">Sign In</a>
-          <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
-            class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
-        </div>
-      </div>
+      </ul>
+
+    </nav>
+
+    <!-- BUTTONS -->
+    <div class="auth-buttons">
+
+      <a href="signin.html" class="btn-outline">Sign In</a>
+
+      <a href="signup.html" class="btn-primary">Get Started</a>
+
     </div>
-  </header>
 
-  <!-- ===== Header End ===== -->
+    <!-- MOBILE -->
+    <div class="menu-btn">☰</div>
+
+  </div>
+
+</header>
+
+</body>
+</html>
