@@ -2638,10 +2638,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
     position: absolute;
     inset: 0;
 
-    background:
-        url("{% static 'images/hero.jpeg' %}")
-        center center/cover
-        no-repeat;
+    
 
     transform: scale(1.05);
 }
@@ -2995,6 +2992,10 @@ h1,  h2,  h3,  h4,  h5,  h6{
 .btn-primary:hover {
     background: #07f6fe;
 }
+
+
+
+
 
 
 
