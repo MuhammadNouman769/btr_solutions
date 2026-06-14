@@ -9,19 +9,25 @@ def about(request):
     return render(request, 'home/about_us.html')
 
 def contact(request):
-    return render(request, 'main/contact.html')
+    return render(request, 'home/contact-us.html')
 
 def services(request):
-    return render(request, 'main/services.html')
+    return render(request, 'home/services.html')
 
 def projects(request):
-    return render(request, 'main/projects.html')
+    return render(request, 'home/projects.html')
 
 def signin(request):
-    return render(request, 'main/signin.html')
+    return render(request, 'home/signin.html')
 
 def signup(request):
-    return render(request, 'main/signup.html')
+    return render(request, 'home/signup.html')
+
+def blogs(request):
+    return render(request, 'blogs/blog-grid.html')
 
 def blog_single(request):
-    return render(request, 'main/blog-single.html')
+    return render(request, 'home/blog-single.html')
+
+def case_studies(request):
+    return render(request, 'home/case-studies.html')

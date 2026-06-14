@@ -1324,7 +1324,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .gh{
   --tw-bg-opacity: 1;
-  background-color: rgb(78 107 255 / var(--tw-bg-opacity));
+  background-color: rgb(7, 248, 228);
 }
 .hh\/20{
   background-color: rgb(255 255 255 / 0.2);
@@ -1389,7 +1389,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
   fill: #D1D8E0;
 }
 .wh{
-  fill: #4E6BFF;
+  fill: #4effd6;
 }
 .xh{
   fill: #79808A !important;
@@ -1638,7 +1638,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .lk{
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .mk{
   --tw-text-opacity: 1;
@@ -1798,11 +1798,11 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .ul:hover{
-  fill: #4E6BFF;
+  fill: #04dbf3;
 }
 
 .vl:hover{
-  fill: #F36A8D;
+  fill: #a09b9c;
 }
 
 .wl:hover{
@@ -1848,7 +1848,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .dm\/40:focus{
-  border-color: rgb(78 107 255 / 0.4);
+  border-color: rgba(9, 240, 244, 0.94);
 }
 
 .dm:focus{
@@ -1898,7 +1898,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .c:hover .mm{
-  fill: #4E6BFF;
+  fill: #4effff;
 }
 
 .b .nm{
@@ -1990,7 +1990,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .b .dn\/40:focus{
-  border-color: rgb(78 107 255 / 0.4);
+  border-color: rgba(78, 234, 255, 0.955);
 }
 
 .b .dn:focus{
@@ -2639,7 +2639,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
     inset: 0;
 
     background:
-        url("/static/images/hero.jpeg")
+        url("{% static 'images/hero.jpeg' %}")
         center center/cover
         no-repeat;
 
@@ -2737,7 +2737,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
     background: linear-gradient(
         135deg,
-        #2563eb,
+        #06f4f8,
         #13cae8
     );
 
@@ -2844,7 +2844,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url("/static/images/about-us.jpg") center/cover no-repeat;
+  background: url("{% static 'images/about-us.jpg' %}") center/cover no-repeat;
   transform: scale(1.05);
 }
 
@@ -2943,3 +2943,59 @@ h1,  h2,  h3,  h4,  h5,  h6{
     font-size: 34px;
   }
 }
+
+/* ================= case study page ================= */
+
+.case-banner {
+    height: 70vh;
+    background: url('../images/case-studies.jpg') center center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.case-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 20, 40, 0.75);
+    display: flex;
+    align-items: center;
+}
+
+.case-banner .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.case-banner h1 {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.case-banner p {
+    max-width: 700px;
+    color: #ddd;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #0077ff;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #07f6fe;
+}
+
+
+
+

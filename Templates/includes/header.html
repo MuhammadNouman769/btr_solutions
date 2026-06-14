@@ -190,6 +190,13 @@
 
 <body>
 
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{% static 'images/ll.svg' %}" type="image/svg+xml">
+  <link href="style.css" rel="stylesheet">
+</head>
 <!-- ================= HEADER ================= -->
 <header class="header">
 
@@ -197,7 +204,7 @@
 
     <!-- LOGO -->
     <a href="{% url 'home' %}">
-      <img src="{% static 'images/logo-light.svg' %}" style="height:40px;">
+      <img src="{% static 'images/btr.svg' %}" style="height:40px;">
     </a>
 
     <!-- NAV -->
@@ -220,9 +227,9 @@
           </ul>
         </li>
 
-        <li><a href="#">Case Studies</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact US</a></li>
+        <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
+        <li><a href="{% url 'blog' %}">Blog</a></li>
+        <li><a href="{% url 'contact_us' %}">Contact US</a></li>
 
       </ul>
 
