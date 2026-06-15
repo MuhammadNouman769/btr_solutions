@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Faqs - BTR Solution{% endblock %}
+{% block content %}
+
+<style>
+body{
+  background:#f5f7fb;
+  font-family:system-ui, sans-serif;
+}
+
+/* HERO */
+.faq-hero{
+  height:320px;
+  background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
+  center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+.faq-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+.faq-hero h1{
+  position:relative;
+  font-size:42px;
+  font-weight:700;
+}
+
+/* WRAPPER */
+.faq-wrapper{
+  max-width:1200px;
+  margin:-60px auto 60px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap:25px;
+}
+
+/* FAQ BOX */
+.faq-box{
+  background:#fff;
+  border-radius:16px;
+  padding:25px;
+  margin-top:100px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* ITEM */
+.faq-item{
+  border-bottom:1px solid #eee;
+}
+
+.faq-question{
+  padding:18px 10px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.faq-question:hover{
+  color:#0be1cd;
+}
+
+.icon{
+  transition:0.3s;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 10px;
+  color:#666;
+  line-height:1.7;
+  transition:0.35s ease;
+}
+
+.faq-item.active .faq-answer{
+  max-height:220px;
+  padding:0 10px 18px;
+}
+
+.faq-item.active .icon{
+  transform:rotate(45deg);
+  color:#2563eb;
+}
+
+/* CONTACT BOX */
+.cta-box{
+  background:#fff;
+  border-radius:16px;
+  padding:25px;
+  margin-top:100px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+  height:fit-content;
+}
+
+.cta-box h2{
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+.cta-box p{
+  color:#666;
+  margin-bottom:15px;
+  line-height:1.6;
+}
+
+.cta-box a{
+  display:inline-block;
+  width:100%;
+  text-align:center;
+  padding:12px;
+  background:#0be1cd;
+  color:#696969;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.cta-box a:hover{
+    color:#0be1cd;
+  background:#696969;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .faq-wrapper{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<!-- HERO -->
+<section class="faq-hero">
+  <h1>Frequently Asked Questions</h1>
+</section>
+
+<!-- CONTENT -->
+<section class="faq-wrapper">
+
+  <!-- FAQ -->
+  <div class="faq-box">
+
+    <div class="faq-item">
+      <div class="faq-question">What services does BTR Solutions provide? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        We provide end-to-end digital solutions including web development, mobile apps, UI/UX design, DevOps, and cloud-based systems tailored for startups and enterprises.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you build custom software solutions? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Yes, we specialize in fully custom software development based on business requirements, workflows, and scalability needs.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How long does a project usually take? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Depending on complexity, small projects take 1–3 weeks while large enterprise systems may take 1–3 months or more.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you provide post-launch support? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Yes, we offer maintenance, bug fixing, updates, and long-term technical support packages.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Which technologies do you use? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        We use modern stacks like Django, Laravel, React, Node.js, Flutter, AWS, and Docker-based cloud deployments.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can you redesign existing websites? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Yes, we modernize outdated websites with improved UI/UX, performance optimization, and mobile responsiveness.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you work with startups? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Absolutely. We help startups build MVPs, validate ideas, and scale into full production systems.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is your team remote or onsite? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        We operate in a hybrid model with remote and onsite collaboration depending on project requirements.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you offer UI/UX design services? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        Yes, we design modern, user-centric interfaces using Figma and industry-standard design systems.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How can I start a project with you? <span class="icon">+</span></div>
+      <div class="faq-answer">
+        You can contact us via the contact page, share your requirements, and our team will get back within 24 hours.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Still Have Questions?</h2>
+    <p>
+      If your question is not listed above, feel free to contact our team. We usually respond within 24 hours.
+    </p>
+    <a href="{% url 'contact_us' %}">Go to Contact Page</a>
+  </div>
+
+</section>
+
+<!-- JS -->
+<script>
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.addEventListener("click", ()=>{
+    document.querySelectorAll(".faq-item").forEach(el=>{
+      if(el !== item) el.classList.remove("active");
+    });
+    item.classList.toggle("active");
+  });
+});
+</script>
+
+{% endblock %}
