@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}BTR - Home{% endblock %}
+{% block title %}BTR - CaseStudies{% endblock %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ body{
 .hero{
     height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,.75),
+    linear-gradient(rgba(0, 0, 0, 0.11),
     rgba(0,0,0,.75)),
     url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000");
     background-size:cover;
@@ -76,8 +76,8 @@ body{
 .hero-btn{
     display:inline-block;
     padding:16px 38px;
-    background:#0d6efd;
-    color:white;
+    background:#0de6fd;
+    color:#696969;
     text-decoration:none;
     border-radius:10px;
     font-weight:600;
@@ -86,7 +86,8 @@ body{
 
 .hero-btn:hover{
     transform:translateY(-4px);
-    background:#0056d6;
+    color:#0de6fd;
+    background:#696969;
 }
 
 /* ===========================
@@ -192,6 +193,7 @@ body{
 .stat h2{
     font-size:60px;
     color:#0de6fd;
+    margin-bottom:30px;
 }
 
 .stat p{

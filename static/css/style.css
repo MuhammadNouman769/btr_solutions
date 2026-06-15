@@ -408,7 +408,7 @@ body{
   z-index: 1;
   font-family: Inter, sans-serif;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 20px;
   font-weight: 400;
   --tw-text-opacity: 1;
   color: rgb(121 128 138 / var(--tw-text-opacity));
@@ -1007,6 +1007,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .vd{
   width: 100%;
+  border-radius: 10px;
 }
 .wd{
   width: 1.875rem;
@@ -1642,7 +1643,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .mk{
   --tw-text-opacity: 1;
-  color: rgb(78 107 255 / var(--tw-text-opacity));
+  color: #0be1cd;
 }
 .nk{
   --tw-text-opacity: 1 !important;
@@ -1811,7 +1812,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .xl:hover{
   --tw-text-opacity: 1;
-  color: rgb(78 107 255 / var(--tw-text-opacity));
+  color:rgb(8, 229, 207); 
 }
 
 .yl:hover{
@@ -2126,8 +2127,9 @@ h1,  h2,  h3,  h4,  h5,  h6{
   }
 
   .go{
-    font-size: 26px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 30px;
+  
   }
 }
 
@@ -2902,31 +2904,36 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 /* primary */
 .btn-primary {
-  padding: 12px 22px;
-  background: linear-gradient(135deg,#2563eb,#0be1cd);
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 600;
+  padding: 9px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #ddcfcfd6!important;
   text-decoration: none;
+  font-size: 13px;
+  background:unset!important;
   transition: 0.3s;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
+  color: #000!important;
 }
 
 /* outline */
 .btn-outline {
-  padding: 12px 22px;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  color: #fff;
+  padding: 13px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #f1ebebd6!important;
   text-decoration: none;
+  font-size: 16px;
+  background:unset;
+  transition: 0.3s;
 }
 
 .btn-outline:hover {
   background: #fff;
-  color: #111;
+  color: #111!important;
 }
 
 /* responsive */
@@ -2981,16 +2988,11 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .btn-primary {
     display: inline-block;
-    background: #0077ff;
-    color: white;
+    background: #ddd;
     text-decoration: none;
     padding: 14px 30px;
     border-radius: 8px;
-    transition: 0.3s;
-}
 
-.btn-primary:hover {
-    background: #07f6fe;
 }
 
 

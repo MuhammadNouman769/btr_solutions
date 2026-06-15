@@ -5,7 +5,7 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home/index.html')
 
-def about(request):
+def about_us(request):
     return render(request, 'home/about_us.html')
 
 def contact(request):
@@ -31,3 +31,6 @@ def blog_single(request):
 
 def case_studies(request):
     return render(request, 'home/case-studies.html')
+
+def faqs(request):
+    return render(request, 'faqs/faqs.html')

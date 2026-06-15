@@ -6,13 +6,14 @@
       <div class="ji gp">
         <div class="tc uf ap gg fp">
           <div class="animate_top zd/2 to/4">
-            <a href="index.html">
-              <img src="{% static 'images/logo-light.svg' %}" alt="Logo" class="om" />
-              <img src="{% static 'images/logo-dark.svg' %}" alt="Logo" class="xc nm" />
+            <a href="{% url 'home'%}">
+              <img src="{% static 'images/btr.svg' %}" alt="Logo" class="om" />
             </a>
 
-            <p class="lc fb">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+            <p class="lc fb">
+              BTR Solutions delivers innovative software, web, and digital solutions that help
+              businesses streamline operations, enhance user experiences, and accelerate growth.
+          </p>
             <ul class="tc wf cg">
               <li>
                 <a href="#!">
@@ -89,15 +90,11 @@
               <h4 class="kk wm tj ec">Quick Links</h4>
 
               <ul>
-                <li><a href="#!" class="sc xl vb">Home</a></li>
-                <li><a href="#!" class="sc xl vb">Product</a></li>
-                <li>
-                  <a href="#!" class="sc xl vb">
-                    Careers
-
-                  </a>
-                </li>
-                <li><a href="#!" class="sc xl vb">Pricing</a></li>
+                <li><a href="{% url 'home' %}" class="sc xl vb">Home</a></li>
+                <li><a href="{% url 'about_us' %}" class="sc xl vb">About Us</a></li>
+                <li><a href="{"#"}" class="sc xl vb">Services</a></li>
+                <li><a href="{% url 'contact_us' %}" class="sc xl vb">Contact Us</a></li>
+                <li><a href="{% url 'blog' %}" class="sc xl vb">Blogs</a></li>
               </ul>
             </div>
 
@@ -105,21 +102,21 @@
               <h4 class="kk wm tj ec">Services</h4>
 
               <ul>
+                <li><a href="#!" class="sc xl vb">Custom Software Development</a></li>
                 <li><a href="#!" class="sc xl vb">Web Development</a></li>
-                <li><a href="#!" class="sc xl vb">Graphics Design</a></li>
-                <li><a href="#!" class="sc xl vb">Digital Marketing</a></li>
-                <li><a href="#!" class="sc xl vb">Ui/Ux Design</a></li>
+                <li><a href="#!" class="sc xl vb">Mobile App Development</a></li>
+                <li><a href="#!" class="sc xl vb">UI/UX Design</a></li>
+                <li><a href="#!" class="sc xl vb">Cloud & DevOps</a></li>
               </ul>
             </div>
 
             <div class="animate_top">
-              <h4 class="kk wm tj ec">Support</h4>
-
+              <h4 class="kk wm tj ec">Company</h4>
               <ul>
-                <li><a href="#!" class="sc xl vb">Company</a></li>
-                <li><a href="#!" class="sc xl vb">Press media</a></li>
-                <li><a href="#!" class="sc xl vb">Our Blog</a></li>
-                <li><a href="#!" class="sc xl vb">Contact Us</a></li>
+                <li><a href="{% url 'about_us' %}" class="sc xl vb">About Us</a></li>
+                <li><a href="{% url 'about_us' %}" class="sc xl vb">Our Team</a></li>
+                <li><a href="{% url 'faqs' %}" class="sc xl vb">FAQs</a></li>
+                <li><a href="{% url 'contact_us' %}" class="sc xl vb">Contact Us</a></li>
               </ul>
             </div>
 
@@ -166,14 +163,16 @@
       <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
         <div class="animate_top">
           <ul class="tc wf gg">
-            <li><a href="#!" class="xl">English</a></li>
-            <li><a href="#!" class="xl">Privacy Policy</a></li>
-            <li><a href="#!" class="xl">Support</a></li>
+            <li><a href="#" class="xl">Privacy Policy</a></li>
+            <li><a href="#" class="xl">Terms & Conditions</a></li>
+            <li><a href="{% url 'contact_us' %}" class="xl">Support</a></li>
           </ul>
         </div>
 
         <div class="animate_top">
-          <p>&copy; 2025 Base. All rights reserved. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+          <p>
+            &copy; 2026 BTR Solutions. All Rights Reserved.
+          </p>
         </div>
       </div>
       <!-- Footer Bottom -->
