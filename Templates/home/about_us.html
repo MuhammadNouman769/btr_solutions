@@ -2,7 +2,97 @@
 {% load static %}
 {% block title %}BTR - About Us{% endblock %}
 {% block content %}
+<style>
 
+.btr_mission_wrap{
+  padding:90px 0;
+  background:#f8fafc;
+}
+
+.btr_mission_container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:50px;
+  align-items:center;
+}
+
+/* TEXT SIDE */
+.btr_mission_badge{
+  display:inline-block;
+  padding:6px 14px;
+  background:#eef2ff;
+  color:#12ecda;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+.btr_mission_title{
+  font-size:34px;
+  color:#0f172a;
+  margin-bottom:15px;
+  line-height:1.3;
+}
+
+.btr_mission_para{
+  color:#64748b;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+/* LIST */
+.btr_mission_list{
+  margin-top:20px;
+  padding:0;
+  list-style:none;
+}
+
+.btr_mission_list li{
+  margin-bottom:10px;
+  color:#334155;
+  font-weight:500;
+}
+
+/* IMAGE SIDE */
+.btr_mission_visual{
+  position:relative;
+}
+
+.btr_mission_img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* FLOAT CARD */
+.btr_mission_card{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:white;
+  padding:15px 18px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  max-width:220px;
+}
+
+.btr_mission_card h3{
+  margin:0;
+  font-size:16px;
+  color:#111827;
+}
+
+.btr_mission_card p{
+  margin:5px 0 0;
+  font-size:13px;
+  color:#464949;
+}
+
+</style>
 
 
 <section class="hero">
@@ -90,6 +180,59 @@
 </section>
 <!-- ===== About End ===== -->
 
+<section class="btr_mission_wrap">
+
+  <div class="btr_mission_container">
+
+    <!-- LEFT CONTENT -->
+    <div class="btr_mission_text">
+
+      <span class="btr_mission_badge">Our Mission</span>
+
+      <h2 class="btr_mission_title">
+        Empowering Businesses Through Smart Digital Innovation
+      </h2>
+
+      <p class="btr_mission_para">
+        At BTR Solutions, our mission is to design and develop high-performance digital products
+        that help businesses grow faster, operate smarter, and deliver better user experiences.
+        We focus on building scalable, secure, and future-ready solutions using modern technologies.
+      </p>
+
+      <p class="btr_mission_para">
+        We believe technology should not only solve problems but also create opportunities.
+        That’s why we work closely with our clients to understand their goals and transform
+        their ideas into powerful real-world applications.
+      </p>
+
+      <ul class="btr_mission_list">
+        <li>✔ Deliver scalable and reliable software solutions</li>
+        <li>✔ Build user-friendly and modern digital experiences</li>
+        <li>✔ Ensure security, performance, and long-term stability</li>
+        <li>✔ Support businesses in digital transformation journey</li>
+      </ul>
+
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="btr_mission_visual">
+
+      <img class="btr_mission_img"
+        src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+        alt="Mission Image">
+
+      <div class="btr_mission_card">
+        <h3>Innovation Driven</h3>
+        <p>We continuously explore modern technologies to stay ahead in the digital world.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
     <!-- ===== Team Start ===== -->
     <section class="i pg ji gp uq">
       <!-- Bg Shapes -->
@@ -114,6 +257,8 @@
 
       </div>
       <!-- Section Title End -->
+
+
 
       <div class="bb ze i va ki xn xq jb jo">
         <div class="wc qf pn xo gg cp">

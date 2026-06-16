@@ -34,3 +34,10 @@ def case_studies(request):
 
 def faqs(request):
     return render(request, 'faqs/faqs.html')
+
+def term_condition(request):
+    return render(request, 'faqs/term_condition.html')
+
+def privacy_policy(request):
+    return render(request, 'faqs/privacy_policy.html')
+

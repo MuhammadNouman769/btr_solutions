@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}BTR - Terms & Conditions{% endblock %}
+
+{% block content %}
+
+<style>
+  /* ===== TERMS PAGE SCOPE ONLY ===== */
+  .btr-terms-wrapper {
+    background: #f5f7fb;
+    color: #333;
+    margin-top: 90px;
+  }
+
+  .btr-terms-banner {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85') center/cover;
+    padding: 270px 20px;
+    text-align: center;
+    height: 600px;
+    color: #fff;
+  }
+
+  .btr-terms-banner-title {
+    font-size: 42px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .btr-terms-banner-text {
+    margin-top: 10px;
+    font-size: 15px;
+    opacity: 0.85;
+  }
+
+  .btr-terms-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+  }
+
+  .btr-terms-highlight {
+    background: #eef3ff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .btr-terms-section-title {
+    font-size: 20px;
+    margin-top: 28px;
+    color: #111;
+    border-left: 4px solid #25ebd1;
+    padding-left: 10px;
+  }
+
+  .btr-terms-text {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-top: 10px;
+    color: #444;
+  }
+
+  .btr-terms-list {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  .btr-terms-list li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  .btr-terms-footer {
+    margin-top: 35px;
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+  }
+</style>
+
+<div class="btr-terms-wrapper">
+
+  <!-- Banner -->
+  <div class="btr-terms-banner">
+    <h1 class="btr-terms-banner-title">Terms & Conditions</h1>
+    <p class="btr-terms-banner-text">
+      Please read these terms carefully before using BTR services
+    </p>
+  </div>
+
+  <!-- Content -->
+  <div class="btr-terms-container">
+
+    <div class="btr-terms-highlight">
+      <strong>Last Updated:</strong> June 2026  
+      <br>
+      By using our website, you agree to these Terms & Conditions.
+    </div>
+
+    <h2 class="btr-terms-section-title">1. Acceptance of Terms</h2>
+    <p class="btr-terms-text">
+      By accessing and using this website, you agree to comply with all applicable terms and conditions.
+      If you do not agree, please discontinue using our services immediately.
+    </p>
+
+    <h2 class="btr-terms-section-title">2. Use of Website</h2>
+    <ul class="btr-terms-list">
+      <li>Use the website only for lawful purposes.</li>
+      <li>Do not attempt to damage or disrupt services.</li>
+      <li>Unauthorized access or scraping is strictly prohibited.</li>
+    </ul>
+
+    <h2 class="btr-terms-section-title">3. Services</h2>
+    <p class="btr-terms-text">
+      Our services may be updated, modified, or discontinued at any time without prior notice.
+      We reserve full rights to improve platform functionality.
+    </p>
+
+    <h2 class="btr-terms-section-title">4. User Responsibilities</h2>
+    <ul class="btr-terms-list">
+      <li>Maintain confidentiality of your account.</li>
+      <li>Provide accurate and updated information.</li>
+      <li>Accept responsibility for all account activity.</li>
+    </ul>
+
+    <h2 class="btr-terms-section-title">5. Intellectual Property</h2>
+    <p class="btr-terms-text">
+      All content including logos, design, text, and graphics belongs to BTR Solutions.
+      Unauthorized copying or distribution is strictly prohibited.
+    </p>
+
+    <h2 class="btr-terms-section-title">6. Limitation of Liability</h2>
+    <p class="btr-terms-text">
+      We are not responsible for any direct or indirect damages resulting from use of our services.
+    </p>
+
+    <h2 class="btr-terms-section-title">7. Third-Party Links</h2>
+    <p class="btr-terms-text">
+      External links are provided for convenience. We are not responsible for third-party content.
+    </p>
+
+    <h2 class="btr-terms-section-title">8. Changes to Terms</h2>
+    <p class="btr-terms-text">
+      We may update these terms at any time. Continued use means you accept the updated version.
+    </p>
+
+    <h2 class="btr-terms-section-title">9. Contact Us</h2>
+    <p class="btr-terms-text">
+      For any questions regarding these Terms, contact our support team via official channels.
+    </p>
+
+    <div class="btr-terms-footer">
+      © 2026 BTR Solutions. All Rights Reserved.
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}BTR - Privacy Policy{% endblock %}
+
+{% block content %}
+
+<style>
+  .btr-privacy-wrapper {
+    background: #f4f6fb;
+    margin-top: 90px;
+  }
+
+  /* SOFTWARE STYLE BANNER */
+  .btr-privacy-banner {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url('https://images.unsplash.com/photo-1551434678-e076c223a692') center/cover no-repeat;
+    padding: 270px 20px;
+    text-align: center;
+    color: #fff;
+    height: 600px !important;
+  }
+
+  .btr-privacy-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .btr-privacy-subtitle {
+    margin-top: 10px;
+    font-size: 15px;
+    opacity: 0.85;
+  }
+
+  .btr-privacy-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 45px;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(73, 71, 71, 0.06);
+  }
+
+  .btr-privacy-section-title {
+    font-size: 20px;
+    margin-top: 28px;
+    border-left: 4px solid #0be8ec;
+    padding-left: 10px;
+    color: #111;
+  }
+
+  .btr-privacy-text {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-top: 10px;
+    color: #444;
+  }
+
+  .btr-privacy-highlight {
+    background: #eef2ff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid #04e6d3;
+  }
+
+  .btr-privacy-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-top: 35px;
+  }
+</style>
+
+<div class="btr-privacy-wrapper">
+
+  <!-- Banner -->
+  <div class="btr-privacy-banner">
+    <h1 class="btr-privacy-title">Privacy Policy</h1>
+    <p class="btr-privacy-subtitle">
+      Secure & Transparent Data Protection for Our Software Users
+    </p>
+  </div>
+
+  <!-- Content -->
+  <div class="btr-privacy-container">
+
+    <div class="btr-privacy-highlight">
+      We use industry-standard security practices to protect your data and ensure full transparency.
+    </div>
+
+    <h2 class="btr-privacy-section-title">1. Information We Collect</h2>
+    <p class="btr-privacy-text">
+      We collect information such as name, email, usage activity, and system logs to improve our software performance and user experience.
+    </p>
+
+    <h2 class="btr-privacy-section-title">2. How We Use Data</h2>
+    <p class="btr-privacy-text">
+      Your data is used to operate our software, improve features, fix issues, and provide customer support.
+    </p>
+
+    <h2 class="btr-privacy-section-title">3. Data Security</h2>
+    <p class="btr-privacy-text">
+      We use encryption, secure servers, and access control systems to protect your information from unauthorized access.
+    </p>
+
+    <h2 class="btr-privacy-section-title">4. Cookies & Tracking</h2>
+    <p class="btr-privacy-text">
+      Cookies help us understand user behavior and improve application performance and UI experience.
+    </p>
+
+    <h2 class="btr-privacy-section-title">5. Third-Party Services</h2>
+    <p class="btr-privacy-text">
+      We may use trusted third-party tools like analytics or cloud services to improve functionality.
+    </p>
+
+    <h2 class="btr-privacy-section-title">6. User Rights</h2>
+    <p class="btr-privacy-text">
+      You can request access, update, or deletion of your data anytime by contacting support.
+    </p>
+
+    <h2 class="btr-privacy-section-title">7. Policy Updates</h2>
+    <p class="btr-privacy-text">
+      This policy may be updated periodically to reflect improvements in our software or legal requirements.
+    </p>
+
+    <h2 class="btr-privacy-section-title">8. Contact</h2>
+    <p class="btr-privacy-text">
+      For any concerns regarding privacy, contact our support team through official channels.
+    </p>
+
+    <div class="btr-privacy-footer">
+      © 2026 BTR Software Solutions. All Rights Reserved.
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
