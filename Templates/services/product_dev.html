@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}App Development - BTR Solution{% endblock %}
+
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= WRAPPER ================= */
+.appdev-page{
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.appdev-page *{
+    box-sizing:border-box;
+}
+
+/* ================= HERO ================= */
+.appdev-hero{
+    height:75vh;
+    width:100%;
+    background:
+    linear-gradient(rgba(2,6,23,.75),rgba(59, 72, 72, 0.75)),
+    url('https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.appdev-hero-content{
+    max-width:950px;
+}
+
+.appdev-hero-title{
+    font-size:52px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.appdev-hero-desc{
+    font-size:18px;
+    line-height:1.9;
+    color:#cbd5e1;
+}
+
+.appdev-btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:14px 32px;
+    background:#0ceffb;
+    color:#4e4c4c;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.appdev-btn:hover{
+    color:#0ceffb;
+    background:#4e4c4c;
+    transform:translateY(-3px);
+}
+
+/* ================= SECTION ================= */
+.appdev-section{
+    padding:100px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HEADER TEXT */
+.appdev-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.appdev-header small{
+    letter-spacing:3px;
+    color:#64748b;
+    font-weight:600;
+}
+
+.appdev-header h2{
+    font-size:34px;
+    margin-top:12px;
+    line-height:1.5;
+}
+
+.appdev-header p{
+    margin-top:15px;
+    color:#475569;
+    font-size:16px;
+    line-height:1.8;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ================= GRID ================= */
+.appdev-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* CARD */
+.appdev-card{
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.appdev-card:hover{
+    transform:translateY(-6px);
+}
+
+.appdev-card-top{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+/* ICON */
+.appdev-icon{
+    width:55px;
+    height:55px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.appdev-blue{background:#dbeafe;}
+.appdev-green{background:#dcfce7;}
+.appdev-purple{background:#ede9fe;}
+.appdev-orange{background:#ffedd5;}
+.appdev-red{background:#fee2e2;}
+.appdev-gray{background:#e0e7ff;}
+
+.appdev-card h3{
+    font-size:18px;
+    margin:0;
+}
+
+.appdev-card p{
+    font-size:14px;
+    line-height:1.8;
+    color:#64748b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:992px){
+    .appdev-grid{grid-template-columns:repeat(2,1fr);}
+    .appdev-hero-title{font-size:38px;}
+}
+
+@media(max-width:600px){
+    .appdev-grid{grid-template-columns:1fr;}
+}
+
+</style>
+
+<div class="appdev-page">
+
+<!-- ================= HERO ================= -->
+<section class="appdev-hero">
+
+    <div class="appdev-hero-content">
+
+        <h1 class="appdev-hero-title">Mobile App Development Services</h1>
+
+        <p class="appdev-hero-desc">
+            We design and develop high-performance, scalable and secure mobile applications for Android and iOS platforms.
+            Our solutions are built using modern frameworks like Flutter, React Native and native technologies,
+            ensuring smooth user experience, fast performance, and enterprise-grade reliability.
+        </p>
+
+        <a href="#" class="appdev-btn">Start Your App Project</a>
+
+    </div>
+
+</section>
+
+<!-- ================= SECTION ================= -->
+<section class="appdev-section">
+
+    <div class="appdev-header">
+        <small>WHAT WE OFFER</small>
+        <h2>End-to-End Mobile Application Development Solutions</h2>
+        <p>
+            From idea validation to deployment on App Store and Play Store, we provide complete mobile app development services.
+            Our team focuses on UI/UX excellence, backend scalability, and seamless API integration to ensure your product succeeds in the market.
+        </p>
+    </div>
+
+    <div class="appdev-grid">
+
+        <!-- 1 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-blue">
+                    <svg width="26" height="26" fill="none" stroke="#2563eb" stroke-width="2">
+                        <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
+                    </svg>
+                </div>
+                <h3>Mobile App Strategy</h3>
+            </div>
+            <p>
+                We analyze your business requirements, target audience, and market trends to create a strong app strategy.
+                This includes feature planning, competitor research, and technical roadmap design.
+            </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-green">
+                    <svg width="26" height="26" fill="none" stroke="#16a34a" stroke-width="2">
+                        <path d="M3 9h18l-2 11H5L3 9z"/>
+                        <path d="M8 9V6a4 4 0 018 0v3"/>
+                    </svg>
+                </div>
+                <h3>UI/UX Design</h3>
+            </div>
+            <p>
+                We craft modern, user-friendly interfaces with smooth navigation and engaging user experience.
+                Every screen is designed with attention to usability, accessibility, and visual appeal.
+            </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-purple">
+                    <svg width="26" height="26" fill="none" stroke="#7c3aed" stroke-width="2">
+                        <path d="M4 12h16M4 6h16M4 18h16"/>
+                    </svg>
+                </div>
+                <h3>Cross Platform Development</h3>
+            </div>
+            <p>
+                We build apps using Flutter and React Native to ensure your product runs smoothly on both Android and iOS platforms,
+                reducing cost and development time without compromising quality.
+            </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-orange">
+                    <svg width="26" height="26" fill="none" stroke="#f97316" stroke-width="2">
+                        <path d="M22 7a6 6 0 01-8 8L5 24l-3-3 9-9a6 6 0 018-8z"/>
+                    </svg>
+                </div>
+                <h3>Backend Development</h3>
+            </div>
+            <p>
+                We develop secure and scalable backend systems using Django, Node.js, and cloud infrastructure.
+                This ensures fast performance, data security, and smooth API integration.
+            </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-red">
+                    <svg width="26" height="26" fill="none" stroke="#dc2626" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19 12h2M3 12h2M12 3v2M12 19v2"/>
+                    </svg>
+                </div>
+                <h3>Testing & Quality Assurance</h3>
+            </div>
+            <p>
+                We perform rigorous testing including functional, performance, and security testing
+                to ensure your application is bug-free and production-ready.
+            </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="appdev-card">
+            <div class="appdev-card-top">
+                <div class="appdev-icon appdev-gray">
+                    <svg width="26" height="26" fill="none" stroke="#4f46e5" stroke-width="2">
+                        <path d="M4 12a8 8 0 0114-5"/>
+                        <path d="M18 3v4h-4"/>
+                        <path d="M20 12a8 8 0 01-14 5"/>
+                        <path d="M6 21v-4h4"/>
+                    </svg>
+                </div>
+                <h3>App Deployment & Support</h3>
+            </div>
+            <p>
+                We handle full deployment on Play Store and App Store along with continuous maintenance,
+                updates, and long-term technical support.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+{% endblock %}

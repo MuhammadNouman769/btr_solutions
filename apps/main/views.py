@@ -43,3 +43,9 @@ def privacy_policy(request):
 
 def sqa(request):
     return render(request, 'services/sqa.html')
+
+def web_dev(request):
+    return render(request, 'services/web_development.html')
+
+def product_dev(request):
+    return render(request, 'services/product_dev.html')    

@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Web Development - BTR Solution{% endblock %}
+
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= WRAPPER ================= */
+.webdev-page{
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+/* ================= HERO ================= */
+.webdev-hero{
+    height:75vh;
+    background:
+    linear-gradient(120deg, rgba(2,6,23,.88), rgba(55, 103, 105, 0.217)),
+    url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    color:white;
+}
+
+.webdev-hero-content{
+    max-width:900px;
+}
+
+.webdev-hero h1{
+    font-size:52px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.webdev-hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#e2e8f0;
+}
+
+.webdev-btn{
+    margin-top:28px;
+    display:inline-block;
+    padding:14px 34px;
+    background:#0af1f1;
+    color:rgb(94, 93, 93);
+    border-radius:10px;
+    font-weight:600;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.webdev-btn:hover{
+    color:#0af1f1;
+    background:rgb(94, 93, 93);
+    transform:translateY(-3px);
+}
+
+/* ================= SECTION ================= */
+.webdev-section{
+    padding:100px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.webdev-badge{
+    display:inline-block;
+    background:#0fd9ef;
+    color:rgb(98, 96, 96);
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.webdev-badge:hover{
+    background:rgb(94, 93, 93);
+    color:#0af1f1;
+}
+.webdev-title{
+    text-align:center;
+    margin:20px 0 70px;
+}
+
+.webdev-title h2{
+    font-size:34px;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.webdev-title small{
+    color:#64748b;
+    letter-spacing:2px;
+}
+
+/* ================= GRID ================= */
+.webdev-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* ================= CARD ================= */
+.webdev-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    display:flex;
+    gap:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    transition:.3s;
+    border:1px solid #eef2f7;
+}
+
+.webdev-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.webdev-icon{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+/* ICON COLORS */
+.w1{background:#dbeafe;}
+.w2{background:#dcfce7;}
+.w3{background:#fee2e2;}
+.w4{background:#fef3c7;}
+.w5{background:#ede9fe;}
+.w6{background:#e0f2fe;}
+
+/* TEXT */
+.webdev-card h3{
+    font-size:16px;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.webdev-card p{
+    font-size:13px;
+    color:#64748b;
+    line-height:1.6;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:992px){
+    .webdev-grid{grid-template-columns:repeat(2,1fr);}
+    .webdev-hero h1{font-size:40px;}
+}
+
+@media(max-width:600px){
+    .webdev-grid{grid-template-columns:1fr;}
+    .webdev-hero h1{font-size:32px;}
+}
+
+</style>
+
+<div class="webdev-page">
+<!-- HERO -->
+<section class="webdev-hero">
+    <div class="webdev-hero-content">
+        <h1>Web Development Services</h1>
+        <p>
+            We design and develop high-performance, scalable and secure web applications
+            tailored for modern businesses. Our solutions combine clean architecture,
+            intuitive UI/UX, and industry best practices to ensure long-term growth,
+            maintainability, and user satisfaction.
+        </p>
+        <a href="#" class="webdev-btn">Start Your Project</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="webdev-section">
+
+    <div style="text-align:center;">
+        <span class="webdev-badge">WEB DEVELOPMENT</span>
+    </div>
+
+    <div class="webdev-title">
+        <small>WHAT WE DO</small>
+        <h2>Full-Stack Web Solutions for Modern Businesses</h2>
+    </div>
+
+    <div class="webdev-grid">
+
+        <!-- 1 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w1">
+                <svg width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2">
+                    <path d="M4 4h16v12H4z"/>
+                    <path d="M8 20h8"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Frontend Development</h3>
+                <p>
+                    We build responsive and interactive user interfaces using modern frameworks like React,
+                    HTML5, CSS3, and JavaScript. Our focus is on performance, accessibility, and delivering
+                    a seamless user experience across all devices and screen sizes.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w2">
+                <svg width="24" height="24" fill="none" stroke="#16a34a" stroke-width="2">
+                    <path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Backend Development</h3>
+                <p>
+                    We develop powerful, secure, and scalable backend systems using Django, Node.js,
+                    and RESTful APIs. Our architecture ensures data integrity, high performance,
+                    and smooth communication between server and client applications.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w3">
+                <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2">
+                    <path d="M3 3h18v14H3z"/>
+                    <path d="M8 21h8"/>
+                </svg>
+            </div>
+            <div>
+                <h3>API Integration</h3>
+                <p>
+                    We integrate third-party services, payment gateways, and custom APIs to enhance
+                    application functionality. Our integration approach ensures secure data exchange,
+                    scalability, and smooth system interoperability.
+                </p>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w4">
+                <svg width="24" height="24" fill="none" stroke="#f59e0b" stroke-width="2">
+                    <path d="M12 2l3 7h7l-5 4 2 7-7-4-7 4 2-7-5-4h7z"/>
+                </svg>
+            </div>
+            <div>
+                <h3>UI/UX Design</h3>
+                <p>
+                    We design modern, clean, and conversion-focused user experiences that improve
+                    engagement and usability. Every interface is crafted with user behavior,
+                    accessibility standards, and business goals in mind.
+                </p>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w5">
+                <svg width="24" height="24" fill="none" stroke="#7c3aed" stroke-width="2">
+                    <path d="M4 12a8 8 0 0114-5"/>
+                    <path d="M18 3v4h-4"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Performance Optimization</h3>
+                <p>
+                    We optimize websites for speed, SEO, and scalability by implementing caching,
+                    code splitting, and efficient database queries. This ensures faster load times
+                    and improved search engine rankings.
+                </p>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="webdev-card">
+            <div class="webdev-icon w6">
+                <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="2">
+                    <path d="M12 2v20"/>
+                    <path d="M2 12h20"/>
+                </svg>
+            </div>
+            <div>
+                <h3>Deployment</h3>
+                <p>
+                    We handle complete deployment pipelines using cloud platforms like AWS, VPS,
+                    and Docker. Our CI/CD workflows ensure smooth, automated, and reliable
+                    application releases with zero downtime.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+</div>
+
+{% endblock %}
