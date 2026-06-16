@@ -41,3 +41,5 @@ def term_condition(request):
 def privacy_policy(request):
     return render(request, 'faqs/privacy_policy.html')
 
+def sqa(request):
+    return render(request, 'services/sqa.html')
