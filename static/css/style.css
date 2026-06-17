@@ -640,8 +640,9 @@ h1,  h2,  h3,  h4,  h5,  h6{
 .p{
   bottom: 0px;
 }
-.q{
-  right: 0px;
+.q {
+  right: -16px;
+  top: -15px;
 }
 .r{
   top: 0px;
@@ -1382,8 +1383,15 @@ h1,  h2,  h3,  h4,  h5,  h6{
   background-color: rgb(78 107 255 / var(--tw-bg-opacity)) !important;
 }
 .th{
-  fill: #79808A;
+  fill: #0ebab1;
+  width: 40px;
+  height: 45px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid #0ebab1;
+  transition: all 0.3s ease;
 }
+
 .uh{
   fill: #FFFFFF;
 }
@@ -1797,7 +1805,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .rl\/40:hover{
-  border-color: rgb(78 107 255 / 0.4);
+  border-color: #0ebab1;
 }
 
 .sl:hover{
@@ -1807,8 +1815,10 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .tl:hover{
   --tw-bg-opacity: 1;
-  color: #0ebab1;
-  background-color: rgb(78 107 255 / var(--tw-bg-opacity));
+  fill: #79808A;
+  background-color: #0ebab1;
+  border-radius: 50%;
+  border: 2px solid #0ebab1;
 }
 
 .ul:hover{
@@ -1865,7 +1875,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .dm\/40:focus{
-  border-color: rgba(9, 240, 244, 0.94);
+  border-color:#0ebab1;
 }
 
 .dm:focus{
@@ -1911,11 +1921,17 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .c:hover .lm{
-  fill: #FFFFFF;
+
+  fill: #79808A;
+  border: 2px solid #0ebab1;
+  border-radius: 50%;
+  background-color: #0ebab1;
 }
+
 
 .c:hover .mm{
   fill: #4effff;
+  
 }
 
 .b .nm{
@@ -2462,6 +2478,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
   .xq{
     padding-left: 6.5rem;
     padding-right: 6.5rem;
+    line-height: 25px;
   }
 
   .yq{
@@ -3025,7 +3042,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .btr-logo-default,
 .btr-logo-hover{
-  height: 55px;
+  height: 70px;
   transition: opacity 0.35s ease;
 }
 

@@ -49,3 +49,6 @@ def web_dev(request):
 
 def product_dev(request):
     return render(request, 'services/product_dev.html')    
+
+def devops(request):
+    return render(request, 'services/devops.html')

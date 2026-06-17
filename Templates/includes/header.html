@@ -1,251 +1,451 @@
 {% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header</title>
+
 <style>
-  /* ================= HEADER ================= */
-  .header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    transition: 0.3s ease;
-  }
 
-  .header.sticky {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    background: rgba(255,255,255,0.95);
-  }
+/* ================= HEADER ================= */
+.btr-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
 
-  /* ================= CONTAINER ================= */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.btr-header.is-sticky {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.97);
+}
 
-  /* ================= NAV ================= */
-  .nav-list {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    align-items: center;
-  }
+/* ================= CONTAINER ================= */
+.btr-header__container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .nav-list li a {
-    font-size: 15px!important;
-    font-weight: 500!important;
-    color: #1f2937!important;
-    text-decoration: none;
-    position: relative;
-    transition: 0.3s;
-  }
+/* ================= NAV ================= */
+.btr-nav {
+  display: flex;
+  align-items: center;
+}
 
-  .nav-list li a:hover {
-    color: #0be1cd;
-  }
+.btr-nav__list {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
 
-  /* underline hover */
-  .nav-list li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0%;
-    height: 2px;
-    background: #0be1cd;
-    transition: 0.3s;
-  }
+.btr-nav__link {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f2937;
+  text-decoration: none;
+  position: relative;
+  transition: 0.25s ease;
+}
 
-  .nav-list li a:hover::after {
-    width: 100%;
-  }
+.btr-nav__link:hover {
+  color: #00c2b2;
+}
 
-  /* ================= DROPDOWN ================= */
-  .dropdown {
-    position: relative;
-  }
+.btr-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #00c2b2;
+  transition: 0.25s ease;
+}
 
-  .dropdown-menu {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: #fff;
-    min-width: 210px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    padding: 10px 0;
+.btr-nav__link:hover::after {
+  width: 100%;
+}
 
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: 0.25s ease;
-  }
+/* ================= DROPDOWN ================= */
+.btr-nav__dropdown {
+  position: relative;
+}
 
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+.btr-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+}
 
-  .dropdown-menu li {
-    padding: 10px 15px;
-  }
+.btr-nav__dropdown:hover .btr-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-  .dropdown-menu li a {
-    font-size: 14px;
-    color: #374151;
-    display: block;
-    transition: 0.2s;
-  }
+.btr-dropdown__item {
+  padding: 10px 16px;
+}
 
-  .dropdown-menu li a:hover {
-    color: #0be1cd;
-    padding-left: 6px;
-  }
+.btr-dropdown__link {
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+  display: block;
+  transition: 0.2s;
+}
 
-  /* ================= BUTTONS ================= */
-  .auth-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.btr-dropdown__link:hover {
+  color: #00c2b2;
+  padding-left: 6px;
+}
 
-  .btn-outline-header {
-    padding: 9px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    color: #111!important;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
-  }
+/* ================= MENU ICON ================= */
+.btr-menu {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+}
 
-  .btn-outline:hover {
-    background:rgb(243, 246, 246);
-  }
+/* ================= SIDEBAR ================= */
+.btr-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 2000;
+}
 
-  .btn-primary-header {
-    padding: 9px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    color: #111111d6!important;
-    text-decoration: none;
-    font-size: 10px;
-    background:unset;
-    transition: 0.3s;
-  }
-  .btn-primary:hover {
-    background:rgb(243, 246, 246)!important;
-  }
+.btr-sidebar__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
 
-  
+.btr-sidebar__panel {
+  position: absolute;
+  right: -420px;
+  top: 0;
+  width: 380px;
+  height: 100%;
+  background:rgb(50, 47, 47);
+  color: #fff;
+  padding: 25px;
+  transition: 0.35s ease;
+  overflow-y: auto;
+}
 
-  /* ================= MOBILE ================= */
-  .menu-btn {
+.btr-sidebar.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.btr-sidebar.active .btr-sidebar__panel {
+  right: 0;
+}
+/* ================= BTR  SIDEBAR ================= */
+
+.btr-sidebar__panel{
+  position:absolute;
+  right:-420px;
+  top:0;
+  width:300px;
+  height:100%;
+  background:#0a0f1c;
+  color:#fff;
+  padding:20px;
+  transition:0.35s ease;
+  overflow-y:auto;
+}
+
+.btr-sidebar.active .btr-sidebar__panel{
+  right:0;
+}
+
+/* HEADER */
+.tf-sb-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(255, 255, 255, 0.7);
+}
+
+.tf-logo{
+  width:42px;
+  height:42px;
+  background:#38bdf8;
+  color:#000;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+}
+
+.tf-sb-header h3{
+  margin:0;
+  font-size:16px;
+}
+
+.tf-sb-header p{
+  margin:0;
+  font-size:11px;
+  color:#94a3b8;
+}
+
+.tf-close{
+  margin-left:auto;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* SECTION */
+.tf-section{
+  margin-top:18px;
+}
+
+.tf-section h4{
+  font-size:12px;
+  color:#0ebab1;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.tf-section p{
+  font-size:16px;
+  line-height:1.6;
+  color:#cbd5e1;
+}
+
+/* CONTACT ROW */
+.tf-info{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+  align-items:flex-start;
+}
+
+.tf-info span{
+  color:#38bdf8;
+  font-size:14px;
+  margin-top:2px;
+}
+
+.tf-info p{
+  font-size:15px;
+  color:#cbd5e1;
+  margin:0;
+}
+
+/* LINKS */
+.tf-link{
+  display:block;
+  padding:8px 0;
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:0.2s;
+}
+
+.tf-link:hover{
+  color:#0ebab1;
+  padding-left:6px;
+}
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .btr-nav__list {
     display: none;
-    font-size: 22px;
-    cursor: pointer;
   }
+}
 
-  @media (max-width: 768px) {
-    .nav-list {
-      display: none;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      flex-direction: column;
-      background: rgb(142, 129, 129);
-      padding: 20px;
-      gap: 15px;
-    }
+.btr-menu{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.08);
+  color:#0ebab1;
+  background:#79808A;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    nav.open .nav-list {
-      display: flex;
-    }
+.btr-menu:hover{
+  background:#0ebab1;
+  color:#79808A;
+  transform:rotate(90deg);
+}
 
-    .menu-btn {
-      display: block;
-    }
-
-    
-  }
-
-  
 </style>
-
+</head>
 
 <body>
 
-
 <!-- ================= HEADER ================= -->
-<header class="header">
+<header class="btr-header">
 
-  <div class="container">
+  <div class="btr-header__container">
 
-    <!-- LOGO -->
+    <!-- LOGO (UNCHANGED) -->
     <a href="{% url 'home' %}" class="btr-logo-switch">
-      <img src="{% static 'images/blogo.png' %}" 
-           alt="Logo"
-           class="btr-logo-default">
-  
-      <img src="{% static 'images/colorlogo-r.png' %}" 
-           alt="Logo Hover"
-           class="btr-logo-hover">
-  </a>
+      <img src="{% static 'images/change.png' %}" class="btr-logo-default" alt="Logo">
+      <img src="{% static 'images/blogo.png' %}" class="btr-logo-hover" alt="Logo Hover">
+    </a>
 
     <!-- NAV -->
-    <nav>
+    <nav class="btr-nav">
+      <ul class="btr-nav__list">
 
-      <ul class="nav-list">
+        <li><a class="btr-nav__link" href="{% url 'home' %}">Home</a></li>
+        <li><a class="btr-nav__link" href="{% url 'about_us' %}">About Us</a></li>
 
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about_us' %}">About Us</a></li>
+        <li class="btr-nav__dropdown">
+          <a class="btr-nav__link" href="#!">Services ▼</a>
 
-        <!-- SERVICES DROPDOWN -->
-        <li class="dropdown">
-          <a href="#!">Services ▼</a>
-
-          <ul class="dropdown-menu">
-            <li><a href="{% url 'web_dev' %}">Web Development</a></li>
-            <li><a href="{% url 'product_dev' %}">Product Development</a></li>
-           <li><a href="{% url 'sqa' %}">SQA</a></li>
-           <li><a href="#">Staff Augmentation</a></li>  
-            <li><a href="#">DevOps & Cloud</a></li>
-            <li><a href="#">UI/UX Design</a></li>
+          <ul class="btr-dropdown">
+            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'web_dev' %}">Web Development</a></li>
+            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'product_dev' %}">Product Development</a></li>
+            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'sqa' %}">SQA</a></li>
+            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'dev_ops' %}">DevOps & Cloud</a></li>
+            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="#">UI/UX Design</a></li>
           </ul>
+
         </li>
 
-        <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
-        <li><a href="{% url 'blog' %}">Blog</a></li>
-        <li><a href="{% url 'contact_us' %}">Contact US</a></li>
+        <li><a class="btr-nav__link" href="{% url 'case_studies' %}">Case Studies</a></li>
+        <li><a class="btr-nav__link" href="{% url 'blog' %}">Blog</a></li>
+        <li><a class="btr-nav__link" href="{% url 'contact_us' %}">Contact</a></li>
 
       </ul>
-
     </nav>
 
-    <!-- BUTTONS -->
-    <div class="auth-buttons">
-
-      <a href="signin.html" class="btn-outline-header">Sign In</a>
-
-      <a href="signup.html" class="btn-primary-header">Get Started</a>
-
-    </div>
-
-    <!-- MOBILE -->
-    <div class="menu-btn">☰</div>
+    <!-- MENU ICON -->
+    <button class="btr-menu" id="btrMenuBtn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M3 6H21" stroke="currentColor" stroke-width="2"/>
+          <path d="M3 12H21" stroke="currentColor" stroke-width="2"/>
+          <path d="M9 18H21" stroke="currentColor" stroke-width="2"/>
+      </svg>
+  </button>
 
   </div>
-
 </header>
+<!-- ================= TECH FURY SIDEBAR ================= -->
+<div class="btr-sidebar" id="btrSidebar">
+
+  <div class="btr-sidebar__overlay" id="btrOverlay"></div>
+
+  <aside class="btr-sidebar__panel">
+
+    <!-- TOP BRAND -->
+    <div class="tf-sb-header">
+
+      <div>
+        <a href="{% url 'home' %}" class="btr-logo-switch">
+          <img src="{% static 'images/change.png' %}" class="btr-logo-default" alt="Logo">
+          <img src="{% static 'images/blogo.png' %}" class="btr-logo-hover" alt="Logo Hover">
+        </a>
+      </div>
+
+      <button class="tf-close" id="btrClose">×</button>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="tf-section">
+      <p>
+        Welcome to Btr Solutions, where innovation meets passion to drive the digital future.
+        We are not just an IT company; we are a force of technology enthusiasts dedicated
+        to pushing boundaries and unlocking possibilities.
+      </p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="tf-section">
+      <h4>Contact Info</h4>
+      <div class="tf-info">
+        <p>297-C, P.I.A. Main Boulevard Road, Lahore Pakistan.</p>
+      </div>
+
+      <div class="tf-info">
+        <p>btrsolution.contact@gmail.com</p>
+      </div>
+
+      <div class="tf-info">
+        <p>+92 324 8699647</p>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="tf-section">
+      <h4>Learn More</h4>
+
+      <a href="{% url 'home' %}" class="tf-link">Home</a>
+      <a href="{% url 'about_us' %}" class="tf-link">About Us</a>
+      <a href="#" class="tf-link">Services</a>
+      <a href="{% url 'case_studies' %}" class="tf-link">Case Studies</a>
+      <a href="{% url 'blog' %}" class="tf-link">Blogs</a>
+      <a href="{% url 'contact_us' %}" class="tf-link">Contact Us</a>
+    </div>
+
+  </aside>
+</div>
+<!-- ================= JS ================= -->
+<script>
+const sidebar = document.getElementById("btrSidebar");
+const openBtn = document.getElementById("btrMenuBtn");
+const closeBtn = document.getElementById("btrClose");
+const overlay = document.getElementById("btrOverlay");
+
+openBtn.addEventListener("click", () => {
+  sidebar.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+});
+</script>
 
 </body>
 </html>

@@ -18,4 +18,5 @@ urlpatterns = [
     path('sqa/', views.sqa, name='sqa'),
     path('web-development/', views.web_dev, name='web_dev'),
     path('product-development/', views.product_dev, name='product_dev'),
+    path('dev-ops/', views.devops, name='dev_ops')
 ]
