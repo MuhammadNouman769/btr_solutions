@@ -9,8 +9,167 @@
 }
 .set {
   text-align:center!important;
-}  
-</style>  
+  }  
+  
+  .tfdevops-showcase-section{
+    padding:120px 20px;
+    background:#ffffff;
+  }
+  
+  .tfdevops-showcase-container{
+    max-width:1300px;
+    margin:auto;
+  }
+  
+  .tfdevops-showcase-header{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto 70px;
+  }
+  
+  .tfdevops-showcase-badge{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:999px;
+    background:#e0f2fe;
+    color:#0284c7;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  
+  .tfdevops-showcase-title{
+    font-size:56px;
+    font-weight:800;
+    line-height:1.1;
+    color:#0f172a;
+    margin-bottom:24px;
+  }
+  
+  .tfdevops-showcase-description{
+    font-size:18px;
+    color:#64748b;
+    line-height:1.9;
+  }
+  
+  /* FILTERS */
+  
+  .tfdevops-showcase-filters{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:50px;
+  }
+  
+  .tfdevops-filter-btn{
+    border:none;
+    cursor:pointer;
+    padding:14px 24px;
+    border-radius:999px;
+    background;#79808A;
+    font-weight:600;
+    transition:.3s;
+  }
+  
+  .tfdevops-filter-btn.active{
+    background:#0ebab1;
+    color:#79808A;
+  }
+  
+  /* GRID */
+  
+  .tfdevops-showcase-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+  }
+  
+  /* CARD */
+  
+  .tfdevops-showcase-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    min-height:500px;
+  }
+  
+  .tfdevops-showcase-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    inset:0;
+    transition:.6s;
+  }
+  
+  .tfdevops-showcase-card:hover img{
+    transform:scale(1.08);
+  }
+  
+  .tfdevops-showcase-overlay{
+    position:absolute;
+    inset:0;
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    background:
+    linear-gradient(
+    transparent,
+    rgba(2,6,23,.95)
+    );
+  }
+  
+  .tfdevops-card-tag{
+    display:inline-block;
+    width:max-content;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#0ebab1;
+    color:#fff;
+    font-size:13px;
+    margin-bottom:15px;
+  }
+  
+  .tfdevops-showcase-overlay h3{
+    color:#fff;
+    font-size:28px;
+    margin-bottom:15px;
+  }
+  
+  .tfdevops-showcase-overlay p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:18px;
+  }
+  
+  .tfdevops-showcase-overlay a{
+    color:#0ebab1;
+    text-decoration:none;
+    font-weight:600;
+  }
+  
+  .tfdevops-hidden{
+    display:none !important;
+  }
+  
+  /* RESPONSIVE */
+  
+  @media(max-width:991px){
+  
+  .tfdevops-showcase-grid{
+  grid-template-columns:1fr;
+  }
+  
+  .tfdevops-showcase-title{
+  font-size:40px;
+  }
+  
+}
+  
+  </style>
+   
   
 <!-- ===== HERO START ===== -->
 <section class="hero">
@@ -125,126 +284,317 @@
 </section>
 <!-- ===== Small Features End ===== -->
 
+<!-- =====================================================
+     TFDEVOPS SHOWCASE SECTION
+     COMPLETE HTML + CSS + JS
+     INDUSTRY LEVEL / UNIQUE CLASSES
+====================================================== -->
 
-    <!-- ===== Projects Start ===== -->
-    <section class="pg pj vp mr oj wp nr">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+<section class="tfdevops-showcase-section">
+
+  <div class="tfdevops-showcase-container">
+
+      <!-- Heading -->
+      <div class="tfdevops-showcase-header">
+
+          <span class="tfdevops-showcase-badge">
+              Enterprise Cloud & DevOps Solutions
+          </span>
+
+          <h2 class="tfdevops-showcase-title">
+              Accelerating Digital Transformation Through
+              Cloud Engineering & DevOps Excellence
           </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
 
+          <p class="tfdevops-showcase-description">
+              Discover how Tech Fury helps organizations modernize infrastructure,
+              automate software delivery, strengthen security, and scale cloud-native
+              applications through enterprise-grade DevOps practices and cloud solutions.
+          </p>
 
       </div>
-      <!-- Section Title End -->
 
-      <div class="bb ze ki xn 2xl:ud-px-0 jb" x-data="{filterTab: 1}">
-        <!-- Porject Tab -->
-        <div class="projects-tab _e bb tc uf wf xf cg rg hh rm vk xm si ti fc">
-          <button data-filter="*" @click="filterTab = 1" :class="{ 'gh lk' : filterTab === 1 }"
-            class="project-tab-btn ek rg ml il vi mi">
-            All
+      <!-- Filter Buttons -->
+      <div class="tfdevops-showcase-filters">
+
+          <button class="tfdevops-filter-btn active"
+              data-filter="all">
+              All Solutions
           </button>
-          <button data-filter=".branding" @click="filterTab = 2" :class="{ 'gh lk' : filterTab === 2 }"
-            class="project-tab-btn ek rg ml il vi mi">
-            Branding Strategy
+
+          <button class="tfdevops-filter-btn"
+              data-filter="migration">
+              Cloud Migration
           </button>
-          <button data-filter=".digital" @click="filterTab = 3" :class="{ 'gh lk' : filterTab === 3 }"
-            class="project-tab-btn ek rg ml il vi mi">
-            Digital Experiences
+
+          <button class="tfdevops-filter-btn"
+              data-filter="automation">
+              DevOps Automation
           </button>
-          <button data-filter=".ecommerce" @click="filterTab = 4" :class="{ 'gh lk' : filterTab === 4 }"
-            class="project-tab-btn ek rg ml il vi mi">
-            Ecommerce
+
+          <button class="tfdevops-filter-btn"
+              data-filter="kubernetes">
+              Kubernetes
           </button>
-        </div>
 
-        <!-- Projects item wrapper -->
-        <div class="projects-wrapper tc -ud-mx-5">
-          <div class="project-sizer"></div>
-          <!-- Project Item -->
-          <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-            <div class="c i pg sg z-1">
-              <img src="{% static 'images/project-01.png'%}" alt="Project" />
+          <button class="tfdevops-filter-btn"
+              data-filter="security">
+              Security
+          </button>
 
-              <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                <p>Branded Ecommerce</p>
-                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                  <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Item -->
-          <div class="project-item wi fb vd jn/2 to/3 digital">
-            <div class="c i pg sg z-1">
-              <img src="{% static 'images/project-02.png'%}" alt="Project" />
-
-              <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                <p>Branded Ecommerce</p>
-                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                  <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Item -->
-          <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-            <div class="c i pg sg z-1">
-              <img src="{% static 'images/project-04.png'%}" alt="Project" />
-
-              <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                <p>Branded Ecommerce</p>
-                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                  <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Item -->
-          <div class="project-item wi fb vd vo/3 digital ecommerce">
-            <div class="c i pg sg z-1">
-              <img src="{% static 'images/project-03.png'%}" alt="Project" />
-
-              <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                <p>Branded Ecommerce</p>
-                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                  <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
-    <!-- ===== Projects End ===== -->
 
+      <!-- Cards -->
+      <div class="tfdevops-showcase-grid">
+
+          <!-- Card 1 -->
+          <div class="tfdevops-showcase-card"
+              data-category="migration">
+
+              <img
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
+                  alt="Cloud Migration">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      Cloud Migration
+                  </span>
+
+                  <h3>
+                      Enterprise Cloud Transformation
+                  </h3>
+
+                  <p>
+                      Migrate legacy applications and workloads
+                      into secure, scalable cloud environments
+                      while minimizing risk and downtime.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+          <!-- Card 2 -->
+          <div class="tfdevops-showcase-card"
+              data-category="automation">
+
+              <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
+                  alt="DevOps Automation">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      DevOps Automation
+                  </span>
+
+                  <h3>
+                      CI/CD Pipeline Engineering
+                  </h3>
+
+                  <p>
+                      Accelerate software delivery through
+                      automated build, testing and deployment
+                      workflows.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+          <!-- Card 3 -->
+          <div class="tfdevops-showcase-card"
+              data-category="kubernetes">
+
+              <img
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80"
+                  alt="Kubernetes">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      Kubernetes
+                  </span>
+
+                  <h3>
+                      Container Orchestration Platform
+                  </h3>
+
+                  <p>
+                      Deploy and manage highly available
+                      cloud-native applications through
+                      Kubernetes ecosystems.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+          <!-- Card 4 -->
+          <div class="tfdevops-showcase-card"
+              data-category="security">
+
+              <img
+                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80"
+                  alt="Security">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      Security
+                  </span>
+
+                  <h3>
+                      Enterprise Security & Monitoring
+                  </h3>
+
+                  <p>
+                      Continuous monitoring, governance,
+                      compliance management and proactive
+                      threat detection.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+          <!-- Card 5 -->
+          <div class="tfdevops-showcase-card"
+              data-category="automation">
+
+              <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
+                  alt="Infrastructure">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      Infrastructure as Code
+                  </span>
+
+                  <h3>
+                      Automated Infrastructure Provisioning
+                  </h3>
+
+                  <p>
+                      Deploy infrastructure consistently
+                      using Terraform, CloudFormation
+                      and IaC frameworks.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+          <!-- Card 6 -->
+          <div class="tfdevops-showcase-card"
+              data-category="migration">
+
+              <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
+                  alt="Cloud Architecture">
+
+              <div class="tfdevops-showcase-overlay">
+
+                  <span class="tfdevops-card-tag">
+                      Cloud Architecture
+                  </span>
+
+                  <h3>
+                      High Performance Cloud Platforms
+                  </h3>
+
+                  <p>
+                      Design resilient architectures
+                      optimized for scalability,
+                      security and cost efficiency.
+                  </p>
+
+                  <a href="#">
+                      Learn More →
+                  </a>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const buttons =
+  document.querySelectorAll(".tfdevops-filter-btn");
+
+  const cards =
+  document.querySelectorAll(".tfdevops-showcase-card");
+
+  buttons.forEach(button => {
+
+      button.addEventListener("click", function(){
+
+          buttons.forEach(btn =>
+              btn.classList.remove("active")
+          );
+
+          this.classList.add("active");
+
+          const filter =
+          this.getAttribute("data-filter");
+
+          cards.forEach(card => {
+
+              if(filter === "all"){
+                  card.classList.remove("tfdevops-hidden");
+              }
+              else{
+
+                  if(
+                      card.dataset.category === filter
+                  ){
+                      card.classList.remove("tfdevops-hidden");
+                  }
+                  else{
+                      card.classList.add("tfdevops-hidden");
+                  }
+
+              }
+
+          });
+
+      });
+
+  });
+
+});
+
+</script>
 
     <!-- ===== Testimonials Start ===== -->
     <section class="hj rp hr">
