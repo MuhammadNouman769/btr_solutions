@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Staff Augmentation | Tech Fury{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= BASE ================= */
+
+.tfsa-page{
+    background:#ffffff;
+    font-family:Inter, system-ui, sans-serif;
+    color:#0f172a;
+}
+
+.tfsa-container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+}
+
+.tfsa-section{
+    padding:110px 0;
+}
+
+/* ================= HERO ================= */
+
+.tfsa-hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    background:#ffffff;
+    overflow:hidden;
+}
+
+.tfsa-hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg, rgba(54,49,49,0.95), rgba(37,34,34,0.75)),
+    url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=80');
+    background-size:cover;
+    background-position:center;
+}
+
+.tfsa-hero-content{
+    position:relative;
+    max-width:900px;
+}
+
+.tfsa-badge{
+    display:inline-flex;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#ecfeff;
+    border:1px solid #a5f3fc;
+    color:#0891b2;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.tfsa-hero h1{
+    font-size:62px;
+    line-height:1.05;
+    font-weight:800;
+    margin-bottom:18px;
+    color:white;
+}
+
+.tfsa-hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:white;
+    margin-bottom:28px;
+}
+
+.tfsa-btn{
+    display:inline-flex;
+    padding:14px 26px;
+    background:#0ebab1;
+    color:#79808a;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.tfsa-btn:hover{
+    color:#0ebab1;
+    background:#79808a;
+}
+
+/* ================= TRUST ================= */
+
+.tfsa-trust{
+    background:#f8fafc;
+    border-top:1px solid #e2e8f0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.tfsa-trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+    padding:60px 0;
+}
+
+.tfsa-trust-grid h3{
+    font-size:40px;
+    margin:20px;
+    color:#0ebab1;
+}
+
+.tfsa-trust-grid p{
+    color:#64748b;
+}
+
+/* ================= HEAD ================= */
+
+.tfsa-head{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.tfsa-head h2{
+    font-size:44px;
+    color:#0f172a;
+    margin-bottom:12px;
+}
+
+.tfsa-head p{
+    max-width:750px;
+    margin:auto;
+    color:#64748b;
+    line-height:1.8;
+}
+
+/* ================= MODERN CARDS ================= */
+
+.tfsa-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+}
+
+.tfsa-card{
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:26px;
+    transition:.25s ease;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+}
+
+.tfsa-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.08);
+    border-color:#06b6d4;
+}
+
+.tfsa-card h3{
+    font-size:18px;
+    margin-bottom:10px;
+    color:#0f172a;
+}
+
+.tfsa-card p{
+    font-size:14px;
+    color:#64748b;
+    line-height:1.7;
+}
+
+/* ================= TAGS ================= */
+
+.tfsa-tags{
+    margin-top:12px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tfsa-tag{
+    font-size:11px;
+    padding:4px 10px;
+    border-radius:999px;
+    background:#f1f5f9;
+    color:#475569;
+    border:1px solid #e2e8f0;
+}
+
+/* ================= PROCESS ================= */
+
+.tfsa-process{
+    background:#f8fafc;
+}
+
+.tfsa-step{
+    display:flex;
+    gap:16px;
+    padding:20px;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    margin-bottom:12px;
+}
+
+.tfsa-num{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:#0ebab1;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+/* ================= WHY ================= */
+
+.tfsa-why{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.tfsa-why-box{
+    padding:28px;
+    border-radius:16px;
+    border:1px solid #e2e8f0;
+    background:#ffffff;
+}
+
+.tfsa-why-box h3{
+    color:#0ebab1;
+    margin-bottom:10px;
+}
+
+/* ================= CTA ================= */
+
+.tfsa-cta{
+    text-align:center;
+    padding:90px 30px;
+    background:#0f172a;
+    color:#fff;
+    border-radius:20px;
+}
+
+.tfsa-cta p{
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+.tfsa-hero h1{font-size:38px;}
+.tfsa-trust-grid{grid-template-columns:1fr 1fr;}
+.tfsa-why{grid-template-columns:1fr;}
+}
+
+</style>
+
+<!-- HERO -->
+<section class="tfsa-hero">
+<div class="tfsa-container">
+
+<div class="tfsa-hero-content">
+
+<span class="tfsa-badge">
+Dedicated Engineering Teams On Demand
+</span>
+
+<h1>Hire Top Tech Talent Without Long Recruitment Cycles</h1>
+
+<p>
+Scale your engineering team instantly with pre-vetted developers,
+DevOps engineers, QA specialists, and designers who integrate directly
+into your workflow and accelerate product delivery.
+</p>
+
+<a href="{% url 'contact_us' %}" class="tfsa-btn">
+Hire Talent
+</a>
+
+</div>
+
+</div>
+</section>
+
+<!-- TRUST -->
+<section class="tfsa-trust">
+<div class="tfsa-container">
+
+<div class="tfsa-trust-grid">
+
+<div>
+<h3>500+</h3>
+<p>Engineers</p>
+</div>
+
+<div>
+<h3>48H</h3>
+<p>Deployment</p>
+</div>
+
+<div>
+<h3>90%</h3>
+<p>Retention</p>
+</div>
+
+<div>
+<h3>15+</h3>
+<p>Tech Stacks</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="tfsa-section">
+<div class="tfsa-container">
+
+<div class="tfsa-head">
+<h2>Talent You Can Hire Instantly</h2>
+<p>We provide fully integrated engineering talent across all modern technologies.</p>
+</div>
+
+<div class="tfsa-grid">
+
+<div class="tfsa-card">
+<h3>Full Stack Developers</h3>
+<p>Build scalable applications using modern frontend and backend stacks.</p>
+<div class="tfsa-tags">
+<span class="tfsa-tag">React</span>
+<span class="tfsa-tag">Node.js</span>
+<span class="tfsa-tag">Django</span>
+</div>
+</div>
+
+<div class="tfsa-card">
+<h3>DevOps Engineers</h3>
+<p>Cloud infrastructure, CI/CD pipelines, automation and Kubernetes orchestration.</p>
+<div class="tfsa-tags">
+<span class="tfsa-tag">AWS</span>
+<span class="tfsa-tag">Azure</span>
+<span class="tfsa-tag">Terraform</span>
+</div>
+</div>
+
+<div class="tfsa-card">
+<h3>QA Engineers</h3>
+<p>Manual + automation testing ensuring enterprise-grade product reliability.</p>
+<div class="tfsa-tags">
+<span class="tfsa-tag">Cypress</span>
+<span class="tfsa-tag">Selenium</span>
+</div>
+</div>
+
+<div class="tfsa-card">
+<h3>UI/UX Designers</h3>
+<p>Modern design systems focused on usability and conversion optimization.</p>
+<div class="tfsa-tags">
+<span class="tfsa-tag">Figma</span>
+<span class="tfsa-tag">Design Systems</span>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="tfsa-section tfsa-process">
+<div class="tfsa-container">
+
+<div class="tfsa-head">
+<h2>Simple Hiring Process</h2>
+</div>
+
+<div class="tfsa-step">
+<div class="tfsa-num">1</div>
+<div><h3>Requirement Analysis</h3><p>We understand your project needs and team structure.</p></div>
+</div>
+
+<div class="tfsa-step">
+<div class="tfsa-num">2</div>
+<div><h3>Talent Matching</h3><p>We shortlist engineers based on skills and experience.</p></div>
+</div>
+
+<div class="tfsa-step">
+<div class="tfsa-num">3</div>
+<div><h3>Interview & Selection</h3><p>You evaluate and select your team members.</p></div>
+</div>
+
+<div class="tfsa-step">
+<div class="tfsa-num">4</div>
+<div><h3>Onboarding</h3><p>Engineers join your workflow within 48 hours.</p></div>
+</div>
+
+</div>
+</section>
+
+<!-- WHY -->
+<section class="tfsa-section">
+<div class="tfsa-container">
+
+<div class="tfsa-head">
+<h2>Why Companies Choose Us</h2>
+</div>
+
+<div class="tfsa-why">
+
+<div class="tfsa-why-box">
+<h3>Faster Hiring</h3>
+<p>No recruitment delays — hire engineers in days, not months.</p>
+</div>
+
+<div class="tfsa-why-box">
+<h3>Seamless Integration</h3>
+<p>Engineers work as part of your in-house development team.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="tfsa-section">
+<div class="tfsa-container">
+
+<div class="tfsa-cta">
+<h2>Start Scaling Your Engineering Team Today</h2>
+<p>Access top-tier global talent instantly and accelerate product delivery.</p>
+<br>
+<a href="{% url 'contact_us' %}" class="tfsa-btn">Get Started</a>
+</div>
+
+</div>
+</section>
+
+{% endblock %}

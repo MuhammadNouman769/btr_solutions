@@ -52,3 +52,6 @@ def product_dev(request):
 
 def devops(request):
     return render(request, 'services/devops.html')
+
+def staff_aug(request):
+    return render(request, 'services/staff-aug.html')
