@@ -114,7 +114,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
 */
 
 a {
-  color: inherit;
+  color: rgb(79, 79, 79);
   text-decoration: inherit;
 }
 
@@ -1325,7 +1325,8 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .gh{
   --tw-bg-opacity: 1;
-  background-color: rgb(7, 248, 228);
+  color: #79808A;
+  background-color: #0ebab1;
 }
 .hh\/20{
   background-color: rgb(255 255 255 / 0.2);
@@ -1387,8 +1388,19 @@ h1,  h2,  h3,  h4,  h5,  h6{
   fill: #FFFFFF;
 }
 .vh{
-  fill: #D1D8E0;
+  fill: #0ebab1;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid #0ebab1;
+  transition: all 0.3s ease;
 }
+
+
+
+
+
 .wh{
   fill: #4effd6;
 }
@@ -1643,7 +1655,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .mk{
   --tw-text-opacity: 1;
-  color: #0be1cd;
+  color: #0ebab1;
 }
 .nk{
   --tw-text-opacity: 1 !important;
@@ -1790,16 +1802,20 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .sl:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(243 106 141 / var(--tw-bg-opacity));
+  background-color: #575959;
 }
 
 .tl:hover{
   --tw-bg-opacity: 1;
+  color: #0ebab1;
   background-color: rgb(78 107 255 / var(--tw-bg-opacity));
 }
 
 .ul:hover{
-  fill: #04dbf3;
+  fill: #79808A;
+  border: 2px solid #0ebab1;
+  border-radius: 50%;
+  background-color: #0ebab1;
 }
 
 .vl:hover{
@@ -1812,7 +1828,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 .xl:hover{
   --tw-text-opacity: 1;
-  color:rgb(8, 229, 207); 
+  color:#0ebab1; 
 }
 
 .yl:hover{
@@ -2885,7 +2901,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .hero-content h1 span {
-  color: #0be1cd;
+  color: #0ebab1;
 }
 
 /* paragraph */
@@ -3002,3 +3018,59 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 
 
+.btr-logo-switch{
+  position: relative;
+  display: inline-block;
+}
+
+.btr-logo-default,
+.btr-logo-hover{
+  height: 55px;
+  transition: opacity 0.35s ease;
+}
+
+.btr-logo-hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.btr-logo-switch:hover .btr-logo-default{
+  opacity: 0;
+}
+
+.btr-logo-switch:hover .btr-logo-hover{
+  opacity: 1;
+}
+
+
+.btr-footer-logo{
+  position: relative;
+  display: inline-block;
+}
+
+.btr-footer-logo-default,
+.btr-footer-logo-hover{
+  transition: opacity .35s ease;
+}
+
+.btr-footer-logo-hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.btr-footer-logo:hover .btr-footer-logo-default{
+  opacity: 0;
+}
+
+.btr-footer-logo:hover .btr-footer-logo-hover{
+  opacity: 1;
+}
+
+.ggh {
+  --tw-bg-opacity: 1;
+  background-color: #79808a!important;
+}

@@ -174,7 +174,11 @@
     .menu-btn {
       display: block;
     }
+
+    
   }
+
+  
 </style>
 
 
@@ -187,9 +191,15 @@
   <div class="container">
 
     <!-- LOGO -->
-    <a href="{% url 'home' %}">
-      <img src="{% static 'images/btr.svg' %}" style="height:40px;">
-    </a>
+    <a href="{% url 'home' %}" class="btr-logo-switch">
+      <img src="{% static 'images/blogo.png' %}" 
+           alt="Logo"
+           class="btr-logo-default">
+  
+      <img src="{% static 'images/colorlogo-r.png' %}" 
+           alt="Logo Hover"
+           class="btr-logo-hover">
+  </a>
 
     <!-- NAV -->
     <nav>

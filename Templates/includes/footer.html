@@ -1,14 +1,34 @@
+
+
+
+
 {% load static %}
+<style>
+  .footer-bg{
+      background: linear-gradient(
+          to right,
+          #f2f2f2 0%,
+          #d8e8ea 30%,
+          #8dd8d9 55%,
+          #47c9ca 75%,
+rgb(16, 126, 126) 100%
+      ) !important;
+  }
+  </style>
   <!-- ===== Footer Start ===== -->
-  <footer>
+  <footer class="footer-bg">
     <div class="bb ze ki xn 2xl:ud-px-0">
       <!-- Footer Top -->
       <div class="ji gp">
         <div class="tc uf ap gg fp">
           <div class="animate_top zd/2 to/4">
-            <a href="{% url 'home'%}">
-              <img src="{% static 'images/btr.svg' %}" alt="Logo" class="om" />
-            </a>
+            <a href="{% url 'home' %}" class="btr-footer-logo">
+              <img src="{% static 'images/blogo.png' %}" alt="Logo"
+                   class="btr-footer-logo-default om">
+          
+              <img src="{% static 'images/colorlogo-r.png' %}" alt="Logo Hover"
+                   class="btr-footer-logo-hover om">
+          </a>
 
             <p class="lc fb">
               BTR Solutions delivers innovative software, web, and digital solutions that help
