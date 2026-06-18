@@ -41,6 +41,7 @@
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
   border-color: currentColor; /* 2 */
+  line-height: revert;
 }
 
 ::before,
