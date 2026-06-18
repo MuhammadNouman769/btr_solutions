@@ -345,6 +345,149 @@
     color:#0ebab1;
 }
 
+
+.btrx-mega-parent{
+    position:static;
+}
+
+.btrx-mega-menu{
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    background:#fff;
+    padding:50px 80px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+    display:flex;
+    justify-content:space-between;
+    gap:70px;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(15px);
+    transition:.3s ease;
+    z-index:9999;
+}
+
+.btrx-mega-parent:hover .btrx-mega-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.btrx-mega-left{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:60px;
+}
+
+.btrx-mega-col h4{
+    font-size:24px;
+    font-weight:700;
+    color:#16213e;
+    margin-bottom:22px;
+    position:relative;
+}
+
+.btrx-mega-col h4:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:120px;
+    height:3px;
+    background:#0ebab1;
+}
+
+.btrx-mega-links{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.btrx-mega-links li{
+    margin-bottom:14px;
+}
+
+.btrx-mega-links a{
+    text-decoration:none;
+    color:#4b5563;
+    font-size:16px;
+    transition:.25s;
+}
+
+.btrx-mega-links a:hover{
+    color:#0ebab1;
+    padding-left:8px;
+}
+
+.btrx-mega-right{
+    width:360px;
+    padding-left:40px;
+    border-left:1px solid #e5e7eb;
+}
+
+.btrx-company-logo img{
+    max-width:220px;
+    margin-bottom:20px;
+}
+
+.btrx-company-title{
+    font-size:26px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:15px;
+    line-height: normal;
+}
+
+.btrx-company-desc{
+    font-size:15px;
+    line-height:1.8;
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.btrx-company-btn{
+    display:inline-block;
+    padding:13px 24px;
+    background:#0ebab1;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.btrx-company-btn:hover{
+    background:#099488;
+}
+
+@media(max-width:1200px){
+
+    .btrx-mega-menu{
+        padding:40px;
+    }
+
+    .btrx-mega-left{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .btrx-mega-right{
+        display:none;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .btrx-mega-menu{
+        display:none;
+    }
+
+}
+
+
 </style>
 </head>
 
@@ -368,19 +511,165 @@
         <li><a class="btr-nav__link" href="{% url 'home' %}">Home</a></li>
         <li><a class="btr-nav__link" href="{% url 'about_us' %}">About Us</a></li>
 
-        <li class="btr-nav__dropdown">
-          <a class="btr-nav__link" href="#!">Services</a>
+       <li class="btrx-mega-parent">
 
-          <ul class="btr-dropdown">
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'web_dev' %}">Web Development</a></li>
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'product_dev' %}">Product Development</a></li>
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'sqa' %}">SQA</a></li>
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'dev_ops' %}">DevOps & Cloud</a></li>
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="{% url 'staff_aug' %}">Staff Augmentation</a></li>
-            <li class="btr-dropdown__item"><a class="btr-dropdown__link" href="#">UI/UX Design</a></li>
-          </ul>
+<a class="btr-nav__link" href="#">
+Services
+</a>
 
-        </li>
+<div class="btrx-mega-menu">
+
+<div class="btrx-mega-left">
+
+<div class="btrx-mega-col">
+<h4>Development & QA</h4>
+
+<ul class="btrx-mega-links">
+<li><a href="#">UI/UX Design</a></li>
+<li><a href="{% url 'web_dev' %}">Backend Development</a></li>
+<li><a href="{% url 'web_dev' %}">Frontend Development</a></li>
+<li><a href="{% url 'product_dev' %}">Custom Software Development</a></li>
+<li><a href="{% url 'product_dev' %}">SaaS Development</a></li>
+<li><a href="{% url 'product_dev' %}">MVP Development</a></li>
+<li><a href="{% url 'product_dev' %}">Enterprise Software Development</a></li>
+<li><a href="{% url 'sqa' %}">Software Testing</a></li>
+</ul>
+
+</div>
+
+<div class="btrx-mega-col">
+
+<h4>Mobility & Apps</h4>
+
+<ul class="btrx-mega-links">
+<li><a href="{% url 'product_dev' %}">Mobile App Development</a></li>
+<li><a href="{% url 'product_dev' %}">Android App Development</a></li>
+<li><a href="{% url 'product_dev' %}">iOS App Development</a></li>
+<li><a href="{% url 'web_dev' %}">Web App Development</a></li>
+</ul>
+
+</div>
+
+<div class="btrx-mega-col">
+
+<h4>IT Operations</h4>
+
+<ul class="btrx-mega-links">
+<li><a href="{% url 'dev_ops' %}">DevOps Services</a></li>
+<li><a href="#">Cybersecurity</a></li>
+<li><a href="#">Infrastructure Design</a></li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="btrx-mega-right">
+
+<div class="btrx-company-logo">
+<a href="{% url 'home' %}" class="btr-logo-switch">
+<img src="{% static 'images/teams/logo-i.png' %}" alt="">
+</a>
+</div>
+
+<h3 class="btrx-company-title">
+BTR Solutions
+</h3>
+
+<p class="btrx-company-desc">
+Transforming businesses through modern software engineering, cloud solutions, DevOps automation, AI innovation and scalable digital products.
+</p>
+
+<a href="{% url 'contact_us' %}" class="btrx-company-btn">
+Get Free Consultation
+</a>
+
+</div>
+
+</div>
+
+</li>
+<li class="btrx-mega-parent">
+
+    <a class="btr-nav__link" href="#!">
+        Solutions
+    </a>
+
+    <div class="btrx-mega-menu">
+
+        <!-- LEFT SIDE -->
+        <div class="btrx-mega-left">
+
+            <div class="btrx-mega-col">
+                <h4>Data Solutions</h4>
+
+                <ul class="btrx-mega-links">
+                    <li><a href="#">Data Engineering</a></li>
+                    <li><a href="#">BI & Data Analytics</a></li>
+                    <li><a href="#">Data Governance & Security</a></li>
+                    <li><a href="#">Data Migration</a></li>
+                    <li><a href="#">Data Scraping</a></li>
+                    <li><a href="#">Data Warehousing</a></li>
+                </ul>
+            </div>
+
+            <div class="btrx-mega-col">
+                <h4>Artificial Intelligence</h4>
+
+                <ul class="btrx-mega-links">
+                    <li><a href="#">Agentic AI</a></li>
+                    <li><a href="#">Generative AI</a></li>
+                    <li><a href="#">Deep Learning</a></li>
+                    <li><a href="#">Predictive Analytics</a></li>
+                    <li><a href="#">Sentiment Analysis</a></li>
+                    <li><a href="#">Data Science</a></li>
+                    <li><a href="#">AI Consulting</a></li>
+                </ul>
+            </div>
+
+            <div class="btrx-mega-col">
+                <h4>E-Commerce</h4>
+
+                <ul class="btrx-mega-links">
+                    <li><a href="#">AI Chatbots & Support</a></li>
+                    <li><a href="#">eCommerce Development</a></li>
+                    <li><a href="#">Marketplace Solutions</a></li>
+                    <li><a href="#">Voice Commerce</a></li>
+                    <li><a href="#">Customer Segmentation</a></li>
+                    <li><a href="#">Recommendation Engines</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="btrx-mega-right">
+
+            <div class="btrx-company-logo">
+                <a href="{% url 'home' %}" class="btr-logo-switch">
+                    <img src="{% static 'images/teams/logo-i.png' %}" alt="BTR Solutions">
+                </a>
+            </div>
+
+            <h3 class="btrx-company-title">
+                Intelligent Business Solutions
+            </h3>
+
+            <p class="btrx-company-desc">
+                Leverage the power of Artificial Intelligence, Data Engineering,
+                Analytics and Enterprise Automation to unlock new opportunities,
+                optimize operations and accelerate digital transformation.
+            </p>
+
+            <a href="{% url 'contact_us' %}" class="btrx-company-btn">
+                Discuss Your Project
+            </a>
+
+        </div>
+
+    </div>
+
+</li>
 
         <li><a class="btr-nav__link" href="{% url 'case_studies' %}">Case Studies</a></li>
         <li><a class="btr-nav__link" href="{% url 'blog' %}">Blogs</a></li>
