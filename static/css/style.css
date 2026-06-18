@@ -1600,7 +1600,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
   line-height: 2.25rem;
 }
 .wj{
-  font-size: 22px;
+  font-size: 16px;
   line-height: 26px;
 }
 .xj{
@@ -2937,19 +2937,19 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 /* primary */
 .btn-primary {
-  padding: 9px 16px;
+  padding: 13px 16px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   color: #ddcfcfd6!important;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 16px;
   background:unset!important;
   transition: 0.3s;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  color: #000!important;
+  color: white!important;
+  background-color: #0ebab1!important;
 }
 
 /* outline */
@@ -2957,16 +2957,16 @@ h1,  h2,  h3,  h4,  h5,  h6{
   padding: 13px 16px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  color: #f1ebebd6!important;
+  color: #ddcfcfd6!important;
   text-decoration: none;
   font-size: 16px;
-  background:unset;
+  background:unset!important;
   transition: 0.3s;
 }
 
 .btn-outline:hover {
-  background: #fff;
-  color: #111!important;
+  color: white!important;
+  background-color: #0ebab1!important;
 }
 
 /* responsive */
