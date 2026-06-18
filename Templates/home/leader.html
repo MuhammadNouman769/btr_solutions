@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Leadership Team | BTR Solutions{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.btrlead-page{
+    background:#f8fafc;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.btrlead-hero{
+    position:relative;
+    padding:120px 20px;
+    text-align:center;
+    color:#fff;
+
+    background:
+    linear-gradient(rgba(8,15,30,.78),rgba(8,15,30,.78)),
+    url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.btrlead-hero h1{
+    font-size:60px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.btrlead-hero p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.9;
+    color:#d9e1ea;
+    font-size:18px;
+}
+
+/* ===========================
+   COMMON
+=========================== */
+
+.btrlead-container{
+    width:min(1300px,92%);
+    margin:auto;
+}
+
+.btrlead-section{
+    padding:90px 0;
+}
+
+.btrlead-heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.btrlead-heading h2{
+    font-size:44px;
+    color:#111827;
+    margin-bottom:15px;
+}
+
+.btrlead-heading p{
+    max-width:700px;
+    margin:auto;
+    color:#6b7280;
+}
+
+/* ===========================
+   LEADERSHIP SLIDER
+=========================== */
+
+.btrlead-slider-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.btrlead-slider{
+    display:flex;
+    gap:30px;
+    overflow:hidden;
+    scroll-behavior:smooth;
+    width:100%;
+}
+
+.btrlead-card{
+    min-width:540px;
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+
+.btrlead-img-wrap{
+    position:relative;
+    height:420px;
+    overflow:hidden;
+}
+
+.btrlead-img-wrap img{
+    width:100%;
+    height:140%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+
+
+.btrlead-badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#0ebab1;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.btrlead-body{
+    padding:35px;
+}
+
+.btrlead-body h3{
+    font-size:34px;
+    margin-bottom:10px;
+    color:#111827;
+}
+
+.btrlead-body h5{
+    color:#0ebab1;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+.btrlead-body p{
+    color:#6b7280;
+    line-height:1.9;
+}
+
+.btrlead-footer{
+    margin-top:25px;
+}
+
+.btrlead-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 24px;
+    background:#0ebab1;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btrlead-btn:hover{
+    background:#0aa39d;
+}
+
+/* ===========================
+   ARROWS
+=========================== */
+
+.btrlead-nav{
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    transition:.3s;
+    flex-shrink:0;
+}
+
+.btrlead-nav:hover{
+    background:#0ebab1;
+    color:#fff;
+}
+
+.btrlead-nav i{
+    font-size:18px;
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.btrlead-stats{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.btrlead-stat{
+    background:#fff;
+    text-align:center;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.btrlead-stat h3{
+    font-size:38px;
+    color:#0ebab1;
+    margin-bottom:10px;
+}
+
+.btrlead-stat p{
+    color:#6b7280;
+}
+
+/* ===========================
+   VISION
+=========================== */
+
+.btrlead-vision{
+    padding:100px 0;
+}
+
+.btrlead-vision-box{
+    background:
+    linear-gradient(
+    135deg,
+    #0ebab1,
+    #79808a);
+
+    color:#fff;
+    border-radius:30px;
+    padding:60px;
+}
+
+.btrlead-vision-box h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.btrlead-vision-box p{
+    line-height:2;
+    font-size:17px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:991px){
+
+    .btrlead-card{
+        min-width:100%;
+    }
+
+    .btrlead-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .btrlead-hero h1{
+        font-size:42px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .btrlead-stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+<div class="btrlead-page">
+
+    <section class="btrlead-hero">
+
+        <div class="btrlead-container">
+
+            <h1>Leadership Team</h1>
+
+            <p>
+                Meet the visionaries leading BTR Solutions toward innovation,
+                engineering excellence, and long-term client success.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="btrlead-section">
+
+        <div class="btrlead-container">
+
+            <div class="btrlead-heading">
+                <h2>Executive Leadership</h2>
+                <p>
+                    Experienced leaders empowering organizations through
+                    technology, innovation and digital transformation.
+                </p>
+            </div>
+
+            <div class="btrlead-slider-wrapper">
+
+                <button class="btrlead-nav btrlead-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="btrlead-slider">
+
+                    <!-- CEO -->
+
+                    <div class="btrlead-card">
+
+                        <div class="btrlead-img-wrap">
+
+                            <img src="{% static 'images/teams/ceo.jpeg' %}">
+
+                            <span class="btrlead-badge">
+                                FOUNDER
+                            </span>
+
+                        </div>
+
+                        <div class="btrlead-body">
+
+                            <h3>Muhammad Nouman</h3>
+
+                            <h5>C.E.O & Founder</h5>
+
+                            <p>
+                                Muhammad Nouman leads BTR Solutions with a vision
+                                focused on innovation, digital transformation,
+                                cloud technologies and scalable software solutions.
+                            </p>
+
+                            <div class="btrlead-footer">
+
+                                <a href="#" class="btrlead-btn">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn Profile
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- USAMA -->
+
+                    <div class="btrlead-card">
+
+                        <div class="btrlead-img-wrap">
+
+                            <img src="{% static 'images/teams/usama.jpeg' %}">
+
+                            <span class="btrlead-badge">
+                                Senior Director
+                            </span>
+
+                        </div>
+
+                        <div class="btrlead-body">
+
+                            <h3>Usama Shafaqat</h3>
+
+                            <h5>Senior Director – Technology & Operations</h5>
+
+                            <p>
+                                Responsible for engineering excellence,
+                                project delivery, operational strategy,
+                                quality assurance and technology execution.
+                            </p>
+
+                            <div class="btrlead-footer">
+
+                                <a href="#" class="btrlead-btn">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn Profile
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="btrlead-nav btrlead-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+            <div class="btrlead-stats">
+
+                <div class="btrlead-stat">
+                    <h3>50+</h3>
+                    <p>Projects Delivered</p>
+                </div>
+
+                <div class="btrlead-stat">
+                    <h3>20+</h3>
+                    <p>Technology Experts</p>
+                </div>
+
+                <div class="btrlead-stat">
+                    <h3>10+</h3>
+                    <p>Industries Served</p>
+                </div>
+
+                <div class="btrlead-stat">
+                    <h3>100%</h3>
+                    <p>Client Focused</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="btrlead-vision">
+
+        <div class="btrlead-container">
+
+            <div class="btrlead-vision-box">
+
+                <h2>Leadership Vision</h2>
+
+                <p>
+                    Our mission is to help businesses innovate faster,
+                    scale smarter and achieve measurable outcomes through
+                    world-class software engineering, cloud solutions,
+                    DevOps practices and emerging technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+const leadershipSlider =
+document.querySelector('.btrlead-slider');
+
+document.querySelector('.btrlead-next')
+.addEventListener('click',()=>{
+
+    leadershipSlider.scrollBy({
+        left:570,
+        behavior:'smooth'
+    });
+
+});
+
+document.querySelector('.btrlead-prev')
+.addEventListener('click',()=>{
+
+    leadershipSlider.scrollBy({
+        left:-570,
+        behavior:'smooth'
+    });
+
+});
+
+</script>
+
+{% endblock %}

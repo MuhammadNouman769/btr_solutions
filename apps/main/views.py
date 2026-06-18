@@ -55,3 +55,6 @@ def devops(request):
 
 def staff_aug(request):
     return render(request, 'services/staff-aug.html')
+
+def lead(request):
+    return render(request, 'home/leader.html')

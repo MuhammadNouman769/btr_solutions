@@ -1,20 +1,297 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Base{% endblock %}</title>
-    {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}?v=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}?v=1">
+    <title>{% block title %}BTR Solutions{% endblock %}</title>
+
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+
+        /* =====================================
+           BTR ENTERPRISE PREMIUM PRELOADER
+        ===================================== */
+
+        #btrx-preloader{
+            position:fixed;
+            inset:0;
+            z-index:999999;
+            overflow:hidden;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            background:
+            radial-gradient(circle at top left,
+            rgba(14,186,177,.20),
+            transparent 35%),
+
+            radial-gradient(circle at bottom right,
+            rgba(121,128,138,.20),
+            transparent 35%),
+
+            linear-gradient(
+                135deg,
+                #0f172a 0%,
+                #111827 40%,
+                #1f2937 100%
+            );
+
+            transition:.8s ease;
+        }
+
+        #btrx-preloader.btrx-hide{
+            opacity:0;
+            visibility:hidden;
+        }
+
+        /* =====================
+           FLOATING SHAPES
+        ===================== */
+
+        .btrx-bg-shape{
+            position:absolute;
+            border-radius:50%;
+            filter:blur(100px);
+            animation:btrxFloat 10s infinite ease-in-out;
+        }
+
+        .btrx-bg-shape-1{
+            width:380px;
+            height:380px;
+            background:#0ebab1;
+            top:-120px;
+            left:-120px;
+            opacity:.35;
+        }
+
+        .btrx-bg-shape-2{
+            width:320px;
+            height:320px;
+            background:#79808a;
+            bottom:-120px;
+            right:-120px;
+            opacity:.35;
+            animation-delay:2s;
+        }
+
+        .btrx-bg-shape-3{
+            width:250px;
+            height:250px;
+            background:#0ebab1;
+            top:50%;
+            left:60%;
+            opacity:.18;
+            animation-delay:4s;
+        }
+
+        @keyframes btrxFloat{
+
+            0%{
+                transform:translateY(0) scale(1);
+            }
+
+            50%{
+                transform:translateY(-30px) scale(1.1);
+            }
+
+            100%{
+                transform:translateY(0) scale(1);
+            }
+
+        }
+
+        /* =====================
+           LOADER
+        ===================== */
+
+        .btrx-loader{
+            position:relative;
+            width:200px;
+            height:200px;
+        }
+
+        .btrx-ring-one{
+            position:absolute;
+            inset:0;
+            border-radius:50%;
+            border:6px solid transparent;
+            border-top-color:#0ebab1;
+            border-right-color:#0ebab1;
+            animation:btrxRotate 1.4s linear infinite;
+        }
+
+        .btrx-ring-two{
+            position:absolute;
+            inset:18px;
+            border-radius:50%;
+            border:6px solid transparent;
+            border-top-color:#79808a;
+            border-left-color:#79808a;
+            animation:btrxRotateReverse 2s linear infinite;
+        }
+
+        .btrx-ring-three{
+            position:absolute;
+            inset:38px;
+            border-radius:50%;
+            border:4px solid rgba(255,255,255,.08);
+            animation:btrxPulse 2s infinite;
+        }
+
+        @keyframes btrxRotate{
+            from{transform:rotate(0deg);}
+            to{transform:rotate(360deg);}
+        }
+
+        @keyframes btrxRotateReverse{
+            from{transform:rotate(360deg);}
+            to{transform:rotate(0deg);}
+        }
+
+        @keyframes btrxPulse{
+
+            0%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.06);
+            }
+
+            100%{
+                transform:scale(1);
+            }
+
+        }
+
+        /* =====================
+           CENTER LOGO
+        ===================== */
+
+        .btrx-center{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+
+            width:95px;
+            height:95px;
+
+            border-radius:50%;
+
+            background:rgba(255,255,255,.08);
+
+            backdrop-filter:blur(12px);
+
+            border:1px solid rgba(255,255,255,.15);
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            box-shadow:
+            0 0 25px rgba(14,186,177,.35),
+            0 0 60px rgba(14,186,177,.15);
+        }
+
+        .btrx-center img{
+            width:60px;
+            height:auto;
+        }
+
+        /* =====================
+           TEXT
+        ===================== */
+
+        .btrx-loading-text{
+            position:absolute;
+            top:235px;
+            left:50%;
+            transform:translateX(-50%);
+
+            color:#ffffff;
+            font-size:12px;
+            font-weight:600;
+            letter-spacing:3px;
+            text-transform:uppercase;
+            white-space:nowrap;
+
+            opacity:.85;
+        }
+
+    </style>
+
 </head>
+
 <body>
+
+    <!-- =====================
+         ENTERPRISE PRELOADER
+    ====================== -->
+
+    <div id="btrx-preloader">
+
+        <div class="btrx-bg-shape btrx-bg-shape-1"></div>
+        <div class="btrx-bg-shape btrx-bg-shape-2"></div>
+        <div class="btrx-bg-shape btrx-bg-shape-3"></div>
+
+        <div class="btrx-loader">
+
+            <div class="btrx-ring-one"></div>
+
+            <div class="btrx-ring-two"></div>
+
+            <div class="btrx-ring-three"></div>
+
+            <div class="btrx-center">
+
+                <img src="{% static 'images/teams/logo-i.png' %}"
+                     alt="BTR Solutions">
+
+            </div>
+
+            <div class="btrx-loading-text">
+                Transforming Digital Excellence
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- HEADER -->
     {% include 'includes/header.html' %}
+
+    <!-- CONTENT -->
     {% block content %}
     {% endblock %}
-    {% include 'includes/scripts.html' %}
+
+    <!-- FOOTER -->
     {% include 'includes/footer.html' %}
+
+    <!-- SCRIPTS -->
+    {% include 'includes/scripts.html' %}
+
+    <script>
+
+        window.addEventListener("load", function(){
+
+            setTimeout(function(){
+
+                document
+                .getElementById("btrx-preloader")
+                .classList.add("btrx-hide");
+
+            }, 1800);
+
+        });
+
+    </script>
+
 </body>
 </html>
