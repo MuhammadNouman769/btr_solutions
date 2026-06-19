@@ -58,3 +58,6 @@ def staff_aug(request):
 
 def lead(request):
     return render(request, 'home/leader.html')
+
+def coming(request):
+    return render(request, 'coming-soon.html')

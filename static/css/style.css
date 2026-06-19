@@ -117,6 +117,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
 a {
   color: rgb(79, 79, 79);
   text-decoration: inherit;
+  line-height: 5px;
 }
 
 /*
