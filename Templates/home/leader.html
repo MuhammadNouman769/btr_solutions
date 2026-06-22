@@ -4,110 +4,292 @@
 {% block content %}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 <style>
-
+   /* =========================
+      WHO WE ARE SECTION - FINAL UPDATED
+   ========================= */
+   
+   .btrwho-section{
+       padding:180px 8%;
+       background:#f7f8fa;
+       display:flex;
+       justify-content:space-between;
+       align-items:center;
+       gap:70px;
+       overflow:hidden;
+   }
+   
+   /* LEFT SIDE */
+   .btrwho-left{
+       width:420px;
+       flex-shrink:0;
+   }
+   
+   .btrwho-tag{
+       display:block;
+       color:#13c7c8;
+       font-size:20px;
+       font-weight:800;
+       letter-spacing:4px;
+       margin-bottom:20px;
+   }
+   
+   .btrwho-left h2{
+       font-size:58px;
+       line-height:1.08;
+       font-weight:800;
+       margin-bottom:25px;
+       background: linear-gradient(to right, 
+           #111827 0%, 
+           #111827 40%, 
+           #13c7c8 55%, 
+           #0ea5a7 70%, 
+           #111827 100%);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       background-clip: text;
+   }
+   
+   .btrwho-left p{
+       font-size:18px;
+       line-height:1.9;
+       color:black;
+       margin-bottom:35px;
+   }
+   
+   .btrwho-main-btn{
+       display:inline-block;
+       padding:16px 34px;
+       background:#13c7c8;
+       color:#fff;
+       text-decoration:none;
+       border-radius:50px;
+       font-weight:700;
+   }
+   
+   /* RIGHT SIDE */
+   .btrwho-layout{
+       display:flex;
+       gap:25px;
+       align-items:center;
+   }
+   
+   .btrwho-column{
+       display:flex;
+       flex-direction:column;
+       gap:25px;
+   }
+   
+   .btrwho-col-1{ margin-top:170px; }
+   .btrwho-col-2{ margin-top:20px; }
+   .btrwho-col-3{ margin-top:-150px; }
+   
+   /* CARD */
+   .btrwho-card{
+       width:260px;
+       height:260px;
+       position:relative;
+       overflow:hidden;
+       border-radius:24px;
+       box-shadow:0 20px 40px rgba(0,0,0,.12);
+       transition: all 0.4s ease;
+   }
+   
+   /* IMAGE */
+   .btrwho-card img{
+       width:100%;
+       height:100%;
+       object-fit:cover;
+       transition: transform 0.6s ease;
+   }
+   
+   /* OVERLAY */
+   .btrwho-overlay{
+       position:absolute;
+       inset:0;
+       padding:32px 24px 70px 24px;   /* Top padding badhaya + bottom adjust */
+       display:flex;
+       flex-direction:column;
+       justify-content:flex-end;
+       background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25));
+   }
+   
+   /* Text (Heading + Description) */
+   .btrwho-overlay h3{
+       color:#fff!important;
+       font-size:24px;
+       font-weight:700;
+       margin-bottom:8px;
+   }
+   
+   .btrwho-overlay p{
+       color:#fff;
+       font-size:15px;
+       family-font:Itcavantgardestd Bk, Arial, sans-serif
+       opacity:.95;
+       margin-bottom:18px;
+   }
+   
+   /* Button - Sirf Hover pe neeche se Upar */
+   .btrwho-overlay a{
+       display: inline-block;
+       width:max-content;
+       padding:11px 24px;
+       background:#13c7c8;
+       color:#fff;
+       border-radius:40px;
+       text-decoration:none;
+       font-weight:600;
+       opacity: 0;
+       transform: translateY(35px);
+       transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+   }
+   
+   .btrwho-card:hover .btrwho-overlay a{
+       opacity: 1;
+       transform: translateY(0);
+   }
+   
+   .btrwho-overlay a:hover{
+       background:#0ea5a7;
+       transform: translateY(-3px);
+       box-shadow: 0 10px 20px rgba(19, 199, 200, 0.3);
+   }
+   
+   /* Card hover */
+   .btrwho-card:hover{
+       box-shadow: 0 30px 60px rgba(0,0,0,.18);
+   }
+   
+   .btrwho-card:hover img{
+       transform: scale(1.04);
+   }
+   
+   /* RESPONSIVE */
+   @media(max-width:1400px){
+       .btrwho-card{
+           width:220px;
+           height:220px;
+       }
+   }
+   
+   @media(max-width:1200px){
+       .btrwho-section{
+           flex-direction:column;
+       }
+       .btrwho-left{
+           width:100%;
+           text-align:center;
+       }
+       .btrwho-layout{
+           flex-wrap:wrap;
+           justify-content:center;
+       }
+       .btrwho-col-1, .btrwho-col-2, .btrwho-col-3{
+           margin-top:0;
+       }
+   }
+   
+   @media(max-width:768px){
+       .btrwho-left h2{
+           font-size:40px;
+       }
+       .btrwho-card{
+           width:100%;
+           max-width:320px;
+           height:260px;
+       }
+   }
+   </style>
+<style>
 /* ===========================
    BTR LEADERSHIP PAGE
 =========================== */
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,sans-serif;
 }
 
 body{
-background:#f6f7f9;
-overflow-x:hidden;
+    background:#f6f7f9;
+    overflow-x:hidden;
 }
 
-
-/* ===========================
-   HERO
-=========================== */
-
+/* Hero, Team, Values styles remain unchanged */
 .btrlx-hero{
-padding:140px 8% 100px;
-background:linear-gradient(
-          to right,
-          #f2f2f2 0%,
-          #d8e8ea 30%,
-          #8dd8d9 55%,
-          #47c9ca 75%,
-rgba(16, 126, 126, 0.59) 100%
-      ) !important;
+   padding:140px 8% 100px;
+   background: linear-gradient(to right, #f2f2f2 0%, #d8e8ea 30%, rgba(41, 195, 197, 0.81) 55%, rgba(71, 202, 202, 0.01) 75%, rgba(233, 241, 241, 0) 100%), url('{% static "images/about-us.jpg" %}');
+   background-position:center;
+   background-size:cover;
+   background-repeat:no-repeat;
 }
 
 .btrlx-tag{
-display:inline-block;
-padding:10px 18px;
-border-radius:40px;
-background:#e8fbfb;
-color:#12c6c8;
-font-weight:600;
-margin-bottom:20px;
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:40px;
+    background:#e8fbfb;
+    color:#12c6c8;
+    font-weight:600;
+    margin-bottom:20px;
 }
 
 .btrlx-hero h1{
-font-size:72px;
-line-height:1.05;
-font-weight:800;
-max-width:900px;
-color:#111827;
+    font-size:72px;
+    line-height:1.05;
+    font-weight:800;
+    max-width:900px;
+    color:#111827;
 }
 
 .btrlx-hero p{
-margin-top:25px;
-font-size:20px;
-line-height:1.8;
-max-width:800px;
-color:#6b7280;
+    margin-top:25px;
+    font-size:20px;
+    line-height:1.8;
+    max-width:800px;
+    color:#000000;
 }
 
-/* ===========================
-   TEAM
-=========================== */
-
 .btrlx-team{
-padding:80px 8%;
+    padding:80px 8%;
 }
 
 .btrlx-team-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:0px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:0px;
 }
 
 .btrlx-team-top h2{
-font-size:50px;
-font-weight:800;
-color:#111827;
+    font-size:50px;
+    font-weight:800;
+    color:#111827;
 }
 
 .btrlx-arrows{
-display:flex;
-gap:15px;
+    display:flex;
+    gap:15px;
 }
 
 .btrlx-arrow{
-width:52px;
-height:52px;
-border-radius:50%;
-border:2px solid #12c6c8;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-transition:.3s;
-color:#12c6c8;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:2px solid #12c6c8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.3s;
+    color:#12c6c8;
 }
 
 .btrlx-arrow:hover{
-background:#12c6c8;
-color:#fff;
+    background:#12c6c8;
+    color:#fff;
 }
 
 .btrlx-slider{
@@ -115,334 +297,339 @@ color:#fff;
     gap:40px;
     overflow-x:auto;
     scroll-behavior:smooth;
-
-    padding: 40px 30vw; /* 👈 THIS creates left + right empty space */
+    padding: 40px 30vw;
     scroll-snap-type: x mandatory;
 }
 
 .btrlx-slider::-webkit-scrollbar{
-display:none;
+    display:none;
 }
 
 .btrlx-card{
-min-width:340px;
+    min-width:340px;
 }
 
 .btrlx-image{
-height:300px;
-display:flex;
-align-items:flex-end;
-justify-content:center;
-overflow:hidden;
+    height:300px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:hidden;
 }
 
 .btrlx-image img{
-max-height:100%;
-width:auto;
-object-fit:contain;
-transition:.4s;
-}
-
-.btrlx-info{
-margin-top:20px;
+    max-height:100%;
+    width:auto;
+    object-fit:contain;
+    transition:.4s;
 }
 
 .btrlx-info h3{
-font-size:30px;
-font-weight:800;
-line-height:1;
-color:#111827;
+    font-size:30px;
+    font-weight:800;
+    padding-top:10px;
+    margin-left:35px;
+    line-height:1;
+    color:#111827;
 }
 
 .btrlx-info h3 span{
-color:#12c6c8;
+    color:#12c6c8;
 }
 
 .btrlx-info p{
-margin-top:12px;
-font-size:20px;
-color:#444;
+    margin-top:12px;
+    font-size:20px;
+    margin-left:35px;
+    color:#444;
 }
 
 .btrlx-link{
-margin-top:15px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-width:42px;
-height:42px;
-border-radius:8px;
-background:#111827;
-color:#fff;
-text-decoration:none;
-transition:.3s;
+    margin-top:15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius:8px;
+    background:#111827;
+    color:#fff;
+    margin-left:35px;
+    text-decoration:none;
+    transition:.3s;
 }
 
 .btrlx-link:hover{
-background:#12c6c8;
+    background:#12c6c8;
 }
 
-/* ===========================
-   BOTTOM SECTION
-=========================== */
-
 .btrlx-values{
-padding:120px 8%;
-background:#fff;
+    padding:120px 8%;
+    background:#fff;
 }
 
 .btrlx-values h2{
-font-size:56px;
-font-weight:800;
-margin-bottom:20px;
+    font-size:56px;
+    font-weight:800;
+    margin-bottom:20px;
 }
 
 .btrlx-values p{
-max-width:850px;
-font-size:20px;
-line-height:1.8;
-color:#6b7280;
+    max-width:850px;
+    font-size:20px;
+    line-height:1.8;
+    color:#6b7280;
 }
 
 .btrlx-grid{
-margin-top:50px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
 .btrlx-box{
-padding:40px;
-border-radius:20px;
-background:#f8fafc;
-transition:.3s;
+    padding:40px;
+    border-radius:20px;
+    background:#f8fafc;
+    transition:.3s;
 }
 
 .btrlx-box:hover{
-transform:translateY(-10px);
+    transform:translateY(-10px);
 }
 
 .btrlx-box i{
-font-size:34px;
-color:#12c6c8;
-margin-bottom:20px;
+    font-size:34px;
+    color:#12c6c8;
+    margin-bottom:20px;
 }
 
 .btrlx-box h4{
-font-size:24px;
-margin-bottom:15px;
+    font-size:24px;
+    margin-bottom:15px;
 }
 
 .btrlx-box p{
-font-size:16px;
-line-height:1.8;
+    font-size:16px;
+    line-height:1.8;
 }
 
-/* ===========================
-   MOBILE
-=========================== */
-
+/* Mobile */
 @media(max-width:991px){
-
-.btrlx-hero h1{
-font-size:48px;
+    .btrlx-hero h1{
+        font-size:48px;
+    }
+    .btrlx-team-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+    .btrlx-team-top h2{
+        font-size:38px;
+    }
+    .btrlx-grid{
+        grid-template-columns:1fr;
+    }
+    .btrlx-card{
+        min-width:280px;
+    }
+    .btrlx-info h3{
+        font-size:34px;
+    }
 }
-
-.btrlx-team-top{
-flex-direction:column;
-align-items:flex-start;
-gap:20px;
-}
-
-.btrlx-team-top h2{
-font-size:38px;
-}
-
-.btrlx-grid{
-grid-template-columns:1fr;
-}
-
-.btrlx-card{
-min-width:280px;
-}
-
-.btrlx-info h3{
-font-size:34px;
-}
-
-}
-
 </style>
-</head>
-<body>
 
 <!-- HERO -->
-
 <section class="btrlx-hero">
+    <span class="btrlx-tag">Global Leadership</span>
+    <h1>Meet The Leaders Driving Innovation & Growth</h1>
+    <p>Our leadership team combines deep industry expertise, engineering excellence, strategic thinking and a passion for building technology solutions that create lasting impact for businesses worldwide.</p>
+</section>
 
-<span class="btrlx-tag">
-Global Leadership
-</span>
+<!-- WHO WE ARE SECTION -->
+<section class="btrwho-section">
+    <!-- LEFT CONTENT -->
+    <div class="btrwho-left">
+        <span class="btrwho-tag">WHO WE ARE</span>
+        <h2>Building Digital Excellence Through Innovation & Technology</h2>
+        <p>BTR Solutions helps businesses accelerate growth through software engineering, AI innovation, cloud transformation and enterprise digital solutions. We build future-ready platforms that empower organizations to scale confidently in the digital era.</p>
+        <a href="#" class="btrwho-main-btn">Explore More</a>
+    </div>
 
-<h1>
-Meet The Leaders Driving Innovation & Growth
-</h1>
+    <!-- RIGHT STAGGERED LAYOUT -->
+    <div class="btrwho-layout">
+        <div class="btrwho-column btrwho-col-1">
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Our Team</h3>
+                    <p>Skilled engineers and innovators delivering excellence.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
 
-<p>
-Our leadership team combines deep industry expertise, engineering excellence,
-strategic thinking and a passion for building technology solutions that create
-lasting impact for businesses worldwide.
-</p>
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Engineering</h3>
+                    <p>Enterprise-grade software solutions built for scale.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="btrwho-column btrwho-col-2">
+            <div class="btrwho-card">
+                <img src="{% static 'images/teams/1.png' %}">
+                <div class="btrwho-overlay">
+                    <h3>Innovation</h3>
+                    <p>Driving business growth through modern technologies.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Leadership</h3>
+                    <p>Visionary leadership focused on long-term impact.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Growth</h3>
+                    <p>Transforming opportunities into measurable success.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="btrwho-column btrwho-col-3">
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Cloud Solutions</h3>
+                    <p>Secure and scalable cloud infrastructure services.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Digital Products</h3>
+                    <p>Creating exceptional user experiences and products.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Artificial Intelligence</h3>
+                    <p>AI-powered solutions transforming industries.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+
+            <div class="btrwho-card">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000">
+                <div class="btrwho-overlay">
+                    <h3>Enterprise Software</h3>
+                    <p>Robust enterprise platforms designed for growth.</p>
+                    <a href="#">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- TEAM -->
-
 <section class="btrlx-team">
+    <div class="btrlx-team-top">
+        <h2>BTR Leadership & Team</h2>
+        <div class="btrlx-arrows">
+            <div class="btrlx-arrow" onclick="slideLeft()"><i class="fas fa-arrow-left"></i></div>
+            <div class="btrlx-arrow" onclick="slideRight()"><i class="fas fa-arrow-right"></i></div>
+        </div>
+    </div>
 
-<div class="btrlx-team-top">
-
-<h2>BTR Leadership & Team</h2>
-
-<div class="btrlx-arrows">
-<div class="btrlx-arrow" onclick="slideLeft()">
-<i class="fas fa-arrow-left"></i>
-</div>
-
-<div class="btrlx-arrow" onclick="slideRight()">
-<i class="fas fa-arrow-right"></i>
-</div>
-</div>
-
-</div>
-
-<div class="btrlx-slider" id="btrlxSlider">
-
-<div class="btrlx-card">
-
-<div class="btrlx-image">
-<img src="{% static 'images/leadership/Ceo.png' %}">
-</div>
-
-<div class="btrlx-info">
-<h3>Muhammad <span>Nouman</span></h3>
-<p>Founder & CEO</p>
-<a href="#" class="btrlx-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-</div>
-
-</div>
-
-<div class="btrlx-card">
-
-<div class="btrlx-image">
-<img src="{% static 'images/leadership/Usama.png' %}">
-</div>
-
-<div class="btrlx-info">
-<h3>Usama <span>Shafaqat</span></h3>
-<p>Senior Software Engineer Lead</p>
-<a href="#" class="btrlx-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-</div>
-
-</div>
-
-<div class="btrlx-card">
-
-<div class="btrlx-image">
-<img src="{% static 'images/leadership/Bilal.png' %}">
-</div>
-
-<div class="btrlx-info">
-<h3>Bilal <span>Mushtaq</span></h3>
-<p>Junior Frontend Developer</p>
-<a href="#" class="btrlx-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-</div>
-
-</div>
-
-<div class="btrlx-card">
-
-<div class="btrlx-image">
-<img src="{% static 'images/leadership/zeeshan.png' %}">
-</div>
-
-<div class="btrlx-info">
-<h3>Zeeshan <span>Usmani</span></h3>
-<p>Junior Backend Developer</p>
-<a href="#" class="btrlx-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-</div>
-
-</div>
-
-</div>
-
+    <div class="btrlx-slider" id="btrlxSlider">
+        <!-- Team cards remain same -->
+        <div class="btrlx-card">
+            <div class="btrlx-image"><img src="{% static 'images/leadership/Ceo.png' %}"></div>
+            <div class="btrlx-info">
+                <h3>Muhammad <span>Nouman</span></h3>
+                <p>Founder & CEO</p>
+                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <!-- Other team cards... (kept same) -->
+        <div class="btrlx-card">
+            <div class="btrlx-image"><img src="{% static 'images/leadership/Usama.png' %}"></div>
+            <div class="btrlx-info">
+                <h3>Usama <span>Shafaqat</span></h3>
+                <p>Senior Software Engineer Lead</p>
+                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="btrlx-card">
+            <div class="btrlx-image"><img src="{% static 'images/leadership/Bilal.png' %}"></div>
+            <div class="btrlx-info">
+                <h3>Bilal <span>Mushtaq</span></h3>
+                <p>Junior Frontend Developer</p>
+                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="btrlx-card">
+            <div class="btrlx-image"><img src="{% static 'images/leadership/zeeshan.png' %}"></div>
+            <div class="btrlx-info">
+                <h3>Zeeshan <span>Usmani</span></h3>
+                <p>Junior Backend Developer</p>
+                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- VALUES -->
-
 <section class="btrlx-values">
-
-<h2>Leadership Principles</h2>
-
-<p>
-We foster a culture of innovation, accountability and continuous learning,
-enabling our teams to deliver transformative solutions and exceptional value.
-</p>
-
-<div class="btrlx-grid">
-
-<div class="btrlx-box">
-<i class="fas fa-lightbulb"></i>
-<h4>Innovation</h4>
-<p>Driving new ideas and breakthrough solutions.</p>
-</div>
-
-<div class="btrlx-box">
-<i class="fas fa-users"></i>
-<h4>Collaboration</h4>
-<p>Building strong partnerships with clients and teams.</p>
-</div>
-
-<div class="btrlx-box">
-<i class="fas fa-chart-line"></i>
-<h4>Growth</h4>
-<p>Creating sustainable success through technology.</p>
-</div>
-
-</div>
-
+    <h2>Leadership Principles</h2>
+    <p>We foster a culture of innovation, accountability and continuous learning, enabling our teams to deliver transformative solutions and exceptional value.</p>
+    <div class="btrlx-grid">
+        <div class="btrlx-box">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Innovation</h4>
+            <p>Driving new ideas and breakthrough solutions.</p>
+        </div>
+        <div class="btrlx-box">
+            <i class="fas fa-users"></i>
+            <h4>Collaboration</h4>
+            <p>Building strong partnerships with clients and teams.</p>
+        </div>
+        <div class="btrlx-box">
+            <i class="fas fa-chart-line"></i>
+            <h4>Growth</h4>
+            <p>Creating sustainable success through technology.</p>
+        </div>
+    </div>
 </section>
 
 <script>
-
-const slider=document.getElementById("btrlxSlider");
+// Removed hover script for who we are section
+const slider = document.getElementById("btrlxSlider");
 
 function slideRight(){
-slider.scrollBy({
-left:380,
-behavior:'smooth'
-});
+    slider.scrollBy({ left: 380, behavior: 'smooth' });
 }
 
 function slideLeft(){
-slider.scrollBy({
-left:-380,
-behavior:'smooth'
-});
+    slider.scrollBy({ left: -380, behavior: 'smooth' });
 }
-
 </script>
 
-</body>
-</html>
 {% endblock %}
-
-
