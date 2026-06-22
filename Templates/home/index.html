@@ -170,73 +170,235 @@
 }
 
 
-  
-  </style>
-   
-  
-<!-- ===== HERO START ===== -->
-<section class="hero">
+<style>
 
-    <!-- Background Image -->
-    <div class="hero-background"
-     style="background:url('{% static "images/hero.jpeg" %}') center/cover no-repeat;">
-</div>
+/* ===== RESET SAFE ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <!-- Overlay -->
-    <div class="hero-overlay"></div>
-    <!-- Content -->
-    <div class="hero-content">
+/* ===== HERO WRAPPER ===== */
+.btr-hero-section{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
 
-        <span class="badge">
-            Trusted Software Development Company
-        </span>
+/* ===== VIDEO ===== */
+.btr-hero-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+}
 
-        <h1>
-            We Build Scalable
-            <span>Web Apps</span>,
-            Mobile Apps &
-            Digital Solutions
+/* ===== LEFT CLEAN OVERLAY ===== */
+.btr-hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:55%;
+    height:100%;
+    z-index:2;
+
+    background: linear-gradient(
+        to right,
+        rgba(8,10,15,0.95) 0%,
+        rgba(8,10,15,0.85) 60%,
+        rgba(8,10,15,0.40) 85%,
+        rgba(8,10,15,0.00) 100%
+    );
+}
+
+/* ===== FLOATING SHAPES ===== */
+.btr-hero-circle{
+    position:absolute;
+    border-radius:50%;
+    background: rgba(15, 133, 125, 0.35);
+    backdrop-filter: blur(6px);
+    z-index:2;
+    animation: btr-float 6s ease-in-out infinite;
+}
+
+.btr-hero-circle-1{
+    width:120px;
+    height:120px;
+    top:15%;
+    left:5%;
+}
+
+.btr-hero-circle-2{
+    width:180px;
+    height:180px;
+    bottom:10%;
+    right:8%;
+    animation-delay:2s;
+}
+
+.btr-hero-circle-3{
+    width:90px;
+    height:90px;
+    top:70%;
+    left:20%;
+    animation-delay:4s;
+}
+
+@keyframes btr-float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
+
+/* ===== CONTENT ===== */
+.btr-hero-container{
+    position:relative;
+    z-index:3;
+    width:100%;
+    padding:0 8%;
+    color:#fff;
+}
+
+/* TAG */
+.btr-hero-tag{
+    display:inline-block;
+    padding:8px 15px;
+    background:rgba(28, 97, 82, 0.15);
+    color:#0ebab1;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+/* HEADING */
+.btr-hero-title{
+    font-size:50px;
+    line-height:1.2;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.btr-hero-title span{
+    color: #0ebab1;
+}
+
+/* PARAGRAPH */
+.btr-hero-text{
+    max-width:600px;
+    color:#fff;
+    font-weight:400;
+    opacity:0.85;
+    line-height:1.6;
+    font-family:monospace;
+    margin-bottom:25px;
+}
+
+/* BUTTONS */
+.btr-hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.btr-btn{
+    padding:12px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+}
+
+.btr-btn-primary{
+    border:1px solid #0ebab1;
+    color:#0ebab1;
+}
+
+.btr-btn-secondary{
+    border:1px solid #0ebab1;
+    color:#0ebab1;
+}
+
+/* STATS */
+.btr-hero-stats{
+    display:flex;
+    gap:30px;
+}
+
+.btr-hero-stats div b{
+    color:#0ebab1;
+    font-size:22px;
+    display:block;
+}
+
+/* TYPING */
+.btr-hero-typing{
+    color:#00ffd5;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .btr-hero-title{font-size:32px;}
+    .btr-hero-stats{flex-direction:column; gap:10px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="btr-hero-section">
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline class="btr-hero-video">
+        <source src="{% static 'images/teams/3.mp4' %}" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="btr-hero-overlay"></div>
+
+    <!-- FLOATING SHAPES -->
+    <div class="btr-hero-circle btr-hero-circle-1"></div>
+    <div class="btr-hero-circle btr-hero-circle-2"></div>
+    <div class="btr-hero-circle btr-hero-circle-3"></div>
+
+    <!-- CONTENT -->
+    <div class="btr-hero-container">
+
+        <span class="btr-hero-tag">Trusted by Global Enterprises</span>
+
+        <h1 class="btr-hero-title">
+            We Engineer <span class="btr-hero-typing"></span>
         </h1>
 
-        <p>
-            BTR Solutions helps startups and enterprises transform ideas into
-            powerful digital products. We specialize in Web Development,
-            UI/UX Design, Cloud Solutions and Software Engineering.
+        <p class="btr-hero-text">
+            We design, build, and scale high-performance digital ecosystems —
+            enterprise-grade web apps, cloud systems, and intelligent software solutions.
         </p>
 
-        <div class="hero-buttons">
-            <a href="#contact" class="btn-primary">
-                Get Started
-            </a>
-
-            <a href="#services" class="btn-outline">
-                Our Services
-            </a>
+        <div class="btr-hero-buttons">
+            <a href="#" class="btr-btn btr-btn-primary">Start Project</a>
+            <a href="#services" class="btr-btn btr-btn-secondary">Explore Solutions</a>
         </div>
 
-        <div class="hero-info">
-
-            <div>
-                <b>50+</b>
-                <span>Projects</span>
-            </div>
-
-            <div>
-                <b>20+</b>
-                <span>Clients</span>
-            </div>
-
-            <div>
-                <b>5+</b>
-                <span>Years Experience</span>
-            </div>
-
+        <div class="btr-hero-stats">
+            <div><b>120+</b><span>Projects</span></div>
+            <div><b>60+</b><span>Clients</span></div>
+            <div><b>5+</b><span>Years</span></div>
         </div>
 
     </div>
 
 </section>
-<!-- ===== HERO END ===== -->
+
+
+  <!-- ===== HERO SECTION END ===== -->
 <!-- ===== Small Features Start ===== -->
 <section id="features" class="top-padding">
   <div class="bb ze ki yn 2xl:ud-px-12.5">
@@ -1036,6 +1198,54 @@ document.addEventListener("DOMContentLoaded", function(){
     </section>
 
     <!-- ===== CTA End ===== -->
+
+    <!-- JS -->
+<script>
+
+  const btrTexts = [
+      "Scalable Web Apps",
+      "Enterprise Systems",
+      "Cloud Solutions",
+      "Digital Platforms"
+  ];
+  
+  let btrIndex = 0;
+  let btrChar = 0;
+  let btrDeleting = false;
+  
+  const btrTyping = document.querySelector(".btr-hero-typing");
+  
+  function btrType(){
+  
+      let current = btrTexts[btrIndex];
+  
+      if(btrDeleting){
+          btrChar--;
+      } else {
+          btrChar++;
+      }
+  
+      btrTyping.textContent = current.substring(0, btrChar);
+  
+      if(!btrDeleting && btrChar === current.length){
+          btrDeleting = true;
+          setTimeout(btrType, 1200);
+          return;
+      }
+  
+      if(btrDeleting && btrChar === 0){
+          btrDeleting = false;
+          btrIndex = (btrIndex + 1) % btrTexts.length;
+      }
+  
+      setTimeout(btrType, btrDeleting ? 60 : 100);
+  }
+  
+  btrType();
+  
+  </script>
+
+  
     <script>
       //  Pricing Table
       const setup = () => {
