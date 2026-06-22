@@ -7,92 +7,176 @@
 
 <style>
   /* ===== TERMS PAGE SCOPE ONLY ===== */
-  .btr-terms-wrapper {
-    background: #f5f7fb;
-    color: #333;
-    margin-top: 90px;
-  }
+  /* ===== WRAPPER ===== */
+.btr-terms-wrapper{
+    margin-top:90px;
+    font-family:"Inter", Arial, sans-serif;
+}
 
-  .btr-terms-banner {
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-      url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85') center/cover;
-    padding: 270px 20px;
-    text-align: center;
-    height: 600px;
-    color: #fff;
-  }
+/* ===== HERO ===== */
+.btr-terms-banner{
+    position:relative;
+    height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
 
-  .btr-terms-banner-title {
-    font-size: 42px;
-    margin: 0;
-    font-weight: 700;
-  }
+/* BACKGROUND IMAGE */
+.btr-terms-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
 
-  .btr-terms-banner-text {
-    margin-top: 10px;
-    font-size: 15px;
-    opacity: 0.85;
-  }
+    background:
+      linear-gradient(120deg, rgba(10,12,18,0.85), rgba(10,12,18,0.55)),
+      url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80')
+      center center / cover no-repeat;
+}
 
-  .btr-terms-container {
-    max-width: 1100px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 45px;
-    border-radius: 14px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
-  }
+/* DEPTH OVERLAY */
+.btr-terms-banner::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(
+      circle at center,
+      rgba(0,0,0,0.2),
+      rgba(0,0,0,0.75)
+    );
+}
 
-  .btr-terms-highlight {
-    background: #eef3ff;
-    padding: 18px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    font-size: 14px;
-  }
+.btr-terms-banner-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    padding:20px;
+}
 
-  .btr-terms-section-title {
-    font-size: 20px;
-    margin-top: 28px;
-    color: #111;
-    border-left: 4px solid #25ebd1;
-    padding-left: 10px;
-  }
+.btr-terms-banner-title{
+    font-size:54px;
+    font-weight:800;
+    color:#fff;
+    letter-spacing:-1px;
+    margin-bottom:10px;
+}
 
-  .btr-terms-text {
-    font-size: 15px;
-    line-height: 1.9;
-    margin-top: 10px;
-    color: #444;
-  }
+.btr-terms-banner-text{
+    font-size:16px;
+    color:rgba(255,255,255,0.8);
+}
 
-  .btr-terms-list {
-    margin-top: 10px;
-    padding-left: 20px;
-  }
+/* ===== FLOATING GLASS CARD ===== */
+.btr-terms-container{
+    max-width:1050px;
+    margin:-70px auto 60px;
+    padding:60px;
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    box-shadow:0 30px 80px rgba(0, 0, 0, 0.63);
+    border:1px solid rgba(255,255,255,0.4);
 
-  .btr-terms-list li {
-    margin-bottom: 8px;
-    line-height: 1.7;
-  }
+    position:relative;
+    z-index:10;
+}
 
-  .btr-terms-footer {
-    margin-top: 35px;
-    font-size: 13px;
-    color: #777;
-    text-align: center;
-  }
+/* HIGHLIGHT */
+.btr-terms-highlight{
+    background:linear-gradient(
+      135deg,
+      rgba(14,186,177,0.08),
+      rgba(14,186,177,0.02)
+    );
+
+    border-left:5px solid #0ebab1;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:35px;
+    font-size:14px;
+    color:#333;
+}
+
+/* SECTION TITLE */
+.btr-terms-section-title{
+    font-size:18px;
+    font-weight:700;
+    margin-top:30px;
+    margin-bottom:10px;
+    color:#111;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    border:none;
+    padding-left:0;
+}
+
+.btr-terms-section-title::before{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#0ebab1;
+}
+
+/* TEXT */
+.btr-terms-text{
+    font-size:15px;
+    line-height:1.9;
+    color:#555;
+}
+
+/* LIST */
+.btr-terms-list{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+.btr-terms-list li{
+    margin-bottom:10px;
+    color:#555;
+    line-height:1.8;
+}
+
+/* FOOTER */
+.btr-terms-footer{
+    text-align:center;
+    margin-top:50px;
+    font-size:13px;
+    color:#888;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .btr-terms-banner-title{
+        font-size:34px;
+    }
+
+    .btr-terms-container{
+        padding:25px;
+        margin:-50px 15px 40px;
+    }
+}
 </style>
 
 <div class="btr-terms-wrapper">
 
   <!-- Banner -->
   <div class="btr-terms-banner">
-    <h1 class="btr-terms-banner-title">Terms & Conditions</h1>
-    <p class="btr-terms-banner-text">
-      Please read these terms carefully before using BTR services
-    </p>
-  </div>
+    <div class="btr-terms-banner-content">
+        <h1 class="btr-terms-banner-title">
+            Terms & Conditions
+        </h1>
+
+        <p class="btr-terms-banner-text">
+            Clear, Transparent & Enterprise-Grade Service Terms
+        </p>
+    </div>
+</div>
 
   <!-- Content -->
   <div class="btr-terms-container">

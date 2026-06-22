@@ -1,253 +1,428 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Faqs - BTR Solution{% endblock %}
+{% block title %}FAQs - BTR Solutions{% endblock %}
+
 {% block content %}
 
 <style>
-body{
-  background:#f5f7fb;
-  font-family:system-ui, sans-serif;
+
+/* =========================
+   FAQ PAGE - ENTERPRISE UI
+========================= */
+
+.faq-page{
+    margin-top:90px;
+    font-family:"Inter", Arial, sans-serif;
 }
 
-/* HERO */
+/* HERO SECTION */
+
 .faq-hero{
-  height:320px;
-  background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
-  center/cover no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  height: 600px !important;
+    position:relative;
+    height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.faq-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(10,12,18,.88),
+            rgba(10,12,18,.55)
+        ),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80')
+        center center / cover no-repeat;
 }
 
 .faq-hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.75)
+        );
 }
 
-.faq-hero h1{
-  position:relative;
-  font-size:42px;
-  font-weight:700;
+.faq-hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    padding:20px;
 }
 
-/* WRAPPER */
+.faq-hero-content h1{
+    color:#fff;
+    font-size:54px;
+    font-weight:800;
+    letter-spacing:-1px;
+    margin-bottom:15px;
+}
+
+.faq-hero-content p{
+    color:rgba(255,255,255,.85);
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* MAIN WRAPPER */
+
 .faq-wrapper{
-  max-width:1200px;
-  margin:-60px auto 60px;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap:25px;
+    max-width:1200px;
+    margin:-40px auto 60px;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:1.5fr .5fr;
+    gap:25px;
+
+    position:relative;
+    z-index:10;
 }
 
-/* FAQ BOX */
+/* FAQ CARD */
+
 .faq-box{
-  background:#fff;
-  border-radius:16px;
-  padding:25px;
-  margin-top:100px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    backdrop-filter:blur(12px);
+
+    border-radius:22px;
+    padding:35px;
+
+    box-shadow:0 30px 80px rgba(0, 0, 0, 0.64);
+    border:1px solid rgba(255,255,255,.4);
 }
 
-/* ITEM */
+/* TOP NOTICE */
+
+.faq-highlight{
+    background:linear-gradient(
+        135deg,
+        rgba(14,186,177,.08),
+        rgba(14,186,177,.02)
+    );
+
+    border-left:5px solid #0ebab1;
+    border-radius:14px;
+
+    padding:18px 20px;
+    margin-bottom:30px;
+
+    font-size:14px;
+    color:#333;
+}
+
+/* FAQ ITEM */
+
 .faq-item{
-  border-bottom:1px solid #eee;
+    border-bottom:1px solid #edf1f7;
 }
 
 .faq-question{
-  padding:18px 10px;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight:600;
-  transition:0.3s;
+    padding:22px 10px;
+    cursor:pointer;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:16px;
+    font-weight:600;
+    color:#111;
+
+    transition:.3s;
 }
 
 .faq-question:hover{
-  color:#0be1cd;
+    color:#0ebab1;
 }
+
+/* ICON */
 
 .icon{
-  transition:0.3s;
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:rgba(14,186,177,.08);
+    color:#0ebab1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    transition:.35s;
 }
 
+/* ANSWER */
+
 .faq-answer{
-  max-height:0;
-  overflow:hidden;
-  padding:0 10px;
-  color:#666;
-  line-height:1.7;
-  transition:0.35s ease;
+    max-height:0;
+    overflow:hidden;
+
+    padding:0 10px;
+
+    color:#555;
+    line-height:1.9;
+    transition:.4s ease;
 }
 
 .faq-item.active .faq-answer{
-  max-height:220px;
-  padding:0 10px 18px;
+    max-height:250px;
+    padding:0 10px 20px;
 }
 
 .faq-item.active .icon{
-  transform:rotate(45deg);
-  color:#2563eb;
+    transform:rotate(45deg);
+    background:#0ebab1;
+    color:#fff;
 }
 
-/* CONTACT BOX */
+/* CTA CARD */
+
 .cta-box{
-  background:#fff;
-  border-radius:16px;
-  padding:25px;
-  margin-top:100px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.08);
-  height:fit-content;
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+
+    color:black;
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 30px 80px rgba(0, 0, 0, 0.64);
+    border:1px solid rgba(255,255,255,.4);
+
+    height:fit-content;
 }
 
 .cta-box h2{
-  margin-bottom:10px;
-  font-size:20px;
+    font-size:24px;
+    margin-bottom:12px;
 }
 
 .cta-box p{
-  color:#666;
-  margin-bottom:15px;
-  line-height:1.6;
+    color:rgba(26, 25, 25, 0.91);
+    line-height:1.8;
+    margin-bottom:20px;
 }
 
 .cta-box a{
-  display:inline-block;
-  width:100%;
-  text-align:center;
-  padding:12px;
-  background:#0be1cd;
-  color:#696969;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
+    display:block;
+    text-align:center;
+
+    padding:14px;
+
+    background:#0ebab1;
+    color:#fff;
+
+    text-decoration:none;
+    border-radius:12px;
+
+    font-weight:600;
+    transition:.3s;
 }
 
 .cta-box a:hover{
-    color:#0be1cd;
-  background:#696969;
+    background:#fff;
+    color:#0ebab1;
+    border-radius: 12px;
+    border: 1px solid #0ebab1;
 }
 
 /* RESPONSIVE */
+
 @media(max-width:900px){
-  .faq-wrapper{
-    grid-template-columns:1fr;
-  }
+
+    .faq-wrapper{
+        grid-template-columns:1fr;
+        margin:-50px auto 40px;
+    }
+
+    .faq-hero-content h1{
+        font-size:36px;
+    }
+
+    .faq-box,
+    .cta-box{
+        padding:25px;
+    }
 }
+
 </style>
 
+<div class="faq-page">
+
+```
 <!-- HERO -->
+
 <section class="faq-hero">
-  <h1>Frequently Asked Questions</h1>
+    <div class="faq-hero-content">
+
+        <h1>Frequently Asked Questions</h1>
+
+        <p>
+            Find answers to common questions about our software development,
+            web applications, mobile solutions, project delivery process,
+            and long-term support services.
+        </p>
+
+    </div>
 </section>
 
 <!-- CONTENT -->
+
 <section class="faq-wrapper">
 
-  <!-- FAQ -->
-  <div class="faq-box">
+    <!-- FAQ CARD -->
 
-    <div class="faq-item">
-      <div class="faq-question">What services does BTR Solutions provide? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        We provide end-to-end digital solutions including web development, mobile apps, UI/UX design, DevOps, and cloud-based systems tailored for startups and enterprises.
-      </div>
+    <div class="faq-box">
+
+        <div class="faq-highlight">
+            Our team is committed to delivering scalable, secure, and enterprise-grade digital solutions for businesses worldwide.
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question">
+                What services does BTR Solutions provide?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                We provide web development, mobile app development, UI/UX design, cloud solutions, DevOps services, enterprise software development, and digital transformation consulting.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you build custom software solutions?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Yes. Every solution is tailored to business requirements, workflows, scalability goals, and long-term growth strategies.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How long does a project usually take?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Project timelines depend on complexity. Small projects typically take a few weeks, while enterprise platforms may require several months.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you provide post-launch support?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Yes. We offer maintenance, monitoring, upgrades, security updates, performance optimization, and dedicated support packages.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Which technologies do you use?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                We work with Django, Laravel, React, Next.js, Flutter, Node.js, PostgreSQL, Docker, AWS, and modern cloud-native technologies.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Can you redesign existing websites?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Absolutely. We modernize outdated websites with improved UI/UX, better performance, enhanced security, and responsive layouts.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you work with startups?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Yes. We help startups build MVPs, validate ideas, launch products, and scale into enterprise-ready platforms.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I start a project with BTR Solutions?
+                <span class="icon">+</span>
+            </div>
+
+            <div class="faq-answer">
+                Simply contact our team, share your requirements, and we will schedule a consultation to discuss the best solution for your business.
+            </div>
+        </div>
+
     </div>
 
-    <div class="faq-item">
-      <div class="faq-question">Do you build custom software solutions? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Yes, we specialize in fully custom software development based on business requirements, workflows, and scalability needs.
-      </div>
+    <!-- CTA -->
+
+    <div class="cta-box">
+
+        <h2>Still Have Questions?</h2>
+
+        <p>
+            Can't find the answer you're looking for? Contact our experts and we'll respond within 24 hours.
+        </p>
+
+        <a href="{% url 'contact_us' %}">
+            Contact Our Team
+        </a>
+
     </div>
-
-    <div class="faq-item">
-      <div class="faq-question">How long does a project usually take? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Depending on complexity, small projects take 1–3 weeks while large enterprise systems may take 1–3 months or more.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Do you provide post-launch support? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Yes, we offer maintenance, bug fixing, updates, and long-term technical support packages.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Which technologies do you use? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        We use modern stacks like Django, Laravel, React, Node.js, Flutter, AWS, and Docker-based cloud deployments.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Can you redesign existing websites? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Yes, we modernize outdated websites with improved UI/UX, performance optimization, and mobile responsiveness.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Do you work with startups? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Absolutely. We help startups build MVPs, validate ideas, and scale into full production systems.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Is your team remote or onsite? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        We operate in a hybrid model with remote and onsite collaboration depending on project requirements.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Do you offer UI/UX design services? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        Yes, we design modern, user-centric interfaces using Figma and industry-standard design systems.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">How can I start a project with you? <span class="icon">+</span></div>
-      <div class="faq-answer">
-        You can contact us via the contact page, share your requirements, and our team will get back within 24 hours.
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-box">
-    <h2>Still Have Questions?</h2>
-    <p>
-      If your question is not listed above, feel free to contact our team. We usually respond within 24 hours.
-    </p>
-    <a href="{% url 'contact_us' %}">Go to Contact Page</a>
-  </div>
 
 </section>
+```
 
-<!-- JS -->
+</div>
+
 <script>
-document.querySelectorAll(".faq-item").forEach(item=>{
-  item.addEventListener("click", ()=>{
-    document.querySelectorAll(".faq-item").forEach(el=>{
-      if(el !== item) el.classList.remove("active");
+
+document.querySelectorAll(".faq-item").forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        document.querySelectorAll(".faq-item").forEach(el => {
+
+            if(el !== item){
+                el.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
     });
-    item.classList.toggle("active");
-  });
+
 });
+
 </script>
 
 {% endblock %}

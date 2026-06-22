@@ -4,137 +4,211 @@
 {% block title %}BTR - Privacy Policy{% endblock %}
 
 {% block content %}
-
 <style>
-  .btr-privacy-wrapper {
-    background: #f4f6fb;
-    margin-top: 90px;
-  }
 
-  /* SOFTWARE STYLE BANNER */
-  .btr-privacy-banner {
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-      url('https://images.unsplash.com/photo-1551434678-e076c223a692') center/cover no-repeat;
-    padding: 270px 20px;
-    text-align: center;
-    color: #fff;
-    height: 600px !important;
+  /* ===== WRAPPER ===== */
+  .btr-privacy-wrapper{
+      margin-top: 90px;
+      font-family: "Inter", Arial, sans-serif;
   }
-
-  .btr-privacy-title {
-    font-size: 44px;
-    font-weight: 700;
-    margin: 0;
+  
+  /* ===== HERO ===== */
+  .btr-privacy-banner{
+      position: relative;
+      height: 60vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
   }
-
-  .btr-privacy-subtitle {
-    margin-top: 10px;
-    font-size: 15px;
-    opacity: 0.85;
+  
+  /* IMAGE FIX (CENTER PERFECT + NO CUT ISSUE) */
+  .btr-privacy-banner::before{
+      content:"";
+      position:absolute;
+      inset:0;
+  
+      background:
+          linear-gradient(120deg, rgba(10,12,18,0.85), rgba(10,12,18,0.55)),
+          url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80')
+          center center / cover no-repeat;
+  
+      /* IMPORTANT FIX */
+      background-position: center;
+      background-size: cover;
+      transform: none; /* ❌ remove zoom issue */
   }
-
-  .btr-privacy-container {
-    max-width: 1100px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 45px;
-    border-radius: 14px;
-    box-shadow: 0 10px 35px rgba(73, 71, 71, 0.06);
+  
+  /* DARK OVERLAY DEPTH */
+  .btr-privacy-banner::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(
+          circle at center,
+          rgba(0,0,0,0.2),
+          rgba(0,0,0,0.75)
+      );
   }
-
-  .btr-privacy-section-title {
-    font-size: 20px;
-    margin-top: 28px;
-    border-left: 4px solid #0be8ec;
-    padding-left: 10px;
-    color: #111;
+  
+  /* HERO CONTENT */
+  .btr-privacy-banner-content{
+      position:relative;
+      z-index:2;
+      max-width:800px;
+      padding: 20px;
   }
-
-  .btr-privacy-text {
-    font-size: 15px;
-    line-height: 1.9;
-    margin-top: 10px;
-    color: #444;
+  
+  .btr-privacy-title{
+      font-size:54px;
+      font-weight:800;
+      color:#fff;
+      letter-spacing:-1px;
   }
-
-  .btr-privacy-highlight {
-    background: #eef2ff;
-    padding: 18px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border-left: 4px solid #04e6d3;
+  
+  .btr-privacy-subtitle{
+      font-size:16px;
+      color:rgba(255,255,255,0.8);
+      margin-top:10px;
   }
-
-  .btr-privacy-footer {
-    text-align: center;
-    font-size: 13px;
-    color: #777;
-    margin-top: 35px;
+  
+  /* ===== MAIN CARD (GLASS ENTERPRISE STYLE) ===== */
+  .btr-privacy-container{
+      max-width: 1050px;
+      margin: -70px auto 60px;
+      padding: 60px;
+  
+      backdrop-filter: blur(12px);
+  
+      border-radius: 22px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.62);
+  
+      border: 1px solid rgba(255,255,255,0.4);
   }
-</style>
-
+  
+  /* INFO BOX */
+  .btr-privacy-highlight{
+      border-left: 5px solid #00d4c7;
+      padding: 20px;
+      border-radius: 14px;
+      font-size:14px;
+      color:#333;
+      margin-bottom: 35px;
+  }
+  
+  /* SECTION TITLE */
+  .btr-privacy-section-title{
+      font-size:18px;
+      font-weight:700;
+      margin-top:30px;
+      margin-bottom:10px;
+      color: #111;
+      display:flex;
+      align-items:center;
+      gap:10px;
+  }
+  
+  .btr-privacy-section-title::before{
+      content:"";
+      width:10px;
+      height:10px;
+      background: #0ebab1;
+      border-radius:50%;
+  }
+  
+  /* TEXT */
+  .btr-privacy-text{
+      font-size:15px;
+      line-height:1.9;
+      color:#555;
+  }
+  
+  /* FOOTER */
+  .btr-privacy-footer{
+      text-align:center;
+      margin-top:50px;
+      font-size:13px;
+      color:#888;
+  }
+  
+  /* RESPONSIVE */
+  @media(max-width:768px){
+      .btr-privacy-title{
+          font-size:34px;
+      }
+  
+      .btr-privacy-container{
+          padding:25px;
+          margin: -50px 15px 40px;
+      }
+  }
+  
+  </style>
 <div class="btr-privacy-wrapper">
 
-  <!-- Banner -->
-  <div class="btr-privacy-banner">
-    <h1 class="btr-privacy-title">Privacy Policy</h1>
-    <p class="btr-privacy-subtitle">
-      Secure & Transparent Data Protection for Our Software Users
-    </p>
-  </div>
-
-  <!-- Content -->
-  <div class="btr-privacy-container">
-
-    <div class="btr-privacy-highlight">
-      We use industry-standard security practices to protect your data and ensure full transparency.
+    <!-- HERO -->
+    <div class="btr-privacy-banner">
+        <div class="btr-privacy-banner-content">
+            <h1 class="btr-privacy-title">Privacy Policy</h1>
+            <p class="btr-privacy-subtitle">
+                Transparent, Secure & Enterprise-Grade Data Protection Standards
+            </p>
+        </div>
     </div>
 
-    <h2 class="btr-privacy-section-title">1. Information We Collect</h2>
-    <p class="btr-privacy-text">
-      We collect information such as name, email, usage activity, and system logs to improve our software performance and user experience.
-    </p>
+    <!-- CONTENT -->
+    <div class="btr-privacy-container">
 
-    <h2 class="btr-privacy-section-title">2. How We Use Data</h2>
-    <p class="btr-privacy-text">
-      Your data is used to operate our software, improve features, fix issues, and provide customer support.
-    </p>
+        <div class="btr-privacy-highlight">
+            We follow industry-leading security practices to ensure your data remains safe, encrypted, and fully protected at all times.
+        </div>
 
-    <h2 class="btr-privacy-section-title">3. Data Security</h2>
-    <p class="btr-privacy-text">
-      We use encryption, secure servers, and access control systems to protect your information from unauthorized access.
-    </p>
+        <h2 class="btr-privacy-section-title">Information We Collect</h2>
+        <p class="btr-privacy-text">
+            We may collect basic user information such as name, email, usage data, and system logs to improve performance and deliver better services.
+        </p>
 
-    <h2 class="btr-privacy-section-title">4. Cookies & Tracking</h2>
-    <p class="btr-privacy-text">
-      Cookies help us understand user behavior and improve application performance and UI experience.
-    </p>
+        <h2 class="btr-privacy-section-title">How We Use Your Data</h2>
+        <p class="btr-privacy-text">
+            Data is used to operate services, improve features, enhance security, and provide customer support across our platform.
+        </p>
 
-    <h2 class="btr-privacy-section-title">5. Third-Party Services</h2>
-    <p class="btr-privacy-text">
-      We may use trusted third-party tools like analytics or cloud services to improve functionality.
-    </p>
+        <h2 class="btr-privacy-section-title">Data Security</h2>
+        <p class="btr-privacy-text">
+            We implement encryption, secure servers, and strict access controls to protect your personal information from unauthorized access.
+        </p>
 
-    <h2 class="btr-privacy-section-title">6. User Rights</h2>
-    <p class="btr-privacy-text">
-      You can request access, update, or deletion of your data anytime by contacting support.
-    </p>
+        <h2 class="btr-privacy-section-title">Cookies & Tracking</h2>
+        <p class="btr-privacy-text">
+            Cookies help us analyze user behavior, improve system performance, and enhance overall user experience.
+        </p>
 
-    <h2 class="btr-privacy-section-title">7. Policy Updates</h2>
-    <p class="btr-privacy-text">
-      This policy may be updated periodically to reflect improvements in our software or legal requirements.
-    </p>
+        <h2 class="btr-privacy-section-title">Third-Party Services</h2>
+        <p class="btr-privacy-text">
+            We may use trusted third-party services for analytics, hosting, and performance optimization.
+        </p>
 
-    <h2 class="btr-privacy-section-title">8. Contact</h2>
-    <p class="btr-privacy-text">
-      For any concerns regarding privacy, contact our support team through official channels.
-    </p>
+        <h2 class="btr-privacy-section-title">Your Rights</h2>
+        <p class="btr-privacy-text">
+            You may request access, correction, or deletion of your personal data at any time by contacting our support team.
+        </p>
 
-    <div class="btr-privacy-footer">
-      © 2026 BTR Software Solutions. All Rights Reserved.
+        <h2 class="btr-privacy-section-title">Policy Updates</h2>
+        <p class="btr-privacy-text">
+            This policy may be updated periodically to reflect legal, technical, or business changes.
+        </p>
+
+        <h2 class="btr-privacy-section-title">Contact Us</h2>
+        <p class="btr-privacy-text">
+            For any privacy-related concerns, please contact our official support channels.
+        </p>
+
+        <div class="btr-privacy-footer">
+            © 2026 BTR Software Solutions. All Rights Reserved.
+        </div>
+
     </div>
-
-  </div>
 
 </div>
 
