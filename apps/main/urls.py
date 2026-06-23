@@ -20,6 +20,6 @@ urlpatterns = [
     path('product-development/', views.product_dev, name='product_dev'),
     path('dev-ops/', views.devops, name='dev_ops'),
     path('staff-augmentation/', views.staff_aug, name='staff_aug'),
-    path('about-us/leadership/', views.lead, name='leadership'),
+    path('about/leadership-&-team/', views.leadship, name='leadership-&-team'),
     path('coming-soon/', views.coming, name='coming')
 ]
