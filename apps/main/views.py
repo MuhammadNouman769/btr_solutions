@@ -5,8 +5,6 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home/index.html')
 
-def about_us(request):
-    return render(request, 'home/about_us.html')
 
 def contact(request):
     return render(request, 'home/contact-us.html')
@@ -56,8 +54,6 @@ def devops(request):
 def staff_aug(request):
     return render(request, 'services/staff-aug.html')
 
-def leadship(request):
-    return render(request, 'about/leader-ship.html')
 
 def coming(request):
     return render(request, 'coming-soon.html')

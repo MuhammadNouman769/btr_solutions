@@ -51,6 +51,17 @@ body {
     color: #000000;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
+#who-we-are,
+#our-mission,
+#our-vision,
+#leadership-team{
+    scroll-margin-top:120px;
+}
+
 /* ===================== WHO WE ARE ===================== */
 .btrwho-section {
     padding: 180px 4%;
@@ -335,84 +346,122 @@ body {
 }
 
 /* ===================== TEAM ===================== */
-.btrlx-team { padding: 80px 8%; }
-.btrlx-team-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
+
+.btrlx-team{
+    padding:80px 12%;
+    overflow:hidden;
 }
-.btrlx-team-top h2 {
-    font-size: 50px;
-    font-weight: 800;
-    color: #000000;
+
+.btrlx-team-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
 }
-.btrlx-arrows { display: flex; gap: 15px; }
-.btrlx-arrow {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    border: 2px solid #0ebab1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #0ebab1;
-    transition: .3s;
+
+.btrlx-team-top h2{
+    font-size:50px;
+    font-weight:800;
+    color:#000;
 }
-.btrlx-arrow:hover {
-    background: #0ebab1;
-    color: #fff;
+
+.btrlx-arrows{
+    display:flex;
+    gap:15px;
 }
-.btrlx-slider {
-    display: flex;
-    gap: 40px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 40px 26vw;
-    scroll-snap-type: x mandatory;
+
+.btrlx-arrow{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:2px solid #0ebab1;
+    background:#fff;
+    color:#0ebab1;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
-.btrlx-slider::-webkit-scrollbar { display: none; }
-.btrlx-card { min-width: 340px; }
-.btrlx-image {
-    height: 300px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
+
+.btrlx-arrow:hover{
+    background:#0ebab1;
+    color:#fff;
 }
-.btrlx-image img {
-    max-height: 100%;
-    width: auto;
-    object-fit: contain;
+
+.btrlx-slider{
+    display:flex;
+    flex-wrap:nowrap;
+    gap:40px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
 }
-.btrlx-info h3 {
-    font-size: 30px;
-    font-weight: 800;
-    padding-top: 10px;
-    margin-left: 35px;
-    color: #000000;
+
+.btrlx-slider::-webkit-scrollbar{
+    display:none;
 }
-.btrlx-info h3 span { color: #0ebab1; }
-.btrlx-info p {
-    margin-top: 12px;
-    font-size: 20px;
-    margin-left: 35px;
-    color: #000000;
+
+.btrlx-card{
+    flex:0 0 340px;
+    min-width:340px;
 }
-.btrlx-link {
-    margin-top: 15px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    background: #111827;
-    color: #fff;
-    margin-left: 35px;
-    text-decoration: none;
+
+.btrlx-image{
+    height:300px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:hidden;
 }
-.btrlx-link:hover { background: #12c6c8; }
+
+.btrlx-image img{
+    max-height:100%;
+    width:auto;
+    object-fit:contain;
+}
+
+.btrlx-info h3{
+    font-size:30px;
+    font-weight:800;
+    margin-top:10px;
+    color:#000;
+    margin-left:22px;
+}
+
+.btrlx-info h3 span{
+    color:#0ebab1;
+}
+
+.btrlx-info p{
+    margin-top:12px;
+    font-size:18px;
+    color:#000;
+    margin-left:22px;
+}
+
+.btrlx-link{
+    margin-top:15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius:8px;
+    background:#111827;
+    color:#fff;
+    text-decoration:none;
+    margin-left:22px;
+}
+
+.btrlx-link:hover{
+    background:#0ebab1;
+}
 
 /* ===================== VALUES ===================== */
 .btrlx-values {
@@ -480,7 +529,7 @@ body {
 </section>
 
 <!-- WHO WE ARE -->
-<section class="btrwho-section">
+<section id="who-we-are" class="btrwho-section">
     <div class="btrwho-left">
         <span class="btrwho-tag">WHO WE ARE</span>
         <h2>Building Digital Excellence Through Innovation & Technology</h2>
@@ -571,7 +620,7 @@ body {
 </section>
 
 <!-- OUR MISSION -->
-<section class="btrx-choose-section">
+<section id="our-mission" class="btrx-choose-section">
     <div class="btrx-choose-left">
         <span class="btrx-choose-tag">OUR MISSION</span>
         <h2>Driving <span>Digital Innovation</span> for Modern Businesses</h2>
@@ -615,7 +664,7 @@ body {
 </section>
 
 <!-- OUR VISION -->
-<section class="vision-section">
+<section id="our-vision" class="vision-section">
     <div class="vision-left">
         <div class="vision-column move-up">
             <div class="vision-card"><img src="{% static 'images/about/why-choose-us/1.jpeg' %}" alt=""></div>
@@ -656,47 +705,38 @@ body {
 </section>
 
 <!-- TEAM -->
-<section class="btrlx-team">
+<section id="leadership-team" class="btrlx-team">
     <div class="btrlx-team-top">
         <h2>BTR Leadership & Team</h2>
         <div class="btrlx-arrows">
-            <div class="btrlx-arrow" onclick="slideLeft()"><i class="fas fa-arrow-left"></i></div>
-            <div class="btrlx-arrow" onclick="slideRight()"><i class="fas fa-arrow-right"></i></div>
+            <button class="btrlx-arrow" id="leftBtn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="btrlx-arrow" id="rightBtn">
+                <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
     <div class="btrlx-slider" id="btrlxSlider">
+        {% for team in teams %}
         <div class="btrlx-card">
-            <div class="btrlx-image"><img src="{% static 'images/leadership/Ceo.png' %}" alt=""></div>
+            <div class="btrlx-image">
+                {% if team.image %}
+                <img src="{{ team.image.url }}" alt="{{ team.first_name }}">
+                {% endif %}
+            </div>
             <div class="btrlx-info">
-                <h3>Muhammad <span>Nouman</span></h3>
-                <p>Founder & CEO</p>
-                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
+                <h3>
+                    {{ team.first_name }}
+                    <span>{{ team.last_name }}</span>
+                </h3>
+                <p>{{ team.designation }}</p>
+                <a href="{{ team.linkedin_link }}" class="btrlx-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
         </div>
-        <div class="btrlx-card">
-            <div class="btrlx-image"><img src="{% static 'images/leadership/Usama.png' %}" alt=""></div>
-            <div class="btrlx-info">
-                <h3>Usama <span>Shafaqat</span></h3>
-                <p>Senior Software Engineer Lead</p>
-                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="btrlx-card">
-            <div class="btrlx-image"><img src="{% static 'images/leadership/Bilal.png' %}" alt=""></div>
-            <div class="btrlx-info">
-                <h3>Bilal <span>Mushtaq</span></h3>
-                <p>Junior Frontend Developer</p>
-                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="btrlx-card">
-            <div class="btrlx-image"><img src="{% static 'images/leadership/zeeshan.png' %}" alt=""></div>
-            <div class="btrlx-info">
-                <h3>Zeeshan <span>Usmani</span></h3>
-                <p>Junior Backend Developer</p>
-                <a href="#" class="btrlx-link"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 
@@ -725,20 +765,32 @@ body {
 
 <!-- ==================== JAVASCRIPT ==================== -->
 <script>
-const slider = document.getElementById("btrlxSlider");
-
-function slideRight() {
-    slider.scrollBy({ left: 380, behavior: 'smooth' });
-}
-function slideLeft() {
-    slider.scrollBy({ left: -380, behavior: 'smooth' });
-}
-
-// Hover effect for floating cards
-document.querySelectorAll('.btrx-card, .vision-card').forEach(card => {
-    card.addEventListener('mouseenter', () => card.style.zIndex = '10');
-    card.addEventListener('mouseleave', () => card.style.zIndex = '1');
-});
-</script>
-
+    document.addEventListener("DOMContentLoaded", function(){
+    
+        const slider = document.getElementById("btrlxSlider");
+        const leftBtn = document.getElementById("leftBtn");
+        const rightBtn = document.getElementById("rightBtn");
+    
+        if (!slider) return;
+    
+        rightBtn.addEventListener("click", function () {
+    
+            slider.scrollBy({
+                left: 380,
+                behavior: "smooth"
+            });
+    
+        });
+    
+        leftBtn.addEventListener("click", function () {
+    
+            slider.scrollBy({
+                left: -380,
+                behavior: "smooth"
+            });
+    
+        });
+    
+    });
+    </script>
 {% endblock %}
