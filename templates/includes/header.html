@@ -39,46 +39,76 @@
 }
 
 /* ================= NAV ================= */
-.btr-nav {
-  display: flex;
-  align-items: center;
+
+.btr-nav{
+    display:flex;
+    align-items:center;
 }
 
-.btr-nav__list {
-  display: flex;
-  gap: 26px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+.btr-nav__list{
+    display:flex;
+    gap:26px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    align-items:center;
 }
 
-.btr-nav__link {
-  font-size: 15px;
-  font-weight: 700!important;
-  color: #1f2937;
-  text-decoration: none;
-  position: relative;
-  transition: 0.25s ease;
+.btr-nav__link{
+    position:relative;
+    display:inline-block;
+    padding:8px 0;
+
+    font-size:15px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    font-variant:petite-caps;
+
+    color: #1f2937;
+    text-decoration:none;
+
+    transition:.3s;
 }
 
-.btr-nav__link:hover {
-  color: #00c2b2;
+.btr-nav__link:hover{
+    color:#0ebab1;
 }
 
-.btr-nav__link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: #00c2b2;
-  transition: 0.25s ease;
+/* Active Link */
+
+.btr-nav__link.active{
+    color:#0ebab1;
 }
 
-.btr-nav__link:hover::after {
-  width: 100%;
+/* Underline */
+
+.btr-nav__link::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-8px;
+
+    width:0;
+    height:3px;
+
+    background:#14c8c9;
+    border-radius:50px;
+
+    transform:translateX(-50%);
+    transition:.3s;
+}
+
+/* Hover */
+
+.btr-nav__link:hover::after{
+    width:100%;
+}
+
+/* Active */
+
+.btr-nav__link.active::after{
+    width:100%;
+    box-shadow:0 0 12px rgba(20,200,201,.45);
 }
 
 /* ================= DROPDOWN ================= */
@@ -120,7 +150,7 @@
 }
 
 .btr-dropdown__link:hover {
-  color: #00c2b2;
+  color: #0ebab1;
   padding-left: 6px;
 }
 
@@ -640,10 +670,11 @@
     <nav class="btr-nav">
       <ul class="btr-nav__list">
 
-        <li><a class="btr-nav__link" href="{% url 'home' %}">Home</a></li>
+        <li><a class="btr-nav__link {% if request.resolver_match.url_name == 'home' %}active{% endif %}
+            " href="{% url 'home' %}">Home</a></li>
        <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link"">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
         About
     </a>
 
@@ -743,7 +774,7 @@
 
        <li class="btrx-mega-parent">
 
-<a class="btr-nav__link" href="#">
+<a class="btr-nav__link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="#">
 Services
 </a>
 
@@ -830,7 +861,7 @@ Get Free Consultation
 </li>
 <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="#!">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'solutions' %}active{% endif %}" href="#!">
         Solutions
     </a>
 
@@ -923,7 +954,7 @@ Get Free Consultation
 
 <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="#!">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'industries' %}active{% endif %}" href="#!">
         Industries
     </a>
 
@@ -1011,7 +1042,7 @@ Get Free Consultation
 
 <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="#!">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="#!">
         Our Products
     </a>
 
@@ -1104,7 +1135,7 @@ Get Free Consultation
 
         <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="{% url 'case_studies' %}">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'case_studies' %}">
         Case Studies
     </a>
 
@@ -1199,7 +1230,7 @@ Get Free Consultation
 </li>
         <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="{% url 'blog' %}">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="{% url 'blog' %}">
         Blogs
     </a>
 
@@ -1283,7 +1314,7 @@ Get Free Consultation
 </li>
         <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link" href="{% url 'contact_us' %}">
+    <a class="btr-nav__link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}" href="{% url 'contact_us' %}">
         Contact Us
     </a>
 
