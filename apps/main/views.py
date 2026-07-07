@@ -5,6 +5,8 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home/index.html')
 
+def why_choose_us(request):
+    return render(request, 'about/why-choose-us.html')
 
 def contact(request):
     return render(request, 'home/contact-us.html')
