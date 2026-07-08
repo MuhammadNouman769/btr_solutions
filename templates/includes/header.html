@@ -674,9 +674,10 @@
             " href="{% url 'home' %}">Home</a></li>
        <li class="btrx-mega-parent">
 
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
-        About
-    </a>
+        <a href="{% url 'about-us' %}"
+        class="btr-nav__link {% if request.resolver_match.url_name == 'about-us' or request.resolver_match.url_name == 'why_choose_us' %}active{% endif %}">
+         About
+     </a>
 
     <div class="btrx-mega-menu">
 
@@ -684,23 +685,62 @@
 
             <div class="btrx-mega-col">
                 <h4>Company</h4>
-
+            
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'about-us' %}#who-we-are">Who We Are</a></li>
-                    <li><a href="{% url 'about-us' %}#our-mission">Our Mission</a></li>
-                    <li><a href="{% url 'about-us' %}#our-vision">Our Vision</a></li>
-                    <li><a href="{% url 'about-us' %}#leadership-team">Leadership & Team</a></li>
+                    <li>
+                        <a href="{% url 'about-us' %}#who-we-are">
+                            Who We Are
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="{% url 'about-us' %}#our-mission">
+                            Our Mission
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="{% url 'about-us' %}#our-vision">
+                            Our Vision
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="{% url 'about-us' %}#leadership-team">
+                            Leadership & Team
+                        </a>
+                    </li>
                 </ul>
             </div>
-
+            
+            
             <div class="btrx-mega-col">
                 <h4>Why Choose Us</h4>
-
+            
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'why_choose_us' %}">Industry Expertise</a></li>
-                    <li><a href="{% url 'coming' %}">End-to-End Solutions</a></li>
-                    <li><a href="{% url 'coming' %}">Agile Delivery</a></li>
-                    <li><a href="{% url 'coming' %}">Global Standards</a></li>
+            
+                    
+                    <li>
+                        
+                        <a href="{% url 'why_choose_us' %}#industry-expertise">
+                            Industry Expertise
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'why_choose_us' %}#end-to-end-solutions">
+                            End-to-End Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'why_choose_us' %}#agile-delivery">
+                            Agile Delivery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'why_choose_us' %}#global-standards">
+                            Global Standards
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -787,6 +827,7 @@ Services
 
 <ul class="btrx-mega-links">
 <li><a href="{% url 'coming' %}">UI/UX Design</a></li>
+<li><a href="{% url 'web_dev' %}">Accessibility Services</a></li>
 <li><a href="{% url 'web_dev' %}">Backend Development</a></li>
 <li><a href="{% url 'web_dev' %}">Frontend Development</a></li>
 <li><a href="{% url 'product_dev' %}">Custom Software Development</a></li>
@@ -794,6 +835,7 @@ Services
 <li><a href="{% url 'product_dev' %}">MVP Development</a></li>
 <li><a href="{% url 'product_dev' %}">Enterprise Software Development</a></li>
 <li><a href="{% url 'sqa' %}">Software Testing</a></li>
+<li><a href="{% url 'web_dev' %}">Software Consulting</a></li>
 </ul>
 
 </div>
