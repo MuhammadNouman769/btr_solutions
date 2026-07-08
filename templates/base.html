@@ -6,226 +6,848 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BTR Solutions{% endblock %}</title>
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <style>
-
         /* =====================================
            BTR ENTERPRISE PREMIUM PRELOADER
         ===================================== */
 
-        #btrx-preloader{
-            position:fixed;
-            inset:0;
-            z-index:999999;
-            overflow:hidden;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            background:
-            radial-gradient(circle at top left,
-            rgba(14,186,177,.20),
-            transparent 35%),
-
-            radial-gradient(circle at bottom right,
-            rgba(121,128,138,.20),
-            transparent 35%),
-
-            linear-gradient(
-                135deg,
-                #0f172a 0%,
-                #111827 40%,
-                #1f2937 100%
-            );
-
-            transition:.8s ease;
+        #btrx-preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top left, rgba(14, 186, 177, .20), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(121, 128, 138, .20), transparent 35%),
+                linear-gradient(135deg, #0f172a 0%, #111827 40%, #1f2937 100%);
+            transition: .8s ease;
         }
 
-        #btrx-preloader.btrx-hide{
-            opacity:0;
-            visibility:hidden;
+        #btrx-preloader.btrx-hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
-        /* =====================
-           FLOATING SHAPES
-        ===================== */
-
-        .btrx-bg-shape{
-            position:absolute;
-            border-radius:50%;
-            filter:blur(100px);
-            animation:btrxFloat 10s infinite ease-in-out;
+        .btrx-bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: btrxFloat 10s infinite ease-in-out;
         }
 
-        .btrx-bg-shape-1{
-            width:380px;
-            height:380px;
-            background:#0ebab1;
-            top:-120px;
-            left:-120px;
-            opacity:.35;
+        .btrx-bg-shape-1 {
+            width: 380px;
+            height: 380px;
+            background: #0ebab1;
+            top: -120px;
+            left: -120px;
+            opacity: .35;
         }
 
-        .btrx-bg-shape-2{
-            width:320px;
-            height:320px;
-            background:#79808a;
-            bottom:-120px;
-            right:-120px;
-            opacity:.35;
-            animation-delay:2s;
+        .btrx-bg-shape-2 {
+            width: 320px;
+            height: 320px;
+            background: #79808a;
+            bottom: -120px;
+            right: -120px;
+            opacity: .35;
+            animation-delay: 2s;
         }
 
-        .btrx-bg-shape-3{
-            width:250px;
-            height:250px;
-            background:#0ebab1;
-            top:50%;
-            left:60%;
-            opacity:.18;
-            animation-delay:4s;
+        .btrx-bg-shape-3 {
+            width: 250px;
+            height: 250px;
+            background: #0ebab1;
+            top: 50%;
+            left: 60%;
+            opacity: .18;
+            animation-delay: 4s;
         }
 
-        @keyframes btrxFloat{
-
-            0%{
-                transform:translateY(0) scale(1);
+        @keyframes btrxFloat {
+            0% {
+                transform: translateY(0) scale(1);
             }
-
-            50%{
-                transform:translateY(-30px) scale(1.1);
+            50% {
+                transform: translateY(-30px) scale(1.1);
             }
-
-            100%{
-                transform:translateY(0) scale(1);
+            100% {
+                transform: translateY(0) scale(1);
             }
-
         }
 
-        /* =====================
-           LOADER
-        ===================== */
-
-        .btrx-loader{
-            position:relative;
-            width:200px;
-            height:200px;
+        .btrx-loader {
+            position: relative;
+            width: 200px;
+            height: 200px;
         }
 
-        .btrx-ring-one{
-            position:absolute;
-            inset:0;
-            border-radius:50%;
-            border:6px solid transparent;
-            border-top-color:#0ebab1;
-            border-right-color:#0ebab1;
-            animation:btrxRotate 1.4s linear infinite;
+        .btrx-ring-one {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 6px solid transparent;
+            border-top-color: #0ebab1;
+            border-right-color: #0ebab1;
+            animation: btrxRotate 1.4s linear infinite;
         }
 
-        .btrx-ring-two{
-            position:absolute;
-            inset:18px;
-            border-radius:50%;
-            border:6px solid transparent;
-            border-top-color:#79808a;
-            border-left-color:#79808a;
-            animation:btrxRotateReverse 2s linear infinite;
+        .btrx-ring-two {
+            position: absolute;
+            inset: 18px;
+            border-radius: 50%;
+            border: 6px solid transparent;
+            border-top-color: #79808a;
+            border-left-color: #79808a;
+            animation: btrxRotateReverse 2s linear infinite;
         }
 
-        .btrx-ring-three{
-            position:absolute;
-            inset:38px;
-            border-radius:50%;
-            border:4px solid rgba(255,255,255,.08);
-            animation:btrxPulse 2s infinite;
+        .btrx-ring-three {
+            position: absolute;
+            inset: 38px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, .08);
+            animation: btrxPulse 2s infinite;
         }
 
-        @keyframes btrxRotate{
-            from{transform:rotate(0deg);}
-            to{transform:rotate(360deg);}
-        }
-
-        @keyframes btrxRotateReverse{
-            from{transform:rotate(360deg);}
-            to{transform:rotate(0deg);}
-        }
-
-        @keyframes btrxPulse{
-
-            0%{
-                transform:scale(1);
+        @keyframes btrxRotate {
+            from {
+                transform: rotate(0deg);
             }
-
-            50%{
-                transform:scale(1.06);
+            to {
+                transform: rotate(360deg);
             }
+        }
 
-            100%{
-                transform:scale(1);
+        @keyframes btrxRotateReverse {
+            from {
+                transform: rotate(360deg);
             }
-
+            to {
+                transform: rotate(0deg);
+            }
         }
 
-        /* =====================
-           CENTER LOGO
-        ===================== */
-
-        .btrx-center{
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
-
-            width:95px;
-            height:95px;
-
-            border-radius:50%;
-
-            background:rgba(255,255,255,.08);
-
-            backdrop-filter:blur(12px);
-
-            border:1px solid rgba(255,255,255,.15);
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            box-shadow:
-            0 0 25px rgba(14,186,177,.35),
-            0 0 60px rgba(14,186,177,.15);
+        @keyframes btrxPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
-        .btrx-center img{
-            width:60px;
-            height:auto;
+        .btrx-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(14, 186, 177, .35), 0 0 60px rgba(14, 186, 177, .15);
         }
 
-        /* =====================
-           TEXT
-        ===================== */
-
-        .btrx-loading-text{
-            position:absolute;
-            top:235px;
-            left:50%;
-            transform:translateX(-50%);
-
-            color:#ffffff;
-            font-size:12px;
-            font-weight:600;
-            letter-spacing:3px;
-            text-transform:uppercase;
-            white-space:nowrap;
-
-            opacity:.85;
+        .btrx-center img {
+            width: 60px;
+            height: auto;
         }
 
+        .btrx-loading-text {
+            position: absolute;
+            top: 235px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: .85;
+        }
+
+        /* ==================================================
+           BTRX FLOATING CHAT - FIXED OPEN ISSUE
+           "Let's Talk Business" - Properly working
+        ================================================== */
+
+        .btrx-chat-widget {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        /* Chat Toggle Button - with "Let's Talk Business" text */
+        .btrx-chat-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px 12px 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #0ebab1, #07a59d);
+            color: #fff;
+            box-shadow: 0 15px 40px rgba(14, 186, 177, .4);
+            transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        .btrx-chat-toggle:hover {
+            transform: scale(1.04);
+            box-shadow: 0 20px 50px rgba(14, 186, 177, .5);
+        }
+
+        .btrx-chat-toggle .btrx-toggle-icon {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .4s ease;
+            width: 34px;
+            height: 34px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+        }
+
+        .btrx-chat-toggle .btrx-toggle-text {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .btrx-chat-toggle .btrx-toggle-sub {
+            font-size: 10px;
+            opacity: 0.8;
+            font-weight: 400;
+            display: block;
+            margin-top: -2px;
+        }
+
+        .btrx-chat-toggle.active .btrx-toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .btrx-chat-toggle.active {
+            background: linear-gradient(135deg, #1a2332, #2a3a52);
+        }
+
+        .btrx-chat-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 22px;
+            height: 22px;
+            background: #ff3b3b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            animation: btrxPulseBadge 2s infinite;
+            border: 2px solid #fff;
+        }
+
+        @keyframes btrxPulseBadge {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* Chat Box - Fixed Height with Scroll */
+        .btrx-chat-box {
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: 420px;
+            max-width: 94vw;
+            height: 580px;
+            max-height: 78vh;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .25);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(.95);
+            transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom right;
+            display: flex;
+            flex-direction: column;
+            pointer-events: none;
+        }
+
+        .btrx-chat-box.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Chat Header - Fixed */
+        .btrx-chat-header {
+            padding: 20px 24px 16px;
+            background: linear-gradient(135deg, #0a1628, #1a2a4a);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .btrx-chat-header::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(14, 186, 177, .08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .btrx-chat-header .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .btrx-chat-header .chat-status .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: inline-block;
+            animation: btrxDotPulse 1.5s infinite;
+        }
+
+        @keyframes btrxDotPulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .4;
+            }
+        }
+
+        .btrx-chat-header .chat-status span {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .btrx-chat-header h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btrx-chat-header h3 i {
+            color: #0ebab1;
+            margin-right: 6px;
+        }
+
+        .btrx-chat-header p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            opacity: .8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btrx-chat-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: rgba(255, 255, 255, .08);
+            border: none;
+            color: #94a3b8;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all .3s ease;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btrx-chat-close:hover {
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        /* Chat Body - Scrollable */
+        .btrx-chat-body {
+            padding: 16px 24px 20px;
+            background: #f8fafc;
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+        }
+
+        .btrx-chat-body::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .btrx-chat-body::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .btrx-chat-body::-webkit-scrollbar-thumb {
+            background: #0ebab1;
+            border-radius: 10px;
+        }
+
+        .btrx-chat-body::-webkit-scrollbar-thumb:hover {
+            background: #07a59d;
+        }
+
+        /* Scroll Indicator */
+        .btrx-chat-scroll-indicator {
+            text-align: center;
+            padding: 4px 0 8px;
+            font-size: 11px;
+            color: #94a3b8;
+            opacity: 0;
+            transition: opacity .3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btrx-chat-scroll-indicator.show {
+            opacity: 1;
+        }
+
+        .btrx-chat-scroll-indicator i {
+            color: #0ebab1;
+            font-size: 12px;
+            animation: btrxScrollBounce 1.5s infinite;
+        }
+
+        @keyframes btrxScrollBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(3px);
+            }
+        }
+
+        /* Form Groups - Compact */
+        .btrx-chat-form-group {
+            margin-bottom: 10px;
+        }
+
+        .btrx-chat-form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a2332;
+            margin-bottom: 3px;
+        }
+
+        .btrx-chat-form-group label .required {
+            color: #ef4444;
+        }
+
+        .btrx-chat-input,
+        .btrx-chat-textarea,
+        .btrx-chat-select {
+            width: 100%;
+            padding: 9px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            outline: none;
+            font-size: 13px;
+            transition: all .3s ease;
+            background: #ffffff;
+            color: #1a2332;
+            font-family: inherit;
+        }
+
+        .btrx-chat-input:focus,
+        .btrx-chat-textarea:focus,
+        .btrx-chat-select:focus {
+            border-color: #0ebab1;
+            box-shadow: 0 0 0 3px rgba(14, 186, 177, .08);
+        }
+
+        .btrx-chat-input::placeholder,
+        .btrx-chat-textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .btrx-chat-textarea {
+            height: 60px;
+            resize: vertical;
+            min-height: 50px;
+            max-height: 100px;
+        }
+
+        .btrx-chat-select {
+            appearance: auto;
+            cursor: pointer;
+            color: #1a2332;
+        }
+
+        .btrx-chat-select option {
+            color: #1a2332;
+        }
+
+        .btrx-chat-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btrx-chat-row .btrx-chat-form-group {
+            flex: 1;
+        }
+
+        /* Checkbox - Compact */
+        .btrx-chat-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0 12px;
+        }
+
+        .btrx-chat-checkbox input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #0ebab1;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .btrx-chat-checkbox label {
+            font-size: 12px;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .btrx-chat-checkbox label a {
+            color: #0ebab1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btrx-chat-checkbox label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Send Button - Compact */
+        .btrx-chat-send {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: linear-gradient(135deg, #0ebab1, #07a59d);
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all .3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(14, 186, 177, .25);
+        }
+
+        .btrx-chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 186, 177, .35);
+            background: linear-gradient(135deg, #09a59d, #068a83);
+        }
+
+        .btrx-chat-send:active {
+            transform: translateY(0);
+        }
+
+        .btrx-chat-send:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Chat Footer - Fixed */
+        .btrx-chat-footer {
+            padding: 10px 24px 14px;
+            background: #ffffff;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #94a3b8;
+            flex-shrink: 0;
+        }
+
+        .btrx-chat-footer .chat-security {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btrx-chat-footer .chat-security i {
+            color: #22c55e;
+            font-size: 12px;
+        }
+
+        .btrx-chat-footer .chat-response {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btrx-chat-footer .chat-response .avatars {
+            display: flex;
+        }
+
+        .btrx-chat-footer .chat-response .avatars span {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-left: -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .btrx-chat-footer .chat-response .avatars span:first-child {
+            margin-left: 0;
+        }
+
+        .btrx-chat-footer .chat-response .avatars span:nth-child(1) {
+            background: #0ebab1;
+        }
+        .btrx-chat-footer .chat-response .avatars span:nth-child(2) {
+            background: #f59e0b;
+        }
+        .btrx-chat-footer .chat-response .avatars span:nth-child(3) {
+            background: #3b82f6;
+        }
+
+        .btrx-chat-footer .chat-response .response-text {
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        /* Toast Notification */
+        .btrx-chat-toast {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: #1a2332;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-size: 13px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+            z-index: 99998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all .4s ease;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #0ebab1;
+        }
+
+        .btrx-chat-toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btrx-chat-toast .toast-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ebab1, #07a59d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .btrx-chat-toast .toast-content {
+            flex: 1;
+        }
+
+        .btrx-chat-toast .toast-content .toast-name {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .btrx-chat-toast .toast-content .toast-msg {
+            font-size: 11px;
+            opacity: .7;
+            margin-top: 1px;
+        }
+
+        .btrx-chat-toast .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, .3);
+            cursor: pointer;
+            font-size: 12px;
+            padding: 4px;
+        }
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media(max-width:768px) {
+            .btrx-chat-widget {
+                right: 16px;
+                bottom: 16px;
+            }
+            .btrx-chat-toggle {
+                padding: 10px 16px 10px 12px;
+                gap: 8px;
+            }
+            .btrx-chat-toggle .btrx-toggle-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            .btrx-chat-toggle .btrx-toggle-text {
+                font-size: 12px;
+            }
+            .btrx-chat-toggle .btrx-toggle-sub {
+                font-size: 9px;
+            }
+            .btrx-chat-box {
+                width: calc(100vw - 32px);
+                max-width: 400px;
+                height: 520px;
+                max-height: 75vh;
+                right: 0;
+                bottom: 78px;
+            }
+            .btrx-chat-header {
+                padding: 16px 18px 12px;
+            }
+            .btrx-chat-header h3 {
+                font-size: 17px;
+            }
+            .btrx-chat-body {
+                padding: 14px 18px 16px;
+            }
+            .btrx-chat-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .btrx-chat-footer {
+                flex-direction: column;
+                gap: 6px;
+                padding: 10px 18px 12px;
+                text-align: center;
+            }
+            .btrx-chat-toast {
+                right: 16px;
+                bottom: 85px;
+                max-width: calc(100vw - 32px);
+                padding: 10px 14px;
+            }
+            .btrx-chat-textarea {
+                height: 50px;
+                min-height: 40px;
+            }
+            .btrx-chat-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 9px;
+                top: -4px;
+                right: -4px;
+            }
+        }
+
+        @media(max-width:400px) {
+            .btrx-chat-toggle {
+                padding: 8px 12px 8px 10px;
+                gap: 6px;
+            }
+            .btrx-chat-toggle .btrx-toggle-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+            .btrx-chat-toggle .btrx-toggle-text {
+                font-size: 11px;
+            }
+            .btrx-chat-toggle .btrx-toggle-sub {
+                font-size: 8px;
+            }
+            .btrx-chat-box {
+                border-radius: 18px;
+                height: 460px;
+            }
+            .btrx-chat-header h3 {
+                font-size: 15px;
+            }
+            .btrx-chat-input,
+            .btrx-chat-textarea,
+            .btrx-chat-select {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            .btrx-chat-send {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .btrx-chat-form-group {
+                margin-bottom: 8px;
+            }
+        }
     </style>
 
 </head>
@@ -237,61 +859,430 @@
     ====================== -->
 
     <div id="btrx-preloader">
-
         <div class="btrx-bg-shape btrx-bg-shape-1"></div>
         <div class="btrx-bg-shape btrx-bg-shape-2"></div>
         <div class="btrx-bg-shape btrx-bg-shape-3"></div>
-
         <div class="btrx-loader">
-
             <div class="btrx-ring-one"></div>
-
             <div class="btrx-ring-two"></div>
-
             <div class="btrx-ring-three"></div>
-
             <div class="btrx-center">
-
-                <img src="{% static 'images/teams/logo-i.png' %}"
-                     alt="BTR Solutions">
-
+                <img src="{% static 'images/teams/logo-i.png' %}" alt="BTR Solutions">
             </div>
-
-            <div class="btrx-loading-text">
-                Transforming Digital Excellence
-            </div>
-
+            <div class="btrx-loading-text">Transforming Digital Excellence</div>
         </div>
-
     </div>
 
     <!-- HEADER -->
     {% include 'includes/header.html' %}
 
     <!-- CONTENT -->
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 
     <!-- FOOTER -->
     {% include 'includes/footer.html' %}
+
+    <!-- ==================================================
+         BTRX CHAT WIDGET - "Let's Talk Business"
+         FIXED: Properly working toggle with pointer-events
+    ================================================== -->
+
+    <div class="btrx-chat-widget">
+
+        <!-- Chat Box -->
+        <div class="btrx-chat-box" id="btrxChatBox">
+            <!-- Header -->
+            <div class="btrx-chat-header">
+                <div class="chat-status">
+                    <span class="dot"></span>
+                    <span>We're online</span>
+                </div>
+                <h3><i class="fas fa-handshake"></i> Let's Talk Business</h3>
+                <p>Fill in the details and our team will reach out to you.</p>
+                <button class="btrx-chat-close" id="btrxChatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Body - Scrollable -->
+            <div class="btrx-chat-body" id="btrxChatBody">
+                <!-- Scroll Indicator -->
+                <div class="btrx-chat-scroll-indicator" id="btrxScrollIndicator">
+                    <i class="fas fa-chevron-down"></i>
+                    Scroll for more
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <form id="btrxChatForm" novalidate>
+                    <div class="btrx-chat-row">
+                        <div class="btrx-chat-form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" class="btrx-chat-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="btrx-chat-form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" class="btrx-chat-input" placeholder="john@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="btrx-chat-form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="btrx-chat-input" placeholder="+1 (xxx) xxx-xxxx">
+                    </div>
+
+                    <div class="btrx-chat-form-group">
+                        <label>Service</label>
+                        <select class="btrx-chat-select">
+                            <option value="">Select a service...</option>
+                            <option value="web">Web Development</option>
+                            <option value="mobile">Mobile App Development</option>
+                            <option value="ai">AI & ML Solutions</option>
+                            <option value="cloud">Cloud Services</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="consulting">IT Consulting</option>
+                            <option value="devops">DevOps Services</option>
+                            <option value="data">Data Solutions</option>
+                        </select>
+                    </div>
+
+                    <div class="btrx-chat-form-group">
+                        <label>Budget Range</label>
+                        <select class="btrx-chat-select">
+                            <option value="">Select budget...</option>
+                            <option value="<5k">Less than $5,000</option>
+                            <option value="5-10k">$5,000 - $10,000</option>
+                            <option value="10-25k">$10,000 - $25,000</option>
+                            <option value="25-50k">$25,000 - $50,000</option>
+                            <option value="50-100k">$50,000 - $100,000</option>
+                            <option value="100k+">$100,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="btrx-chat-form-group">
+                        <label>Message <span class="required">*</span></label>
+                        <textarea class="btrx-chat-textarea" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+
+                    <div class="btrx-chat-checkbox">
+                        <input type="checkbox" id="btrxChatConsent" checked>
+                        <label for="btrxChatConsent">
+                            I agree to the <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btrx-chat-send">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="btrx-chat-footer">
+                <div class="chat-security">
+                    <i class="fas fa-lock"></i> Encrypted
+                </div>
+                <div class="chat-response">
+                    <span class="response-text">Response in</span>
+                    <div class="avatars">
+                        <span>B</span>
+                        <span>T</span>
+                        <span>R</span>
+                    </div>
+                    <span class="response-text">~2 mins</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button - "Let's Talk Business" -->
+        <button class="btrx-chat-toggle" id="btrxChatToggle" aria-label="Toggle chat">
+            <span class="btrx-toggle-icon">
+                <i class="fas fa-comment-dots"></i>
+            </span>
+            <span class="btrx-toggle-text">
+                Let's Talk Business
+                <span class="btrx-toggle-sub">We're online</span>
+            </span>
+            <span class="btrx-chat-badge">1</span>
+        </button>
+
+    </div>
+
+    <!-- ==================================================
+         CHAT TOAST NOTIFICATION
+    ================================================== -->
+
+    <div class="btrx-chat-toast" id="btrxChatToast">
+        <div class="toast-avatar">
+            <i class="fas fa-user-check"></i>
+        </div>
+        <div class="toast-content">
+            <div class="toast-name">Sarah from BTR</div>
+            <div class="toast-msg">👋 Hi! We're online and ready to help you.</div>
+        </div>
+        <button class="toast-close" id="btrxToastClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
     <!-- SCRIPTS -->
     {% include 'includes/scripts.html' %}
 
     <script>
+        (function() {
+            'use strict';
 
-        window.addEventListener("load", function(){
+            // =============================================
+            // PRELOADER
+            // =============================================
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.getElementById('btrx-preloader').classList.add('btrx-hide');
+                }, 1800);
+            });
 
-            setTimeout(function(){
+            // =============================================
+            // CHAT WIDGET - FIXED
+            // =============================================
+            const chatToggle = document.getElementById('btrxChatToggle');
+            const chatBox = document.getElementById('btrxChatBox');
+            const chatBody = document.getElementById('btrxChatBody');
+            const chatClose = document.getElementById('btrxChatClose');
+            const chatForm = document.getElementById('btrxChatForm');
+            const toast = document.getElementById('btrxChatToast');
+            const toastClose = document.getElementById('btrxToastClose');
+            const scrollIndicator = document.getElementById('btrxScrollIndicator');
 
-                document
-                .getElementById("btrx-preloader")
-                .classList.add("btrx-hide");
+            console.log('Chat elements loaded:', {
+                toggle: !!chatToggle,
+                box: !!chatBox,
+                body: !!chatBody,
+                close: !!chatClose
+            });
 
-            }, 1800);
+            // Toggle chat - FIXED: using click event properly
+            if (chatToggle && chatBox) {
+                chatToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    // Toggle classes
+                    chatBox.classList.toggle('active');
+                    this.classList.toggle('active');
+                    
+                    console.log('Chat toggled:', chatBox.classList.contains('active') ? 'OPEN' : 'CLOSED');
+                    
+                    if (chatBox.classList.contains('active')) {
+                        toast.classList.remove('show');
+                        if (chatBody) {
+                            chatBody.scrollTop = 0;
+                            setTimeout(checkScroll, 100);
+                        }
+                    }
+                });
+            }
 
-        });
+            // Close chat
+            if (chatClose && chatBox) {
+                chatClose.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    chatBox.classList.remove('active');
+                    if (chatToggle) chatToggle.classList.remove('active');
+                    console.log('Chat closed via close button');
+                });
+            }
 
+            // Close on outside click
+            document.addEventListener('click', function(e) {
+                const widget = document.querySelector('.btrx-chat-widget');
+                if (widget && !widget.contains(e.target)) {
+                    if (chatBox) chatBox.classList.remove('active');
+                    if (chatToggle) chatToggle.classList.remove('active');
+                }
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && chatBox && chatBox.classList.contains('active')) {
+                    chatBox.classList.remove('active');
+                    if (chatToggle) chatToggle.classList.remove('active');
+                }
+            });
+
+            // =============================================
+            // SCROLL INDICATOR
+            // =============================================
+            function checkScroll() {
+                if (!chatBody) return;
+                const isScrollable = chatBody.scrollHeight > chatBody.clientHeight;
+                const isAtBottom = chatBody.scrollTop + chatBody.clientHeight >= chatBody.scrollHeight - 10;
+
+                if (isScrollable && !isAtBottom) {
+                    scrollIndicator.classList.add('show');
+                } else {
+                    scrollIndicator.classList.remove('show');
+                }
+            }
+
+            if (chatBody) {
+                chatBody.addEventListener('scroll', checkScroll);
+                window.addEventListener('resize', checkScroll);
+            }
+
+            // Check on chat open with MutationObserver
+            if (chatBox) {
+                const observer = new MutationObserver(function() {
+                    if (chatBox.classList.contains('active')) {
+                        setTimeout(checkScroll, 200);
+                    }
+                });
+                observer.observe(chatBox, { attributes: true, attributeFilter: ['class'] });
+            }
+
+            // Check when form fields change
+            document.querySelectorAll('.btrx-chat-input, .btrx-chat-textarea, .btrx-chat-select').forEach(function(el) {
+                el.addEventListener('input', checkScroll);
+                el.addEventListener('change', checkScroll);
+            });
+
+            // =============================================
+            // FORM SUBMISSION
+            // =============================================
+            if (chatForm) {
+                chatForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = this.querySelector('input[type="text"]');
+                    const email = this.querySelector('input[type="email"]');
+                    const message = this.querySelector('textarea');
+
+                    let isValid = true;
+
+                    if (!name.value.trim()) {
+                        name.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        name.style.borderColor = '#e2e8f0';
+                    }
+
+                    if (!email.value.trim() || !isValidEmail(email.value)) {
+                        email.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        email.style.borderColor = '#e2e8f0';
+                    }
+
+                    if (!message.value.trim()) {
+                        message.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        message.style.borderColor = '#e2e8f0';
+                    }
+
+                    if (!isValid) return;
+
+                    const btn = this.querySelector('.btrx-chat-send');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    btn.disabled = true;
+
+                    setTimeout(function() {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        chatForm.reset();
+                        if (chatBox) chatBox.classList.remove('active');
+                        if (chatToggle) chatToggle.classList.remove('active');
+                        showToast('✅ Message sent!', 'We\'ll get back to you within 24 hours.', 'success');
+                    }, 2000);
+                });
+            }
+
+            // =============================================
+            // TOAST
+            // =============================================
+            let toastTimeout;
+
+            function showToast(title, message, type) {
+                const toastEl = document.getElementById('btrxChatToast');
+                if (!toastEl) return;
+                
+                const content = toastEl.querySelector('.toast-content');
+                const avatar = toastEl.querySelector('.toast-avatar');
+
+                if (content) {
+                    content.querySelector('.toast-name').textContent = title || 'BTR Support';
+                    content.querySelector('.toast-msg').textContent = message || 'We\'re here to help!';
+                }
+
+                if (avatar) {
+                    if (type === 'success') {
+                        avatar.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    } else {
+                        avatar.style.background = 'linear-gradient(135deg, #0ebab1, #07a59d)';
+                    }
+                }
+
+                toastEl.classList.add('show');
+
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(function() {
+                    toastEl.classList.remove('show');
+                }, 6000);
+            }
+
+            // Auto-show toast on load
+            setTimeout(function() {
+                showToast('Sarah from BTR', '👋 Hi! We\'re online and ready to help you.', 'online');
+            }, 2500);
+
+            // Close toast
+            if (toastClose) {
+                toastClose.addEventListener('click', function() {
+                    toast.classList.remove('show');
+                    clearTimeout(toastTimeout);
+                });
+            }
+
+            // =============================================
+            // HELPER FUNCTIONS
+            // =============================================
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            // =============================================
+            // INPUT FOCUS EFFECTS
+            // =============================================
+            document.querySelectorAll('.btrx-chat-input, .btrx-chat-textarea, .btrx-chat-select').forEach(function(input) {
+                input.addEventListener('focus', function() {
+                    const label = this.parentElement.querySelector('label');
+                    if (label) label.style.color = '#0ebab1';
+                });
+                input.addEventListener('blur', function() {
+                    const label = this.parentElement.querySelector('label');
+                    if (label) label.style.color = '';
+                });
+            });
+
+            // =============================================
+            // KEYBOARD SHORTCUT: Ctrl+Enter to send
+            // =============================================
+            if (chatForm) {
+                const textarea = chatForm.querySelector('textarea');
+                if (textarea) {
+                    textarea.addEventListener('keydown', function(e) {
+                        if (e.ctrlKey && e.key === 'Enter') {
+                            e.preventDefault();
+                            chatForm.dispatchEvent(new Event('submit'));
+                        }
+                    });
+                }
+            }
+
+            console.log('BTR Chat Widget initialized successfully!');
+
+        })();
     </script>
 
 </body>
