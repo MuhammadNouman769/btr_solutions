@@ -59,3 +59,6 @@ def staff_aug(request):
 
 def coming(request):
     return render(request, 'coming-soon.html')
+
+def careeer(request):
+    return render(request, 'about/careers.html')

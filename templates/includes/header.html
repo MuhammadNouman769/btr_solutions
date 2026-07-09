@@ -38,8 +38,42 @@
   justify-content: space-between;
 }
 
-/* ================= NAV ================= */
+/* ================= LOGO SWITCH ================= */
+.btr-logo-switch {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 50px;
+}
 
+.btr-logo-default,
+.btr-logo-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: .35s ease;
+}
+
+.btr-logo-default {
+  opacity: 1;
+}
+
+.btr-logo-hover {
+  opacity: 0;
+}
+
+.btr-logo-switch:hover .btr-logo-default {
+  opacity: 0;
+}
+
+.btr-logo-switch:hover .btr-logo-hover {
+  opacity: 1;
+}
+
+/* ================= NAV ================= */
 .btr-nav{
     display:flex;
     align-items:center;
@@ -57,16 +91,13 @@
 .btr-nav__link{
     position:relative;
     display:inline-block;
-    padding:8px 0;
-
-    font-size:15px;
+    padding:0px 0;
+    font-size:14px;
     font-weight:600;
-    font-family:'Poppins',sans-serif;
-    font-variant:petite-caps;
-
+    font-family:'initial;
+    font-variant:common-ligatures;
     color: #1f2937;
     text-decoration:none;
-
     transition:.3s;
 }
 
@@ -74,37 +105,26 @@
     color:#0ebab1;
 }
 
-/* Active Link */
-
 .btr-nav__link.active{
     color:#0ebab1;
 }
-
-/* Underline */
 
 .btr-nav__link::after{
     content:"";
     position:absolute;
     left:50%;
     bottom:-8px;
-
     width:0;
     height:3px;
-
     background:#14c8c9;
     border-radius:50px;
-
     transform:translateX(-50%);
     transition:.3s;
 }
 
-/* Hover */
-
 .btr-nav__link:hover::after{
     width:100%;
 }
-
-/* Active */
 
 .btr-nav__link.active::after{
     width:100%;
@@ -187,7 +207,7 @@
   top: 0;
   width: 380px;
   height: 100%;
-  background:rgb(50, 47, 47);
+  background: rgb(50, 47, 47);
   color: #fff;
   padding: 25px;
   transition: 0.35s ease;
@@ -202,121 +222,130 @@
 .btr-sidebar.active .btr-sidebar__panel {
   right: 0;
 }
-/* ================= BTR  SIDEBAR ================= */
 
-.btr-sidebar__panel{
-  position:absolute;
-  right:-420px;
-  top:0;
-  width:280px;
-  height:100%;
-  background:#0a0f1c;
-  color:#fff;
-  padding:20px;
-  transition:0.35s ease;
-  overflow-y:auto;
+.btr-sidebar__panel {
+  position: absolute;
+  right: -420px;
+  top: 0;
+  width: 280px;
+  height: 100%;
+  background: #0a0f1c;
+  color: #fff;
+  padding: 20px;
+  transition: 0.35s ease;
+  overflow-y: auto;
 }
 
-.btr-sidebar.active .btr-sidebar__panel{
-  right:0;
+.btr-sidebar.active .btr-sidebar__panel {
+  right: 0;
 }
 
-/* HEADER */
-.tf-sb-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding-bottom:14px;
-  border-bottom:1px solid rgba(255, 255, 255, 0.7);
+/* SIDEBAR HEADER */
+.tf-sb-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-.tf-logo{
-  width:42px;
-  height:42px;
-  background:#38bdf8;
-  color:#000;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
+.tf-sb-header .btr-logo-switch {
+  width: 120px;
+  height: 40px;
 }
 
-.tf-sb-header h3{
-  margin:0;
-  font-size:16px;
+.tf-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-.tf-sb-header p{
-  margin:0;
-  font-size:11px;
-  color:#94a3b8;
+/* SIDEBAR SECTIONS */
+.tf-section {
+  margin-top: 18px;
 }
 
-.tf-close{
-  margin-left:auto;
-  background:none;
-  border:none;
-  color:#fff;
-  font-size:22px;
-  cursor:pointer;
+.tf-section h4 {
+  font-size: 12px;
+  color: #0ebab1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-/* SECTION */
-.tf-section{
-  margin-top:18px;
+.tf-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cbd5e1;
 }
 
-.tf-section h4{
-  font-size:12px;
-  color:#0ebab1;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:10px;
+.tf-info {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
 }
 
-.tf-section p{
-  font-size:16px;
-  line-height:1.6;
-  color:#cbd5e1;
+.tf-info p {
+  font-size: 15px;
+  color: #cbd5e1;
+  margin: 0;
 }
 
-/* CONTACT ROW */
-.tf-info{
-  display:flex;
-  gap:10px;
-  margin-bottom:10px;
-  align-items:flex-start;
+.tf-link {
+  display: block;
+  padding: 8px 0;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: 0.2s;
 }
 
-.tf-info span{
-  color:#38bdf8;
-  font-size:14px;
-  margin-top:2px;
+.tf-link:hover {
+  color: #0ebab1;
+  padding-left: 6px;
 }
 
-.tf-info p{
-  font-size:15px;
-  color:#cbd5e1;
-  margin:0;
+/* SIDEBAR SOCIAL */
+.tf-social-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-/* LINKS */
-.tf-link{
-  display:block;
-  padding:8px 0;
-  color:#cbd5e1;
-  text-decoration:none;
-  font-size:13px;
-  border-bottom:1px solid rgba(255,255,255,0.04);
-  transition:0.2s;
+.tf-social-link {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #0ebab1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #79808a;
+  transition: 0.3s;
 }
 
-.tf-link:hover{
-  color:#0ebab1;
-  padding-left:6px;
+.tf-social-link svg {
+  width: 18px;
+  height: 18px;
+  color: #79808a;
 }
+
+.tf-social-link:hover {
+  background: #0ebab1;
+  border: 2px solid #0ebab1;
+}
+
+.tf-social-link:hover svg {
+  color: #fff;
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .btr-nav__list {
@@ -324,332 +353,395 @@
   }
 }
 
-.btr-menu{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  border:1px solid rgba(0,0,0,.08);
-  color:#0ebab1;
-  background:#79808A;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:.3s;
+.btr-menu {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.08);
+  color: #0ebab1;
+  background: #79808A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.btr-menu:hover{
-  background:#0ebab1;
-  color:#79808A;
-  transform:rotate(90deg);
+.btr-menu:hover {
+  background: #0ebab1;
+  color: #79808A;
+  transform: rotate(90deg);
 }
 
-/* Social Icons */
-.tf-social-wrap{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-top:18px;
+/* ================= MEGA MENU PARENT ================= */
+.btrx-mega-parent {
+  position: static;
 }
 
-.tf-social-link{
-    width:44px;
-    height:44px;
-    border:2px solid #0ebab1;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#79808a;
+.btrx-mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #fff;
+  padding: 30px 60px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: .3s ease;
+  z-index: 9999;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.tf-social-link svg{
-    width:18px;
-    height:18px;
-    color:#79808a;
+.btrx-mega-parent:hover .btrx-mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.tf-social-link:hover{
-    background:#0ebab1;
-    border: 2px solid #0ebab1;
-    color:#0ebab1;
+.btrx-mega-left {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 
-
-.btrx-mega-parent{
-    position:static;
+.btrx-mega-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #16213e;
+  margin-bottom: 12px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.btrx-mega-menu{
-    position:absolute;
-    left:0;
-    top:100%;
-    width:100%;
-    background:#fff;
-    padding:50px 80px;
-    box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-    display:flex;
-    justify-content:space-between;
-    gap:70px;
-
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(15px);
-    transition:.3s ease;
-    z-index:9999;
+.btrx-mega-col h4:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 2px;
+  background: #0ebab1;
 }
 
-.btrx-mega-parent:hover .btrx-mega-menu{
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
+.btrx-mega-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.btrx-mega-left{
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:60px;
+.btrx-mega-links li {
+  margin-bottom: 6px;
 }
 
-.btrx-mega-col h4{
-    font-size:24px;
-    font-weight:700;
-    color:#16213e;
-    margin-bottom:22px;
-    position:relative;
+.btrx-mega-links a {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 500;
+  transition: .25s;
+  display: block;
+  padding: 2px 0;
+  line-height: 1.4;
 }
 
-.btrx-mega-col h4:after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    width:120px;
-    height:3px;
-    background:#0ebab1;
+.btrx-mega-links a:hover {
+  color: #0ebab1;
+  padding-left: 6px;
 }
 
-.btrx-mega-links{
-    list-style:none;
-    padding:0;
-    margin:0;
+.btrx-mega-right {
+  width: 280px;
+  padding-left: 30px;
+  border-left: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
-.btrx-mega-links li{
-    margin-bottom:14px;
+.btrx-company-logo {
+  margin-bottom: 15px;
 }
 
-.btrx-mega-links a{
-    text-decoration:none;
-    color:#4b5563;
-    font-size:16px;
-    transition:.25s;
-}
-
-.btrx-mega-links a:hover{
-    color:#0ebab1;
-    padding-left:8px;
-}
-
-.btrx-mega-right{
-    width:360px;
-    padding-left:40px;
-    border-left:1px solid #e5e7eb;
-}
-
-.btrx-company-logo img{
-    max-width:220px;
-    margin-bottom:20px;
-}
-
-.btrx-company-title{
-    font-size:26px;
-    font-weight:700;
-    color:#111827;
-    margin-bottom:15px;
-    line-height: normal;
-}
-
-.btrx-company-desc{
-    font-size:15px;
-    line-height:1.8;
-    color:#6b7280;
-    margin-bottom:25px;
-}
-
-.btrx-company-btn{
-    display:inline-block;
-    padding:13px 24px;
-    background:#0ebab1;
-    color:#fff;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-}
-
-.btrx-company-btn:hover{
-    background:#099488;
-}
-
-@media(max-width:1200px){
-
-    .btrx-mega-menu{
-        padding:40px;
-    }
-
-    .btrx-mega-left{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .btrx-mega-right{
-        display:none;
-    }
-
-}
-
-@media(max-width:768px){
-
-    .btrx-mega-menu{
-        display:none;
-    }
-
-}
-
-/* ===== MEGA MENU LOGO ===== */
-
-.btrx-company-logo{
-    margin-bottom:25px;
-}
-
-.btrx-brand-switch{
-    position:relative;
-    display:block;
-    width:320px; /* logo size */
-    height:110px;
+.btrx-brand-switch {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 60px;
 }
 
 .btrx-brand-default,
-.btrx-brand-hover{
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    transition:.35s ease;
+.btrx-brand-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: .35s ease;
 }
 
-.btrx-brand-default{
-    opacity:1;
+.btrx-brand-default {
+  opacity: 1;
 }
 
-.btrx-brand-hover{
-    opacity:0;
+.btrx-brand-hover {
+  opacity: 0;
 }
 
-.btrx-brand-switch:hover .btrx-brand-default{
-    opacity:0;
+.btrx-brand-switch:hover .btrx-brand-default {
+  opacity: 0;
 }
 
-.btrx-brand-switch:hover .btrx-brand-hover{
-    opacity:1;
-}
-.btrx-about-stats{
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
+.btrx-brand-switch:hover .btrx-brand-hover {
+  opacity: 1;
 }
 
-.btrx-about-stat{
-    text-align:center;
-    padding:14px 10px;
-    background:#f8fafc;
-    border-radius:10px;
-    border:1px solid #e5e7eb;
+.btrx-company-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
-.btrx-about-stat h5{
-    margin:0;
-    font-size:22px;
-    font-weight:700;
-    color:#0ebab1;
+.btrx-company-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin-bottom: 15px;
 }
 
-.btrx-about-stat span{
-    display:block;
-    margin-top:4px;
-    font-size:12px;
-    color:#6b7280;
+.btrx-company-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #0ebab1;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.3s;
 }
 
-.btrx-case-highlight{
-    margin:10px 0;
-    padding:10px;
-    background:#f8fafc;
-    border-left:4px solid #0ebab1;
-    border-radius:8px;
+.btrx-company-btn:hover {
+  background: #099488;
 }
 
-.btrx-case-highlight strong{
-    display:block;
-    color:#111827;
-    margin-bottom:8px;
-    font-size:15px;
+.btrx-about-stats {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.btrx-case-highlight p{
-    margin:0;
-    color:#6b7280;
-    font-size:14px;
-    line-height:1.7;
-}
-.btrx-contact-row{
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    margin-top:14px;
-    color:#4b5563;
-    font-size:14px;
-    line-height:1.6;
+.btrx-about-stat {
+  text-align: center;
+  padding: 10px 8px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
 }
 
-.btrx-contact-row i{
-    width:18px;
-    margin-top:3px;
-    color:#0ebab1;
-    font-size:16px;
-    flex-shrink:0;
+.btrx-about-stat h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0ebab1;
 }
 
-.btrx-contact-row span{
-    flex:1;
+.btrx-about-stat span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #6b7280;
 }
 
-
-.btrx-case-highlight{
-    margin-top:20px;
-    padding:16px;
-    background:#f8fafc;
-    border-left:4px solid #0ebab1;
-    border-radius:10px;
+.btrx-case-highlight {
+  margin: 10px 0;
+  padding: 12px;
+  background: #f8fafc;
+  border-left: 4px solid #0ebab1;
+  border-radius: 8px;
 }
 
-.btrx-case-highlight strong{
-    display:block;
-    font-size:14px;
-    margin-bottom:6px;
-    color:#111827;
+.btrx-case-highlight strong {
+  display: block;
+  color: #111827;
+  margin-bottom: 5px;
+  font-size: 13px;
 }
 
-.btrx-case-highlight p{
-    margin:0;
-    font-size:13px;
-    line-height:1.6;
-    color:#6b7280;
+.btrx-case-highlight p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.6;
 }
+
+.btrx-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  color: #4b5563;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.btrx-contact-row i {
+  width: 16px;
+  margin-top: 2px;
+  color: #0ebab1;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.btrx-contact-row span {
+  flex: 1;
+}
+
+/* ================= SERVICES MEGA MENU SPECIAL ================= */
+.btrx-mega-menu.services-menu .btrx-mega-left {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.btrx-mega-menu.services-menu .btrx-mega-col h4 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.btrx-mega-menu.services-menu .btrx-mega-links a {
+  font-size: 11px;
+  padding: 1px 0;
+  line-height: 1.3;
+}
+
+.btrx-mega-menu.services-menu .btrx-mega-links li {
+  margin-bottom: 4px;
+}
+
+.btrx-mega-menu.services-menu .btrx-mega-right {
+  width: 240px;
+  padding-left: 25px;
+}
+
+.btrx-mega-menu.services-menu .btrx-company-title {
+  font-size: 18px;
+}
+
+.btrx-mega-menu.services-menu .btrx-company-desc {
+  font-size: 12px;
+}
+
+/* ================= AI MEGA MENU SPECIAL ================= */
+.btrx-mega-menu.ai-menu .btrx-mega-left {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.btrx-mega-menu.ai-menu .btrx-mega-col h4 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.btrx-mega-menu.ai-menu .btrx-mega-links a {
+  font-size: 11px;
+  padding: 1px 0;
+  line-height: 1.3;
+}
+
+.btrx-mega-menu.ai-menu .btrx-mega-links li {
+  margin-bottom: 4px;
+}
+
+.btrx-mega-menu.ai-menu .btrx-mega-right {
+  width: 240px;
+  padding-left: 25px;
+}
+
+.btrx-mega-menu.ai-menu .btrx-company-title {
+  font-size: 18px;
+}
+
+.btrx-mega-menu.ai-menu .btrx-company-desc {
+  font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 1200px) {
+  .btrx-mega-menu {
+    padding: 25px 35px;
+  }
+  
+  .btrx-mega-left {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .btrx-mega-menu.services-menu .btrx-mega-left {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .btrx-mega-menu.ai-menu .btrx-mega-left {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .btrx-mega-right {
+    width: 220px;
+    padding-left: 20px;
+  }
+}
+
+@media(max-width: 992px) {
+  .btrx-mega-menu {
+    padding: 20px 25px;
+  }
+  
+  .btrx-mega-left {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .btrx-mega-menu.services-menu .btrx-mega-left {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .btrx-mega-menu.ai-menu .btrx-mega-left {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .btrx-mega-right {
+    display: none;
+  }
+}
+
+@media(max-width: 768px) {
+  .btrx-mega-menu {
+    display: none;
+  }
+}
+
+@media(max-width: 480px) {
+  .btr-header__container {
+    padding: 10px 15px;
+  }
+  
+  .btr-logo-switch {
+    width: 120px;
+    height: 40px;
+  }
+  
+  .btr-menu {
+    width: 42px;
+    height: 42px;
+  }
+}
+
 </style>
 </head>
 
@@ -660,7 +752,7 @@
 
   <div class="btr-header__container">
 
-    <!-- LOGO (UNCHANGED) -->
+    <!-- LOGO -->
     <a href="{% url 'home' %}" class="btr-logo-switch">
       <img src="{% static 'images/teams/logo-i.png' %}" class="btr-logo-default" alt="Logo">
       <img src="{% static 'images/teams/logo-ii.png' %}" class="btr-logo-hover" alt="Logo Hover">
@@ -670,878 +762,741 @@
     <nav class="btr-nav">
       <ul class="btr-nav__list">
 
-        <li><a class="btr-nav__link {% if request.resolver_match.url_name == 'home' %}active{% endif %}
-            " href="{% url 'home' %}">Home</a></li>
-       <li class="btrx-mega-parent">
+        <!-- HOME -->
+        <li>
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+        </li>
 
-        <a href="{% url 'about-us' %}"
-        class="btr-nav__link {% if request.resolver_match.url_name == 'about-us' or request.resolver_match.url_name == 'why_choose_us' %}active{% endif %}">
-         About
-     </a>
-
-    <div class="btrx-mega-menu">
-
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+        <!-- ABOUT -->
+        <li class="btrx-mega-parent">
+          <a href="{% url 'about-us' %}" class="btr-nav__link {% if request.resolver_match.url_name == 'about-us' or request.resolver_match.url_name == 'why_choose_us' %}active{% endif %}">
+            About
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Company</h4>
-            
                 <ul class="btrx-mega-links">
-                    <li>
-                        <a href="{% url 'about-us' %}#who-we-are">
-                            Who We Are
-                        </a>
-                    </li>
-            
-                    <li>
-                        <a href="{% url 'about-us' %}#our-mission">
-                            Our Mission
-                        </a>
-                    </li>
-            
-                    <li>
-                        <a href="{% url 'about-us' %}#our-vision">
-                            Our Vision
-                        </a>
-                    </li>
-            
-                    <li>
-                        <a href="{% url 'about-us' %}#leadership-team">
-                            Leadership & Team
-                        </a>
-                    </li>
+                  <li><a href="{% url 'about-us' %}#who-we-are">Who We Are</a></li>
+                  <li><a href="{% url 'about-us' %}#our-mission">Our Mission</a></li>
+                  <li><a href="{% url 'about-us' %}#our-vision">Our Vision</a></li>
+                  <li><a href="{% url 'about-us' %}#leadership-team">Leadership & Team</a></li>
                 </ul>
-            </div>
-            
-            
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Why Choose Us</h4>
-            
                 <ul class="btrx-mega-links">
-            
-                    
-                    <li>
-                        
-                        <a href="{% url 'why_choose_us' %}#industry-expertise">
-                            Industry Expertise
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'why_choose_us' %}#end-to-end-solutions">
-                            End-to-End Solutions
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'why_choose_us' %}#agile-delivery">
-                            Agile Delivery
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'why_choose_us' %}#global-standards">
-                            Global Standards
-                        </a>
-                    </li>
+                  <li><a href="{% url 'why_choose_us' %}#industry-expertise">Industry Expertise</a></li>
+                  <li><a href="{% url 'why_choose_us' %}#end-to-end-solutions">End-to-End Solutions</a></li>
+                  <li><a href="{% url 'why_choose_us' %}#agile-delivery">Agile Delivery</a></li>
+                  <li><a href="{% url 'why_choose_us' %}#global-standards">Global Standards</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
-                <h4>Resources</h4>
-
+              </div>
+              <div class="btrx-mega-col">
+                <h4>Join BTR Solutions</h4>
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
-                    <li><a href="{% url 'blog' %}">Blogs</a></li>
-                    <li><a href="{% url 'coming' %}">Careers</a></li>
-                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                  <li><a href="{% url 'careeer' %}">Careers</a></li>
+                  <li><a href="{% url 'case_studies' %}">Culture</a></li>
+                  <li><a href="{% url 'blogs' %}">Diversity, Equity and Inclusion</a></li>
+                  <li><a href="{% url 'contact_us' %}">Employee Success</a></li>
+                  <li><a href="{% url 'contact_us' %}">Benefits</a></li>
+                  <li><a href="{% url 'contact_us' %}">Campus Ambassador Program</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
-
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-
-                    <img src="{% static 'images/teams/logo-i.png' %}"
-                         class="btrx-brand-default"
-                         alt="Logo">
-
-                    <img src="{% static 'images/teams/logo-ii.png' %}"
-                         class="btrx-brand-hover"
-                         alt="Logo Hover">
-
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
+              </div>
+              <h3 class="btrx-company-title">About BTR Solutions</h3>
+              <p class="btrx-company-desc">BTR Solutions is a technology partner helping startups, SMEs and enterprises build innovative software products, scalable cloud infrastructure and AI-powered digital solutions.</p>
+              <div class="btrx-about-stats">
+                <div class="btrx-about-stat">
+                  <h5>50+</h5>
+                  <span>Projects Delivered</span>
+                </div>
+                <div class="btrx-about-stat">
+                  <h5>20+</h5>
+                  <span>Technology Experts</span>
+                </div>
+                <div class="btrx-about-stat">
+                  <h5>100%</h5>
+                  <span>Client Focused</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- SERVICES -->
+        <li class="btrx-mega-parent">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="#">
+            Services
+          </a>
+          <div class="btrx-mega-menu services-menu">
+            <div class="btrx-mega-left">
+              
+              <!-- Column 1: Strategy & Consulting -->
+              <div class="btrx-mega-col">
+                <h4>Strategy & Consulting</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Strategy & Consulting</a></li>
+                  <li><a href="{% url 'coming' %}">Business Optimization Consulting</a></li>
+                  <li><a href="{% url 'coming' %}">Product Strategy</a></li>
+                  <li><a href="{% url 'coming' %}">Technology Strategy</a></li>
+                  <li><a href="{% url 'coming' %}">Learning & Development</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Advanced Technology -->
+              <div class="btrx-mega-col">
+                <h4>Advanced Technology</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Advanced Technology</a></li>
+                  <li><a href="{% url 'coming' %}">Robotic Process Automation (RPA)</a></li>
+                  <li><a href="{% url 'coming' %}">Internet of Things (IoT)</a></li>
+                  <li><a href="{% url 'coming' %}">Blockchain</a></li>
+                  <li><a href="{% url 'coming' %}">AR/VR</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Cloud Services -->
+              <div class="btrx-mega-col">
+                <h4>Cloud Services</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Cloud</a></li>
+                  <li><a href="{% url 'coming' %}">Managed Cloud and FinOps</a></li>
+                  <li><a href="{% url 'coming' %}">Cloud-Native Engineering</a></li>
+                  <li><a href="{% url 'coming' %}">AWS, Azure, GCP & Oracle</a></li>
+                  <li><a href="{% url 'coming' %}">Cloud Modernization & Migration</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4: AI Solutions & Engineering -->
+              <div class="btrx-mega-col">
+                <h4>AI Solutions & Engineering</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">AI Solutions & Engineering</a></li>
+                  <li><a href="{% url 'coming' %}">AI Product Development</a></li>
+                  <li><a href="{% url 'coming' %}">Generative AI Applications</a></li>
+                  <li><a href="{% url 'coming' %}">Agentic AI Systems</a></li>
+                  <li><a href="{% url 'coming' %}">AI Platforms & Machine Learning</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 5: New Product Innovation -->
+              <div class="btrx-mega-col">
+                <h4>New Product Innovation</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">New Product Innovation</a></li>
+                  <li><a href="{% url 'coming' %}">Design Thinking</a></li>
+                  <li><a href="{% url 'coming' %}">Product Strategy</a></li>
+                  <li><a href="{% url 'coming' %}">MVP Development</a></li>
+                  <li><a href="{% url 'coming' %}">Agile Development</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 6: Quality Assurance -->
+              <div class="btrx-mega-col">
+                <h4>Quality Assurance</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Quality Assurance</a></li>
+                  <li><a href="{% url 'coming' %}">Functional Testing</a></li>
+                  <li><a href="{% url 'coming' %}">Integration Testing</a></li>
+                  <li><a href="{% url 'coming' %}">Self-Healing Test Automation</a></li>
+                  <li><a href="{% url 'coming' %}">Automation Testing</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 7: AI Strategy, Enablement & Governance -->
+              <div class="btrx-mega-col">
+                <h4>AI Strategy & Governance</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">AI Strategy, Enablement & Governance</a></li>
+                  <li><a href="{% url 'coming' %}">AI Strategy & Readiness Assessment</a></li>
+                  <li><a href="{% url 'coming' %}">AI Use Case Discovery Workshops</a></li>
+                  <li><a href="{% url 'coming' %}">AI Enablement & Executive Training</a></li>
+                  <li><a href="{% url 'coming' %}">AI Security, Risk & Governance</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 8: Digital Implementation & Delivery -->
+              <div class="btrx-mega-col">
+                <h4>Digital Implementation</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Digital Implementation & Delivery</a></li>
+                  <li><a href="{% url 'coming' %}">Program Management</a></li>
+                  <li><a href="{% url 'coming' %}">Product Engineering</a></li>
+                  <li><a href="{% url 'coming' %}">Managed Services</a></li>
+                  <li><a href="{% url 'coming' %}">Business Process Orchestration</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 9: Modernization -->
+              <div class="btrx-mega-col">
+                <h4>Modernization</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Modernization</a></li>
+                  <li><a href="{% url 'coming' %}">Platform Refactoring</a></li>
+                  <li><a href="{% url 'coming' %}">Technology Assessment</a></li>
+                  <li><a href="{% url 'coming' %}">User Experience</a></li>
+                  <li><a href="{% url 'coming' %}">Enterprise Application Architecture</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 10: Software Development -->
+              <div class="btrx-mega-col">
+                <h4>Software Development</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Software Development</a></li>
+                  <li><a href="{% url 'coming' %}">Nearshore Development</a></li>
+                  <li><a href="{% url 'coming' %}">Offshore Development</a></li>
+                  <li><a href="{% url 'coming' %}">Web App Development</a></li>
+                  <li><a href="{% url 'coming' %}">Mobile App Development</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 11: Data & Analytics -->
+              <div class="btrx-mega-col">
+                <h4>Data & Analytics</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Data & Analytics</a></li>
+                  <li><a href="{% url 'coming' %}">Data Engineering</a></li>
+                  <li><a href="{% url 'coming' %}">Data Management & Governance</a></li>
+                  <li><a href="{% url 'coming' %}">Analytics & Platform Implementation</a></li>
+                  <li><a href="{% url 'coming' %}">Data Science</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 12: Privacy & Security -->
+              <div class="btrx-mega-col">
+                <h4>Privacy & Security</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Privacy & Security</a></li>
+                  <li><a href="{% url 'coming' %}">Governance, Risk & Compliance</a></li>
+                  <li><a href="{% url 'coming' %}">Cyber Security</a></li>
+                  <li><a href="{% url 'coming' %}">Security Services</a></li>
+                  <li><a href="{% url 'coming' %}">Penetration Testing</a></li>
+                </ul>
+              </div>
 
             </div>
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
+                <a href="{% url 'home' %}" class="btrx-brand-switch">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
+                </a>
+              </div>
+              <h3 class="btrx-company-title">Intelligent Business Solutions</h3>
+              <p class="btrx-company-desc">Transforming businesses through modern software engineering, cloud solutions, DevOps automation, AI innovation and scalable digital products.</p>
+              <a href="{% url 'contact_us' %}" class="btrx-company-btn">Get Free Consultation</a>
+            </div>
+          </div>
+        </li>
 
-            <h3 class="btrx-company-title">
-                About BTR Solutions
-            </h3>
+        <!-- ARTIFICIAL INTELLIGENCE - NEW SECTION -->
+        <li class="btrx-mega-parent">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'ai' %}active{% endif %}" href="#">
+            Artificial Intelligence
+          </a>
+          <div class="btrx-mega-menu ai-menu">
+            <div class="btrx-mega-left">
+              
+              <!-- Column 1: AI Consulting & Strategy -->
+              <div class="btrx-mega-col">
+                <h4>AI Consulting & Strategy</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">AI Strategy Consulting</a></li>
+                  <li><a href="{% url 'coming' %}">AI Readiness Assessment</a></li>
+                  <li><a href="{% url 'coming' %}">AI Product Development</a></li>
+                  <li><a href="{% url 'coming' %}">AI Adoption Roadmap</a></li>
+                  <li><a href="{% url 'coming' %}">AI Training & Enablement</a></li>
+                  <li><a href="{% url 'coming' %}">Executive AI Leadership Program</a></li>
+                  <li><a href="{% url 'coming' %}">AI Workshops for Enterprises</a></li>
+                  <li><a href="{% url 'coming' %}">AI Use Case Discovery</a></li>
+                  <li><a href="{% url 'coming' %}">AI Enablement Workshops</a></li>
+                </ul>
+              </div>
 
-            <p class="btrx-company-desc">
-                BTR Solutions is a technology partner helping startups,
-                SMEs and enterprises build innovative software products,
-                scalable cloud infrastructure and AI-powered digital solutions.
-            </p>
+              <!-- Column 2: AI Development & Engineering -->
+              <div class="btrx-mega-col">
+                <h4>AI Development & Engineering</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Custom AI Development</a></li>
+                  <li><a href="{% url 'coming' %}">Machine Learning Development</a></li>
+                  <li><a href="{% url 'coming' %}">Computer Vision Solutions</a></li>
+                  <li><a href="{% url 'coming' %}">AI Integration Services</a></li>
+                </ul>
+              </div>
 
-            <!-- New Bottom Section -->
-            <div class="btrx-about-stats">
+              <!-- Column 3: Enterprise AI & Governance -->
+              <div class="btrx-mega-col">
+                <h4>Enterprise AI & Governance</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Enterprise AI Solutions</a></li>
+                  <li><a href="{% url 'coming' %}">AI Security, Risk & Compliance</a></li>
+                  <li><a href="{% url 'coming' %}">Responsible AI & Governance</a></li>
+                  <li><a href="{% url 'coming' %}">MLOps & AI Platforms</a></li>
+                </ul>
+              </div>
 
-                <div class="btrx-about-stat">
-                    <h5>50+</h5>
-                    <span>Projects Delivered</span>
-                </div>
-
-                <div class="btrx-about-stat">
-                    <h5>20+</h5>
-                    <span>Technology Experts</span>
-                </div>
-
-                <div class="btrx-about-stat">
-                    <h5>100%</h5>
-                    <span>Client Focused</span>
-                </div>
+              <!-- Column 4: Generative & Agentic AI -->
+              <div class="btrx-mega-col">
+                <h4>Generative & Agentic AI</h4>
+                <ul class="btrx-mega-links">
+                  <li><a href="{% url 'coming' %}">Generative AI Development</a></li>
+                  <li><a href="{% url 'coming' %}">Agentic AI Systems</a></li>
+                  <li><a href="{% url 'coming' %}">Generative AI Integration</a></li>
+                  <li><a href="{% url 'coming' %}">AI MVP Development</a></li>
+                </ul>
+              </div>
 
             </div>
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
+                <a href="{% url 'home' %}" class="btrx-brand-switch">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
+                </a>
+              </div>
+              <h3 class="btrx-company-title">AI-Powered Innovation</h3>
+              <p class="btrx-company-desc">Transform your business with cutting-edge artificial intelligence solutions, from strategy and consulting to custom development, enterprise governance, and generative AI.</p>
+              <div class="btrx-about-stats">
+                <div class="btrx-about-stat">
+                  <h5>100+</h5>
+                  <span>AI Models Deployed</span>
+                </div>
+                <div class="btrx-about-stat">
+                  <h5>50+</h5>
+                  <span>AI Experts</span>
+                </div>
+                <div class="btrx-about-stat">
+                  <h5>95%</h5>
+                  <span>Accuracy Rate</span>
+                </div>
+              </div>
+              <a href="{% url 'contact_us' %}" class="btrx-company-btn">Start Your AI Journey</a>
+            </div>
+          </div>
+        </li>
 
-        </div>
-
-    </div>
-
-</li>
-
-       <li class="btrx-mega-parent">
-
-<a class="btr-nav__link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="#">
-Services
-</a>
-
-<div class="btrx-mega-menu">
-
-<div class="btrx-mega-left">
-
-<div class="btrx-mega-col">
-<h4>Development & QA</h4>
-
-<ul class="btrx-mega-links">
-<li><a href="{% url 'coming' %}">UI/UX Design</a></li>
-<li><a href="{% url 'web_dev' %}">Accessibility Services</a></li>
-<li><a href="{% url 'web_dev' %}">Backend Development</a></li>
-<li><a href="{% url 'web_dev' %}">Frontend Development</a></li>
-<li><a href="{% url 'product_dev' %}">Custom Software Development</a></li>
-<li><a href="{% url 'product_dev' %}">SaaS Development</a></li>
-<li><a href="{% url 'product_dev' %}">MVP Development</a></li>
-<li><a href="{% url 'product_dev' %}">Enterprise Software Development</a></li>
-<li><a href="{% url 'sqa' %}">Software Testing</a></li>
-<li><a href="{% url 'web_dev' %}">Software Consulting</a></li>
-</ul>
-
-</div>
-
-<div class="btrx-mega-col">
-
-<h4>Mobility & Apps</h4>
-
-<ul class="btrx-mega-links">
-<li><a href="{% url 'product_dev' %}">Mobile App Development</a></li>
-<li><a href="{% url 'product_dev' %}">Android App Development</a></li>
-<li><a href="{% url 'product_dev' %}">iOS App Development</a></li>
-<li><a href="{% url 'web_dev' %}">Web App Development</a></li>
-</ul>
-
-</div>
-
-<div class="btrx-mega-col">
-
-<h4>IT Operations</h4>
-
-<ul class="btrx-mega-links">
-<li><a href="{% url 'dev_ops' %}">DevOps Services</a></li>
-<li><a href="{% url 'coming' %}">Cybersecurity</a></li>
-<li><a href="{% url 'coming' %}">Infrastructure Design</a></li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="btrx-mega-right">
-
-<div class="btrx-company-logo">
-
-    <a href="{% url 'home' %}" class="btrx-brand-switch">
-
-        <img src="{% static 'images/teams/logo-i.png' %}"
-             class="btrx-brand-default"
-             alt="Logo">
-
-        <img src="{% static 'images/teams/logo-ii.png' %}"
-             class="btrx-brand-hover"
-             alt="Logo Hover">
-
-    </a>
-
-</div>
-<h3 class="btrx-company-title">
-Intelligent Business Solutions
-</h3>
-
-<p class="btrx-company-desc">
-Transforming businesses through modern software engineering, cloud solutions, DevOps automation, AI innovation and scalable digital products.
-</p>
-
-<a href="{% url 'contact_us' %}" class="btrx-company-btn">
-Get Free Consultation
-</a>
-
-</div>
-
-</div>
-
-</li>
-<li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'solutions' %}active{% endif %}" href="#!">
-        Solutions
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <!-- LEFT SIDE -->
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+        <!-- SOLUTIONS -->
+        <li class="btrx-mega-parent">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'solutions' %}active{% endif %}" href="#!">
+            Solutions
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Data Solutions</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Data Engineering</a></li>
-                    <li><a href="{% url 'coming' %}">BI & Data Analytics</a></li>
-                    <li><a href="{% url 'coming' %}">Data Governance & Security</a></li>
-                    <li><a href="{% url 'coming' %}">Data Migration</a></li>
-                    <li><a href="{% url 'coming' %}">Data Scraping</a></li>
-                    <li><a href="{% url 'coming' %}">Data Warehousing</a></li>
+                  <li><a href="{% url 'coming' %}">Data Engineering</a></li>
+                  <li><a href="{% url 'coming' %}">BI & Data Analytics</a></li>
+                  <li><a href="{% url 'coming' %}">Data Governance & Security</a></li>
+                  <li><a href="{% url 'coming' %}">Data Migration</a></li>
+                  <li><a href="{% url 'coming' %}">Data Scraping</a></li>
+                  <li><a href="{% url 'coming' %}">Data Warehousing</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Artificial Intelligence</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Agentic AI</a></li>
-                    <li><a href="{% url 'coming' %}">Generative AI</a></li>
-                    <li><a href="{% url 'coming' %}">Deep Learning</a></li>
-                    <li><a href="{% url 'coming' %}">Predictive Analytics</a></li>
-                    <li><a href="{% url 'coming' %}">Sentiment Analysis</a></li>
-                    <li><a href="{% url 'coming' %}">Data Science</a></li>
-                    <li><a href="{% url 'coming' %}">AI Consulting</a></li>
+                  <li><a href="{% url 'coming' %}">Agentic AI</a></li>
+                  <li><a href="{% url 'coming' %}">Generative AI</a></li>
+                  <li><a href="{% url 'coming' %}">Deep Learning</a></li>
+                  <li><a href="{% url 'coming' %}">Predictive Analytics</a></li>
+                  <li><a href="{% url 'coming' %}">Sentiment Analysis</a></li>
+                  <li><a href="{% url 'coming' %}">Data Science</a></li>
+                  <li><a href="{% url 'coming' %}">AI Consulting</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>E-Commerce</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">AI Chatbots & Support</a></li>
-                    <li><a href="{% url 'coming' %}">eCommerce Development</a></li>
-                    <li><a href="{% url 'coming' %}">Marketplace Solutions</a></li>
-                    <li><a href="{% url 'coming' %}">Voice Commerce</a></li>
-                    <li><a href="{% url 'coming' %}">Customer Segmentation</a></li>
-                    <li><a href="{% url 'coming' %}">Recommendation Engines</a></li>
+                  <li><a href="{% url 'coming' %}">AI Chatbots & Support</a></li>
+                  <li><a href="{% url 'coming' %}">eCommerce Development</a></li>
+                  <li><a href="{% url 'coming' %}">Marketplace Solutions</a></li>
+                  <li><a href="{% url 'coming' %}">Voice Commerce</a></li>
+                  <li><a href="{% url 'coming' %}">Customer Segmentation</a></li>
+                  <li><a href="{% url 'coming' %}">Recommendation Engines</a></li>
                 </ul>
+              </div>
             </div>
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
+                <a href="{% url 'home' %}" class="btrx-brand-switch">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
+                </a>
+              </div>
+              <h3 class="btrx-company-title">Intelligent Business Solutions</h3>
+              <p class="btrx-company-desc">Leverage the power of Artificial Intelligence, Data Engineering, Analytics and Enterprise Automation to unlock new opportunities.</p>
+              <a href="{% url 'contact_us' %}" class="btrx-company-btn">Discuss Your Project</a>
+            </div>
+          </div>
+        </li>
 
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="btrx-mega-right">
-
-            
-<div class="btrx-company-logo">
-
-    <a href="{% url 'home' %}" class="btrx-brand-switch">
-
-        <img src="{% static 'images/teams/logo-i.png' %}"
-             class="btrx-brand-default"
-             alt="Logo">
-
-        <img src="{% static 'images/teams/logo-ii.png' %}"
-             class="btrx-brand-hover"
-             alt="Logo Hover">
-
-    </a>
-
-</div>
-
-            <h3 class="btrx-company-title">
-                Intelligent Business Solutions
-            </h3>
-
-            <p class="btrx-company-desc">
-                Leverage the power of Artificial Intelligence, Data Engineering,
-                Analytics and Enterprise Automation to unlock new opportunities,
-                optimize operations and accelerate digital transformation.
-            </p>
-
-            <a href="{% url 'contact_us' %}" class="btrx-company-btn">
-                Discuss Your Project
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
-
-<li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'industries' %}active{% endif %}" href="#!">
-        Industries
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <!-- LEFT SIDE -->
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+        <!-- INDUSTRIES -->
+        <li class="btrx-mega-parent">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'industries' %}active{% endif %}" href="#!">
+            Industries
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Core Industries</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Healthcare</a></li>
-                    <li><a href="{% url 'coming' %}">Education</a></li>
-                    <li><a href="{% url 'coming' %}">Finance & Banking</a></li>
-                    <li><a href="{% url 'coming' %}">E-Commerce</a></li>
-                    <li><a href="{% url 'coming' %}">Retail</a></li>
-                    <li><a href="{% url 'coming' %}">Real Estate</a></li>
+                  <li><a href="{% url 'coming' %}">Healthcare</a></li>
+                  <li><a href="{% url 'coming' %}">Education</a></li>
+                  <li><a href="{% url 'coming' %}">Finance & Banking</a></li>
+                  <li><a href="{% url 'coming' %}">E-Commerce</a></li>
+                  <li><a href="{% url 'coming' %}">Retail</a></li>
+                  <li><a href="{% url 'coming' %}">Real Estate</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Digital Economy</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Travel & Tourism</a></li>
-                    <li><a href="{% url 'coming' %}">Logistics & Supply Chain</a></li>
-                    <li><a href="{% url 'coming' %}">Food & Restaurants</a></li>
-                    <li><a href="{% url 'coming' %}">Media & Entertainment</a></li>
-                    <li><a href="{% url 'coming' %}">Sports Tech</a></li>
+                  <li><a href="{% url 'coming' %}">Travel & Tourism</a></li>
+                  <li><a href="{% url 'coming' %}">Logistics & Supply Chain</a></li>
+                  <li><a href="{% url 'coming' %}">Food & Restaurants</a></li>
+                  <li><a href="{% url 'coming' %}">Media & Entertainment</a></li>
+                  <li><a href="{% url 'coming' %}">Sports Tech</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Special Domains</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Artificial Intelligence</a></li>
-                    <li><a href="{% url 'coming' %}">Cyber Security</a></li>
-                    <li><a href="{% url 'coming' %}">Government Projects</a></li>
-                    <li><a href="{% url 'coming' %}">Non-Profit / NGO</a></li>
-                    <li><a href="{% url 'coming' %}">Religious Platforms</a></li>
+                  <li><a href="{% url 'coming' %}">Artificial Intelligence</a></li>
+                  <li><a href="{% url 'coming' %}">Cyber Security</a></li>
+                  <li><a href="{% url 'coming' %}">Government Projects</a></li>
+                  <li><a href="{% url 'coming' %}">Non-Profit / NGO</a></li>
+                  <li><a href="{% url 'coming' %}">Religious Platforms</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-                    <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="">
-                    <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
-            </div>
-
-            <h3 class="btrx-company-title">
-                Industries We Serve
-            </h3>
-
-            <p class="btrx-company-desc">
-                We deliver tailored digital solutions across multiple industries,
-                helping businesses transform, automate and scale with modern technology
-                including AI, cloud and enterprise systems.
-            </p>
-
-            <div class="btrx-case-highlight">
+              </div>
+              <h3 class="btrx-company-title">Industries We Serve</h3>
+              <p class="btrx-company-desc">We deliver tailored digital solutions across multiple industries, helping businesses transform, automate and scale with modern technology.</p>
+              <div class="btrx-case-highlight">
                 <strong>Our Impact</strong>
-                <p>
-                    From startups to enterprises, we build scalable systems for
-                    healthcare, education, fintech, ecommerce and government sectors.
-                </p>
+                <p>From startups to enterprises, we build scalable systems for healthcare, education, fintech, ecommerce and government sectors.</p>
+              </div>
+              <a href="{% url 'contact_us' %}" class="btrx-company-btn">Explore Solutions</a>
             </div>
+          </div>
+        </li>
 
-            <a href="{% url 'contact_us' %}" class="btrx-company-btn">
-                Explore Solutions
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
-
-<li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="#!">
-        Our Products
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <!-- LEFT SIDE -->
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+        <!-- OUR PRODUCTS -->
+        <li class="btrx-mega-parent">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="#!">
+            Our Products
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Social Impact</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">BTR Mall</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Home (Orphan Care Homes)</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Care Foundation</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Welfare Projects</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Mall</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Home (Orphan Care Homes)</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Care Foundation</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Welfare Projects</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Education & Growth</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">BTR University</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Skills Academy</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Learning Hub</a></li>
-                    <li><a href="{% url 'coming' %}">Digital Training Programs</a></li>
+                  <li><a href="{% url 'coming' %}">BTR University</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Skills Academy</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Learning Hub</a></li>
+                  <li><a href="{% url 'coming' %}">Digital Training Programs</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Business Ventures</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">BTR Restaurant</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Petroleum</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Logistics</a></li>
-                    <li><a href="{% url 'coming' %}">BTR Retail Network</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Restaurant</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Petroleum</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Logistics</a></li>
+                  <li><a href="{% url 'coming' %}">BTR Retail Network</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
-
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-
-                    <img src="{% static 'images/teams/logo-i.png' %}"
-                         class="btrx-brand-default"
-                         alt="BTR Logo">
-
-                    <img src="{% static 'images/teams/logo-ii.png' %}"
-                         class="btrx-brand-hover"
-                         alt="BTR Logo Hover">
-
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
-
-            </div>
-
-            <h3 class="btrx-company-title">
-                BTR Ecosystem
-            </h3>
-
-            <p class="btrx-company-desc">
-                BTR Ecosystem is a multi-sector initiative focused on education,
-                social welfare, orphan care, housing support, food services,
-                and sustainable business development for community empowerment.
-            </p>
-
-            <div class="btrx-case-highlight">
+              </div>
+              <h3 class="btrx-company-title">BTR Ecosystem</h3>
+              <p class="btrx-company-desc">BTR Ecosystem is a multi-sector initiative focused on education, social welfare, orphan care, housing support, food services, and sustainable business development.</p>
+              <div class="btrx-case-highlight">
                 <strong>Our Mission</strong>
-                <p>
-                    To build a self-sustaining ecosystem where business success
-                    directly supports social upliftment and community development.
-                </p>
+                <p>To build a self-sustaining ecosystem where business success directly supports social upliftment and community development.</p>
+              </div>
+              <a href="#" class="btrx-company-btn">Explore Ecosystem</a>
             </div>
+          </div>
+        </li>
 
-            <a href="#" class="btrx-company-btn">
-                Explore Ecosystem
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
-
+        <!-- CASE STUDIES -->
         <li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'case_studies' %}">
-        Case Studies
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <!-- LEFT SIDE -->
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'case_studies' %}">
+            Case Studies
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Industries</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Healthcare</a></li>
-                    <li><a href="{% url 'coming' %}">FinTech</a></li>
-                    <li><a href="{% url 'coming' %}">E-Commerce</a></li>
-                    <li><a href="{% url 'coming' %}">Education</a></li>
-                    <li><a href="{% url 'coming' %}">Logistics</a></li>
+                  <li><a href="{% url 'coming' %}">Healthcare</a></li>
+                  <li><a href="{% url 'coming' %}">FinTech</a></li>
+                  <li><a href="{% url 'coming' %}">E-Commerce</a></li>
+                  <li><a href="{% url 'coming' %}">Education</a></li>
+                  <li><a href="{% url 'coming' %}">Logistics</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Solutions Delivered</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Web Applications</a></li>
-                    <li><a href="{% url 'coming' %}">Mobile Applications</a></li>
-                    <li><a href="{% url 'coming' %}">Enterprise Software</a></li>
-                    <li><a href="{% url 'coming' %}">Cloud Migration</a></li>
-                    <li><a href="{% url 'coming' %}">DevOps Automation</a></li>
+                  <li><a href="{% url 'coming' %}">Web Applications</a></li>
+                  <li><a href="{% url 'coming' %}">Mobile Applications</a></li>
+                  <li><a href="{% url 'coming' %}">Enterprise Software</a></li>
+                  <li><a href="{% url 'coming' %}">Cloud Migration</a></li>
+                  <li><a href="{% url 'coming' %}">DevOps Automation</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Success Stories</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Startup Growth Stories</a></li>
-                    <li><a href="{% url 'coming' %}">Digital Transformation</a></li>
-                    <li><a href="{% url 'coming' %}">AI Implementations</a></li>
-                    <li><a href="{% url 'coming' %}">Product Scaling</a></li>
-                    <li><a href="{% url 'coming' %}">View All Case Studies</a></li>
+                  <li><a href="{% url 'coming' %}">Startup Growth Stories</a></li>
+                  <li><a href="{% url 'coming' %}">Digital Transformation</a></li>
+                  <li><a href="{% url 'coming' %}">AI Implementations</a></li>
+                  <li><a href="{% url 'coming' %}">Product Scaling</a></li>
+                  <li><a href="{% url 'coming' %}">View All Case Studies</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
-
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-
-                    <img src="{% static 'images/teams/logo-i.png' %}"
-                         class="btrx-brand-default"
-                         alt="Logo">
-
-                    <img src="{% static 'images/teams/logo-ii.png' %}"
-                         class="btrx-brand-hover"
-                         alt="Logo Hover">
-
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
-
-            </div>
-
-            <h3 class="btrx-company-title">
-                Proven Results
-            </h3>
-
-            <p class="btrx-company-desc">
-                Explore how BTR Solutions has helped startups and enterprises
-                build scalable digital products, optimize operations and
-                achieve measurable business growth through innovative technology.
-            </p>
-
-            <div class="btrx-case-highlight">
+              </div>
+              <h3 class="btrx-company-title">Proven Results</h3>
+              <p class="btrx-company-desc">Explore how BTR Solutions has helped startups and enterprises build scalable digital products, optimize operations and achieve measurable business growth.</p>
+              <div class="btrx-case-highlight">
                 <strong>Featured Success</strong>
-                <p>
-                    Delivered a cloud-native SaaS platform that reduced
-                    operational costs by 40% and improved deployment speed by 5x.
-                </p>
+                <p>Delivered a cloud-native SaaS platform that reduced operational costs by 40% and improved deployment speed by 5x.</p>
+              </div>
+              <a href="{% url 'case_studies' %}" class="btrx-company-btn">Explore Case Studies</a>
             </div>
+          </div>
+        </li>
 
-            <a href="{% url 'case_studies' %}" class="btrx-company-btn">
-                Explore Case Studies
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
+        <!-- BLOGS -->
         <li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="{% url 'blog' %}">
-        Blogs
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'blogs' %}active{% endif %}" href="{% url 'blogs' %}">
+            Blogs
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Technology</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Software Development</a></li>
-                    <li><a href="{% url 'coming' %}">Cloud Computing</a></li>
-                    <li><a href="{% url 'coming' %}">DevOps</a></li>
-                    <li><a href="{% url 'coming' %}">Cyber Security</a></li>
-                    <li><a href="{% url 'coming' %}">AI & ML</a></li>
+                  <li><a href="{% url 'coming' %}">Software Development</a></li>
+                  <li><a href="{% url 'coming' %}">Cloud Computing</a></li>
+                  <li><a href="{% url 'coming' %}">DevOps</a></li>
+                  <li><a href="{% url 'coming' %}">Cyber Security</a></li>
+                  <li><a href="{% url 'coming' %}">AI & ML</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Business Insights</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Digital Transformation</a></li>
-                    <li><a href="{% url 'coming' %}">Startup Growth</a></li>
-                    <li><a href="{% url 'coming' %}">Product Strategy</a></li>
-                    <li><a href="{% url 'coming' %}">Technology Trends</a></li>
-                    <li><a href="{% url 'coming' %}">Innovation</a></li>
+                  <li><a href="{% url 'coming' %}">Digital Transformation</a></li>
+                  <li><a href="{% url 'coming' %}">Startup Growth</a></li>
+                  <li><a href="{% url 'coming' %}">Product Strategy</a></li>
+                  <li><a href="{% url 'coming' %}">Technology Trends</a></li>
+                  <li><a href="{% url 'coming' %}">Innovation</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Resources</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'blog' %}">Latest Articles</a></li>
-                    <li><a href="{% url 'coming' %}">Guides</a></li>
-                    <li><a href="{% url 'coming' %}">White Papers</a></li>
-                    <li><a href="{% url 'coming' %}">Industry Reports</a></li>
-                    <li><a href="{% url 'coming' %}">All Blogs</a></li>
+                  <li><a href="{% url 'blogs' %}">Latest Articles</a></li>
+                  <li><a href="{% url 'coming' %}">Guides</a></li>
+                  <li><a href="{% url 'coming' %}">White Papers</a></li>
+                  <li><a href="{% url 'coming' %}">Industry Reports</a></li>
+                  <li><a href="{% url 'coming' %}">All Blogs</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-                    <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="">
-                    <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
-            </div>
-
-            <h3 class="btrx-company-title">
-                Insights & Innovation
-            </h3>
-
-            <p class="btrx-company-desc">
-                Stay updated with the latest trends in software engineering,
-                cloud technologies, artificial intelligence, product development
-                and digital transformation.
-            </p>
-
-            <div class="btrx-case-highlight">
+              </div>
+              <h3 class="btrx-company-title">Insights & Innovation</h3>
+              <p class="btrx-company-desc">Stay updated with the latest trends in software engineering, cloud technologies, artificial intelligence, product development and digital transformation.</p>
+              <div class="btrx-case-highlight">
                 <strong>Latest Update</strong>
-                <p>
-                    Explore expert insights, technology guides and real-world
-                    success stories from our engineering teams.
-                </p>
+                <p>Explore expert insights, technology guides and real-world success stories from our engineering teams.</p>
+              </div>
+              <a href="{% url 'blogs' %}" class="btrx-company-btn">Read Articles</a>
             </div>
+          </div>
+        </li>
 
-            <a href="{% url 'blog' %}" class="btrx-company-btn">
-                Read Articles
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
+        <!-- CONTACT US -->
         <li class="btrx-mega-parent">
-
-    <a class="btr-nav__link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}" href="{% url 'contact_us' %}">
-        Contact Us
-    </a>
-
-    <div class="btrx-mega-menu">
-
-        <div class="btrx-mega-left">
-
-            <div class="btrx-mega-col">
+          <a class="btr-nav__link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}" href="{% url 'contact_us' %}">
+            Contact Us
+          </a>
+          <div class="btrx-mega-menu">
+            <div class="btrx-mega-left">
+              <div class="btrx-mega-col">
                 <h4>Get In Touch</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="mailto:btrsolution.contact@gmail.com">Email Us</a></li>
-                    <li><a href="tel:+923248699647">Call Us</a></li>
-                    <li><a href="{% url 'coming' %}">Schedule Meeting</a></li>
-                    <li><a href="{% url 'coming' %}">Request Proposal</a></li>
+                  <li><a href="mailto:btrsolution.contact@gmail.com">Email Us</a></li>
+                  <li><a href="tel:+923248699647">Call Us</a></li>
+                  <li><a href="{% url 'coming' %}">Schedule Meeting</a></li>
+                  <li><a href="{% url 'coming' %}">Request Proposal</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Services Inquiry</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Software Development</a></li>
-                    <li><a href="{% url 'coming' %}">Mobile Apps</a></li>
-                    <li><a href="{% url 'coming' %}">DevOps & Cloud</a></li>
-                    <li><a href="{% url 'coming' %}">Staff Augmentation</a></li>
+                  <li><a href="{% url 'coming' %}">Software Development</a></li>
+                  <li><a href="{% url 'coming' %}">Mobile Apps</a></li>
+                  <li><a href="{% url 'coming' %}">DevOps & Cloud</a></li>
+                  <li><a href="{% url 'coming' %}">Staff Augmentation</a></li>
                 </ul>
-            </div>
-
-            <div class="btrx-mega-col">
+              </div>
+              <div class="btrx-mega-col">
                 <h4>Office Location</h4>
-
                 <ul class="btrx-mega-links">
-                    <li><a href="{% url 'coming' %}">Lahore, Pakistan</a></li>
-                    <li><a href="{% url 'coming' %}">Remote Collaboration</a></li>
-                    <li><a href="{% url 'coming' %}">Global Clients</a></li>
-                    <li><a href="{% url 'coming' %}">24/7 Support</a></li>
+                  <li><a href="{% url 'coming' %}">Lahore, Pakistan</a></li>
+                  <li><a href="{% url 'coming' %}">Remote Collaboration</a></li>
+                  <li><a href="{% url 'coming' %}">Global Clients</a></li>
+                  <li><a href="{% url 'coming' %}">24/7 Support</a></li>
                 </ul>
+              </div>
             </div>
-
-        </div>
-
-        <div class="btrx-mega-right">
-
-            <div class="btrx-company-logo">
+            <div class="btrx-mega-right">
+              <div class="btrx-company-logo">
                 <a href="{% url 'home' %}" class="btrx-brand-switch">
-                    <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="">
-                    <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="">
+                  <img src="{% static 'images/teams/logo-i.png' %}" class="btrx-brand-default" alt="Logo">
+                  <img src="{% static 'images/teams/logo-ii.png' %}" class="btrx-brand-hover" alt="Logo Hover">
                 </a>
+              </div>
+              <h3 class="btrx-company-title">Let's Build Something Great</h3>
+              <p class="btrx-company-desc">Whether you're launching a startup, scaling a product, or modernizing enterprise systems, our experts are ready to help you achieve your goals.</p>
+              <div class="btrx-case-highlight">
+                <strong>Contact Information</strong>
+                <div class="btrx-contact-row">
+                  <i class="fas fa-envelope"></i>
+                  <span>btrsolution.contact@gmail.com</span>
+                </div>
+                <div class="btrx-contact-row">
+                  <i class="fas fa-phone-alt"></i>
+                  <span>+92 324 8699647</span>
+                </div>
+                <div class="btrx-contact-row">
+                  <i class="fas fa-location-dot"></i>
+                  <span>297-C, PIA Main Boulevard Road, Lahore</span>
+                </div>
+              </div>
+              <a href="{% url 'contact_us' %}" class="btrx-company-btn">Contact Our Team</a>
             </div>
+          </div>
+        </li>
 
-            <h3 class="btrx-company-title">
-                Let's Build Something Great
-            </h3>
-
-            <p class="btrx-company-desc">
-                Whether you're launching a startup, scaling a product,
-                or modernizing enterprise systems, our experts are ready
-                to help you achieve your goals.
-            </p>
-
-           <div class="btrx-case-highlight">
-
-    <strong>Contact Information</strong>
-
-    <div class="btrx-contact-row">
-        <i class="fas fa-envelope"></i>
-        <span>btrsolution.contact@gmail.com</span>
-    </div>
-
-    <div class="btrx-contact-row">
-        <i class="fas fa-phone-alt"></i>
-        <span>+92 324 8699647</span>
-    </div>
-
-    <div class="btrx-contact-row">
-        <i class="fas fa-location-dot"></i>
-        <span>297-C, PIA Main Boulevard Road, Lahore</span>
-    </div>
-
-</div>
-
-            <a href="{% url 'contact_us' %}" class="btrx-company-btn">
-                Contact Our Team
-            </a>
-
-        </div>
-
-    </div>
-
-</li>
       </ul>
     </nav>
 
     <!-- MENU ICON -->
     <button class="btr-menu" id="btrMenuBtn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M3 6H21" stroke="currentColor" stroke-width="2"/>
-          <path d="M3 12H21" stroke="currentColor" stroke-width="2"/>
-          <path d="M9 18H21" stroke="currentColor" stroke-width="2"/>
+        <path d="M3 6H21" stroke="currentColor" stroke-width="2"/>
+        <path d="M3 12H21" stroke="currentColor" stroke-width="2"/>
+        <path d="M9 18H21" stroke="currentColor" stroke-width="2"/>
       </svg>
-  </button>
+    </button>
 
   </div>
 </header>
-<!-- ================= TECH FURY SIDEBAR ================= -->
+
+<!-- ================= SIDEBAR ================= -->
 <div class="btr-sidebar" id="btrSidebar">
-
   <div class="btr-sidebar__overlay" id="btrOverlay"></div>
-
   <aside class="btr-sidebar__panel">
-
-    <!-- TOP BRAND -->
     <div class="tf-sb-header">
-
-      <div>
-        <a href="{% url 'home' %}" class="btr-logo-switch">
-          <img src="{% static 'images/teams/logo-i.png' %}" class="btr-logo-default" alt="Logo">
-          <img src="{% static 'images/teams/logo-ii.png' %}" class="btr-logo-hover" alt="Logo Hover">
-        </a>
-      </div>
-
+      <a href="{% url 'home' %}" class="btr-logo-switch">
+        <img src="{% static 'images/teams/logo-i.png' %}" class="btr-logo-default" alt="Logo">
+        <img src="{% static 'images/teams/logo-ii.png' %}" class="btr-logo-hover" alt="Logo Hover">
+      </a>
       <button class="tf-close" id="btrClose">×</button>
     </div>
-
-    <!-- ABOUT -->
     <div class="tf-section">
-      <p>
-        Welcome to Btr Solutions, where innovation meets passion to drive the digital future.
-        We are not just an IT company; we are a force of technology enthusiasts dedicated
-        to pushing boundaries and unlocking possibilities.
-      </p>
+      <p>Welcome to Btr Solutions, where innovation meets passion to drive the digital future. We are not just an IT company; we are a force of technology enthusiasts dedicated to pushing boundaries and unlocking possibilities.</p>
     </div>
-
-    <!-- CONTACT -->
     <div class="tf-section">
       <h4>Contact Info</h4>
       <div class="tf-info">
         <p>297-C, P.I.A. Main Boulevard Road, Lahore Pakistan.</p>
       </div>
-
       <div class="tf-info">
         <p>btrsolution.contact@gmail.com</p>
       </div>
-
       <div class="tf-info">
         <p>+92 324 8699647</p>
       </div>
       <div class="tf-social-wrap">
-    
-    <a href="https://www.linkedin.com/company/btr-solutions" target="_blank" class="tf-social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+        <a href="https://www.linkedin.com/company/btr-solutions" target="_blank" class="tf-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M4.98 3.5C4.98 4.6 4.09 5.5 2.99 5.5S1 4.6 1 3.5 1.89 1.5 2.99 1.5s1.99.9 1.99 2zM1.2 8h3.6v12H1.2V8zm5.8 0h3.45v1.64h.05c.48-.91 1.65-1.87 3.4-1.87 3.63 0 4.3 2.39 4.3 5.5V20h-3.6v-5.9c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V20H7V8z"/>
-        </svg>
-    </a>
-
-    <a href="https://x.com/" target="_blank" class="tf-social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+          </svg>
+        </a>
+        <a href="https://x.com/" target="_blank" class="tf-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.9 2H22l-6.8 7.8L23 22h-6.1l-4.8-6.3L6.6 22H3.5l7.3-8.3L1 2h6.2l4.3 5.7L18.9 2z"/>
-        </svg>
-    </a>
-
-    <a href="https://facebook.com/" target="_blank" class="tf-social-link">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+          </svg>
+        </a>
+        <a href="https://facebook.com/" target="_blank" class="tf-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.91h-2.33V22C18.34 21.25 22 17.09 22 12.07z"/>
-        </svg>
-    </a>
-
-</div>
+          </svg>
+        </a>
+      </div>
     </div>
-
-    <!-- NAVIGATION -->
     <div class="tf-section">
       <h4>Learn More</h4>
-
       <a href="{% url 'home' %}" class="tf-link">Home</a>
       <a href="{% url 'about-us' %}" class="tf-link">About Us</a>
       <a href="{% url 'coming' %}" class="tf-link">Services</a>
+      <a href="{% url 'coming' %}" class="tf-link">Artificial Intelligence</a>
       <a href="{% url 'case_studies' %}" class="tf-link">Case Studies</a>
-      <a href="{% url 'blog' %}" class="tf-link">Blogs</a>
+      <a href="{% url 'blogs' %}" class="tf-link">Blogs</a>
       <a href="{% url 'contact_us' %}" class="tf-link">Contact Us</a>
     </div>
-
   </aside>
 </div>
+
 <!-- ================= JS ================= -->
 <script>
 const sidebar = document.getElementById("btrSidebar");

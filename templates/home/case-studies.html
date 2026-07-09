@@ -5,387 +5,642 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | BTR Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<title>Case Studies | BTR Solutions</title>
+        body {
+            background: #f5f7fa;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.11), rgba(0, 0, 0, .75)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
 
-<style>
+        .hero-content {
+            max-width: 900px;
+            padding: 20px;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+        .hero span {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
 
-body{
-    background:#f5f7fa;
-}
+        .hero h1 {
+            font-size: 70px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
 
-/* ===========================
-   HERO BANNER
-=========================== */
+        .hero p {
+            font-size: 20px;
+            color: #d9d9d9;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
 
-.hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0, 0, 0, 0.11),
-    rgba(0,0,0,.75)),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-}
+        .hero-btn {
+            display: inline-block;
+            padding: 16px 38px;
+            background: #0ebab1;
+            color: #696969;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-.hero-content{
-    max-width:900px;
-    padding:20px;
-}
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            color: #0ebab1;
+            background: #696969;
+        }
 
-.hero span{
-    display:inline-block;
-    padding:8px 18px;
-    border:1px solid rgba(255,255,255,.3);
-    border-radius:30px;
-    margin-bottom:25px;
-    font-size:14px;
-    backdrop-filter:blur(10px);
-}
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.hero h1{
-    font-size:70px;
-    font-weight:800;
-    line-height:1.1;
-    margin-bottom:25px;
-}
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #111;
+        }
 
-.hero p{
-    font-size:20px;
-    color:#d9d9d9;
-    line-height:1.8;
-    margin-bottom:40px;
-}
+        .section-title p {
+            color: #777;
+        }
 
-.hero-btn{
-    display:inline-block;
-    padding:16px 38px;
-    background:#0ebab1;
-    color:#696969;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:600;
-    transition:.3s;
-}
+        /* ===== CARDS SECTION ===== */
+        .cards-section {
+            padding: 80px 8%;
+        }
 
-.hero-btn:hover{
-    transform:translateY(-4px);
-    color:#0ebab1;
-    background:#696969;
-}
+        .cards-section.alt-bg {
+            background: #f0f2f6;
+        }
 
-/* ===========================
-   SECTION TITLE
-=========================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
-.section-title{
-    text-align:center;
-    margin-bottom:70px;
-}
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .07);
+            transition: .4s;
+            position: relative;
+        }
 
-.section-title h2{
-    font-size:48px;
-    margin-bottom:15px;
-    color:#111;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+        }
 
-.section-title p{
-    color:#777;
-}
+        /* ===== IMAGE CONTAINER WITH DARK OVERLAY ===== */
+        .card-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
 
-/* ===========================
-   CASE STUDIES
-=========================== */
+        .card-img-wrap img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
 
-.case-section{
-    padding:100px 8%;
-}
+        /* ===== DARK OVERLAY - TOP RIGHT CORNER ===== */
+        .card-img-wrap .dark-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(225deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            border-radius: 0 0 0 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-.case-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-}
+        /* ===== BTR TEXT - TOP RIGHT CORNER ===== */
+        .card .btr-label {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0ebab1;
+            letter-spacing: 2.5px;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 8px rgba(0, 0, 0, 0.4);
+            background: transparent;
+            padding: 0;
+            border: none;
+        }
 
-.case-card{
-    background:#fff;
-    border-radius:03px;
-    overflow:hidden;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-    transition:.4s;
-}
+        .card-content {
+            padding: 25px 28px 30px;
+            position: relative;
+        }
 
-.case-card:hover{
-    transform:translateY(-10px);
-}
+        .card-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
 
-.case-card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
+        .card-content p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
 
-.case-content{
-    padding:30px;
-}
+        .card-content a {
+            display: inline-block;
+            text-decoration: none;
+            color: #0ebab1;
+            font-weight: 600;
+            font-size: 14px;
+            transition: .3s;
+        }
 
-.case-content span{
-    color:#0ebab1;
-    font-weight:600;
-    font-size:14px;
-    text-align: center!important;
-}
+        .card-content a:hover {
+            color: #081120;
+            transform: translateX(5px);
+        }
 
-.case-content h3{
-    margin:15px 0;
-    font-size:24px;
-}
+        /* ===== RESULTS ===== */
+        .results {
+            background: #081120;
+            color: white;
+            padding: 100px 8%;
+        }
 
-.case-content p{
-    color:#666;
-    line-height:1.8;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
 
-.case-content a{
-    display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    color:#0ebab1;
-    font-weight:600;
-}
+        .stat {
+            text-align: center;
+        }
 
-/* ===========================
-   RESULTS SECTION
-=========================== */
+        .stat h2 {
+            font-size: 55px;
+            color: #0ebab1;
+            margin-bottom: 10px;
+        }
 
-.results{
-    background:#081120;
-    color:white;
-    padding:100px 8%;
-}
+        .stat p {
+            color: #c7c7c7;
+        }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
+        /* ===== CTA ===== */
+        .cta {
+            padding: 80px 8% 50px;
+            text-align: center;
+            background: white;
+        }
 
-.stat{
-    text-align:center;
-}
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
 
-.stat h2{
-    font-size:60px;
-    color:#0ebab1;
-    margin-bottom:30px;
-}
+        .cta p {
+            max-width: 700px;
+            margin: auto;
+            color: #666;
+            line-height: 1.8;
+        }
 
-.stat p{
-    color:#c7c7c7;
-}
+        .cta a {
+            margin-top: 35px;
+            display: inline-block;
+            padding: 16px 40px;
+            background: #0ebab1;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-/* ===========================
-   CTA
-=========================== */
+        .cta a:hover {
+            background: #081120;
+        }
 
-.cta{
-    padding:120px 8%;
-    text-align:center;
-    background:white;
-}
+        /* ===== MINI TAGS (CTA KE NEECHE) ===== */
+        .tags-section {
+            background: white;
+            padding: 20px 8% 60px;
+            text-align: center;
+            border-top: 1px solid #f0f2f5;
+        }
 
-.cta h2{
-    font-size:55px;
-    margin-bottom:20px;
-}
+        .tags-section .tags-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
 
-.cta p{
-    max-width:700px;
-    margin:auto;
-    color:#666;
-    line-height:1.8;
-}
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 14px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-.cta a{
-    margin-top:35px;
-    display:inline-block;
-    padding:16px 40px;
-    background:#0ebab1;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:600;
-}
+        .tags-wrapper .tag-item {
+            display: inline-block;
+            padding: 6px 20px;
+            background: #f0f2f6;
+            color: #1a2a3a;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 40px;
+            transition: .3s;
+            border: 1px solid transparent;
+            cursor: default;
+        }
 
-@media(max-width:768px){
+        .tags-wrapper .tag-item:hover {
+            background: #0ebab1;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 186, 177, 0.25);
+        }
 
-.hero h1{
-    font-size:45px;
-}
+        .tags-wrapper .tag-item.highlight {
+            background: #081120;
+            color: white;
+        }
 
-.hero p{
-    font-size:17px;
-}
+        .tags-wrapper .tag-item.highlight:hover {
+            background: #0ebab1;
+        }
 
-.section-title h2{
-    font-size:35px;
-}
+        @media (max-width: 992px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-.cta h2{
-    font-size:35px;
-}
-
-}
-
-</style>
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 45px;
+            }
+            .hero p {
+                font-size: 17px;
+            }
+            .section-title h2 {
+                font-size: 32px;
+            }
+            .cta h2 {
+                font-size: 32px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .card .btr-label {
+                font-size: 17px;
+                top: 12px;
+                right: 14px;
+            }
+            .card-img-wrap .dark-overlay {
+                width: 90px;
+                height: 90px;
+            }
+            .tags-wrapper {
+                gap: 8px 10px;
+            }
+            .tags-wrapper .tag-item {
+                font-size: 12px;
+                padding: 5px 14px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HERO -->
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <span>BTR SOLUTIONS • SUCCESS STORIES</span>
+            <h1>Transforming Challenges Into Success Stories</h1>
+            <p>
+                Explore how BTR Solutions helps businesses achieve growth,
+                improve efficiency, and accelerate digital transformation
+                through innovative software solutions.
+            </p>
+            <a href="#industries" class="hero-btn">Explore Our Work</a>
+        </div>
+    </section>
 
-<section class="hero">
-    <div class="hero-content">
+    <!-- ===== INDUSTRIES CARDS ===== -->
+    <section class="cards-section" id="industries">
+        <div class="section-title">
+            <h2>Industries We Serve</h2>
+            <p>Transforming businesses across sectors with tailored solutions.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800" alt="Healthcare">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Healthcare</h3>
+                    <p>Digital health platforms, telemedicine, and hospital management systems for better patient care.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
 
-        <span>BTR SOLUTIONS • SUCCESS STORIES</span>
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="FinTech">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>FinTech</h3>
+                    <p>Secure payment gateways, digital banking, and AI-powered financial analytics solutions.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
 
-        <h1>Transforming Challenges Into Success Stories</h1>
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=800" alt="E-Commerce">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>E-Commerce</h3>
+                    <p>Scalable online store platforms, inventory management, and personalized shopping experiences.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
 
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" alt="Education">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Education</h3>
+                    <p>LMS platforms, virtual classrooms, and AI-driven personalized learning solutions.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=800" alt="Logistics">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Logistics</h3>
+                    <p>Supply chain optimization, fleet management, and real-time tracking systems.</p>
+                    <a href="#">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOLUTIONS DELIVERED CARDS ===== -->
+    <section class="cards-section alt-bg">
+        <div class="section-title">
+            <h2>Solutions Delivered</h2>
+            <p>Innovative technology solutions built for scale and performance.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" alt="Web Applications">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Web Applications</h3>
+                    <p>Custom web apps built with modern frameworks for speed, security, and scalability.</p>
+                    <a href="#">View Solutions →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800" alt="Mobile Applications">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Mobile Applications</h3>
+                    <p>Native and cross-platform mobile apps with seamless UX and high performance.</p>
+                    <a href="#">View Solutions →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="Enterprise Software">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Enterprise Software</h3>
+                    <p>ERP, CRM, and custom enterprise solutions for large-scale business operations.</p>
+                    <a href="#">View Solutions →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800" alt="Cloud Migration">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Cloud Migration</h3>
+                    <p>Seamless cloud migration services to AWS, Azure, and Google Cloud platforms.</p>
+                    <a href="#">View Solutions →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=800" alt="DevOps Automation">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>DevOps Automation</h3>
+                    <p>CI/CD pipelines, infrastructure as code, and automated deployment strategies.</p>
+                    <a href="#">View Solutions →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUCCESS STORIES CARDS ===== -->
+    <section class="cards-section">
+        <div class="section-title">
+            <h2>Success Stories</h2>
+            <p>Real results delivered through innovation and expertise.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=800" alt="Startup Growth">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Startup Growth Stories</h3>
+                    <p>How we helped 50+ startups scale from idea to market leaders with the right tech stack.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=800" alt="Digital Transformation">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Digital Transformation</h3>
+                    <p>Enterprise-wide digital transformation journeys that modernized legacy systems.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800" alt="AI Implementations">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>AI Implementations</h3>
+                    <p>AI and ML solutions that drive smarter decisions, automation, and predictive insights.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="Product Scaling">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>Product Scaling</h3>
+                    <p>Architectural redesign and scaling strategies for products handling millions of users.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800" alt="View All">
+                    <div class="dark-overlay"></div>
+                    <span class="btr-label">BTR</span>
+                </div>
+                <div class="card-content">
+                    <h3>View All Case Studies</h3>
+                    <p>Browse our complete portfolio of case studies and success stories across all industries.</p>
+                    <a href="#">View All →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS ===== -->
+    <section class="results">
+        <div class="section-title">
+            <h2 style="color:white">Impact Delivered</h2>
+            <p style="color:#aaa">Numbers that reflect our commitment to excellence.</p>
+        </div>
+        <div class="stats">
+            <div class="stat"><h2>50+</h2><p>Projects Delivered</p></div>
+            <div class="stat"><h2>98%</h2><p>Client Satisfaction</p></div>
+            <div class="stat"><h2>180%</h2><p>Average Growth Achieved</p></div>
+            <div class="stat"><h2>24/7</h2><p>Support & Maintenance</p></div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta">
+        <h2>Let's Build The Next Success Story Together</h2>
         <p>
-            Explore how BTR Solutions helps businesses achieve growth,
-            improve efficiency, and accelerate digital transformation
-            through innovative software solutions.
+            Whether you're launching a startup or scaling an enterprise,
+            BTR Solutions is ready to help you achieve measurable results.
         </p>
+        <a href="#">Start Your Project</a>
+    </section>
 
-        <a href="#cases" class="hero-btn">
-            Explore Case Studies
-        </a>
-
-    </div>
-</section>
-
-<!-- CASE STUDIES -->
-
-<section class="case-section" id="cases">
-
-    <div class="section-title">
-        <h2>Featured Case Studies</h2>
-        <p>Real business challenges solved with technology.</p>
-    </div>
-
-    <div class="case-grid columns-4">
-
-        <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200">
-            <div class="case-content">
-                <span>E-Commerce</span>
-                <h3>180% Revenue Growth</h3>
-                <p>
-                    Complete redesign and optimization of an online store
-                    resulting in massive revenue growth.
-                </p>
-                <a href="#">Read Full Story →</a>
-            </div>
+    <!-- ===== MINI TAGS - CTA KE NEECHE (INDUSTRY LEVEL) ===== -->
+    <section class="tags-section">
+        <div class="tags-label">— Trusted Across Industries —</div>
+        <div class="tags-wrapper">
+            <span class="tag-item">Healthcare</span>
+            <span class="tag-item">FinTech</span>
+            <span class="tag-item">E-Commerce</span>
+            <span class="tag-item">Education</span>
+            <span class="tag-item">Logistics</span>
+            <span class="tag-item">Real Estate</span>
+            <span class="tag-item">Manufacturing</span>
+            <span class="tag-item">Retail</span>
+            <span class="tag-item">Hospitality</span>
+            <span class="tag-item">Media & Entertainment</span>
+            <span class="tag-item">Automotive</span>
+            <span class="tag-item">Energy</span>
         </div>
-
-        <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200">
-            <div class="case-content">
-                <span>Healthcare</span>
-                <h3>Hospital Automation System</h3>
-                <p>
-                    Reduced manual workload and improved operational
-                    efficiency using a custom solution.
-                </p>
-                <a href="#">Read Full Story →</a>
-            </div>
-        </div>
-
-        <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200">
-            <div class="case-content">
-                <span>Finance</span>
-                <h3>Business Intelligence Dashboard</h3>
-                <p>
-                    Real-time analytics and reporting system helping
-                    management make faster decisions.
-                </p>
-                <a href="#">Read Full Story →</a>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- RESULTS -->
-
-<section class="results">
-
-    <div class="section-title">
-        <h2 style="color:white">Impact Delivered</h2>
-        <p style="color:#aaa">
-            Numbers that reflect our commitment to excellence.
-        </p>
-    </div>
-
-    <div class="stats">
-
-        <div class="stat">
-            <h2>50+</h2>
-            <p>Projects Delivered</p>
-        </div>
-
-        <div class="stat">
-            <h2>98%</h2>
-            <p>Client Satisfaction</p>
-        </div>
-
-        <div class="stat">
-            <h2>180%</h2>
-            <p>Average Growth Achieved</p>
-        </div>
-
-        <div class="stat">
-            <h2>24/7</h2>
-            <p>Support & Maintenance</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <h2>Let's Build The Next Success Story Together</h2>
-
-    <p>
-        Whether you're launching a startup or scaling an enterprise,
-        BTR Solutions is ready to help you achieve measurable results.
-    </p>
-
-    <a href="#">Start Your Project</a>
-
-</section>
+    </section>
 
 </body>
 </html>
-
 {% endblock %}

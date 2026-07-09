@@ -6,13 +6,15 @@ from apps.utils.admin import BaseAdmin
 @admin.register(Team)
 class TeamAdmin(BaseAdmin):
     list_display = (
+        "display_order",
         "first_name",
         "last_name",
         "designation",
         "is_active",
         "created_at",
-        "id",
     )
+
+    ordering = ("display_order",)
 
     search_fields = (
         "first_name",
@@ -24,3 +26,5 @@ class TeamAdmin(BaseAdmin):
         "is_active",
         "created_at",
     )
+
+    ordering = ("id",)   # ID ascending (1, 2, 3...)

@@ -11,7 +11,10 @@ class TeamView(APIView):
     template_name = 'about/about.html'
 
     def get(self, request):
-        teams = Team.objects.all()
+        teams = Team.objects.filter(
+            is_active=True
+        ).order_by("display_order")
+        
         return Response({
             'teams': teams
         })

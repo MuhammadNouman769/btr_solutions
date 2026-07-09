@@ -9,7 +9,7 @@ urlpatterns = [
     path('projects/', views.projects, name='projects'),
     path('signin/', views.signin, name='signin'),
     path('signup/', views.signup, name='signup'),
-    path('blog/', views.blogs, name='blog'),
+    path('blogs/', views.blogs, name='blogs'),
     path('blog-single/', views.blog_single, name='blog_single'),
     path('case-studies/', views.case_studies, name='case_studies'),
     path('faqs/', views.faqs, name='faqs'),
@@ -23,4 +23,5 @@ urlpatterns = [
    # path('about/leadership-&-team/', views.leadship, name='leadership-&-team'),
     path('coming-soon/', views.coming, name='coming'),
     path('about-us/why-choose-us/', views.why_choose_us, name='why_choose_us'),
+    path('about/careeer/', views.careeer, name="careeer")
 ]
