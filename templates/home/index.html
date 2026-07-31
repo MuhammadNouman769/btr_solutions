@@ -1,177 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}BTR Solutions - A Global Software and Product Development Company{% endblock %}
+{% block title %}BTR Solutions - Enterprise Software & Digital Innovation{% endblock %}
 {% block content %}
 
 <style>
-.top-padding {
-  padding-top:70px;
-}
-.set {
-  text-align:center!important;
-  }  
-  
-  .tfdevops-showcase-section{
-    padding:120px 20px;
-    background:#ffffff;
-  }
-  
-  .tfdevops-showcase-container{
-    max-width:1300px;
-    margin:auto;
-  }
-  
-  .tfdevops-showcase-header{
-    text-align:center;
-    max-width:900px;
-    margin:0 auto 70px;
-  }
-  
-  .tfdevops-showcase-badge{
-    display:inline-block;
-    padding:10px 20px;
-    border-radius:999px;
-    background:#e0f2fe;
-    color:#0ebab1;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:22px;
-  }
-  
-  .tfdevops-showcase-title{
-    font-size:56px;
-    font-weight:800;
-    line-height:1.1;
-    color:#0f172a;
-    margin-bottom:24px;
-  }
-  
-  .tfdevops-showcase-description{
-    font-size:18px;
-    color:#64748b;
-    line-height:1.9;
-  }
-  
-  /* FILTERS */
-  
-  .tfdevops-showcase-filters{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-bottom:50px;
-  }
-  
-  .tfdevops-filter-btn{
-    border:none;
-    cursor:pointer;
-    padding:14px 24px;
-    border-radius:999px;
-    background;#79808A;
-    font-weight:600;
-    transition:.3s;
-  }
-  
-  .tfdevops-filter-btn.active{
-    background:#0ebab1;
-    color:#79808A;
-  }
-  
-  /* GRID */
-  
-  .tfdevops-showcase-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-  }
-  
-  /* CARD */
-  
-  .tfdevops-showcase-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:28px;
-    min-height:500px;
-  }
-  
-  .tfdevops-showcase-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    position:absolute;
-    inset:0;
-    transition:.6s;
-  }
-  
-  .tfdevops-showcase-card:hover img{
-    transform:scale(1.08);
-  }
-  
-  .tfdevops-showcase-overlay{
-    position:absolute;
-    inset:0;
-    padding:35px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background:
-    linear-gradient(
-    transparent,
-    rgba(2,6,23,.95)
-    );
-  }
-  
-  .tfdevops-card-tag{
-    display:inline-block;
-    width:max-content;
-    padding:8px 14px;
-    border-radius:999px;
-    background:#0ebab1;
-    color:#fff;
-    font-size:13px;
-    margin-bottom:15px;
-  }
-  
-  .tfdevops-showcase-overlay h3{
-    color:#fff;
-    font-size:28px;
-    line-height:normal;
-    margin-bottom:15px;
-  }
-  
-  .tfdevops-showcase-overlay p{
-    color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:18px;
-  }
-  
-  .tfdevops-showcase-overlay a{
-    color:#0ebab1;
-    text-decoration:none;
-    font-weight:600;
-  }
-  
-  .tfdevops-hidden{
-    display:none !important;
-  }
-  
-  /* RESPONSIVE */
-  
-  @media(max-width:991px){
-  
-  .tfdevops-showcase-grid{
-  grid-template-columns:1fr;
-  }
-  
-  .tfdevops-showcase-title{
-  font-size:40px;
-  }
-  
+/* ================================================
+   GLOBAL RESET & BASE STYLES
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+:root {
+    --btr-primary: #0ebab1;
+    --btr-primary-dark: #0a8a82;
+    --btr-primary-light: #e8fbfb;
+    --btr-dark: #0a0e1a;
+    --btr-dark-secondary: #141b2d;
+    --btr-gray: #64748b;
+    --btr-gray-light: #f1f5f9;
+    --btr-white: #ffffff;
+    --btr-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    --btr-radius: 20px;
+    --btr-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-<style>
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--btr-white);
+    color: var(--btr-dark);
+    overflow-x: hidden;
+}
 
+/* ================================================
+   HELPER CLASSES
+   ================================================ */
+.btr-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.btr-section-padding {
+    padding: 120px 0;
+}
+
+.btr-text-gradient {
+    background: linear-gradient(135deg, var(--btr-dark) 0%, var(--btr-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btr-section-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: var(--btr-primary-light);
+    color: var(--btr-primary);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.btr-section-title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 20px;
+    color: var(--btr-dark);
+}
+
+.btr-section-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--btr-gray);
+    max-width: 700px;
+}
+
+/* ================================================
+   HERO SECTION (UNCHANGED - KEPT AS IS)
+   ================================================ */
 /* ===== RESET SAFE ===== */
 *{
     margin:0;
@@ -208,7 +120,6 @@
     width:55%;
     height:100%;
     z-index:2;
-
     background: linear-gradient(
         to right,
         rgba(8,10,15,0.95) 0%,
@@ -347,935 +258,1315 @@
     .btr-hero-stats{flex-direction:column; gap:10px;}
 }
 
+/* ================================================
+   FEATURES SECTION - REDESIGNED
+   ================================================ */
+.btr-features-section {
+    padding: 100px 0 80px;
+    background: var(--btr-white);
+}
+
+.btr-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.btr-feature-card {
+    padding: 45px 35px;
+    background: var(--btr-white);
+    border-radius: var(--btr-radius);
+    box-shadow: var(--btr-shadow);
+    transition: var(--btr-transition);
+    border: 1px solid rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.btr-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--btr-primary), var(--btr-primary-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
+}
+
+.btr-feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.btr-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(14, 186, 177, 0.12);
+}
+
+.btr-feature-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--btr-primary-light);
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.btr-feature-icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.btr-feature-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--btr-dark);
+}
+
+.btr-feature-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--btr-gray);
+}
+
+/* ================================================
+   SHOWCASE SECTION - REDESIGNED
+   ================================================ */
+.btr-showcase-section {
+    padding: 120px 0;
+    background: var(--btr-gray-light);
+}
+
+.btr-showcase-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.btr-showcase-header .btr-section-title {
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.btr-showcase-header .btr-section-subtitle {
+    margin: 0 auto;
+}
+
+.btr-showcase-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.btr-filter-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: var(--btr-white);
+    color: var(--btr-gray);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--btr-transition);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.btr-filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.btr-filter-btn.active {
+    background: var(--btr-primary);
+    color: var(--btr-white);
+    box-shadow: 0 8px 30px rgba(14, 186, 177, 0.3);
+}
+
+.btr-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.btr-showcase-card {
+    position: relative;
+    border-radius: var(--btr-radius);
+    overflow: hidden;
+    min-height: 420px;
+    background: var(--btr-dark);
+}
+
+.btr-showcase-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition: transform 0.8s ease;
+}
+
+.btr-showcase-card:hover img {
+    transform: scale(1.08);
+}
+
+.btr-showcase-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        to top,
+        rgba(2, 6, 23, 0.92) 0%,
+        rgba(2, 6, 23, 0.40) 60%,
+        transparent 100%
+    );
+}
+
+.btr-showcase-tag {
+    display: inline-block;
+    width: max-content;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background: var(--btr-primary);
+    color: var(--btr-white);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.btr-showcase-overlay h3 {
+    color: var(--btr-white);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.btr-showcase-overlay p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.btr-showcase-link {
+    color: var(--btr-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--btr-transition);
+}
+
+.btr-showcase-link:hover {
+    gap: 14px;
+    color: var(--btr-primary-dark);
+}
+
+.btr-showcase-hidden {
+    display: none !important;
+}
+
+/* ================================================
+   TESTIMONIALS SECTION - REDESIGNED
+   ================================================ */
+.btr-testimonials-section {
+    padding: 120px 0;
+    background: var(--btr-white);
+}
+
+.btr-testimonial-card {
+    padding: 50px 45px;
+    background: var(--btr-gray-light);
+    border-radius: var(--btr-radius);
+    position: relative;
+    transition: var(--btr-transition);
+}
+
+.btr-testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--btr-shadow);
+}
+
+.btr-testimonial-quote {
+    margin-bottom: 20px;
+}
+
+.btr-testimonial-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--btr-dark);
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.btr-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btr-testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btr-testimonial-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--btr-dark);
+}
+
+.btr-testimonial-role {
+    font-size: 14px;
+    color: var(--btr-gray);
+}
+
+/* ================================================
+   COUNTER SECTION - REDESIGNED
+   ================================================ */
+.btr-counter-section {
+    padding: 100px 0;
+    background: var(--btr-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.btr-counter-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(14, 186, 177, 0.05);
+}
+
+.btr-counter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.btr-counter-item {
+    text-align: center;
+}
+
+.btr-counter-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--btr-primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.btr-counter-label {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+}
+
+/* ================================================
+   CLIENTS SECTION - REDESIGNED
+   ================================================ */
+.btr-clients-section {
+    padding: 100px 0;
+    background: var(--btr-white);
+}
+
+.btr-clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btr-client-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: var(--btr-transition);
+    filter: grayscale(1);
+}
+
+.btr-client-item:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.btr-client-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 50px;
+}
+
+/* ================================================
+   BLOG SECTION - REDESIGNED
+   ================================================ */
+.btr-blog-section {
+    padding: 120px 0;
+    background: var(--btr-gray-light);
+}
+
+.btr-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.btr-blog-card {
+    background: var(--btr-white);
+    border-radius: var(--btr-radius);
+    overflow: hidden;
+    transition: var(--btr-transition);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.btr-blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+}
+
+.btr-blog-image {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
+.btr-blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.btr-blog-card:hover .btr-blog-image img {
+    transform: scale(1.05);
+}
+
+.btr-blog-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 14, 26, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--btr-transition);
+}
+
+.btr-blog-card:hover .btr-blog-overlay {
+    opacity: 1;
+}
+
+.btr-blog-readmore {
+    padding: 12px 30px;
+    background: var(--btr-primary);
+    color: var(--btr-white);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--btr-transition);
+}
+
+.btr-blog-readmore:hover {
+    background: var(--btr-primary-dark);
+    transform: scale(1.05);
+}
+
+.btr-blog-content {
+    padding: 30px 30px 35px;
+}
+
+.btr-blog-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: var(--btr-gray);
+}
+
+.btr-blog-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btr-blog-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--btr-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.btr-blog-title:hover {
+    color: var(--btr-primary);
+}
+
+/* ================================================
+   CONTACT SECTION - REDESIGNED
+   ================================================ */
+.btr-contact-section {
+    padding: 120px 0;
+    background: var(--btr-white);
+}
+
+.btr-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.btr-contact-info {
+    padding: 50px 40px;
+    background: var(--btr-dark);
+    border-radius: var(--btr-radius);
+    color: var(--btr-white);
+}
+
+.btr-contact-info-item {
+    margin-bottom: 30px;
+}
+
+.btr-contact-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.btr-contact-info-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.btr-contact-info-value {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btr-contact-info-value a {
+    color: var(--btr-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.btr-contact-info-value a:hover {
+    color: var(--btr-primary);
+}
+
+.btr-contact-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.btr-contact-social a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--btr-white);
+    text-decoration: none;
+    transition: var(--btr-transition);
+}
+
+.btr-contact-social a:hover {
+    background: var(--btr-primary);
+    transform: translateY(-4px);
+}
+
+.btr-contact-form {
+    padding: 50px 45px;
+    background: var(--btr-gray-light);
+    border-radius: var(--btr-radius);
+}
+
+.btr-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.btr-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btr-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--btr-dark);
+}
+
+.btr-form-group input,
+.btr-form-group textarea {
+    padding: 14px 18px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: var(--btr-white);
+    font-size: 15px;
+    transition: var(--btr-transition);
+    outline: none;
+    font-family: inherit;
+}
+
+.btr-form-group input:focus,
+.btr-form-group textarea:focus {
+    border-color: var(--btr-primary);
+    box-shadow: 0 0 0 4px rgba(14, 186, 177, 0.1);
+}
+
+.btr-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btr-submit-btn {
+    padding: 16px 40px;
+    background: var(--btr-primary);
+    color: var(--btr-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--btr-transition);
+    margin-top: 10px;
+}
+
+.btr-submit-btn:hover {
+    background: var(--btr-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(14, 186, 177, 0.3);
+}
+
+/* ================================================
+   CTA SECTION - REDESIGNED
+   ================================================ */
+.btr-cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--btr-dark) 0%, var(--btr-dark-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.btr-cta-section::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(14, 186, 177, 0.08);
+}
+
+.btr-cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    gap: 40px;
+}
+
+.btr-cta-text h2 {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--btr-white);
+    margin-bottom: 16px;
+}
+
+.btr-cta-text p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.btr-cta-btn {
+    padding: 18px 44px;
+    background: var(--btr-primary);
+    color: var(--btr-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: var(--btr-transition);
+    white-space: nowrap;
+}
+
+.btr-cta-btn:hover {
+    background: var(--btr-primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(14, 186, 177, 0.35);
+}
+
+/* ================================================
+   RESPONSIVE DESIGN
+   ================================================ */
+@media (max-width: 1200px) {
+    .btr-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .btr-container {
+        padding: 0 20px;
+    }
+    
+    .btr-section-title {
+        font-size: 40px;
+    }
+    
+    .btr-features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .btr-counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btr-clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .btr-blog-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .btr-contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btr-cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .btr-cta-text p {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .btr-section-padding {
+        padding: 80px 0;
+    }
+    
+    .btr-section-title {
+        font-size: 32px;
+    }
+    
+    .btr-features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btr-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btr-showcase-filters {
+        gap: 8px;
+    }
+    
+    .btr-filter-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+    
+    .btr-blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btr-clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btr-form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .btr-contact-info {
+        padding: 30px 25px;
+    }
+    
+    .btr-contact-form {
+        padding: 30px 25px;
+    }
+    
+    .btr-cta-text h2 {
+        font-size: 30px;
+    }
+    
+    .btr-counter-number {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btr-counter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .btr-clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .btr-testimonial-text {
+        font-size: 17px;
+    }
+}
 </style>
-</head>
 
-<body>
-
-<!-- HERO -->
+<!-- ================================================
+   HERO SECTION (UNCHANGED)
+   ================================================ -->
 <section class="btr-hero-section">
-
-    <!-- VIDEO -->
     <video autoplay muted loop playsinline class="btr-hero-video">
         <source src="{% static 'images/banner/new-banner.mp4' %}" type="video/mp4">
     </video>
-
-    <!-- OVERLAY -->
     <div class="btr-hero-overlay"></div>
-
-    <!-- FLOATING SHAPES -->
     <div class="btr-hero-circle btr-hero-circle-1"></div>
     <div class="btr-hero-circle btr-hero-circle-2"></div>
     <div class="btr-hero-circle btr-hero-circle-3"></div>
-
-    <!-- CONTENT -->
     <div class="btr-hero-container">
-
         <span class="btr-hero-tag">Trusted by Global Enterprises</span>
-
         <h1 class="btr-hero-title">
             We Engineer <span class="btr-hero-typing"></span>
         </h1>
-
         <p class="btr-hero-text">
             We design, build, and scale high-performance digital ecosystems —
             enterprise-grade web apps, cloud systems, and intelligent software solutions.
         </p>
-
         <div class="btr-hero-buttons">
             <a href="#" class="btr-btn btr-btn-primary">Start Project</a>
             <a href="#services" class="btr-btn btr-btn-secondary">Explore Solutions</a>
         </div>
-
         <div class="btr-hero-stats">
             <div><b>120+</b><span>Projects</span></div>
             <div><b>60+</b><span>Clients</span></div>
             <div><b>5+</b><span>Years</span></div>
         </div>
-
     </div>
-
 </section>
 
-
-  <!-- ===== HERO SECTION END ===== -->
-<!-- ===== Small Features Start ===== -->
-<section id="features" class="top-padding">
-  <div class="bb ze ki yn 2xl:ud-px-12.5">
-
-    <div class="tc uf zo xf ap zf bp mq">
-
-      <!-- Feature 1 -->
-      <div class="animate_top kn to/3 tc cg oq">
-        <div class="tc wf xf cf ae cd rg mh">
-          <img src="{% static 'images/icon-01.svg' %}" alt="Icon" />
+<!-- ================================================
+   FEATURES SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-features-section btr-section-padding" id="features">
+    <div class="btr-container">
+        <div class="btr-section-header" style="text-align:center;margin-bottom:20px;">
+            <span class="btr-section-badge">Why Choose BTR</span>
+            <h2 class="btr-section-title">Engineering Excellence,<br>Delivered at Scale</h2>
+            <p class="btr-section-subtitle" style="margin:0 auto;">We combine deep technical expertise with strategic thinking to build digital solutions that drive real business growth.</p>
         </div>
-        <div>
-          <h4 class="ek yj go kk wm xb">24/7 Technical Support</h4>
-          <p clss="set">
-            Our dedicated support team is always available to ensure your systems run smoothly without interruptions.
-          </p>
+        
+        <div class="btr-features-grid">
+            <div class="btr-feature-card">
+                <div class="btr-feature-icon">
+                    <img src="{% static 'images/icon-01.svg' %}" alt="Support" />
+                </div>
+                <h3 class="btr-feature-title">24/7 Enterprise Support</h3>
+                <p class="btr-feature-desc">Round-the-clock technical support ensuring your mission-critical systems run without interruption.</p>
+            </div>
+            
+            <div class="btr-feature-card">
+                <div class="btr-feature-icon">
+                    <img src="{% static 'images/icon-02.svg' %}" alt="Ownership" />
+                </div>
+                <h3 class="btr-feature-title">Full Project Ownership</h3>
+                <p class="btr-feature-desc">End-to-end accountability from concept to deployment, delivering quality at every stage.</p>
+            </div>
+            
+            <div class="btr-feature-card">
+                <div class="btr-feature-icon">
+                    <img src="{% static 'images/icon-03.svg' %}" alt="Collaboration" />
+                </div>
+                <h3 class="btr-feature-title">Collaborative Engineering</h3>
+                <p class="btr-feature-desc">Cross-functional teams working in harmony to deliver scalable, innovative solutions.</p>
+            </div>
         </div>
-      </div>
-
-      <!-- Feature 2 -->
-      <div class="animate_top kn to/3 tc cg oq">
-        <div class="tc wf xf cf ae cd rg nh">
-          <img src="{% static 'images/icon-02.svg' %}" alt="Icon" />
-        </div>
-        <div>
-          <h4 class="ek yj go kk wm xb">Full Project Ownership</h4>
-          <p clss="set">
-            We take complete responsibility from planning to deployment, ensuring quality delivery at every stage.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="animate_top kn to/3 tc cg oq">
-        <div class="tc wf xf cf ae cd rg oh">
-          <img src="{% static 'images/icon-03.svg' %}" alt="Icon" />
-        </div>
-        <div>
-          <h4 class="ek yj go kk wm xb">Collaborative Teamwork</h4>
-          <p clss="set">
-            Our cross-functional team works closely together to deliver efficient, scalable, and innovative solutions.
-          </p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
-<!-- ===== Small Features End ===== -->
-
-<!-- =====================================================
-     TFDEVOPS SHOWCASE SECTION
-     COMPLETE HTML + CSS + JS
-     INDUSTRY LEVEL / UNIQUE CLASSES
-====================================================== -->
-
-<section class="tfdevops-showcase-section">
-
-  <div class="tfdevops-showcase-container">
-
-      <!-- Heading -->
-      <div class="tfdevops-showcase-header">
-
-          <span class="tfdevops-showcase-badge">
-              Enterprise Cloud & DevOps Solutions
-          </span>
-
-          <h2 class="tfdevops-showcase-title">
-              Accelerating Digital Transformation Through
-              Cloud Engineering & DevOps Excellence
-          </h2>
-
-          <p class="tfdevops-showcase-description">
-              Discover how Tech Fury helps organizations modernize infrastructure,
-              automate software delivery, strengthen security, and scale cloud-native
-              applications through enterprise-grade DevOps practices and cloud solutions.
-          </p>
-
-      </div>
-
-      <!-- Filter Buttons -->
-      <div class="tfdevops-showcase-filters">
-
-          <button class="tfdevops-filter-btn active"
-              data-filter="all">
-              All Solutions
-          </button>
-
-          <button class="tfdevops-filter-btn"
-              data-filter="migration">
-              Cloud Migration
-          </button>
-
-          <button class="tfdevops-filter-btn"
-              data-filter="automation">
-              DevOps Automation
-          </button>
-
-          <button class="tfdevops-filter-btn"
-              data-filter="kubernetes">
-              Kubernetes
-          </button>
-
-          <button class="tfdevops-filter-btn"
-              data-filter="security">
-              Security
-          </button>
-
-      </div>
-
-      <!-- Cards -->
-      <div class="tfdevops-showcase-grid">
-
-          <!-- Card 1 -->
-          <div class="tfdevops-showcase-card"
-              data-category="migration">
-
-              <img
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
-                  alt="Cloud Migration">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      Cloud Migration
-                  </span>
-
-                  <h3>
-                      Enterprise Cloud Transformation
-                  </h3>
-
-                  <p>
-                      Migrate legacy applications and workloads
-                      into secure, scalable cloud environments
-                      while minimizing risk and downtime.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-          <!-- Card 2 -->
-          <div class="tfdevops-showcase-card"
-              data-category="automation">
-
-              <img
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
-                  alt="DevOps Automation">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      DevOps Automation
-                  </span>
-
-                  <h3>
-                      CI/CD Pipeline Engineering
-                  </h3>
-
-                  <p>
-                      Accelerate software delivery through
-                      automated build, testing and deployment
-                      workflows.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-          <!-- Card 3 -->
-          <div class="tfdevops-showcase-card"
-              data-category="kubernetes">
-
-              <img
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80"
-                  alt="Kubernetes">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      Kubernetes
-                  </span>
-
-                  <h3>
-                      Container Orchestration Platform
-                  </h3>
-
-                  <p>
-                      Deploy and manage highly available
-                      cloud-native applications through
-                      Kubernetes ecosystems.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-          <!-- Card 4 -->
-          <div class="tfdevops-showcase-card"
-              data-category="security">
-
-              <img
-                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80"
-                  alt="Security">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      Security
-                  </span>
-
-                  <h3>
-                      Enterprise Security & Monitoring
-                  </h3>
-
-                  <p>
-                      Continuous monitoring, governance,
-                      compliance management and proactive
-                      threat detection.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-          <!-- Card 5 -->
-          <div class="tfdevops-showcase-card"
-              data-category="automation">
-
-              <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
-                  alt="Infrastructure">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      Infrastructure as Code
-                  </span>
-
-                  <h3>
-                      Automated Infrastructure Provisioning
-                  </h3>
-
-                  <p>
-                      Deploy infrastructure consistently
-                      using Terraform, CloudFormation
-                      and IaC frameworks.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-          <!-- Card 6 -->
-          <div class="tfdevops-showcase-card"
-              data-category="migration">
-
-              <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
-                  alt="Cloud Architecture">
-
-              <div class="tfdevops-showcase-overlay">
-
-                  <span class="tfdevops-card-tag">
-                      Cloud Architecture
-                  </span>
-
-                  <h3>
-                      High Performance Cloud Platforms
-                  </h3>
-
-                  <p>
-                      Design resilient architectures
-                      optimized for scalability,
-                      security and cost efficiency.
-                  </p>
-
-                  <a href="#">
-                      Learn More →
-                  </a>
-
-              </div>
-
-          </div>
-
-      </div>
-
-  </div>
-
 </section>
 
+<!-- ================================================
+   SHOWCASE SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-showcase-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-showcase-header">
+            <span class="btr-section-badge">Enterprise Solutions</span>
+            <h2 class="btr-section-title">Accelerating Digital Transformation<br>Through Cloud & DevOps Excellence</h2>
+            <p class="btr-section-subtitle">Modernize infrastructure, automate delivery, and scale cloud-native applications with enterprise-grade solutions.</p>
+        </div>
+
+        <div class="btr-showcase-filters">
+            <button class="btr-filter-btn active" data-filter="all">All Solutions</button>
+            <button class="btr-filter-btn" data-filter="migration">Cloud Migration</button>
+            <button class="btr-filter-btn" data-filter="automation">DevOps Automation</button>
+            <button class="btr-filter-btn" data-filter="kubernetes">Kubernetes</button>
+            <button class="btr-filter-btn" data-filter="security">Security</button>
+        </div>
+
+        <div class="btr-showcase-grid">
+            <!-- Card 1 -->
+            <div class="btr-showcase-card" data-category="migration">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80" alt="Cloud Migration">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">Cloud Migration</span>
+                    <h3>Enterprise Cloud Transformation</h3>
+                    <p>Migrate legacy applications into secure, scalable cloud environments with minimal risk.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="btr-showcase-card" data-category="automation">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" alt="DevOps Automation">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">DevOps Automation</span>
+                    <h3>CI/CD Pipeline Engineering</h3>
+                    <p>Accelerate software delivery through automated build, testing, and deployment workflows.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="btr-showcase-card" data-category="kubernetes">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80" alt="Kubernetes">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">Kubernetes</span>
+                    <h3>Container Orchestration Platform</h3>
+                    <p>Deploy and manage highly available cloud-native applications through Kubernetes ecosystems.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="btr-showcase-card" data-category="security">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80" alt="Security">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">Security</span>
+                    <h3>Enterprise Security & Monitoring</h3>
+                    <p>Continuous monitoring, governance, compliance, and proactive threat detection.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="btr-showcase-card" data-category="automation">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="Infrastructure">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">Infrastructure as Code</span>
+                    <h3>Automated Infrastructure Provisioning</h3>
+                    <p>Deploy infrastructure consistently using Terraform, CloudFormation, and IaC frameworks.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="btr-showcase-card" data-category="migration">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" alt="Cloud Architecture">
+                <div class="btr-showcase-overlay">
+                    <span class="btr-showcase-tag">Cloud Architecture</span>
+                    <h3>High Performance Cloud Platforms</h3>
+                    <p>Design resilient architectures optimized for scalability, security, and cost efficiency.</p>
+                    <a href="#" class="btr-showcase-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   TESTIMONIALS SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-testimonials-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-section-header" style="text-align:center;margin-bottom:60px;">
+            <span class="btr-section-badge">Client Testimonials</span>
+            <h2 class="btr-section-title">What Our Partners Say</h2>
+            <p class="btr-section-subtitle" style="margin:0 auto;">Real feedback from organizations we've helped transform through technology.</p>
+        </div>
+
+        <div class="btr-testimonial-card" style="max-width:900px;margin:0 auto;">
+            <div class="btr-testimonial-quote">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <path d="M14 20H20V26H14V20ZM28 20H34V26H28V20ZM14 28H20V34H14V28ZM28 28H34V34H28V28Z" fill="#0ebab1" opacity="0.3"/>
+                    <path d="M14 14H20V20H14V14ZM28 14H34V20H28V14Z" fill="#0ebab1" opacity="0.15"/>
+                </svg>
+            </div>
+            <p class="btr-testimonial-text">
+                "BTR Solutions demonstrated deep technical expertise and a commitment to delivering results that exceeded our expectations. Their team's ability to understand our business needs and translate them into scalable digital solutions has been invaluable to our growth."
+            </p>
+            <div class="btr-testimonial-author">
+                <img class="btr-testimonial-avatar" src="{% static 'images/testimonial.png' %}" alt="David Smith" />
+                <div>
+                    <div class="btr-testimonial-name">David Smith</div>
+                    <div class="btr-testimonial-role">Founder & CEO, TechCorp</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   COUNTER SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-counter-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-counter-grid">
+            <div class="btr-counter-item">
+                <span class="btr-counter-number" data-count="785">0</span>
+                <span class="btr-counter-label">Global Brands</span>
+            </div>
+            <div class="btr-counter-item">
+                <span class="btr-counter-number" data-count="533">0</span>
+                <span class="btr-counter-label">Happy Clients</span>
+            </div>
+            <div class="btr-counter-item">
+                <span class="btr-counter-number" data-count="865">0</span>
+                <span class="btr-counter-label">Winning Awards</span>
+            </div>
+            <div class="btr-counter-item">
+                <span class="btr-counter-number" data-count="346">0</span>
+                <span class="btr-counter-label">Projects Delivered</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   CLIENTS SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-clients-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-section-header" style="text-align:center;margin-bottom:20px;">
+            <span class="btr-section-badge">Trusted Partners</span>
+            <h2 class="btr-section-title">Global Brands That Trust Us</h2>
+            <p class="btr-section-subtitle" style="margin:0 auto;">Partnering with industry leaders to deliver transformative digital solutions.</p>
+        </div>
+
+        <div class="btr-clients-grid">
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-01.svg' %}" alt="Client 1" />
+            </div>
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-02.svg' %}" alt="Client 2" />
+            </div>
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-03.svg' %}" alt="Client 3" />
+            </div>
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-04.svg' %}" alt="Client 4" />
+            </div>
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-05.svg' %}" alt="Client 5" />
+            </div>
+            <div class="btr-client-item">
+                <img src="{% static 'images/brand-light-06.svg' %}" alt="Client 6" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   BLOG SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-blog-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-section-header" style="text-align:center;margin-bottom:20px;">
+            <span class="btr-section-badge">Insights & News</span>
+            <h2 class="btr-section-title">Latest From Our Blog</h2>
+            <p class="btr-section-subtitle" style="margin:0 auto;">Stay updated with our latest insights on technology, innovation, and digital transformation.</p>
+        </div>
+
+        <div class="btr-blog-grid">
+            <!-- Blog 1 -->
+            <article class="btr-blog-card">
+                <div class="btr-blog-image">
+                    <img src="{% static 'images/blog-01.png' %}" alt="Blog 1" />
+                    <div class="btr-blog-overlay">
+                        <a href="./blog-single.html" class="btr-blog-readmore">Read More</a>
+                    </div>
+                </div>
+                <div class="btr-blog-content">
+                    <div class="btr-blog-meta">
+                        <span>👤 Musharof Chy</span>
+                        <span>📅 25 Dec, 2025</span>
+                    </div>
+                    <a href="blog-single.html" class="btr-blog-title">Free advertising for your online business</a>
+                </div>
+            </article>
+
+            <!-- Blog 2 -->
+            <article class="btr-blog-card">
+                <div class="btr-blog-image">
+                    <img src="{% static 'images/blog-02.png' %}" alt="Blog 2" />
+                    <div class="btr-blog-overlay">
+                        <a href="./blog-single.html" class="btr-blog-readmore">Read More</a>
+                    </div>
+                </div>
+                <div class="btr-blog-content">
+                    <div class="btr-blog-meta">
+                        <span>👤 Musharof Chy</span>
+                        <span>📅 25 Dec, 2025</span>
+                    </div>
+                    <a href="blog-single.html" class="btr-blog-title">9 simple ways to improve your design skills</a>
+                </div>
+            </article>
+
+            <!-- Blog 3 -->
+            <article class="btr-blog-card">
+                <div class="btr-blog-image">
+                    <img src="{% static 'images/blog-03.png' %}" alt="Blog 3" />
+                    <div class="btr-blog-overlay">
+                        <a href="./blog-single.html" class="btr-blog-readmore">Read More</a>
+                    </div>
+                </div>
+                <div class="btr-blog-content">
+                    <div class="btr-blog-meta">
+                        <span>👤 Musharof Chy</span>
+                        <span>📅 25 Dec, 2025</span>
+                    </div>
+                    <a href="blog-single.html" class="btr-blog-title">Tips to quickly improve your coding speed</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   CONTACT SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-contact-section btr-section-padding" id="support">
+    <div class="btr-container">
+        <div class="btr-section-header" style="text-align:center;margin-bottom:20px;">
+            <span class="btr-section-badge">Get In Touch</span>
+            <h2 class="btr-section-title">Let's Stay Connected</h2>
+            <p class="btr-section-subtitle" style="margin:0 auto;">Have a project in mind? Let's discuss how we can help you achieve your goals.</p>
+        </div>
+
+        <div class="btr-contact-grid">
+            <!-- Contact Info -->
+            <div class="btr-contact-info">
+                <div class="btr-contact-info-item">
+                    <div class="btr-contact-info-label">Email Address</div>
+                    <div class="btr-contact-info-value">
+                        <a href="mailto:btrsolutions.contact@gmail.com">btrsolutions.contact@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="btr-contact-info-item">
+                    <div class="btr-contact-info-label">Office Location</div>
+                    <div class="btr-contact-info-value">297-C, P.I.A. Main Boulevard Road, Lahore, Pakistan</div>
+                </div>
+                
+                <div class="btr-contact-info-item">
+                    <div class="btr-contact-info-label">Phone Number</div>
+                    <div class="btr-contact-info-value"><a href="tel:+923248699647">+92 324 8699 647</a></div>
+                </div>
+                
+                <div class="btr-contact-info-item">
+                    <div class="btr-contact-info-label">WhatsApp</div>
+                    <div class="btr-contact-info-value">
+                        <a href="https://wa.me/923248699647" target="_blank">0324 8699647</a>
+                    </div>
+                </div>
+
+                <div class="btr-contact-social">
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.162 5.656C21.398 5.994 20.589 6.216 19.76 6.314C20.634 5.792 21.288 4.969 21.6 4C20.78 4.488 19.881 4.83 18.944 5.015C18.315 4.342 17.48 3.895 16.571 3.745C15.662 3.594 14.728 3.748 13.915 4.183C13.103 4.618 12.456 5.31 12.077 6.15C11.698 6.99 11.607 7.932 11.818 8.829C10.155 8.746 8.528 8.314 7.043 7.561C5.558 6.808 4.248 5.751 3.198 4.459C2.826 5.097 2.631 5.823 2.632 6.562C2.632 8.012 3.37 9.293 4.492 10.043C3.828 10.022 3.179 9.843 2.598 9.52V9.572C2.598 10.538 2.932 11.474 3.544 12.221C4.155 12.968 5.006 13.481 5.953 13.673C5.337 13.84 4.69 13.865 4.063 13.745C4.33 14.576 4.85 15.303 5.551 15.824C6.251 16.345 7.097 16.634 7.97 16.65C7.102 17.331 6.109 17.835 5.047 18.132C3.985 18.429 2.874 18.514 1.779 18.382C3.691 19.611 5.916 20.264 8.189 20.262C15.882 20.262 20.089 13.889 20.089 8.362C20.089 8.182 20.084 8 20.076 7.822C20.895 7.23 21.602 6.497 22.162 5.656Z"/></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5.00002C6.94 5.53046 6.729 6.03906 6.354 6.41394C5.979 6.78883 5.47 6.99929 4.94 6.99902C4.409 6.99876 3.901 6.78779 3.525 6.41253C3.15 6.03727 2.94 5.52846 2.94 4.99802C2.94 4.46759 3.151 3.95899 3.526 3.5841C3.902 3.20922 4.411 2.99876 4.941 2.99902C5.471 2.99929 5.98 3.21026 6.355 3.58552C6.73 3.96078 6.94 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z"/></svg></a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="btr-contact-form">
+                <form>
+                    <div class="btr-form-row">
+                        <div class="btr-form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" placeholder="Devid Wonder" />
+                        </div>
+                        <div class="btr-form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="example@gmail.com" />
+                        </div>
+                    </div>
+                    <div class="btr-form-row">
+                        <div class="btr-form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" id="phone" placeholder="+009 3342 3432" />
+                        </div>
+                        <div class="btr-form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Type your subject" />
+                        </div>
+                    </div>
+                    <div class="btr-form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Tell us about your project..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btr-submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   CTA SECTION - REDESIGNED
+   ================================================ -->
+<section class="btr-cta-section btr-section-padding">
+    <div class="btr-container">
+        <div class="btr-cta-content">
+            <div class="btr-cta-text">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Partner with BTR Solutions to build scalable, high-performance digital products that drive measurable results.</p>
+            </div>
+            <a href="#" class="btr-cta-btn">Get Started Now →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================
+   JAVASCRIPT
+   ================================================ -->
 <script>
+// ===== Typing Effect (HERO) =====
+const btrTexts = [
+    "Scalable Web Apps",
+    "Enterprise Systems",
+    "Cloud Solutions",
+    "Digital Platforms"
+];
 
-document.addEventListener("DOMContentLoaded", function(){
+let btrIndex = 0;
+let btrChar = 0;
+let btrDeleting = false;
+const btrTyping = document.querySelector(".btr-hero-typing");
 
-  const buttons =
-  document.querySelectorAll(".tfdevops-filter-btn");
+function btrType() {
+    let current = btrTexts[btrIndex];
+    
+    if (btrDeleting) {
+        btrChar--;
+    } else {
+        btrChar++;
+    }
+    
+    btrTyping.textContent = current.substring(0, btrChar);
+    
+    if (!btrDeleting && btrChar === current.length) {
+        btrDeleting = true;
+        setTimeout(btrType, 1200);
+        return;
+    }
+    
+    if (btrDeleting && btrChar === 0) {
+        btrDeleting = false;
+        btrIndex = (btrIndex + 1) % btrTexts.length;
+    }
+    
+    setTimeout(btrType, btrDeleting ? 60 : 100);
+}
 
-  const cards =
-  document.querySelectorAll(".tfdevops-showcase-card");
+if (btrTyping) btrType();
 
-  buttons.forEach(button => {
+// ===== Showcase Filter =====
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".btr-filter-btn");
+    const cards = document.querySelectorAll(".btr-showcase-card");
 
-      button.addEventListener("click", function(){
+    buttons.forEach(button => {
+        button.addEventListener("click", function() {
+            buttons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
 
-          buttons.forEach(btn =>
-              btn.classList.remove("active")
-          );
+            const filter = this.getAttribute("data-filter");
 
-          this.classList.add("active");
-
-          const filter =
-          this.getAttribute("data-filter");
-
-          cards.forEach(card => {
-
-              if(filter === "all"){
-                  card.classList.remove("tfdevops-hidden");
-              }
-              else{
-
-                  if(
-                      card.dataset.category === filter
-                  ){
-                      card.classList.remove("tfdevops-hidden");
-                  }
-                  else{
-                      card.classList.add("tfdevops-hidden");
-                  }
-
-              }
-
-          });
-
-      });
-
-  });
-
+            cards.forEach(card => {
+                if (filter === "all") {
+                    card.classList.remove("btr-showcase-hidden");
+                } else {
+                    if (card.dataset.category === filter) {
+                        card.classList.remove("btr-showcase-hidden");
+                    } else {
+                        card.classList.add("btr-showcase-hidden");
+                    }
+                }
+            });
+        });
+    });
 });
 
+// ===== Counter Animation =====
+document.addEventListener("DOMContentLoaded", function() {
+    const counters = document.querySelectorAll(".btr-counter-number");
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.count);
+                const duration = 2000;
+                const startTime = performance.now();
+                
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(eased * target);
+                    
+                    entry.target.textContent = current;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        entry.target.textContent = target;
+                    }
+                }
+                
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+});
 </script>
 
-    <!-- ===== Testimonials Start ===== -->
-    <section class="hj rp hr">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ze ki xn ar">
-        <div class="animate_top jb cq">
-          <!-- Slider main container -->
-          <div class="swiper testimonial-01">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">
-                <div class="i hh rm sg vk xm bi qj">
-                  <!-- Border Shape -->
-                  <span class="rc je md/2 gh xg h q r"></span>
-                  <span class="rc je md/2 mh yg h q p"></span>
-
-                  <div class="tc sf rn tn un zf dp">
-                    <img class="bf" src="{% static 'images/testimonial.png'%}" alt="User" />
-
-                    <div>
-                      <img src="{% static 'images/icon-quote.svg'%}" alt="Quote" />
-                      <p class="ek ik xj _p kc fb">
-                       We are extremely satisfied with the quality of service provided. The team demonstrated deep technical knowledge,
-                        clear communication, and a strong commitment to delivering results that exceeded our expectations.
-                      </p>
-
-                      <div class="tc yf vf">
-                        <div>
-                          <span class="rc ek xj kk wm zb">Devid Smith</span>
-                          <span class="rc">Founter @democompany</span>
-                        </div>
-
-                        <img class="rk" src="{% static 'images/brand-light-02.svg'%}" alt="Brand" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- If we need navigation -->
-            <div class="tc wf xf fg jb">
-              <div class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-                <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"
-                    fill="" />
-                </svg>
-              </div>
-              <div class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-                <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
-                    fill="" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Testimonials End ===== -->
-
-  
-    <!-- ===== Counter Start ===== -->
-    <section class="i pg qh rm ji hp">
-      <img src="{% static 'images/shape-11.svg'%}" alt="Shape" class="of h ga ha ke" />
-      <img src="{% static 'images/shape-07.svg'%}" alt="Shape" class="h ia o ae jf" />
-      <img src="{% static 'images/shape-15.svg'%}" alt="Shape" class="h q p" />
-
-      <div class="bb ze i va ki xn br">
-        <div class="tc uf sn tn xf un gg">
-          <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">785</h2>
-            <p class="ek bk aq">Global Brands</p>
-          </div>
-          <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">533</h2>
-            <p class="ek bk aq">Happy Clients</p>
-          </div>
-          <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">865</h2>
-            <p class="ek bk aq">Winning Award</p>
-          </div>
-          <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">346</h2>
-            <p class="ek bk aq">Happy Clients</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Counter End ===== -->
-
-    <!-- ===== Clients Start ===== -->
-    <section class="pj vp mr">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
-        <div class="wc rf qn zf cp kq xf wf">
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-01.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-01.svg'%}" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-02.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-02.svg'%}" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-03.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-03.svg'%}" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-04.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-04.svg'%}" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-05.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-05.svg'%}" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{% static 'images/brand-light-06.svg'%}" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{% static 'images/brand-dark-06.svg'%}" alt="Clients" />
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Clients End ===== -->
-
-
-    <!-- ===== Blog Start ===== -->
-    <section class="ji gp uq">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ye ki xn vq jb jo">
-        <div class="wc qf pn xo zf iq">
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{% static 'images/blog-01.png'%}" alt="Blog" />
-
-              <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-man.svg'%}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-calender.svg'%}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">Free advertising for your online business</a>
-              </h4>
-            </div>
-          </div>
-
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{% static 'images/blog-02.png'%}" alt="Blog" />
-
-              <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-man.svg'%}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-calender.svg'%}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">9 simple ways to improve your design skills</a>
-              </h4>
-            </div>
-          </div>
-
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{% static 'images/blog-03.png'%}" alt="Blog" />
-
-              <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-man.svg'%}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{% static 'images/icon-calender.svg'%}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">Tips to quickly improve your coding speed.</a>
-              </h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Blog End ===== -->
-
-
-    <!-- ===== Contact Start ===== -->
-    <section id="support" class="i pg fh rm ji gp uq">
-      <!-- Bg Shapes -->
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Let’s Stay Connected`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="i va bb ye ki xn wq jb mo">
-        <div class="tc uf sn tf rn un zf xl:gap-10">
-          <div class="animate_top w-full mn/5 to/3 vk sg hh sm yh rq i pg">
-            <!-- Bg Shapes -->
-
-            <div class="fb">
-              <h4 class="wj kk wm cc">Email Address</h4>
-              <p><a href="#!">btrsolutions.contact@gmail.com</a></p>
-            </div>
-            <div class="fb">
-              <h4 class="wj kk wm cc">Office Location</h4>
-              <p>297-C, P.I.A. Main Boulevard Road, Lahore, Pakistan</p>
-            </div>
-            <div class="fb">
-              <h4 class="wj kk wm cc">Phone Number</h4>
-              <p><a href="#!">+92 324 8699 647</a></p>
-            </div>
-            <div class="fb">
-              <h4 class="wj kk wm cc">WhatsApp</h4>
-              <p>
-                <a href="https://wa.me/923248699647" target="_blank">
-                  0324 8699647
-                </a>
-              </p>
-            </div>
-
-         
-            <div class="animate_top zd/2 to/4">
-              <h5 class="wj kk wm cc">Follow Us</h5>
-            <ul class="tc wf cg">
-              <li>
-                <a href="#!">
-                  <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_48_1499)">
-                      <path
-                        d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
-                        fill="" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_48_1499">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_48_1502)">
-                      <path
-                        d="M22.162 5.65593C21.3985 5.99362 20.589 6.2154 19.76 6.31393C20.6337 5.79136 21.2877 4.96894 21.6 3.99993C20.78 4.48793 19.881 4.82993 18.944 5.01493C18.3146 4.34151 17.4803 3.89489 16.5709 3.74451C15.6615 3.59413 14.7279 3.74842 13.9153 4.18338C13.1026 4.61834 12.4564 5.30961 12.0771 6.14972C11.6978 6.98983 11.6067 7.93171 11.818 8.82893C10.1551 8.74558 8.52832 8.31345 7.04328 7.56059C5.55823 6.80773 4.24812 5.75098 3.19799 4.45893C2.82628 5.09738 2.63095 5.82315 2.63199 6.56193C2.63199 8.01193 3.36999 9.29293 4.49199 10.0429C3.828 10.022 3.17862 9.84271 2.59799 9.51993V9.57193C2.59819 10.5376 2.93236 11.4735 3.54384 12.221C4.15532 12.9684 5.00647 13.4814 5.95299 13.6729C5.33661 13.84 4.6903 13.8646 4.06299 13.7449C4.32986 14.5762 4.85 15.3031 5.55058 15.824C6.25117 16.345 7.09712 16.6337 7.96999 16.6499C7.10247 17.3313 6.10917 17.8349 5.04687 18.1321C3.98458 18.4293 2.87412 18.5142 1.77899 18.3819C3.69069 19.6114 5.91609 20.2641 8.18899 20.2619C15.882 20.2619 20.089 13.8889 20.089 8.36193C20.089 8.18193 20.084 7.99993 20.076 7.82193C20.8949 7.2301 21.6016 6.49695 22.163 5.65693L22.162 5.65593Z"
-                        fill="" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_48_1502">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_48_1505)">
-                      <path
-                        d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z"
-                        fill="" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_48_1505">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </a>
-              </li>
-              <li>
-              </li>
-            </ul>
-            </div>
-           </div>
-
-          <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
-            <form>
-              <div class="tc sf yo ap zf ep qb">
-                <div class="vd to/2">
-                  <label class="rc ac" for="fullname">Full name</label>
-                  <input type="text" name="fullname" id="fullname" placeholder="Devid Wonder"
-                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi" />
-                </div>
-
-                <div class="vd to/2">
-                  <label class="rc ac" for="email">Email address</label>
-                  <input type="email" name="email" id="email" placeholder="example@gmail.com"
-                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi" />
-                </div>
-              </div>
-
-              <div class="tc sf yo ap zf ep qb">
-                <div class="vd to/2">
-                  <label class="rc ac" for="phone">Phone number</label>
-                  <input type="text" name="phone" id="phone" placeholder="+009 3342 3432"
-                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi" />
-                </div>
-
-                <div class="vd to/2">
-                  <label class="rc ac" for="subject">Subject</label>
-                  <input type="text" for="subject" id="subject" placeholder="Type your subject"
-                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi" />
-                </div>
-              </div>
-
-              <div class="fb">
-                <label class="rc ac" for="message">Message</label>
-                <textarea placeholder="Message" rows="4" name="message" id="message"
-                  class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 ci"></textarea>
-              </div>
-
-              <div class="tc xf">
-                <button class="vc rg lk gh ml il hi gi _l">Send Message</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Contact End ===== -->
-
-    <!-- ===== CTA Start ===== -->
-    <section class="i pg ggh ji">
-      <!-- Bg Shape -->
-      <img class="h p q" src="{% static 'images/shape-16.svg'%}" alt="Bg Shape" />
-
-      <div class="bb ye i z-10 ki xn dr">
-        <div class="tc uf sn tn un gg">
-          <div class="animate_left to/2">
-            <h2 class="fk vj zp pr lk ac">
-              Empowering Businesses with Scalable Digital Solutions
-          </h2>
-          
-          <p class="lk">
-              From custom software development to enterprise-grade web and mobile applications, BTR Solutions partners with businesses to build secure, scalable, and high-performance digital products. Our expert team combines innovation, technology, and industry best practices to deliver measurable results and long-term business value.
-          </p>
-          </div>
-          <div class="animate_right bf">
-            <a href="#!" class="vc ek kk hh rg ol il cm gi hi">
-              Get Started Now
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA End ===== -->
-
-    <!-- JS -->
-<script>
-
-  const btrTexts = [
-      "Scalable Web Apps",
-      "Enterprise Systems",
-      "Cloud Solutions",
-      "Digital Platforms"
-  ];
-  
-  let btrIndex = 0;
-  let btrChar = 0;
-  let btrDeleting = false;
-  
-  const btrTyping = document.querySelector(".btr-hero-typing");
-  
-  function btrType(){
-  
-      let current = btrTexts[btrIndex];
-  
-      if(btrDeleting){
-          btrChar--;
-      } else {
-          btrChar++;
-      }
-  
-      btrTyping.textContent = current.substring(0, btrChar);
-  
-      if(!btrDeleting && btrChar === current.length){
-          btrDeleting = true;
-          setTimeout(btrType, 1200);
-          return;
-      }
-  
-      if(btrDeleting && btrChar === 0){
-          btrDeleting = false;
-          btrIndex = (btrIndex + 1) % btrTexts.length;
-      }
-  
-      setTimeout(btrType, btrDeleting ? 60 : 100);
-  }
-  
-  btrType();
-  
-  </script>
-
-  
-    <script>
-      //  Pricing Table
-      const setup = () => {
-        return {
-          isNavOpen: false,
-  
-          billPlan: 'monthly',
-  
-          plans: [
-            {
-              name: 'Starter',
-              price: {
-                monthly: 29,
-                annually: 29 * 12 - 199,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
-            {
-              name: 'Growth Plan',
-              price: {
-                monthly: 59,
-                annually: 59 * 12 - 100,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
-            {
-              name: 'Business',
-              price: {
-                monthly: 139,
-                annually: 139 * 12 - 100,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
-          ],
-        };
-      };
-    </script>
-  
 {% endblock %}
