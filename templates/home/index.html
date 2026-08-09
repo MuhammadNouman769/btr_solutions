@@ -1120,7 +1120,863 @@ body {
         </div>
     </div>
 </section>
+<!-- =========================================================
+BTR SOLUTIONS — ENTERPRISE TECHNOLOGY CARDS
+Hover → Expand
+Arrow Button → Open / Close Details
+Other Cards → Stay Compact
+========================================================= -->
 
+<style>
+/* =========================================================
+   SECTION
+========================================================= */
+
+.btr-tech-section {
+    width: 100%;
+    padding: 70px 40px 55px;
+    background: #ffffff;
+    overflow: hidden;
+    font-family: "Inter", "Poppins", sans-serif;
+}
+
+.btr-tech-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.btr-tech-heading {
+    max-width: 760px;
+    margin-bottom: 28px;
+}
+
+.btr-tech-heading h2 {
+    margin: 0;
+    color: #000;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* =========================================================
+   CARDS WRAPPER
+========================================================= */
+
+.btr-tech-cards {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    height: 450px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.btr-tech-card {
+    position: relative;
+    flex: 0 0 145px;
+    height: 450px;
+
+    border-radius: 23px;
+    overflow: hidden;
+
+    cursor: pointer;
+    background: #111827;
+
+    transition:
+        flex-basis 0.55s cubic-bezier(.22, .61, .36, 1),
+        box-shadow 0.4s ease;
+
+    isolation: isolate;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.btr-tech-card img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transition:
+        transform 0.65s cubic-bezier(.22, .61, .36, 1),
+        filter 0.5s ease;
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.btr-tech-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, .25) 0%,
+            rgba(0, 0, 0, .03) 38%,
+            rgba(0, 0, 0, .15) 55%,
+            rgba(0, 0, 0, .90) 100%
+        );
+
+    pointer-events: none;
+
+    transition: background .45s ease;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.btr-tech-title {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+    right: 55px;
+
+    z-index: 4;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    line-height: 1.25;
+    font-weight: 600;
+
+    transition:
+        font-size .35s ease,
+        top .35s ease;
+}
+
+/* =========================================================
+   DETAIL BUTTON
+========================================================= */
+
+.btr-tech-detail-btn {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 38px;
+    height: 38px;
+
+    z-index: 6;
+
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.30);
+    backdrop-filter: blur(8px);
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    opacity: .9;
+
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.btr-tech-detail-btn:hover {
+    background: rgba(255,255,255,.18);
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.btr-tech-detail-btn span {
+    display: block;
+    line-height: 1;
+
+    transition: transform .35s ease;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.btr-tech-content {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+
+    z-index: 4;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity .3s ease,
+        transform .45s cubic-bezier(.22,.61,.36,1),
+        visibility .3s ease;
+
+    pointer-events: none;
+}
+
+.btr-tech-content p {
+    margin: 0;
+
+    color: rgba(255,255,255,.94);
+
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+
+    max-width: 430px;
+}
+
+/* =========================================================
+   HOVER / ACTIVE CARD
+========================================================= */
+
+.btr-tech-card:hover,
+.btr-tech-card.is-active {
+    flex-basis: 365px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.22);
+}
+
+.btr-tech-card:hover img,
+.btr-tech-card.is-active img {
+    transform: scale(1.035);
+}
+
+.btr-tech-card:hover .btr-tech-content,
+.btr-tech-card.is-active .btr-tech-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btr-tech-card:hover .btr-tech-title,
+.btr-tech-card.is-active .btr-tech-title {
+    font-size: 16px;
+}
+
+/* =========================================================
+   ACTIVE BUTTON
+========================================================= */
+
+.btr-tech-card.is-active .btr-tech-detail-btn {
+    background: rgba(255,255,255,.20);
+}
+
+.btr-tech-card.is-active .btr-tech-detail-btn span {
+    transform: rotate(45deg);
+}
+
+/* =========================================================
+   NON ACTIVE CARDS
+========================================================= */
+
+.btr-tech-cards:hover .btr-tech-card:not(:hover):not(.is-active) {
+    transform: none;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .btr-tech-cards {
+        gap: 12px;
+    }
+
+    .btr-tech-card {
+        flex-basis: 125px;
+    }
+
+    .btr-tech-card:hover,
+    .btr-tech-card.is-active {
+        flex-basis: 330px;
+    }
+}
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .btr-tech-section {
+        padding: 55px 25px;
+    }
+
+    .btr-tech-cards {
+        height: 410px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+    }
+
+    .btr-tech-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .btr-tech-card {
+        flex: 0 0 135px;
+        height: 410px;
+    }
+
+    .btr-tech-card:hover,
+    .btr-tech-card.is-active {
+        flex-basis: 330px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .btr-tech-section {
+        padding: 45px 18px;
+    }
+
+    .btr-tech-heading {
+        margin-bottom: 22px;
+    }
+
+    .btr-tech-heading h2 {
+        font-size: 34px;
+    }
+
+    .btr-tech-cards {
+        height: 390px;
+        gap: 10px;
+    }
+
+    .btr-tech-card {
+        flex-basis: 110px;
+        height: 390px;
+        border-radius: 18px;
+    }
+
+    .btr-tech-card:hover,
+    .btr-tech-card.is-active {
+        flex-basis: 285px;
+    }
+
+    .btr-tech-title {
+        top: 15px;
+        left: 14px;
+        right: 50px;
+        font-size: 13px;
+    }
+
+    .btr-tech-detail-btn {
+        width: 32px;
+        height: 32px;
+
+        top: 12px;
+        right: 10px;
+
+        font-size: 14px;
+    }
+
+    .btr-tech-content {
+        left: 15px;
+        right: 15px;
+        bottom: 18px;
+    }
+
+    .btr-tech-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+</style>
+
+
+<!-- =========================================================
+HTML
+========================================================= -->
+
+<section class="btr-tech-section">
+
+    <div class="btr-tech-container">
+
+        <!-- HEADING -->
+
+        <div class="btr-tech-heading">
+
+            <h2>
+                Engineering Enterprise Technology
+                Solutions That Work For You
+            </h2>
+
+        </div>
+
+
+        <!-- =================================================
+             CARDS
+        ================================================== -->
+
+        <div class="btr-tech-cards" id="btrTechCards">
+
+
+            <!-- =================================================
+                 01 — ARTIFICIAL INTELLIGENCE
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/artificial-intelligence.png' %}"
+                    alt="Artificial Intelligence"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    Artificial Intelligence
+                </div>
+
+
+                <!-- DETAIL BUTTON -->
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View Artificial Intelligence details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        We build enterprise AI solutions that automate
+                        workflows, improve decision-making, and help
+                        businesses operate with greater speed,
+                        accuracy, and efficiency.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 02 — GENERATIVE AI
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/generative-ai.png' %}"
+                    alt="Generative AI"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    Generative AI
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View Generative AI details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        We develop generative AI systems that create
+                        content, streamline operations, enhance customer
+                        experiences, and unlock new business opportunities
+                        at scale.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 03 — LOGISTICS
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/logistics.png' %}"
+                    alt="Logistics Technology"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    Logistics
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View Logistics details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        Intelligent logistics platforms that connect
+                        transportation, inventory, warehouse operations,
+                        shipment tracking, and real-time business data.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 04 — BLOCKCHAIN
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/blockchain.png' %}"
+                    alt="Blockchain Technology"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    Blockchain
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View Blockchain details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        Secure and transparent blockchain solutions
+                        designed for digital assets, decentralized
+                        applications, smart contracts, and trusted
+                        business transactions.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 05 — ON-DEMAND
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/on-demand.png' %}"
+                    alt="On Demand Applications"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    On-Demand
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View On-Demand details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        Scalable on-demand platforms connecting customers,
+                        service providers, payments, operations, and
+                        real-time experiences through one ecosystem.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 06 — DATA ANALYTICS
+            ================================================== -->
+
+            <article class="btr-tech-card">
+
+                <img
+                    src="{% static 'images/interprise/data-analytics.png' %}"
+                    alt="Data Analytics"
+                    loading="lazy"
+                >
+
+                <div class="btr-tech-title">
+                    Data Analytics
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btr-tech-detail-btn"
+                    aria-label="View Data Analytics details"
+                    aria-expanded="false"
+                >
+                    <span>↗</span>
+                </button>
+
+
+                <div class="btr-tech-content">
+
+                    <p>
+                        Transforming complex business data into actionable
+                        insights through analytics, dashboards,
+                        visualization, reporting, and intelligent
+                        decision-support systems.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".btr-tech-card");
+    const buttons = document.querySelectorAll(".btr-tech-detail-btn");
+
+    /* =====================================================
+       DETAIL BUTTON
+       ===================================================== */
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const card = button.closest(".btr-tech-card");
+
+            const isActive = card.classList.contains("is-active");
+
+
+            /* Close every other card */
+
+            cards.forEach(function (item) {
+
+                item.classList.remove("is-active");
+
+                const itemButton =
+                    item.querySelector(".btr-tech-detail-btn");
+
+                if (itemButton) {
+                    itemButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+
+            });
+
+
+            /* Open selected card */
+
+            if (!isActive) {
+
+                card.classList.add("is-active");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       TOUCH DEVICES
+       Tap anywhere on compact card
+       ===================================================== */
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function (event) {
+
+            if (
+                event.target.closest(".btr-tech-detail-btn")
+            ) {
+                return;
+            }
+
+
+            if (
+                window.matchMedia("(hover: none)").matches
+            ) {
+
+                const isActive =
+                    card.classList.contains("is-active");
+
+
+                cards.forEach(function (item) {
+
+                    item.classList.remove("is-active");
+
+                    const button =
+                        item.querySelector(
+                            ".btr-tech-detail-btn"
+                        );
+
+                    if (button) {
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+
+                });
+
+
+                if (!isActive) {
+
+                    card.classList.add("is-active");
+
+                    const button =
+                        card.querySelector(
+                            ".btr-tech-detail-btn"
+                        );
+
+                    if (button) {
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       CLICK OUTSIDE → CLOSE
+       ===================================================== */
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            !event.target.closest(".btr-tech-card")
+        ) {
+
+            cards.forEach(function (card) {
+
+                card.classList.remove("is-active");
+
+                const button =
+                    card.querySelector(
+                        ".btr-tech-detail-btn"
+                    );
+
+                if (button) {
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            });
+
+        }
+
+    });
+
+});
+
+</script>
 <!-- ================================================
    SHOWCASE SECTION - REDESIGNED
    ================================================ -->
