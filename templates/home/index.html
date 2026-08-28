@@ -259,84 +259,6 @@ body {
 }
 
 /* ================================================
-   FEATURES SECTION - REDESIGNED
-   ================================================ */
-.btr-features-section {
-    padding: 100px 0 80px;
-    background: var(--btr-white);
-}
-
-.btr-features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.btr-feature-card {
-    padding: 45px 35px;
-    background: var(--btr-white);
-    border-radius: var(--btr-radius);
-    box-shadow: var(--btr-shadow);
-    transition: var(--btr-transition);
-    border: 1px solid rgba(0,0,0,0.04);
-    position: relative;
-    overflow: hidden;
-}
-
-.btr-feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--btr-primary), var(--btr-primary-dark));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.6s ease;
-}
-
-.btr-feature-card:hover::before {
-    transform: scaleX(1);
-}
-
-.btr-feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 80px rgba(14, 186, 177, 0.12);
-}
-
-.btr-feature-icon {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--btr-primary-light);
-    border-radius: 16px;
-    margin-bottom: 24px;
-}
-
-.btr-feature-icon img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-}
-
-.btr-feature-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--btr-dark);
-}
-
-.btr-feature-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--btr-gray);
-}
-
-/* ================================================
    SHOWCASE SECTION - REDESIGNED
    ================================================ */
 .btr-showcase-section {
@@ -1082,51 +1004,637 @@ body {
     </div>
 </section>
 
-<!-- ================================================
-   FEATURES SECTION - REDESIGNED
-   ================================================ -->
-<section class="btr-features-section btr-section-padding" id="features">
-    <div class="btr-container">
-        <div class="btr-section-header" style="text-align:center;margin-bottom:20px;">
-            <span class="btr-section-badge">Why Choose BTR</span>
-            <h2 class="btr-section-title">Engineering Excellence,<br>Delivered at Scale</h2>
-            <p class="btr-section-subtitle" style="margin:0 auto;">We combine deep technical expertise with strategic thinking to build digital solutions that drive real business growth.</p>
-        </div>
-        
-        <div class="btr-features-grid">
-            <div class="btr-feature-card">
-                <div class="btr-feature-icon">
-                    <img src="{% static 'images/icon-01.svg' %}" alt="Support" />
-                </div>
-                <h3 class="btr-feature-title">24/7 Enterprise Support</h3>
-                <p class="btr-feature-desc">Round-the-clock technical support ensuring your mission-critical systems run without interruption.</p>
+<!-- ==================================================
+     CLIENT LOGOS SCROLL SECTION
+     Transform Your Business
+================================================== -->
+
+<style>
+    /* ==================================================
+       CLIENT LOGOS SCROLL SECTION
+    ================================================== */
+
+    .btrx-clients-section {
+        padding: 60px 0 70px;
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .btrx-clients-section .section-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .btrx-clients-section .section-header h2 {
+        font-size: 42px;
+        font-weight: 800;
+        color: #0a1628;
+        margin: 0 0 8px;
+        letter-spacing: -0.5px;
+    }
+
+    .btrx-clients-section .section-header h2 span {
+        color: #0ebab1;
+        position: relative;
+    }
+
+    .btrx-clients-section .section-header h2 span::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: rgba(14, 186, 177, 0.15);
+        border-radius: 4px;
+    }
+
+    .btrx-clients-section .section-header p {
+        font-size: 16px;
+        color: #6b7280;
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .btrx-clients-section .section-header p::before {
+        content: '✦ ';
+        color: #0ebab1;
+    }
+
+    .btrx-clients-section .section-header p::after {
+        content: ' ✦';
+        color: #0ebab1;
+    }
+
+    /* ==================================================
+       SCROLL TRACKS
+    ================================================== */
+
+    .btrx-scroll-track {
+        position: relative;
+        overflow: hidden;
+        padding: 20px 0;
+        background: transparent;
+        mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    }
+
+    .btrx-scroll-track::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(14, 186, 177, 0.15), transparent);
+    }
+
+    .btrx-scroll-track::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(14, 186, 177, 0.15), transparent);
+    }
+
+    .btrx-scroll-container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        width: max-content;
+        animation: btrxScrollRight 25s linear infinite;
+    }
+
+    .btrx-scroll-container.reverse {
+        animation: btrxScrollLeft 25s linear infinite;
+    }
+
+    /* Pause on hover */
+    .btrx-scroll-track:hover .btrx-scroll-container {
+        animation-play-state: paused;
+    }
+    .btrx-scroll-track:hover .btrx-scroll-container.reverse {
+        animation-play-state: paused;
+    }
+
+    /* ==================================================
+       CLIENT LOGO ITEMS
+    ================================================== */
+
+    .btrx-client-item {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 28px;
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 160px;
+        height: 70px;
+        cursor: default;
+        position: relative;
+    }
+
+    .btrx-client-item:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(14, 186, 177, 0.12);
+        border-color: rgba(14, 186, 177, 0.2);
+    }
+
+    .btrx-client-item img {
+        max-width: 140px;
+        max-height: 40px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+        transition: all 0.4s ease;
+    }
+
+    .btrx-client-item:hover img {
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+    }
+
+    /* Fallback - if no images, show text */
+    .btrx-client-item .client-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a2332;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+        transition: color 0.3s ease;
+    }
+
+    .btrx-client-item:hover .client-name {
+        color: #0ebab1;
+    }
+
+    /* ==================================================
+       ANIMATIONS
+    ================================================== */
+
+    @keyframes btrxScrollRight {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes btrxScrollLeft {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 992px) {
+        .btrx-clients-section {
+            padding: 40px 0 50px;
+        }
+        .btrx-clients-section .section-header h2 {
+            font-size: 32px;
+        }
+        .btrx-client-item {
+            min-width: 130px;
+            height: 60px;
+            padding: 12px 20px;
+        }
+        .btrx-client-item img {
+            max-width: 110px;
+            max-height: 32px;
+        }
+        .btrx-client-item .client-name {
+            font-size: 15px;
+        }
+        .btrx-scroll-container {
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .btrx-clients-section {
+            padding: 30px 0 40px;
+        }
+        .btrx-clients-section .section-header h2 {
+            font-size: 26px;
+        }
+        .btrx-clients-section .section-header p {
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+        .btrx-client-item {
+            min-width: 110px;
+            height: 50px;
+            padding: 10px 16px;
+            border-radius: 10px;
+        }
+        .btrx-client-item img {
+            max-width: 90px;
+            max-height: 28px;
+        }
+        .btrx-client-item .client-name {
+            font-size: 13px;
+        }
+        .btrx-scroll-container {
+            gap: 20px;
+        }
+        .btrx-scroll-track {
+            padding: 12px 0;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .btrx-client-item {
+            min-width: 90px;
+            height: 44px;
+            padding: 8px 12px;
+        }
+        .btrx-client-item img {
+            max-width: 70px;
+            max-height: 22px;
+        }
+        .btrx-client-item .client-name {
+            font-size: 11px;
+        }
+        .btrx-scroll-container {
+            gap: 14px;
+        }
+    }
+</style>
+
+
+<!-- ==================================================
+     CLIENT LOGOS SCROLL SECTION - HTML
+================================================== -->
+
+<section class="btrx-clients-section">
+
+  
+
+    <!-- ROW 1: Right to Left (Normal) -->
+    <div class="btrx-scroll-track">
+        <div class="btrx-scroll-container">
+            <!-- Client 1 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/Adore-clube.png' %}" alt="Adore Clube">
             </div>
-            
-            <div class="btr-feature-card">
-                <div class="btr-feature-icon">
-                    <img src="{% static 'images/icon-02.svg' %}" alt="Ownership" />
-                </div>
-                <h3 class="btr-feature-title">Full Project Ownership</h3>
-                <p class="btr-feature-desc">End-to-end accountability from concept to deployment, delivering quality at every stage.</p>
+            <!-- Client 2 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/beta-start.png' %}" alt="Beta Start">
             </div>
-            
-            <div class="btr-feature-card">
-                <div class="btr-feature-icon">
-                    <img src="{% static 'images/icon-03.svg' %}" alt="Collaboration" />
-                </div>
-                <h3 class="btr-feature-title">Collaborative Engineering</h3>
-                <p class="btr-feature-desc">Cross-functional teams working in harmony to deliver scalable, innovative solutions.</p>
+            <!-- Client 3 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/expert.png' %}" alt="Expert">
+            </div>
+            <!-- Client 4 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/green-soft.png' %}" alt="Green Soft">
+            </div>
+            <!-- Client 5 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/hadi.png' %}" alt="Hadi Sports">
+            </div>
+            <!-- Client 6 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/k-t-soft.png' %}" alt="KT Soft">
+            </div>
+            <!-- Client 7 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kadam.png' %}" alt="KADAM">
+            </div>
+            <!-- Client 8 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kidco.png' %}" alt="Kidco">
+            </div>
+            <!-- Client 9 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/mozay.png' %}" alt="Mozay">
+            </div>
+            <!-- Client 10 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/orfit.png' %}" alt="Orfit">
+            </div>
+            <!-- Client 11 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/parley.png' %}" alt="Parley">
+            </div>
+            <!-- Client 12 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/promax.png' %}" alt="Promax">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/ruby.png' %}" alt="Ruby">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/supermain.png' %}" alt="Supermain">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/tr.png' %}" alt="Tahir Rafique">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/trand-brand.png' %}" alt="Trand Brand">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welcome.png' %}" alt="Welcome">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welto.png' %}" alt="Welto">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/xara-soft.png' %}" alt="Xara Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/z-start.png' %}" alt="Z Start">
+            </div>
+
+            <!-- DUPLICATE for seamless loop -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/Adore-clube.png' %}" alt="Adore Clube">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/beta-start.png' %}" alt="Beta Start">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/expert.png' %}" alt="Expert">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/green-soft.png' %}" alt="Green Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/hadi.png' %}" alt="Hadi Sports">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/k-t-soft.png' %}" alt="KT Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kadam.png' %}" alt="KADAM">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kidco.png' %}" alt="Kidco">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/mozay.png' %}" alt="Mozay">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/orfit.png' %}" alt="Orfit">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/parley.png' %}" alt="Parley">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/promax.png' %}" alt="Promax">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/ruby.png' %}" alt="Ruby">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/supermain.png' %}" alt="Supermain">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/tr.png' %}" alt="Tahir Rafique">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/trand-brand.png' %}" alt="Trand Brand">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welcome.png' %}" alt="Welcome">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welto.png' %}" alt="Welto">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/xara-soft.png' %}" alt="Xara Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/z-start.png' %}" alt="Z Start">
             </div>
         </div>
     </div>
-</section>
-<!-- =========================================================
-BTR SOLUTIONS — ENTERPRISE TECHNOLOGY CARDS
-Hover → Expand
-Arrow Button → Open / Close Details
-Other Cards → Stay Compact
-========================================================= -->
 
+    <!-- ROW 2: Left to Right (Reverse) -->
+    <div class="btrx-scroll-track">
+        <div class="btrx-scroll-container reverse">
+            <!-- Client 1 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/Adore-clube.png' %}" alt="Adore Clube">
+            </div>
+            <!-- Client 2 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/beta-start.png' %}" alt="Beta Start">
+            </div>
+            <!-- Client 3 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/expert.png' %}" alt="Expert">
+            </div>
+            <!-- Client 4 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/green-soft.png' %}" alt="Green Soft">
+            </div>
+            <!-- Client 5 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/hadi.png' %}" alt="Hadi Sports">
+            </div>
+            <!-- Client 6 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/k-t-soft.png' %}" alt="KT Soft">
+            </div>
+            <!-- Client 7 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kadam.png' %}" alt="KADAM">
+            </div>
+            <!-- Client 8 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kidco.png' %}" alt="Kidco">
+            </div>
+            <!-- Client 9 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/mozay.png' %}" alt="Mozay">
+            </div>
+            <!-- Client 10 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/orfit.png' %}" alt="Orfit">
+            </div>
+            <!-- Client 11 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/parley.png' %}" alt="Parley">
+            </div>
+            <!-- Client 12 -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/promax.png' %}" alt="Promax">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/ruby.png' %}" alt="Ruby">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/supermain.png' %}" alt="Supermain">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/tr.png' %}" alt="Tahir Rafique">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/trand-brand.png' %}" alt="Trand Brand">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welcome.png' %}" alt="Welcome">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welto.png' %}" alt="Welto">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/xara-soft.png' %}" alt="Xara Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/z-start.png' %}" alt="Z Start">
+            </div>
+
+            <!-- DUPLICATE for seamless loop -->
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/Adore-clube.png' %}" alt="Adore Clube">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/beta-start.png' %}" alt="Beta Start">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/expert.png' %}" alt="Expert">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/green-soft.png' %}" alt="Green Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/hadi.png' %}" alt="Hadi Sports">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/k-t-soft.png' %}" alt="KT Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kadam.png' %}" alt="KADAM">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/kidco.png' %}" alt="Kidco">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/mozay.png' %}" alt="Mozay">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/orfit.png' %}" alt="Orfit">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/parley.png' %}" alt="Parley">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/promax.png' %}" alt="Promax">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/ruby.png' %}" alt="Ruby">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/supermain.png' %}" alt="Supermain">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/tr.png' %}" alt="Tahir Rafique">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/trand-brand.png' %}" alt="Trand Brand">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welcome.png' %}" alt="Welcome">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/welto.png' %}" alt="Welto">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/xara-soft.png' %}" alt="Xara Soft">
+            </div>
+            <div class="btrx-client-item">
+                <img src="{% static 'images/brands/z-start.png' %}" alt="Z Start">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     JS - For pause/resume and debug
+================================================== -->
+
+<script>
+    (function() {
+        'use strict';
+
+        console.log('✅ BTR Clients Section initialized!');
+        console.log('📌 Hover on any logo to pause animation');
+        console.log('📌 Row 1: Right → Left');
+        console.log('📌 Row 2: Left → Right');
+
+        // Count items
+        const items = document.querySelectorAll('.btrx-client-item');
+        console.log('📊 Total client items:', items.length);
+
+        // Check images
+        const images = document.querySelectorAll('.btrx-client-item img');
+        let loaded = 0;
+        let failed = 0;
+
+        images.forEach(img => {
+            img.addEventListener('load', function() {
+                loaded++;
+                console.log(`✅ Loaded: ${this.alt || 'unnamed'}`);
+            });
+            img.addEventListener('error', function() {
+                failed++;
+                console.log(`❌ Failed to load: ${this.alt || 'unnamed'} - ${this.src}`);
+                // Show fallback text if image fails
+                const parent = this.parentElement;
+                const name = this.alt || 'Client';
+                this.style.display = 'none';
+                const span = document.createElement('span');
+                span.className = 'client-name';
+                span.textContent = name;
+                parent.appendChild(span);
+            });
+        });
+
+        setTimeout(() => {
+            console.log(`📊 Images loaded: ${loaded}, Failed: ${failed}`);
+        }, 3000);
+
+        // Optional: Click to toggle pause (for debugging)
+        document.querySelectorAll('.btrx-scroll-track').forEach((track, index) => {
+            track.addEventListener('click', function(e) {
+                // Don't toggle if clicking on a client item
+                if (e.target.closest('.btrx-client-item')) return;
+                
+                const container = this.querySelector('.btrx-scroll-container');
+                if (container) {
+                    const isPaused = container.style.animationPlayState === 'paused';
+                    container.style.animationPlayState = isPaused ? 'running' : 'paused';
+                    console.log(`🎯 Track ${index + 1}: ${isPaused ? 'Resumed' : 'Paused'}`);
+                }
+            });
+        });
+
+    })();
+</script>
 <style>
 /* =========================================================
    SECTION
