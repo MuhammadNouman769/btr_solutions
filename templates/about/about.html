@@ -162,8 +162,7 @@ body {
 .btrwho-card:hover img {
     transform: scale(1.04);
 }
-
-/* ===================== OUR MISSION ===================== */
+/* ===================== OUR MISSION - IMPROVED CARDS ===================== */
 .btrx-choose-section {
     padding: 140px 6%;
     background: linear-gradient(135deg, #f8fafc, #eef6f8);
@@ -211,7 +210,7 @@ body {
 }
 .btrx-choose-btn:hover { transform: translateY(-4px); }
 
-/* Floating Cards - Same Size & Speed */
+/* ========== IMPROVED FLOATING CARDS ========== */
 .btrx-floating-area {
     display: flex;
     gap: 22px;
@@ -223,32 +222,206 @@ body {
     flex-direction: column;
     gap: 22px;
 }
+
+/* ========== CARD STYLING - IMPROVED ========== */
 .btrx-card {
-    width: 145px;
-    height: 145px;
+    width: 155px;
+    height: 155px;
     overflow: hidden;
-    border-radius: 28px;
+    border-radius: 24px;
     position: relative;
-    background: #fff;
-    box-shadow: 0 15px 40px rgba(15,23,42,.08);
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(14, 186, 177, 0.08), 
+                0 2px 8px rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
-    transition: .45s ease;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(14, 186, 177, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
 }
+
+/* ========== CARD GLOW EFFECT ========== */
+.btrx-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 26px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(14, 186, 177, 0.3), rgba(14, 186, 177, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* ========== CARD HOVER EFFECTS ========== */
+.btrx-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 20px 50px rgba(14, 186, 177, 0.18), 
+                0 8px 20px rgba(14, 186, 177, 0.10);
+    border-color: rgba(14, 186, 177, 0.25);
+    background: #ffffff;
+}
+
+.btrx-card:hover::before {
+    opacity: 1;
+}
+
+/* ========== CARD IMAGE ========== */
 .btrx-card img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: contain;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: grayscale(30%) brightness(0.98);
+    padding: 4px;
 }
-.btrx-up { animation: btrxMoveUp 16s linear infinite; }
-.btrx-down { animation: btrxMoveDown 16s linear infinite; }
+
+.btrx-card:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%) brightness(1);
+}
+
+/* ========== CARD SHIMMER EFFECT ON HOVER ========== */
+.btrx-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(14, 186, 177, 0.06), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.btrx-card:hover::after {
+    opacity: 1;
+}
+
+/* ========== ANIMATIONS ========== */
+.btrx-up { animation: btrxMoveUp 18s linear infinite; }
+.btrx-down { animation: btrxMoveDown 18s linear infinite; }
 
 @keyframes btrxMoveUp {
-    from { transform: translateY(0); }
-    to { transform: translateY(-50%); }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
 }
+
 @keyframes btrxMoveDown {
-    from { transform: translateY(-50%); }
-    to { transform: translateY(0); }
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* ========== CARD VARIATIONS - DIFFERENT COLORS ========== */
+.btrx-column:nth-child(1) .btrx-card {
+    border-color: rgba(14, 186, 177, 0.10);
+}
+.btrx-column:nth-child(2) .btrx-card {
+    border-color: rgba(245, 158, 11, 0.10);
+}
+.btrx-column:nth-child(3) .btrx-card {
+    border-color: rgba(59, 130, 246, 0.10);
+}
+.btrx-column:nth-child(4) .btrx-card {
+    border-color: rgba(236, 72, 153, 0.10);
+}
+
+.btrx-column:nth-child(1) .btrx-card:hover {
+    border-color: rgba(14, 186, 177, 0.40);
+    box-shadow: 0 20px 50px rgba(14, 186, 177, 0.20);
+}
+.btrx-column:nth-child(2) .btrx-card:hover {
+    border-color: rgba(245, 158, 11, 0.40);
+    box-shadow: 0 20px 50px rgba(245, 158, 11, 0.20);
+}
+.btrx-column:nth-child(3) .btrx-card:hover {
+    border-color: rgba(59, 130, 246, 0.40);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.20);
+}
+.btrx-column:nth-child(4) .btrx-card:hover {
+    border-color: rgba(236, 72, 153, 0.40);
+    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.20);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+    .btrx-choose-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 5%;
+        gap: 50px;
+    }
+    .btrx-choose-left {
+        width: 100%;
+        text-align: center;
+    }
+    .btrx-choose-left h2 {
+        font-size: 48px;
+    }
+    .btrx-floating-area {
+        height: 500px;
+        gap: 16px;
+    }
+    .btrx-card {
+        width: 130px;
+        height: 130px;
+        border-radius: 20px;
+        padding: 14px;
+    }
+    .btrx-column {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btrx-choose-section {
+        padding: 80px 4%;
+        margin-top: -100px;
+    }
+    .btrx-choose-left h2 {
+        font-size: 36px;
+    }
+    .btrx-choose-left p {
+        font-size: 16px;
+    }
+    .btrx-floating-area {
+        height: 400px;
+        gap: 12px;
+    }
+    .btrx-card {
+        width: 105px;
+        height: 105px;
+        border-radius: 16px;
+        padding: 10px;
+    }
+    .btrx-column {
+        gap: 12px;
+    }
+    .btrx-up { animation-duration: 14s; }
+    .btrx-down { animation-duration: 14s; }
+}
+
+@media (max-width: 480px) {
+    .btrx-floating-area {
+        height: 320px;
+        gap: 10px;
+    }
+    .btrx-card {
+        width: 85px;
+        height: 85px;
+        border-radius: 14px;
+        padding: 8px;
+    }
+    .btrx-column {
+        gap: 10px;
+    }
+    .btrx-up { animation-duration: 15s; }
+    .btrx-down { animation-duration: 15s; }
 }
 /*==================================================
                 OUR VISION
