@@ -1,5 +1,5 @@
 
-# BTR Solutions
+# The {M N} Solutions
 
 A Django-based web application for managing company services, portfolio, blog, and contact system.
 
