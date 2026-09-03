@@ -1,899 +1,1234 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}The {M N} - Life at BTR{% endblock %}
+
+{% block title %}Life at MN Solutions · The {M N} Solution{% endblock %}
+
 {% block content %}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-    /* ===== RESET & BASE ===== */
-    .btr-culture-page * {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
     }
 
-    .btr-culture-page {
-        background: #f5f7fa;
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f4f7fc;
+        color: #1a2332;
+        line-height: 1.6;
+        overflow-x: hidden;
     }
 
-    /* ============================================================
+    /* =========================
        HERO
-    ============================================================ */
-    .btr-culture-hero {
-        position: relative;
-        height: 80vh;
+    ========================= */
+
+    .hero-banner {
         min-height: 500px;
-        background:
-            linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.75)),
-            url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000");
-        background-size: cover;
-        background-position: center;
+        margin: 30px 24px;
+        padding: 80px 60px;
+
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
+
+        position: relative;
+        overflow: hidden;
+
+        border-radius: 28px;
+
+        background:
+            linear-gradient(
+                to right,
+                #f2f2f2 0%,
+                #d8e8ea 30%,
+                rgba(41, 195, 197, 0.85) 55%,
+                rgba(71, 202, 202, 0.01) 75%,
+                rgba(233, 241, 241, 0) 100%
+            ),
+            url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&auto=format&fit=crop');
+
+        background-size: cover;
+        background-position: center;
     }
 
-    .btr-culture-hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
-    }
-
-    .btr-culture-hero-content {
+    .hero-content {
         position: relative;
         z-index: 2;
-        max-width: 900px;
-        padding: 20px;
+        max-width: 600px;
     }
 
-    .btr-culture-hero-tag {
+    .hero-badge,
+    .section-tag {
         display: inline-block;
+
+        padding: 6px 18px;
+        margin-bottom: 14px;
+
+        border: 1px solid rgba(14, 186, 177, 0.15);
+        border-radius: 50px;
+
+        background: rgba(14, 186, 177, 0.1);
         color: #0ebab1;
-        font-weight: 600;
+
+        font-size: 12px;
+        font-weight: 700;
         letter-spacing: 2px;
-        margin-bottom: 16px;
         text-transform: uppercase;
-        font-size: 13px;
-        border: 1px solid rgba(14, 186, 177, 0.3);
-        padding: 5px 22px;
-        border-radius: 40px;
     }
 
-    .btr-culture-hero-content h1 {
-        font-size: 64px;
+    .hero-badge i {
+        margin-right: 6px;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 18px;
+
+        color: #000;
+        font-size: 52px;
         font-weight: 800;
         line-height: 1.1;
-        margin-bottom: 16px;
     }
 
-    .btr-culture-hero-content h1 span {
+    .hero-content h1 span,
+    .section-header h2 span {
         color: #0ebab1;
     }
 
-    .btr-culture-hero-content p {
-        font-size: 19px;
-        color: #d9d9d9;
+    .hero-content > p {
+        max-width: 520px;
+        margin-bottom: 30px;
+
+        color: #000;
+        font-size: 18px;
         line-height: 1.8;
-        margin-bottom: 0;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-    /* ===== FLOATING STATS ===== */
-    .btr-culture-stat {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 15px;
-        color: white;
-        padding: 16px 26px;
-        z-index: 2;
+    .hero-stats {
+        display: flex;
+        gap: 40px;
+
+        margin-top: 30px;
+        padding-top: 30px;
+
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .btr-culture-stat h4 {
+    .hero-stats strong {
+        display: block;
+
+        color: #000;
         font-size: 28px;
-        color: #0ebab1;
-        margin-bottom: 2px;
+        font-weight: 800;
     }
 
-    .btr-culture-stat span {
-        font-size: 13px;
-        opacity: 0.7;
-    }
-
-    .btr-cstat-1 {
-        top: 18%;
-        left: 6%;
-    }
-
-    .btr-cstat-2 {
-        bottom: 20%;
-        right: 6%;
-    }
-
-    /* ============================================================
-       VALUES SECTION
-    ============================================================ */
-    .btr-values-section {
-        padding: 80px 8% 60px;
-        background: #ffffff;
-    }
-
-    .btr-section-header {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .btr-section-header .btr-section-tag {
-        color: #0ebab1;
-        font-weight: 600;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 6px;
-        display: inline-block;
-    }
-
-    .btr-section-header h2 {
-        font-size: 40px;
-        font-weight: 700;
-        color: #111;
-        margin-bottom: 6px;
-    }
-
-    .btr-section-header p {
-        color: #777;
-        font-size: 16px;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .btr-values-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    /* ===== VALUE CARD - DESIGN 1 (Floating/Modern) ===== */
-    .btr-value-card {
-        background: #f5f7fa;
-        border-radius: 16px;
-        padding: 32px 26px 28px;
-        text-align: center;
-        transition: .4s ease;
-        position: relative;
-        border: 1px solid rgba(0, 0, 0, 0.03);
-    }
-
-    .btr-value-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.07);
-        background: #ffffff;
-        border-color: rgba(14, 186, 177, 0.2);
-    }
-
-    .btr-value-card .btr-value-icon {
-        font-size: 44px;
-        margin-bottom: 12px;
-        display: inline-block;
-        background: rgba(14, 186, 177, 0.08);
-        padding: 12px;
-        border-radius: 50%;
-        width: 72px;
-        height: 72px;
-        line-height: 48px;
-        transition: .3s;
-    }
-
-    .btr-value-card:hover .btr-value-icon {
-        background: #0ebab1;
-        transform: scale(1.05);
-        color: white;
-    }
-
-    .btr-value-card h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: #111;
-        margin-bottom: 6px;
-    }
-
-    .btr-value-card p {
-        color: #666;
+    .hero-stats span {
+        color: #000;
         font-size: 14px;
-        line-height: 1.7;
+        font-weight: 500;
     }
 
-    /* ============================================================
-       LIFE AT BTR - CARDS (Design 2 - Overlay/Image Focused)
-    ============================================================ */
-    .btr-life-section {
-        padding: 60px 8% 80px;
-        background: #f5f7fa;
-    }
 
-    .btr-life-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+    /* =========================
+       COMMON SECTION
+    ========================= */
 
-    .btr-life-card {
-        background: #ffffff;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-        transition: .4s ease;
+    .slider-section,
+    .day-section {
         position: relative;
-        border: 1px solid rgba(0, 0, 0, 0.03);
-    }
 
-    .btr-life-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-    }
+        margin: 0 24px 40px;
+        padding: 40px 0 60px;
 
-    .btr-life-img-wrap {
-        position: relative;
         overflow: hidden;
-        background: #eef1f5;
+
+        border: 1px solid #eef2f7;
+        border-radius: 28px;
+
+        background: #fff;
+
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
 
-    .btr-life-img-wrap img {
+    .section-header {
+        max-width: 800px;
+        margin: 0 auto 30px;
+
+        padding: 0 24px;
+
+        text-align: center;
+    }
+
+    .section-header h2 {
+        color: #1a2332;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    .section-header p {
+        max-width: 700px;
+        margin: 12px auto 0;
+
+        color: #64748b;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       CAROUSEL
+    ========================= */
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        padding: 10px 0;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 24px;
+
+        width: max-content;
+
+        transform: translateX(0);
+
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-track.no-transition {
+        transition: none;
+    }
+
+    .carousel-item {
+        flex: 0 0 320px;
+
+        overflow: hidden;
+
+        border: 1px solid #eef2f7;
+        
+        background: #f8fafc;
+
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .carousel-item:hover {
+        transform: scale(1.03);
+
+        border-color: #0ebab1;
+
+        box-shadow: 0 16px 48px rgba(14, 186, 177, 0.12);
+    }
+
+    .carousel-item img {
+        display: block;
+
         width: 100%;
         height: 220px;
+
         object-fit: cover;
-        display: block;
-        transition: .5s ease;
     }
 
-    .btr-life-card:hover .btr-life-img-wrap img {
-        transform: scale(1.05);
+    .carousel-content {
+        padding: 16px 20px 20px;
     }
 
-    /* Overlay with gradient for BTR badge */
-    .btr-life-img-wrap .btr-life-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 120px;
-        height: 120px;
-        background: linear-gradient(225deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
-        border-radius: 0 0 0 55px;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .btr-life-img-wrap .btr-life-badge {
-        position: absolute;
-        top: 14px;
-        right: 18px;
-        font-size: 20px;
-        font-weight: 800;
-        color: #0ebab1;
-        letter-spacing: 2.5px;
-        z-index: 2;
-        text-shadow: 0 0 25px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.4);
-        background: transparent;
-        padding: 0;
-        border: none;
-        line-height: 1;
-    }
-
-    .btr-life-body {
-        padding: 22px 26px 26px;
-    }
-
-    .btr-life-body .btr-life-category {
-        display: inline-block;
-        color: #0ebab1;
-        font-weight: 600;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
+    .carousel-content h4 {
         margin-bottom: 4px;
-        background: rgba(14, 186, 177, 0.06);
-        padding: 2px 14px;
-        border-radius: 30px;
-    }
 
-    .btr-life-body h3 {
-        font-size: 19px;
-        font-weight: 700;
-        color: #111;
-        margin-bottom: 8px;
-        line-height: 1.3;
-    }
-
-    .btr-life-body p {
-        color: #555;
-        line-height: 1.7;
-        font-size: 14px;
-        margin-bottom: 14px;
-    }
-
-    .btr-life-body .btr-life-link {
-        display: inline-block;
-        text-decoration: none;
-        color: #0ebab1;
-        font-weight: 600;
-        font-size: 14px;
-        transition: .3s;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 2px;
-    }
-
-    .btr-life-body .btr-life-link:hover {
-        color: #081120;
-        border-bottom-color: #0ebab1;
-        transform: translateX(4px);
-    }
-
-    /* ============================================================
-       PERKS & BENEFITS (Design 3 - Icon Grid)
-    ============================================================ */
-    .btr-perks-section {
-        padding: 80px 8%;
-        background: #ffffff;
-    }
-
-    .btr-perks-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .btr-perk-card {
-        text-align: center;
-        padding: 28px 16px 22px;
-        background: #f8fafc;
-        border-radius: 14px;
-        transition: .4s ease;
-        border: 1px solid transparent;
-        position: relative;
-    }
-
-    .btr-perk-card:hover {
-        transform: translateY(-6px);
-        background: #ffffff;
-        border-color: #0ebab1;
-        box-shadow: 0 12px 36px rgba(14, 186, 177, 0.08);
-    }
-
-    .btr-perk-card .btr-perk-icon {
-        font-size: 38px;
-        margin-bottom: 10px;
-        display: inline-block;
-        background: rgba(14, 186, 177, 0.06);
-        padding: 12px;
-        border-radius: 50%;
-        width: 64px;
-        height: 64px;
-        line-height: 40px;
-        transition: .3s;
-    }
-
-    .btr-perk-card:hover .btr-perk-icon {
-        background: #0ebab1;
-        transform: scale(1.05);
-    }
-
-    .btr-perk-card h4 {
+        color: #1a2332;
         font-size: 16px;
         font-weight: 700;
-        color: #111;
-        margin-bottom: 4px;
     }
 
-    .btr-perk-card p {
+    .carousel-content p {
+        color: #64748b;
         font-size: 13px;
-        color: #777;
         line-height: 1.6;
     }
 
-    /* ============================================================
-       EMPLOYEE TESTIMONIALS (Design 4 - Quote Style)
-    ============================================================ */
-    .btr-testimonials-section {
-        padding: 80px 8%;
-        background: #081120;
-        color: white;
-    }
+    .carousel-tag {
+        display: inline-block;
 
-    .btr-testimonials-section .btr-section-header h2 {
-        color: white;
-    }
+        margin-top: 8px;
+        padding: 2px 12px;
 
-    .btr-testimonials-section .btr-section-header p {
-        color: #aaa;
-    }
+        border-radius: 50px;
 
-    .btr-testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .btr-testimonial-card {
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 16px;
-        padding: 30px 28px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        transition: .4s ease;
-        position: relative;
-    }
-
-    .btr-testimonial-card:hover {
-        background: rgba(255, 255, 255, 0.07);
-        border-color: rgba(14, 186, 177, 0.2);
-        transform: translateY(-4px);
-    }
-
-    .btr-testimonial-card .btr-quote-icon {
-        font-size: 36px;
+        background: rgba(14, 186, 177, 0.08);
         color: #0ebab1;
-        margin-bottom: 10px;
-        display: block;
-        opacity: 0.4;
-        font-family: Georgia, serif;
-        line-height: 1;
+
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
     }
 
-    .btr-testimonial-card blockquote {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #d9d9d9;
-        margin-bottom: 16px;
-        font-style: italic;
-    }
 
-    .btr-testimonial-card .btr-testimonial-author {
+    /* =========================
+       CAROUSEL ARROWS
+    ========================= */
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 20;
+
+        width: 44px;
+        height: 44px;
+
         display: flex;
         align-items: center;
-        gap: 14px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-        padding-top: 14px;
-    }
+        justify-content: center;
 
-    .btr-testimonial-card .btr-testimonial-author img {
-        width: 46px;
-        height: 46px;
+        transform: translateY(-50%);
+
+        border: none;
         border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid rgba(14, 186, 177, 0.25);
-    }
 
-    .btr-testimonial-card .btr-testimonial-author .btr-author-info h4 {
-        font-size: 15px;
-        font-weight: 600;
-        color: white;
-    }
+        background: #fff;
+        color: #0ebab1;
 
-    .btr-testimonial-card .btr-testimonial-author .btr-author-info span {
-        font-size: 13px;
-        color: #888;
-    }
-
-    /* ============================================================
-       CTA
-    ============================================================ */
-    .btr-culture-cta {
-        padding: 80px 8%;
-        background: linear-gradient(135deg, #0ebab1 0%, #0d9d95 100%);
-        text-align: center;
-        color: white;
-    }
-
-    .btr-culture-cta h2 {
-        font-size: 42px;
-        margin-bottom: 14px;
-    }
-
-    .btr-culture-cta p {
-        max-width: 650px;
-        margin: 0 auto 30px;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.8;
         font-size: 17px;
+
+        cursor: pointer;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+
+        transition: all 0.25s ease;
     }
 
-    .btr-culture-cta .btr-cta-btn {
-        display: inline-block;
-        padding: 16px 42px;
-        background: #081120;
-        color: white;
-        text-decoration: none;
-        border-radius: 10px;
+    .carousel-arrow:hover {
+        background: #0ebab1;
+        color: #fff;
+
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    .carousel-prev {
+        left: 15px;
+    }
+
+    .carousel-next {
+        right: 15px;
+    }
+
+
+    /* =========================
+       DAY CAROUSEL
+    ========================= */
+
+    .day-section {
+        padding: 60px 24px;
+    }
+
+    .day-section .carousel-wrapper {
+        border-radius: 20px;
+    }
+
+    .day-section .carousel-track {
+        gap: 20px;
+    }
+
+    .day-item {
+        flex: 0 0 280px;
+
+        overflow: hidden;
+
+        border: 1px solid #eef2f7;
+        border-radius: 16px;
+
+        background: #fff;
+
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .day-item img {
+        display: block;
+
+        width: 100%;
+        height: 180px;
+
+        object-fit: cover;
+    }
+
+    .day-caption {
+        padding: 14px 18px 18px;
+    }
+
+    .day-caption h5 {
+        margin-bottom: 2px;
+
+        color: #1a2332;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .day-caption p {
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* =========================
+       FACILITIES
+    ========================= */
+
+    .facilities {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+
+        padding: 20px 38px 40px;
+    }
+
+    .facility-card {
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #fff;
+    }
+
+    .facility-image {
+        width: 100%;
+        height: 390px;
+
+        overflow: hidden;
+    }
+
+    .facility-image img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: transform 0.4s ease;
+    }
+
+    .facility-card:hover .facility-image img {
+        transform: scale(1.03);
+    }
+
+    .facility-content {
+        min-height: 66px;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 9px 12px;
+    }
+
+    .facility-icon {
+        width: 28px;
+        height: 28px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: #eaf8f8;
+        color: #075b70;
+
+        font-size: 14px;
+    }
+
+    .facility-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .facility-title {
+        color: #111827;
+        font-size: 16px;
         font-weight: 600;
-        transition: .3s;
+        line-height: 1.1;
     }
 
-    .btr-culture-cta .btr-cta-btn:hover {
-        background: #1a2a3a;
-        transform: scale(1.02);
-        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+    .facility-desc {
+        color: #66808c;
+        font-size: 13px;
+        line-height: 1.2;
     }
 
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media(max-width: 1100px) {
-        .btr-values-grid {
-            grid-template-columns: repeat(2, 1fr);
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1024px) {
+
+        .hero-banner {
+            margin: 20px 16px;
+            padding: 50px 35px;
         }
-        .btr-life-grid {
-            grid-template-columns: repeat(2, 1fr);
+
+        .hero-content h1 {
+            font-size: 38px;
         }
-        .btr-testimonial-grid {
+
+        .facilities {
             grid-template-columns: repeat(2, 1fr);
+            padding: 20px;
         }
-        .btr-perks-grid {
-            grid-template-columns: repeat(2, 1fr);
+
+        .facility-image {
+            height: 300px;
         }
     }
 
-    @media(max-width: 768px) {
-        .btr-culture-hero-content h1 {
-            font-size: 36px;
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 640px) {
+
+        .hero-banner {
+            min-height: auto;
+
+            margin: 16px 12px;
+            padding: 30px 20px;
+
+            border-radius: 20px;
         }
-        .btr-culture-hero-content p {
-            font-size: 16px;
+
+        .hero-content h1 {
+            font-size: 28px;
         }
-        .btr-values-grid,
-        .btr-life-grid,
-        .btr-testimonial-grid,
-        .btr-perks-grid {
-            grid-template-columns: 1fr;
+
+        .hero-content > p {
+            font-size: 15px;
         }
-        .btr-cstat-1,
-        .btr-cstat-2 {
-            display: none;
+
+        .hero-stats {
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        .btr-life-img-wrap .btr-life-badge {
-            font-size: 17px;
-            top: 12px;
-            right: 14px;
+
+        .hero-stats strong {
+            font-size: 22px;
         }
-        .btr-life-img-wrap .btr-life-overlay {
-            width: 90px;
-            height: 90px;
+
+        .slider-section,
+        .day-section {
+            margin: 0 12px 24px;
+
+            border-radius: 20px;
         }
-        .btr-section-header h2 {
-            font-size: 30px;
+
+        .section-header h2 {
+            font-size: 28px;
         }
-        .btr-culture-cta h2 {
-            font-size: 30px;
+
+        .section-header p {
+            font-size: 15px;
         }
-        .btr-testimonial-card blockquote {
+
+        .carousel-item {
+            flex-basis: 260px;
+        }
+
+        .carousel-item img {
+            height: 170px;
+        }
+
+        .day-section {
+            padding: 30px 12px;
+        }
+
+        .day-item {
+            flex-basis: 220px;
+        }
+
+        .day-item img {
+            height: 140px;
+        }
+
+        .carousel-arrow {
+            width: 36px;
+            height: 36px;
+
             font-size: 14px;
         }
-        .btr-value-card .btr-value-icon {
-            width: 60px;
-            height: 60px;
-            font-size: 36px;
-            line-height: 36px;
-            padding: 10px;
+
+        .carousel-prev {
+            left: 8px;
+        }
+
+        .carousel-next {
+            right: 8px;
+        }
+
+        .facilities {
+            grid-template-columns: 1fr;
+
+            padding: 15px;
+        }
+
+        .facility-image {
+            height: 280px;
         }
     }
 </style>
 
-<!-- ============================================================
-     CULTURE PAGE START
-     ============================================================ -->
-<div class="btr-culture-page">
 
-    <!-- ===== HERO ===== -->
-    <section class="btr-culture-hero">
-        <div class="btr-culture-hero-overlay"></div>
+<!-- =========================
+     HERO
+========================= -->
 
-        <div class="btr-culture-stat btr-cstat-1">
-            <h4>200+</h4>
-            <span>Team Members</span>
-        </div>
+<section class="hero-banner">
 
-        <div class="btr-culture-stat btr-cstat-2">
-            <h4>15+</h4>
-            <span>Nationalities</span>
-        </div>
+    <div class="hero-content">
 
-        <div class="btr-culture-hero-content">
-            <span class="btr-culture-hero-tag">Life at BTR</span>
-            <h1>Our <span>Culture</span></h1>
-            <p>
-                We believe that great work happens when people feel valued, inspired,
-                and empowered. Discover what makes BTR Solutions a great place to work.
-            </p>
-        </div>
-    </section>
+        <span class="hero-badge">
+            <i class="fas fa-heart"></i>
+            Life at MN Solutions
+        </span>
 
-    <!-- ===== VALUES SECTION (Design 1 - Floating/Modern) ===== -->
-    <section class="btr-values-section">
-        <div class="btr-section-header">
-            <span class="btr-section-tag">Our Values</span>
-            <h2>What Drives Us</h2>
-            <p>The principles that guide everything we do at BTR Solutions.</p>
-        </div>
-        <div class="btr-values-grid">
+        <h1>
+            Where <span>Culture</span> Meets Innovation
+        </h1>
 
-            <div class="btr-value-card">
-                <div class="btr-value-icon">🚀</div>
-                <h3>Innovation</h3>
-                <p>We push boundaries and embrace creative thinking to solve complex problems with cutting-edge solutions.</p>
-            </div>
-
-            <div class="btr-value-card">
-                <div class="btr-value-icon">🤝</div>
-                <h3>Collaboration</h3>
-                <p>We believe in the power of teamwork. Great ideas come from diverse perspectives working together.</p>
-            </div>
-
-            <div class="btr-value-card">
-                <div class="btr-value-icon">📈</div>
-                <h3>Growth</h3>
-                <p>We invest in continuous learning and development, helping our people reach their full potential.</p>
-            </div>
-
-            <div class="btr-value-card">
-                <div class="btr-value-icon">🎯</div>
-                <h3>Excellence</h3>
-                <p>We strive for quality in everything we do, from code to client relationships.</p>
-            </div>
-
-            <div class="btr-value-card">
-                <div class="btr-value-icon">🌍</div>
-                <h3>Impact</h3>
-                <p>We build solutions that make a real difference for businesses and communities worldwide.</p>
-            </div>
-
-            <div class="btr-value-card">
-                <div class="btr-value-icon">💚</div>
-                <h3>Well-being</h3>
-                <p>We prioritize work-life balance and create an environment where people can thrive.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===== LIFE AT BTR (Design 2 - Overlay/Image Focused) ===== -->
-    <section class="btr-life-section">
-        <div class="btr-section-header">
-            <span class="btr-section-tag">Life at BTR</span>
-            <h2>Inside Our World</h2>
-            <p>Take a glimpse into the BTR Solutions experience.</p>
-        </div>
-        <div class="btr-life-grid">
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" alt="Team Collaboration">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Culture</span>
-                    <h3>Collaborative Team Culture</h3>
-                    <p>Cross-functional teams working together to solve complex challenges with creativity and precision.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" alt="Learning & Development">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Growth</span>
-                    <h3>Learning &amp; Development</h3>
-                    <p>Weekly workshops, training sessions, and conference opportunities to keep skills sharp.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800" alt="Innovation">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Innovation</span>
-                    <h3>Innovation Labs</h3>
-                    <p>Dedicated time and resources for exploring new technologies and building experimental projects.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=800" alt="Team Events">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Community</span>
-                    <h3>Team Events &amp; Retreats</h3>
-                    <p>Regular team building activities, hackathons, and annual retreats to connect and recharge.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=800" alt="Remote Work">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Workplace</span>
-                    <h3>Remote-First Environment</h3>
-                    <p>Work from anywhere with flexible hours and the tools you need to succeed.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-            <div class="btr-life-card">
-                <div class="btr-life-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="Wellness">
-                    <div class="btr-life-overlay"></div>
-                    <span class="btr-life-badge">BTR</span>
-                </div>
-                <div class="btr-life-body">
-                    <span class="btr-life-category">Wellness</span>
-                    <h3>Wellness &amp; Well-being</h3>
-                    <p>Health insurance, wellness initiatives, and resources to support mental and physical health.</p>
-                    <a href="#" class="btr-life-link">Read More →</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===== PERKS & BENEFITS (Design 3 - Icon Grid) ===== -->
-    <section class="btr-perks-section">
-        <div class="btr-section-header">
-            <span class="btr-section-tag">Benefits</span>
-            <h2>Perks &amp; Benefits</h2>
-            <p>We take care of our people so they can focus on doing their best work.</p>
-        </div>
-        <div class="btr-perks-grid">
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">🏡</div>
-                <h4>Remote-First</h4>
-                <p>Work from anywhere with flexible hours</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">💰</div>
-                <h4>Competitive Pay</h4>
-                <p>Market-leading salaries and performance bonuses</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">📚</div>
-                <h4>Learning Budget</h4>
-                <p>Annual budget for courses, books, and conferences</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">🩺</div>
-                <h4>Health Insurance</h4>
-                <p>Comprehensive health coverage for you and your family</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">🏖️</div>
-                <h4>Paid Time Off</h4>
-                <p>Generous vacation, sick leave, and public holidays</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">🚀</div>
-                <h4>Growth Path</h4>
-                <p>Clear career progression and mentorship programs</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">💻</div>
-                <h4>Tech Setup</h4>
-                <p>Latest equipment and tools to do your best work</p>
-            </div>
-
-            <div class="btr-perk-card">
-                <div class="btr-perk-icon">🌍</div>
-                <h4>Global Team</h4>
-                <p>Work with talented colleagues from around the world</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===== EMPLOYEE TESTIMONIALS (Design 4 - Quote Style) ===== -->
-    <section class="btr-testimonials-section">
-        <div class="btr-section-header">
-            <span class="btr-section-tag" style="color:#0ebab1;">Testimonials</span>
-            <h2 style="color:white;">What Our Team Says</h2>
-            <p style="color:#aaa;">Real stories from real people at BTR Solutions.</p>
-        </div>
-        <div class="btr-testimonial-grid">
-
-            <div class="btr-testimonial-card">
-                <span class="btr-quote-icon">"</span>
-                <blockquote>
-                    BTR Solutions has given me the opportunity to work on exciting projects
-                    with a supportive team. I've grown more in two years here than in five
-                    years at my previous job.
-                </blockquote>
-                <div class="btr-testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Sarah">
-                    <div class="btr-author-info">
-                        <h4>Sarah Ahmed</h4>
-                        <span>Senior Software Engineer</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="btr-testimonial-card">
-                <span class="btr-quote-icon">"</span>
-                <blockquote>
-                    The remote-first culture at BTR is amazing. I have the flexibility to
-                    manage my time while still being part of a collaborative, high-performing
-                    team that truly cares about each other.
-                </blockquote>
-                <div class="btr-testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1494790108375-be9c3b8f0c3d?q=80&w=200" alt="Michael">
-                    <div class="btr-author-info">
-                        <h4>Michael Chen</h4>
-                        <span>Cloud Architect</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="btr-testimonial-card">
-                <span class="btr-quote-icon">"</span>
-                <blockquote>
-                    What I love most about BTR is the culture of learning. Every week there's
-                    something new to learn, and the company truly invests in your growth.
-                </blockquote>
-                <div class="btr-testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200" alt="Priya">
-                    <div class="btr-author-info">
-                        <h4>Priya Sharma</h4>
-                        <span>AI / ML Engineer</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="btr-culture-cta">
-        <h2>Ready to Join Our Team?</h2>
         <p>
-            Be part of a culture that values innovation, collaboration, and growth.
-            Let's build something amazing together.
+            We believe great work happens when people feel valued,
+            connected, and inspired. From celebrations to collaborations,
+            here's what makes MN Solutions a place people love to be.
         </p>
-        <a href="#" class="btr-cta-btn">View Open Positions →</a>
-    </section>
 
-</div>
-<!-- ===== CULTURE PAGE END ===== -->
+        <div class="hero-stats">
+
+            <div>
+                <strong>150+</strong>
+                <span>Team Members</span>
+            </div>
+
+            <div>
+                <strong>20+</strong>
+                <span>Nationalities</span>
+            </div>
+
+            <div>
+                <strong>85%</strong>
+                <span>Employee Satisfaction</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CULTURE SLIDER
+========================= -->
+
+<section class="slider-section">
+
+    <div class="section-header">
+
+        <span class="section-tag">
+            <i class="fas fa-images"></i>
+            Moments That Matter
+        </span>
+
+        <h2>
+            Moments that say more than
+            <span>a mission statement</span>
+        </h2>
+
+        <p>
+            From Her Revolution and Jashn-e-Baharan to Qawali Nights,
+            sports, meetups, and everything in between — these are the
+            moments that bring our culture to life.
+        </p>
+
+    </div>
+
+
+    <div class="carousel-wrapper">
+
+        <button
+            type="button"
+            class="carousel-arrow carousel-prev"
+            id="culturePrev"
+            aria-label="Previous">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track" id="cultureTrack"></div>
+
+        <button
+            type="button"
+            class="carousel-arrow carousel-next"
+            id="cultureNext"
+            aria-label="Next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DAY IN THE LIFE
+========================= -->
+
+<section class="day-section">
+
+    <div class="section-header">
+
+        <span class="section-tag">
+            <i class="fas fa-clock"></i>
+            A Day in the Life
+        </span>
+
+        <h2>
+            How a <span>Developer</span> Spends Their Day
+        </h2>
+
+        <p>
+            A normal working day here, so you know exactly what
+            you're signing up for.
+        </p>
+
+    </div>
+
+
+    <div class="carousel-wrapper">
+
+        <button
+            type="button"
+            class="carousel-arrow carousel-prev"
+            id="dayPrev"
+            aria-label="Previous">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track" id="dayTrack"></div>
+
+        <button
+            type="button"
+            class="carousel-arrow carousel-next"
+            id="dayNext"
+            aria-label="Next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FACILITIES
+========================= -->
+
+<section class="facilities">
+
+
+    <!-- CARD 1 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="{% static 'images/culture/nap.png' %}"
+                alt="Nap Rooms"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-moon"></i>
+            </div>
+
+            <div class="facility-text">
+                <div class="facility-title">
+                    Nap Rooms
+                </div>
+
+                <div class="facility-desc">
+                    Quiet recharge pods, every floor
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARD 2 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="{% static 'images/culture/rooftop.png' %}"
+                alt="Rooftop Restaurant"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+
+            <div class="facility-text">
+                <div class="facility-title">
+                    Rooftop Restaurant
+                </div>
+
+                <div class="facility-desc">
+                    Open-air dining, top floor
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARD 3 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="{% static 'images/culture/care.png' %}"
+                alt="Day Care"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-shield-heart"></i>
+            </div>
+
+            <div class="facility-text">
+                <div class="facility-title">
+                    Day Care
+                </div>
+
+                <div class="facility-desc">
+                    On-site, for working parents
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARD 4 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="{% static 'images/culture/gaming.png' %}"
+                alt="Gaming Zone"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="facility-text">
+                <div class="facility-title">
+                    Gaming Zone
+                </div>
+
+                <div class="facility-desc">
+                    Console + PC setups
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARD 5 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                alt="Salon"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-scissors"></i>
+            </div>
+
+            <div class="facility-text">
+                <div class="facility-title">
+                    Salon
+                </div>
+
+                <div class="facility-desc">
+                    On-campus grooming
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARD 6 -->
+
+    <div class="facility-card">
+
+        <div class="facility-image">
+            <img
+                src="{% static 'images/culture/gym.png' %}"
+                alt="Gym"
+                loading="lazy">
+        </div>
+
+        <div class="facility-content">
+
+            <div class="facility-icon">
+                <i class="fas fa-dumbbell"></i>
+            </div>
+
+            <div class="facility-text">
+                <div class="facility-title">
+                    Gym
+                </div>
+
+                <div class="facility-desc">
+                    Fully equipped, open all day
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* =========================
+       CULTURE DATA
+    ========================= */
+
+    const cultureImages = [
+        {
+            src: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&auto=format&fit=crop',
+            title: 'Team Celebration',
+            desc: 'Her Revolution — celebrating women in tech',
+            tag: 'Celebration'
+        },
+        {
+            src: '{% static 'images/culture/qawali.png' %}',
+            title: 'Qawali Night',
+            desc: 'An evening of music, culture, and community',
+            tag: 'Culture'
+        },
+        {
+            src: '{% static 'images/culture/jashan.png' %}',
+            title: 'Jashn-e-Baharan',
+            desc: 'Celebrating spring with team festivities',
+            tag: 'Festival'
+        },
+        {
+            src: '{% static 'images/culture/sportsday.png' %}',
+            title: 'Sports Day',
+            desc: 'Friendly competition and team building',
+            tag: 'Sports'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&auto=format&fit=crop',
+            title: 'Team Meetup',
+            desc: 'Collaboration and connection across teams',
+            tag: 'Meetup'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop',
+            title: 'Dev Since 2016',
+            desc: 'Building innovative products since 2016',
+            tag: 'Innovation'
+        },
+        {
+            src: '{% static 'images/culture/revo.png' %}',
+            title: 'Cultural Exchange',
+            desc: '20+ nationalities, one shared purpose',
+            tag: 'Global'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&auto=format&fit=crop',
+            title: 'Outstanding Service',
+            desc: 'Recognizing excellence and dedication',
+            tag: 'Awards'
+        }
+    ];
+
+
+    /* =========================
+       DAY DATA
+    ========================= */
+
+    const dayImages = [
+        {
+            src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop',
+            title: 'Morning Coffee',
+            desc: 'Starting the day right'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop',
+            title: 'Stand-up Meeting',
+            desc: 'Aligning with the team'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&auto=format&fit=crop',
+            title: 'Pair Programming',
+            desc: 'Collaborative problem-solving'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&auto=format&fit=crop',
+            title: 'Deep Focus',
+            desc: 'Heads down, getting things done'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop',
+            title: 'Team Dinner',
+            desc: 'Good food, great company'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop',
+            title: 'Gym Session',
+            desc: 'Recharge and stay fit'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop',
+            title: 'Office Spaces',
+            desc: 'Built for collaboration'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop',
+            title: 'Relax Area',
+            desc: 'Unwind and connect'
+        }
+    ];
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const cultureTrack = document.getElementById('cultureTrack');
+    const dayTrack = document.getElementById('dayTrack');
+
+    const culturePrev = document.getElementById('culturePrev');
+    const cultureNext = document.getElementById('cultureNext');
+
+    const dayPrev = document.getElementById('dayPrev');
+    const dayNext = document.getElementById('dayNext');
+
+
+    /* =========================
+       CREATE CULTURE ITEMS
+    ========================= */
+
+    function createCultureItems() {
+
+        const items = [...cultureImages, ...cultureImages];
+
+        cultureTrack.innerHTML = items.map(function (item) {
+
+            return `
+                <div class="carousel-item">
+                    <img
+                        src="${item.src}"
+                        alt="${item.title}"
+                        loading="lazy">
+
+                    <div class="carousel-content">
+                        <h4>${item.title}</h4>
+
+                        <p>${item.desc}</p>
+
+                        <span class="carousel-tag">
+                            <i class="fas fa-tag"></i>
+                            ${item.tag}
+                        </span>
+                    </div>
+                </div>
+            `;
+
+        }).join('');
+    }
+
+
+    /* =========================
+       CREATE DAY ITEMS
+    ========================= */
+
+    function createDayItems() {
+
+        const items = [...dayImages, ...dayImages];
+
+        dayTrack.innerHTML = items.map(function (item) {
+
+            return `
+                <div class="day-item">
+                    <img
+                        src="${item.src}"
+                        alt="${item.title}"
+                        loading="lazy">
+
+                    <div class="day-caption">
+                        <h5>${item.title}</h5>
+                        <p>${item.desc}</p>
+                    </div>
+                </div>
+            `;
+
+        }).join('');
+    }
+
+
+    createCultureItems();
+    createDayItems();
+
+
+    /* =========================
+       CAROUSEL FUNCTION
+    ========================= */
+
+    function setupCarousel(track, prevButton, nextButton, itemWidth, intervalTime) {
+
+        let position = 0;
+        let timer;
+
+
+        function move(direction) {
+
+            position += direction;
+
+            const originalCount =
+                track.children.length / 2;
+
+
+            if (position >= originalCount) {
+                position = 0;
+            }
+
+            if (position < 0) {
+                position = originalCount - 1;
+            }
+
+
+            track.style.transform =
+                `translateX(-${position * itemWidth}px)`;
+        }
+
+
+        function startAutoSlide() {
+
+            clearInterval(timer);
+
+            timer = setInterval(function () {
+                move(1);
+            }, intervalTime);
+        }
+
+
+        function stopAutoSlide() {
+            clearInterval(timer);
+        }
+
+
+        nextButton.addEventListener('click', function () {
+
+            move(1);
+            startAutoSlide();
+
+        });
+
+
+        prevButton.addEventListener('click', function () {
+
+            move(-1);
+            startAutoSlide();
+
+        });
+
+
+        const wrapper = track.parentElement;
+
+        wrapper.addEventListener('mouseenter', stopAutoSlide);
+
+        wrapper.addEventListener('mouseleave', startAutoSlide);
+
+
+        startAutoSlide();
+    }
+
+
+    /* =========================
+       CULTURE CAROUSEL
+    ========================= */
+
+    setupCarousel(
+        cultureTrack,
+        culturePrev,
+        cultureNext,
+        344,
+        3000
+    );
+
+
+    /* =========================
+       DAY CAROUSEL
+    ========================= */
+
+    setupCarousel(
+        dayTrack,
+        dayPrev,
+        dayNext,
+        300,
+        3000
+    );
+
+});
+</script>
 
 {% endblock %}

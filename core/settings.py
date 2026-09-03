@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.portfolio',
     'apps.main',
     'apps.contact',
+    'apps.services',
     'apps.blogs',
 ]
 

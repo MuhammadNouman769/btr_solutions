@@ -1,0 +1,612 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Strategy & Consulting · The {M N} Solution{% endblock %}
+{% block content %}
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #0b1a2e;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ----- hero banner (strategy & consulting) ----- */
+    .hero-banner {
+      background: linear-gradient(to right, #f2f2f2 0%, #d8e8ea 30%, rgba(41, 195, 197, 0.81) 55%, rgba(71, 202, 202, 0.01) 75%, rgba(233, 241, 241, 0) 100%),
+                  url('{% static "images/about-us.jpg" %}') ;
+      background-size: cover;
+      background-position: center;
+      border-radius: 28px;
+      margin: 30px 0;
+      padding: 70px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      right: -100px;
+      top: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(14, 186, 177, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      left: -50px;
+      bottom: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(14, 186, 177, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(14, 186, 177, 0.15);
+      color: #0ebab1;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: 1px solid rgba(14, 186, 177, 0.2);
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      font-weight: 800;
+      color: #000000;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 span {
+      color: #0ebab1;
+      background: linear-gradient(135deg, #0ebab1, #14cfc1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #000000;
+      max-width: 580px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ebab1, #14cfc1) !important;
+      color: #fff !important;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 25px rgba(14, 186, 177, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(14, 186, 177, 0.4);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #0ebab1;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-secondary:hover {
+      border-color: #0ebab1;
+      background: rgba(14, 186, 177, 0.1);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-stats div strong {
+      display: block;
+      font-size: 28px;
+      color: #000000;
+      font-weight: 800;
+    }
+
+    .hero-stats div span {
+      font-size: 14px;
+      color: #000000;
+      font-weight: 500;
+    }
+
+    /* ----- hero form (same style) ----- */
+    .hero-form {
+      background: #223554;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 35px 30px;
+      width: 380px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-form h3 {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .hero-form p {
+      color: #8899bb;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #0ebab1;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #667799;
+    }
+
+    .form-group select {
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-group select option {
+      background: #1a2a4a;
+      color: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #0ebab1, #14cfc1);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(14, 186, 177, 0.25);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(14, 186, 177, 0.35);
+    }
+
+    /* ----- section titles / cards (industry level) ----- */
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0b1a2e;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      color: #0ebab1;
+      background: linear-gradient(135deg, #0ebab1, #14cfc1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: #4a5a72;
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin: 50px 0 70px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 30px 24px;
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(14, 186, 177, 0.12);
+      border-color: rgba(14, 186, 177, 0.1);
+    }
+
+    .service-card .icon {
+      font-size: 38px;
+      color: #0ebab1;
+      margin-bottom: 16px;
+    }
+
+    .service-card h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0b1a2e;
+    }
+
+    .service-card p {
+      color: #3f4f66;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .industry-highlight {
+      background: #edf4f7;
+      border-radius: 28px;
+      padding: 60px 50px;
+      margin: 40px 0 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(145deg, #f0f6f9, #e6edf2);
+    }
+
+    .industry-highlight h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a2e;
+    }
+
+    .industry-highlight h2 small {
+      font-size: 18px;
+      font-weight: 400;
+      color: #3f5a77;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .industry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      margin-top: 16px;
+    }
+
+    .industry-tags span {
+      background: white;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 15px;
+      color: #0b1a2e;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid rgba(14, 186, 177, 0.1);
+    }
+
+    .industry-tags span i {
+      color: #0ebab1;
+      margin-right: 8px;
+    }
+
+    .cta-block {
+      background: #0b1a2e;
+      border-radius: 28px;
+      padding: 50px 50px;
+      margin: 40px 0 30px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cta-block h3 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .cta-block p {
+      color: #aabbd5;
+      max-width: 480px;
+    }
+
+    .cta-block .btn-primary {
+      background: #fff !important;
+      color: #0b1a2e !important;
+      box-shadow: none;
+    }
+
+    .cta-block .btn-primary i {
+      color: #0ebab1;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-banner {
+        flex-direction: column;
+        padding: 40px 30px;
+      }
+      .hero-form {
+        width: 100%;
+        max-width: 480px;
+      }
+      .hero-content h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-banner {
+        padding: 30px 20px;
+        margin: 16px 0;
+        border-radius: 20px;
+      }
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .industry-highlight {
+        padding: 30px 20px;
+      }
+      .cta-block {
+        padding: 30px 20px;
+      }
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== main container ===== -->
+<div class="container">
+
+  <!-- ===== HERO BANNER ===== (Strategy & Consulting) -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-lightbulb" style="margin-right:6px;"></i> Strategy & Consulting</span>
+      <h1>Navigate <span>Digital Disruption</span> With Confidence</h1>
+      <p>We combine deep industry expertise with forward-thinking strategies to help you unlock new revenue streams, streamline operations, and build resilient business models.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary"><i class="fas fa-handshake"></i> Start a Project</a>
+        <a href="#" class="btn-secondary"><i class="fas fa-arrow-right"></i> Explore Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>12+</strong><span>Industries Served</span></div>
+        <div><strong>94%</strong><span>Strategy Success Rate</span></div>
+        <div><strong>50+</strong><span>Consultants Worldwide</span></div>
+      </div>
+    </div>
+
+    <!-- consultation form (same style) -->
+    <div class="hero-form">
+      <h3>Book a strategy session</h3>
+      <p>Let’s align your vision with a data‑driven roadmap.</p>
+      <form id="consultationForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Work email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Phone (optional)">
+        </div>
+        <div class="form-group">
+          <select>
+            <option>Area of interest</option>
+            <option>Digital Strategy</option>
+            <option>Business Transformation</option>
+            <option>IT Consulting</option>
+            <option>AI & Automation</option>
+            <option>Cloud Advisory</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select>
+            <option>Company size</option>
+            <option>Startup (1-50)</option>
+            <option>Mid-size (50-500)</option>
+            <option>Enterprise (500+)</option>
+            <option>Non-profit / Public</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Tell us about your challenges & goals"></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> Get free consultation →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Strategy & Consulting Services (industry level) ===== -->
+  <div style="margin-top: 20px;">
+    <h2 class="section-title">Our <span>Consulting</span> Services</h2>
+    <p class="section-sub">End‑to‑end advisory that bridges business strategy and technology execution. We deliver actionable insights and measurable outcomes.</p>
+  </div>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-route"></i></div>
+      <h4>Digital Strategy</h4>
+      <p>Define a clear digital roadmap, prioritise investments, and align technology with business goals for sustainable growth.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-robot"></i></div>
+      <h4>AI & Automation Advisory</h4>
+      <p>Identify high‑impact AI use cases, build intelligent automation frameworks, and future‑proof your operations.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <h4>Cloud Transformation</h4>
+      <p>Architect cloud‑native strategies, optimise multi‑cloud environments, and accelerate your journey to the cloud.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-chart-line"></i></div>
+      <h4>Data & Analytics Consulting</h4>
+      <p>Turn data into a strategic asset with modern data platforms, governance, and advanced analytics capabilities.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-users-cog"></i></div>
+      <h4>Organisational Change</h4>
+      <p>Guide your teams through digital adoption, cultural shifts, and change management to maximise ROI.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon"><i class="fas fa-shield-alt"></i></div>
+      <h4>Risk & Compliance Advisory</h4>
+      <p>Navigate regulatory landscapes, strengthen cybersecurity posture, and embed resilient governance frameworks.</p>
+    </div>
+  </div>
+
+  <!-- ===== industry highlight: broad sector coverage ===== -->
+  <div class="industry-highlight">
+    <div>
+      <h2>Built for every industry <small>From financial services to healthcare, retail to public sector</small></h2>
+      <div class="industry-tags">
+        <span><i class="fas fa-university"></i> Banking & Finance</span>
+        <span><i class="fas fa-heartbeat"></i> Healthcare</span>
+        <span><i class="fas fa-shopping-cart"></i> Retail & CPG</span>
+        <span><i class="fas fa-industry"></i> Manufacturing</span>
+        <span><i class="fas fa-tachometer-alt"></i> Energy & Utilities</span>
+        <span><i class="fas fa-gavel"></i> Public Sector</span>
+        <span><i class="fas fa-car"></i> Automotive</span>
+        <span><i class="fas fa-plane"></i> Travel & Logistics</span>
+      </div>
+    </div>
+    <div style="margin-top: 20px; flex-shrink:0;">
+      <a href="#" class="btn-primary" style="background: #0b1a2e !important; color: white !important; box-shadow: 0 8px 20px rgba(0,0,0,0.1);"><i class="fas fa-globe-americas"></i> View industry cases</a>
+    </div>
+  </div>
+
+  <!-- ===== CTA / why The {M N} ===== -->
+  <div class="cta-block">
+    <div>
+      <h3>Ready to transform your business?</h3>
+      <p>Let’s build a strategy that delivers competitive advantage, operational efficiency, and lasting value.</p>
+    </div>
+    <div>
+      <a href="#" class="btn-primary"><i class="fas fa-arrow-right"></i> Talk to a consultant</a>
+    </div>
+  </div>
+
+  <!-- tiny footer note (matching original style) -->
+  <div style="padding: 20px 0 10px; font-size: 13px; color: #6a7e9c; border-top: 1px solid #e2eaf0; margin-top: 20px; text-align: center;">
+    <i class="fas fa-flag" style="color:#0ebab1;"></i> The {M N} Solution — Strategy & Consulting. Industry‑grade advisory for the digital era.
+  </div>
+</div>
+
+<!-- (optional) small script to prevent form submission -->
+<script>
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Thank you! A consultant will reach out within 24 hours.');
+    });
+  });
+</script>
+
+</body>
+{% endblock %}

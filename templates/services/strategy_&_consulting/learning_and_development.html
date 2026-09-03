@@ -1,0 +1,1093 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Learning & Development · The {M N} Solution{% endblock %}
+
+{% block content %}
+
+<!-- ===== FONTS & ICONS ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f8fafc;
+    color: #1a2332;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     HERO BANNER (EXACT SAME AS REFERENCE)
+  ============================================================ */
+  .hero-banner {
+    background: linear-gradient(to right, #f2f2f2 0%, #d8e8ea 30%, rgba(41, 195, 197, 0.81) 55%, rgba(71, 202, 202, 0.01) 75%, rgba(233, 241, 241, 0) 100%),
+                url('{% static "images/about-us.jpg" %}');
+    border-radius: 28px;
+    margin: 30px 24px;
+    padding: 70px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 186, 177, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    left: -50px;
+    bottom: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 186, 177, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(14, 186, 177, 0.15);
+    color: #0ebab1;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: 1px solid rgba(14, 186, 177, 0.2);
+  }
+
+  .hero-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .hero-content h1 span {
+    color: #0ebab1;
+    background: linear-gradient(135deg, #0ebab1, #14cfc1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    color: #000000;
+    max-width: 580px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0ebab1, #14cfc1) !important;
+    color: #fff !important;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(14, 186, 177, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(14, 186, 177, 0.4);
+  }
+
+  .btn-secondary {
+    background: #fff;
+    color: #0ebab1;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-secondary:hover {
+    border-color: #0ebab1;
+    background: rgba(14, 186, 177, 0.1);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 35px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hero-stats div {
+    text-align: left;
+  }
+
+  .hero-stats div strong {
+    display: block;
+    font-size: 28px;
+    color: #000000;
+    font-weight: 800;
+  }
+
+  .hero-stats div span {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
+  }
+
+  .hero-form {
+    background: #223554;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 35px 30px;
+    width: 380px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-form h3 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .hero-form p {
+    color: #8899bb;
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #0ebab1;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #667799;
+  }
+
+  .form-group select {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .form-group select option {
+    background: #1a2a4a;
+    color: #fff;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .form-row .form-group {
+    flex: 1;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #0ebab1, #14cfc1);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(14, 186, 177, 0.25);
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(14, 186, 177, 0.35);
+  }
+
+  /* ============================================================
+     SECTION TITLE
+  ============================================================ */
+  .section-title {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 50px;
+  }
+
+  .section-title .tag {
+    display: inline-block;
+    background: rgba(14, 186, 177, 0.1);
+    color: #0ebab1;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid rgba(14, 186, 177, 0.15);
+  }
+
+  .section-title h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1a2332;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title h2 span {
+    color: #0ebab1;
+  }
+
+  .section-title p {
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  /* ============================================================
+     L&D PROGRAMS - MODERN CARDS WITH TIMELINE
+  ============================================================ */
+  .programs-wrapper {
+    padding: 0 24px 50px;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .program-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px 30px;
+    border: 1px solid #eef2f7;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0ebab1, #14cfc1, #0ebab1);
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .program-card:hover::before {
+    opacity: 1;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .program-card:hover {
+    border-color: #0ebab1;
+    box-shadow: 0 16px 48px -12px rgba(14, 186, 177, 0.12);
+    transform: translateY(-6px);
+  }
+
+  .program-card .card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(14, 186, 177, 0.08), rgba(14, 186, 177, 0.02));
+    color: #0ebab1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .program-card:hover .card-icon {
+    background: linear-gradient(135deg, #0ebab1, #14cfc1);
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .program-card .card-tag {
+    display: inline-block;
+    background: rgba(14, 186, 177, 0.08);
+    color: #0ebab1;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .program-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 10px;
+  }
+
+  .program-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .program-card .duration {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .program-card .duration i {
+    color: #0ebab1;
+  }
+
+  .program-card .learning-outcomes {
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+  }
+
+  .program-card .learning-outcomes li {
+    font-size: 13px;
+    color: #475569;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .program-card .learning-outcomes li i {
+    color: #0ebab1;
+    font-size: 12px;
+    width: 18px;
+    text-align: center;
+  }
+
+  .program-card .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: #0ebab1;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .program-card .cta-link:hover {
+    gap: 14px;
+  }
+
+  /* ============================================================
+     LEARNING APPROACH - MODERN TIMELINE
+  ============================================================ */
+  .approach-section {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 70px 24px;
+    margin: 0 24px 40px;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .approach-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 186, 177, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .approach-section .approach-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .approach-section .approach-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .approach-section .approach-header .tag {
+    display: inline-block;
+    background: rgba(14, 186, 177, 0.1);
+    color: #0ebab1;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid rgba(14, 186, 177, 0.15);
+  }
+
+  .approach-section .approach-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1a2332;
+    line-height: 1.15;
+  }
+
+  .approach-section .approach-header h2 span {
+    color: #0ebab1;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .approach-item {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 24px;
+    text-align: center;
+    border: 1px solid #eef2f7;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .approach-item:hover {
+    border-color: #0ebab1;
+    box-shadow: 0 12px 36px -8px rgba(14, 186, 177, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .approach-item .step-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ebab1, #14cfc1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 24px rgba(14, 186, 177, 0.2);
+  }
+
+  .approach-item h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 6px;
+  }
+
+  .approach-item p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     L&D SERVICES - MODERN GRID
+  ============================================================ */
+  .ld-services-wrapper {
+    padding: 0 24px 50px;
+  }
+
+  .ld-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .ld-service-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid #eef2f7;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ld-service-card:hover {
+    border-color: #0ebab1;
+    box-shadow: 0 12px 36px -8px rgba(14, 186, 177, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .ld-service-card .icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(14, 186, 177, 0.08);
+    color: #0ebab1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+  }
+
+  .ld-service-card:hover .icon-wrap {
+    background: linear-gradient(135deg, #0ebab1, #14cfc1);
+    color: #fff;
+  }
+
+  .ld-service-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 8px;
+  }
+
+  .ld-service-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .ld-service-card .service-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .ld-service-card .service-meta span {
+    font-size: 12px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ld-service-card .service-meta span i {
+    color: #0ebab1;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 1024px) {
+    .hero-banner {
+      flex-direction: column;
+      padding: 50px 35px;
+      margin: 20px 16px;
+    }
+
+    .hero-form {
+      width: 100%;
+    }
+
+    .hero-content h1 {
+      font-size: 38px;
+    }
+
+    .programs-grid,
+    .ld-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-banner {
+      padding: 30px 20px;
+      margin: 16px 12px;
+      border-radius: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 28px;
+    }
+
+    .hero-content p {
+      font-size: 15px;
+    }
+
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .hero-stats div strong {
+      font-size: 22px;
+    }
+
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .programs-grid,
+    .ld-services-grid,
+    .approach-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .programs-wrapper,
+    .ld-services-wrapper {
+      padding: 0 12px 30px;
+    }
+
+    .approach-section {
+      margin: 0 12px 24px;
+      padding: 30px 16px;
+      border-radius: 20px;
+    }
+
+    .approach-section .approach-header h2,
+    .section-title h2 {
+      font-size: 28px;
+    }
+
+    .section-title {
+      margin: 0 auto 30px;
+      padding: 0 12px;
+    }
+
+    .program-card {
+      padding: 24px 20px;
+    }
+
+    .ld-service-card {
+      padding: 24px 20px;
+    }
+
+    .approach-item {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      gap: 16px;
+    }
+
+    .hero-stats div strong {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- ============================================================
+     HERO BANNER (EXACT SAME AS REFERENCE)
+  ============================================================ -->
+<section class="hero-banner">
+  <div class="hero-content">
+    <span class="hero-badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i> Learning & Development</span>
+    <h1>Build <span>Skills</span> That Drive Business Growth</h1>
+    <p>From leadership development and technical upskilling to digital transformation training — we design learning programs that build future-ready teams.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary"><i class="fas fa-rocket"></i> Let's Talk</a>
+      <a href="#" class="btn-secondary"><i class="fas fa-eye"></i> View Programs</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>500+</strong><span>Professionals Trained</span></div>
+      <div><strong>98%</strong><span>Satisfaction Rate</span></div>
+      <div><strong>24/7</strong><span>Support Available</span></div>
+    </div>
+  </div>
+  <div class="hero-form">
+    <h3>Book Free Consultation</h3>
+    <p>Let's design a learning program that builds capability.</p>
+    <form id="consultationForm">
+      <div class="form-row">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="Phone Number">
+      </div>
+      <div class="form-group">
+        <select>
+          <option>Select Service</option>
+          <option>Leadership Development</option>
+          <option>Technical Training</option>
+          <option>Digital Transformation</option>
+          <option>Team Building</option>
+          <option>Custom L&D Programs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select>
+          <option>Team Size</option>
+          <option>1-10 Employees</option>
+          <option>10-50 Employees</option>
+          <option>50-200 Employees</option>
+          <option>200+ Employees</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Describe your learning needs"></textarea>
+      </div>
+      <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> Book Free Consultation →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     L&D PROGRAMS - MODERN CARDS
+  ============================================================ -->
+<section id="programs">
+  <div class="section-title">
+    <span class="tag">Our Programs</span>
+    <h2>Learning & Development <span>Programs</span></h2>
+    <p>Comprehensive learning solutions designed to build capability, drive engagement, and deliver measurable business outcomes.</p>
+  </div>
+
+  <div class="programs-wrapper">
+    <div class="programs-grid">
+
+      <div class="program-card">
+        <span class="card-tag">Leadership</span>
+        <div class="card-icon"><i class="fas fa-users-cog"></i></div>
+        <h4>Leadership Development</h4>
+        <p>Build the next generation of leaders with programs focused on strategic thinking, emotional intelligence, change management, and executive presence.</p>
+        <div class="duration"><i class="far fa-clock"></i> 8-12 Weeks · Hybrid</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> Strategic Decision Making</li>
+          <li><i class="fas fa-check"></i> Team & Culture Leadership</li>
+          <li><i class="fas fa-check"></i> Change & Transformation</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="program-card">
+        <span class="card-tag">Technical</span>
+        <div class="card-icon"><i class="fas fa-code"></i></div>
+        <h4>Technical Upskilling</h4>
+        <p>Equip your teams with in-demand technical skills — from software development and cloud computing to data science and cybersecurity.</p>
+        <div class="duration"><i class="far fa-clock"></i> 12-16 Weeks · Blended</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> Cloud & Infrastructure</li>
+          <li><i class="fas fa-check"></i> Data Science & Analytics</li>
+          <li><i class="fas fa-check"></i> Modern Development Practices</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="program-card">
+        <span class="card-tag">Digital</span>
+        <div class="card-icon"><i class="fas fa-robot"></i></div>
+        <h4>Digital Transformation</h4>
+        <p>Prepare your workforce for the digital age with programs focused on AI, automation, agile ways of working, and digital business models.</p>
+        <div class="duration"><i class="far fa-clock"></i> 6-10 Weeks · Hybrid</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> AI & Automation Fundamentals</li>
+          <li><i class="fas fa-check"></i> Agile & Product Mindset</li>
+          <li><i class="fas fa-check"></i> Digital Business Models</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="program-card">
+        <span class="card-tag">Team</span>
+        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+        <h4>Team Building & Culture</h4>
+        <p>Build high-performing teams with programs focused on communication, collaboration, conflict resolution, and psychological safety.</p>
+        <div class="duration"><i class="far fa-clock"></i> 4-6 Weeks · In-Person</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> Effective Communication</li>
+          <li><i class="fas fa-check"></i> Collaboration & Trust</li>
+          <li><i class="fas fa-check"></i> Conflict Resolution</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="program-card">
+        <span class="card-tag">Custom</span>
+        <div class="card-icon"><i class="fas fa-puzzle-piece"></i></div>
+        <h4>Custom L&D Programs</h4>
+        <p>Tailored learning solutions designed specifically for your organization's unique challenges, culture, and strategic objectives.</p>
+        <div class="duration"><i class="far fa-clock"></i> Variable · Flexible</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> Needs Assessment & Design</li>
+          <li><i class="fas fa-check"></i> Bespoke Content Creation</li>
+          <li><i class="fas fa-check"></i> Impact Measurement</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="program-card">
+        <span class="card-tag">Coaching</span>
+        <div class="card-icon"><i class="fas fa-comment-dots"></i></div>
+        <h4>Executive Coaching</h4>
+        <p>One-on-one coaching for senior leaders and high-potential talent to accelerate growth, build confidence, and maximize impact.</p>
+        <div class="duration"><i class="far fa-clock"></i> 6-12 Sessions · 1:1</div>
+        <ul class="learning-outcomes">
+          <li><i class="fas fa-check"></i> Leadership Presence</li>
+          <li><i class="fas fa-check"></i> Strategic Influence</li>
+          <li><i class="fas fa-check"></i> Career Acceleration</li>
+        </ul>
+        <a href="#" class="cta-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEARNING APPROACH - MODERN TIMELINE
+  ============================================================ -->
+<section id="approach">
+  <div class="approach-section">
+    <div class="approach-inner">
+      <div class="approach-header">
+        <span class="tag">Our Approach</span>
+        <h2>How We <span>Deliver</span> Learning</h2>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <div class="step-circle">1</div>
+          <h4>Assess & Discover</h4>
+          <p>We understand your business goals, team dynamics, and capability gaps through comprehensive needs analysis.</p>
+        </div>
+        <div class="approach-item">
+          <div class="step-circle">2</div>
+          <h4>Design & Develop</h4>
+          <p>We create engaging, customized learning experiences that combine the best of in-person, virtual, and digital learning.</p>
+        </div>
+        <div class="approach-item">
+          <div class="step-circle">3</div>
+          <h4>Deliver & Engage</h4>
+          <p>We facilitate immersive learning experiences with expert facilitators, real-world case studies, and hands-on practice.</p>
+        </div>
+        <div class="approach-item">
+          <div class="step-circle">4</div>
+          <h4>Measure & Optimize</h4>
+          <p>We track learning outcomes, measure business impact, and continuously improve programs for maximum ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     L&D SERVICES - MODERN GRID
+  ============================================================ -->
+<section id="services">
+  <div class="section-title">
+    <span class="tag">What We Offer</span>
+    <h2>Learning & Development <span>Services</span></h2>
+    <p>End-to-end L&D solutions that build capability, drive engagement, and deliver measurable business outcomes.</p>
+  </div>
+
+  <div class="ld-services-wrapper">
+    <div class="ld-services-grid">
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-users"></i></div>
+        <h4>Leadership & Management Training</h4>
+        <p>Programs for emerging leaders, middle managers, and senior executives to build strategic, interpersonal, and change management skills.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> 4-12 Weeks</span>
+          <span><i class="fas fa-laptop"></i> Hybrid</span>
+        </div>
+      </div>
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-laptop-code"></i></div>
+        <h4>Technical Skills Training</h4>
+        <p>Hands-on technical training in software development, cloud architecture, data science, AI, cybersecurity, and modern engineering practices.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> 8-16 Weeks</span>
+          <span><i class="fas fa-laptop"></i> Blended</span>
+        </div>
+      </div>
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-sync-alt"></i></div>
+        <h4>Digital Transformation Training</h4>
+        <p>Build digital capabilities across your organization — from AI and automation to agile ways of working and digital business models.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> 6-10 Weeks</span>
+          <span><i class="fas fa-laptop"></i> Hybrid</span>
+        </div>
+      </div>
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-handshake"></i></div>
+        <h4>Team & Culture Development</h4>
+        <p>Programs that strengthen team dynamics, improve communication, build trust, and create a culture of psychological safety.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> 4-8 Weeks</span>
+          <span><i class="fas fa-users"></i> In-Person</span>
+        </div>
+      </div>
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-comment-dots"></i></div>
+        <h4>Executive Coaching</h4>
+        <p>1:1 coaching for senior leaders to accelerate growth, build leadership presence, and maximize professional impact.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> 6-12 Sessions</span>
+          <span><i class="fas fa-video"></i> Virtual/In-Person</span>
+        </div>
+      </div>
+
+      <div class="ld-service-card">
+        <div class="icon-wrap"><i class="fas fa-puzzle-piece"></i></div>
+        <h4>Custom L&D Solutions</h4>
+        <p>Bespoke learning programs designed for your unique needs — from content development to delivery and impact measurement.</p>
+        <div class="service-meta">
+          <span><i class="far fa-clock"></i> Variable</span>
+          <span><i class="fas fa-tools"></i> Tailored</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     JAVASCRIPT
+  ============================================================ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // ===== CONSULTATION FORM =====
+    const form = document.getElementById('consultationForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('✅ Consultation request submitted! We\'ll contact you within 24 hours.');
+        form.reset();
+      });
+    }
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+  });
+</script>
+
+{% endblock %}
