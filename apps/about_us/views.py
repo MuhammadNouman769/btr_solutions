@@ -22,3 +22,6 @@ class TeamView(APIView):
 
 def life_at_mn_solutions(request):
     return render(request, 'about/culture.html')       
+
+def diversity_equity_inclusion(request):
+    return render(request, 'about/diversity_equity_inclusion.html')
